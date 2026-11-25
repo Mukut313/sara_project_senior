@@ -1,13 +1,29 @@
 # How to run this project
 
-Clone this branch. The Pi setup and the measured models are here, not on the default branch.
-
 ```bash
-git clone -b master https://github.com/aflam330/Senior_project_wearable_glass_for_blind_people_using_ocr_and_ylo.git
-cd Senior_project_wearable_glass_for_blind_people_using_ocr_and_ylo
+git clone https://github.com/Mukut313/sara_project_senior.git
+cd sara_project_senior
 ```
 
-GitHub page: https://github.com/aflam330/Senior_project_wearable_glass_for_blind_people_using_ocr_and_ylo/tree/master
+The repository holds the current files of the SARA project (about 5.8 GB, mostly model weights and research
+results); the training datasets are not included (see the README). Cloning takes a while.
+
+## Quick start on a Windows laptop (tested on a fresh copy, 26 Nov 2026)
+
+From `savior_glass/` in PowerShell:
+
+```powershell
+python -m venv .venv
+.venv\Scripts\python.exe -m pip install -r requirements.txt -r requirements-speech.txt
+.venv\Scripts\python.exe scripts\get_speech_models.py      # once: offline Bangla + English voices (needs internet once)
+.venv\Scripts\python.exe scripts\pi5_preflight.py          # every line should say ok
+.venv\Scripts\python.exe test_windows.py                    # the glass on the laptop: webcam + keyboard
+```
+
+- Python 3.10 to 3.14 work; on 3.14 `pygame` has no package yet, so sound plays through Windows itself.
+- Text reading uses OCR v5 (scanner style, offline). To try only the text reader with a "Scan" preview window:
+  `.venv\Scripts\python.exe scripts\ocr5_try.py --cam`
+- A GPU is optional. On a CPU a page is read in about 1 to 1.5 s.
 
 ## Where each part lives
 
@@ -32,20 +48,14 @@ On a Pi 5 the currency mode uses the INT8 detector and turns the watermark check
 
 ## Test on a Windows laptop
 
-From `savior_glass/`:
-
-```powershell
-pip install -r requirements.txt
-python test_windows.py
-```
-
-Or double-click `run_windows_test.bat`.
+See the quick start above. `run_windows_test.bat` also works (it makes its own `.venv`).
 
 Click the camera window first. Then:
 
 | Key | Action |
 |---|---|
 | M | Cycle mode: text, object, currency, online Claude |
+| (text mode) | Reads by itself when text is steady in view; A reads at once |
 | A | Capture. Text mode stores the OCR text. Object and currency speak immediately. |
 | R | Speak the last OCR text |
 | C | Send the frame to Claude (needs internet and `ANTHROPIC_API_KEY`) |
@@ -67,8 +77,8 @@ A pass here means the files open. It does not print a Pi latency.
 Use Raspberry Pi OS 64-bit. Copy the clone onto the Pi, or clone there:
 
 ```bash
-git clone -b master https://github.com/aflam330/Senior_project_wearable_glass_for_blind_people_using_ocr_and_ylo.git
-cd Senior_project_wearable_glass_for_blind_people_using_ocr_and_ylo/savior_glass
+git clone https://github.com/Mukut313/sara_project_senior.git
+cd sara_project_senior/savior_glass
 bash scripts/deploy_pi5.sh
 ```
 
@@ -149,7 +159,7 @@ Use `realtime_bangla_taka_detection/scripts/dataset/print_capture.py`: `plan` fi
 
 ## Order to follow
 
-1. Clone branch `master`.
+1. Clone https://github.com/Mukut313/sara_project_senior.git.
 2. On the laptop, run `python test_windows.py` and try text, object, and currency.
 3. On the laptop, run `python scripts/pi5_preflight.py` and confirm every line says `ok`.
 4. On the Pi, run `bash scripts/deploy_pi5.sh`.

@@ -1,24 +1,28 @@
-# Smart Glass for Blind People — Raspberry Pi 5
-# Install inside a venv: pip install -r requirements.txt
+# Smart Glass for Blind People — Raspberry Pi 5 and Windows laptop (same file; platform markers pick the right packages)
+# Install inside a venv: pip install -r requirements.txt   (offline voices and voice commands: also requirements-speech.txt)
+# Python 3.10-3.12 recommended.
 
 # Core vision & ML
 easyocr>=1.7.1
 ultralytics>=8.3.0
-opencv-python-headless>=4.8.0
+opencv-python-headless>=4.8.0; sys_platform == "linux"
+opencv-python>=4.8.0; sys_platform != "linux"    # laptop: windows for the preview
 torch>=2.1.0
 torchvision>=0.16.0
 onnxruntime>=1.17.0
 pyclipper>=1.3.0          # OCR v5 text finder (DB box post-processing)
 
 # GPIO — REQUIRED for RPi 5 (replaces incompatible RPi.GPIO)
-rpi-lgpio>=0.5
+rpi-lgpio>=0.5; sys_platform == "linux"    # Pi buttons; cannot be built on Windows
 
 # Utilities
 numpy>=1.24.0
 Pillow>=10.0.0
 
 # Audio / TTS: espeak-ng (apt) always works. Natural voices and voice commands: requirements-speech.txt
-# Windows test uses built-in PowerShell SAPI (no extra package needed)
+# Laptop test harness (test_windows.py): sound playback and the online fallback voice
+# pygame>=2.5   optional: the harness plays sound through Windows (winsound) when pygame is absent; no wheel for Python 3.14 yet
+gtts>=2.5; sys_platform == "win32"
 
 # Optional: second offline OCR engine (needs system tesseract-ocr-ben)
 # pytesseract>=0.3.10

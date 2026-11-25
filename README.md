@@ -2,7 +2,9 @@
 
 Senior project: an **offline assistive wearable** that reads Bangla/English text, announces everyday objects, and recognises **Bangladeshi Taka** notes with voice feedback.
 
-**GitHub:** [aflam330/Senior_project_wearable_glass_for_blind_people_using_ocr_and_ylo](https://github.com/aflam330/Senior_project_wearable_glass_for_blind_people_using_ocr_and_ylo)
+**GitHub:** [Mukut313/sara_project_senior](https://github.com/Mukut313/sara_project_senior) (project snapshot; development history in [aflam330/Senior_project_wearable_glass_for_blind_people_using_ocr_and_ylo](https://github.com/aflam330/Senior_project_wearable_glass_for_blind_people_using_ocr_and_ylo))
+
+**Start here:** [HOW_TO_RUN.md](HOW_TO_RUN.md) · reports: [docs/reports/SARA_Project_Report_A_to_Z.pdf](docs/reports/SARA_Project_Report_A_to_Z.pdf) (whole project, 10 pages) and [docs/reports/SARA_OCR_v5_Report.pdf](docs/reports/SARA_OCR_v5_Report.pdf) (text reading)
 
 | Mode | What it does |
 |------|----------------|
