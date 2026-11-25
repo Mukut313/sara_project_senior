@@ -1,0 +1,10758 @@
+{
+"rendered": [
+{
+"seed": 0,
+"lang": "bn",
+"cond": "clean",
+"gt": "মহিলাদের জন্য সংরক্ষিত",
+"hyp": "মহিলাদের জন্য সংরক্ষিত",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 166.272200003732
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "wild",
+"gt": "মহিলাদের জন্য সংরক্ষিত",
+"hyp": "মহিলাদের জন্য সংরক্ষিত",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 152.6024000486359
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "scene",
+"gt": "মহিলাদের জন্য সংরক্ষিত",
+"hyp": "মহিলাদের জন্য সংরক্ষিত",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 388.93249997636303
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "clean",
+"gt": "ফার্মেসি",
+"hyp": "ফার্মেসি",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 150.48870001919568
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "wild",
+"gt": "ফার্মেসি",
+"hyp": "ফার্মেসি",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 208.89519999036565
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "scene",
+"gt": "ফার্মেসি",
+"hyp": "ফার্মেসি",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 168.16260002087802
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "clean",
+"gt": "উৎপাদনের তারিখ",
+"hyp": "উৎপাদনের তারিখ",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 68.24009999400005
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "wild",
+"gt": "উৎপাদনের তারিখ",
+"hyp": "উৎপাদনের তারিখ",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 222.18040004372597
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "scene",
+"gt": "উৎপাদনের তারিখ",
+"hyp": "উৎপাদনের তারিখ",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 174.81230001430959
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "clean",
+"gt": "মূল্য ২৫০ টাকা",
+"hyp": "মূল্য ২৫০ টাকা",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 145.60650003841147
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "wild",
+"gt": "মূল্য ২৫০ টাকা",
+"hyp": "মূল্য ২৫০ টাকা",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 121.33570003788918
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "scene",
+"gt": "মূল্য ২৫০ টাকা",
+"hyp": "মূল্য ২৫০ টাকা",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 181.2252999516204
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "clean",
+"gt": "জেলা প্রশাসকের কার্যালয়",
+"hyp": "জেলা প্রশাসকের কার্যালয়",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 65.28879998950288
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "wild",
+"gt": "জেলা প্রশাসকের কার্যালয়",
+"hyp": "জেলা প্রশাসকের কার্যালয়",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 127.18819995643571
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "scene",
+"gt": "জেলা প্রশাসকের কার্যালয়",
+"hyp": "জেলা প্রশাসকের কার্যালয়",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 392.16960000339895
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "clean",
+"gt": "থানা",
+"hyp": "থানা",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 59.78319997666404
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "wild",
+"gt": "থানা",
+"hyp": "থানা",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 53.29049995634705
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "scene",
+"gt": "থানা",
+"hyp": "থানা",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 172.77930001728237
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "clean",
+"gt": "বাইরে যাওয়ার পথ",
+"hyp": "বাইরে যাওয়ার পথ",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 146.26639999914914
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "wild",
+"gt": "বাইরে যাওয়ার পথ",
+"hyp": "বাইরে যাওয়ার পথ",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 54.55570004414767
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "scene",
+"gt": "বাইরে যাওয়ার পথ",
+"hyp": "বাইরে যাওয়ার পথ",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 169.65629998594522
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "clean",
+"gt": "গাড়ি রাখা নিষেধ",
+"hyp": "গাড়ি রাখা নিষেধ",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 63.843099982477725
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "wild",
+"gt": "গাড়ি রাখা নিষেধ",
+"hyp": "গাড়ি রাখা নিষেধ",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 317.659399996046
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "scene",
+"gt": "গাড়ি রাখা নিষেধ",
+"hyp": "L গাড়ি রাখা নিষেধ",
+"cer": 0.125,
+"wer": 0.3333333333333333,
+"exact": false,
+"ms": 817.8102999809198
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "clean",
+"gt": "ডাল আধা কেজি",
+"hyp": "ডাল আধা কেজি",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 147.11769996210933
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "wild",
+"gt": "ডাল আধা কেজি",
+"hyp": "ডাল আধা কেজি",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 117.030999972485
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "scene",
+"gt": "ডাল আধা কেজি",
+"hyp": "ডাল আধা কেজি",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 454.2910999734886
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "clean",
+"gt": "শ্রেণিকক্ষ",
+"hyp": "শ্রেণিকক্ষ",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 143.3654999709688
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "wild",
+"gt": "শ্রেণিকক্ষ",
+"hyp": "শ্রেণিকক্ষ",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 143.48520000930876
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "scene",
+"gt": "শ্রেণিকক্ষ",
+"hyp": "শ্রেণিকক্ষ",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 177.13949998142198
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "clean",
+"gt": "প্রধান শিক্ষক",
+"hyp": "প্রধান শিক্ষক",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 151.42290003132075
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "wild",
+"gt": "প্রধান শিক্ষক",
+"hyp": "প্রধান শিক্ষক",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 58.070899976883084
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "scene",
+"gt": "প্রধান শিক্ষক",
+"hyp": "প্রধান শিক্ষক",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 164.60100002586842
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "clean",
+"gt": "রাজশাহী বিশ্ববিদ্যালয়",
+"hyp": "রাজশাহী বিশ্ববিদ্যালয়",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 61.28209998132661
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "wild",
+"gt": "রাজশাহী বিশ্ববিদ্যালয়",
+"hyp": "রাজশাহী বিশ্ববিদ্যালয়",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 58.97989997174591
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "scene",
+"gt": "রাজশাহী বিশ্ববিদ্যালয়",
+"hyp": "রাজশাহী বিশ্ববিদ্যালয়",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 398.62460002768785
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "clean",
+"gt": "অগ্নি নির্বাপক",
+"hyp": "অগ্নি নির্বাপক",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 144.389399967622
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "wild",
+"gt": "অগ্নি নির্বাপক",
+"hyp": "অগ্মি নির্বাপক",
+"cer": 0.07142857142857142,
+"wer": 0.5,
+"exact": false,
+"ms": 64.32060000952333
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "scene",
+"gt": "অগ্নি নির্বাপক",
+"hyp": "অগ্নি নির্বাপক",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 178.93920000642538
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "clean",
+"gt": "শুক্রবার খোলা",
+"hyp": "শুক্রবার খোলা",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 59.995200019329786
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "wild",
+"gt": "শুক্রবার খোলা",
+"hyp": "শুক্রবার খোলা",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 59.05209999764338
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "scene",
+"gt": "শুক্রবার খোলা",
+"hyp": "শুক্রবার খোলা",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 167.35680005513132
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "clean",
+"gt": "জরুরি বিভাগ",
+"hyp": "জরুরি বিভাগ",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 60.248499969020486
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "wild",
+"gt": "জরুরি বিভাগ",
+"hyp": "জরুরি বিভাগ",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 142.07430003443733
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "scene",
+"gt": "জরুরি বিভাগ",
+"hyp": "জরুরি বিভাগ",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 177.05570004181936
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "clean",
+"gt": "পেঁয়াজ",
+"hyp": "",
+"cer": 1.0,
+"wer": 1.0,
+"exact": false,
+"ms": 145.38400003220886
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "wild",
+"gt": "পেঁয়াজ",
+"hyp": "",
+"cer": 1.0,
+"wer": 1.0,
+"exact": false,
+"ms": 135.04620001185685
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "scene",
+"gt": "পেঁয়াজ",
+"hyp": "",
+"cer": 1.0,
+"wer": 1.0,
+"exact": false,
+"ms": 164.69220002181828
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "clean",
+"gt": "গ্যাস সংযোগ",
+"hyp": "গ্যাস সংযোগ",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 64.84100001398474
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "wild",
+"gt": "গ্যাস সংযোগ",
+"hyp": "গ্যাস সংযোগ",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 57.66280001262203
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "scene",
+"gt": "গ্যাস সংযোগ",
+"hyp": "গ্যাস সংযোগ",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 174.63449999922886
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "clean",
+"gt": "বৃদ্ধাশ্রম",
+"hyp": "বৃ্াশ্রম",
+"cer": 0.2,
+"wer": 1.0,
+"exact": false,
+"ms": 152.39379997365177
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "wild",
+"gt": "বৃদ্ধাশ্রম",
+"hyp": "বৃ্ধাশ্রম",
+"cer": 0.1,
+"wer": 1.0,
+"exact": false,
+"ms": 155.2592000225559
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "scene",
+"gt": "বৃদ্ধাশ্রম",
+"hyp": "বৃদ্ধাশ্রম",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 181.83330004103482
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "clean",
+"gt": "টাকা জমা দিন",
+"hyp": "টাকা জমা দিন",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 55.660000012721866
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "wild",
+"gt": "টাকা জমা দিন",
+"hyp": "টাকা জমা দিন",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 144.61479999590665
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "scene",
+"gt": "টাকা জমা দিন",
+"hyp": "টাকা জমা দিন",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 425.3616000059992
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "clean",
+"gt": "তেল",
+"hyp": "তেল",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 61.586700030602515
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "wild",
+"gt": "তেল",
+"hyp": "তেল",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 151.03399998042732
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "scene",
+"gt": "তেল",
+"hyp": "তেল",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 162.41839999565855
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "clean",
+"gt": "বিক্রয় হবে",
+"hyp": "বিক্রয় হবে",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 147.57049997569993
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "wild",
+"gt": "বিক্রয় হবে",
+"hyp": "বিক্রয় হবে",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 142.91779999621212
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "scene",
+"gt": "বিক্রয় হবে",
+"hyp": "বিক্রয় হবে",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 187.88009998388588
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "clean",
+"gt": "দন্ত চিকিৎসা",
+"hyp": "দন্ত চিকিৎসা",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 60.777799983043224
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "wild",
+"gt": "দন্ত চিকিৎসা",
+"hyp": "দন্ত চিকিৎসা",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 143.16919998964295
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "scene",
+"gt": "দন্ত চিকিৎসা",
+"hyp": "দন্ত চিকিৎসা",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 419.6816000039689
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "clean",
+"gt": "মরিচ",
+"hyp": "মরিচ",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 143.16480001434684
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "wild",
+"gt": "মরিচ",
+"hyp": "মরিচ",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 139.81310004601255
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "scene",
+"gt": "মরিচ",
+"hyp": "মরিচ",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 177.46470001293346
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "clean",
+"gt": "বাসের ভাড়া",
+"hyp": "বাসের ভাড়া",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 65.76420000055805
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "wild",
+"gt": "বাসের ভাড়া",
+"hyp": "বাসের ভাড়া",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 62.07619997439906
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "scene",
+"gt": "বাসের ভাড়া",
+"hyp": "বাসের",
+"cer": 0.5454545454545454,
+"wer": 0.5,
+"exact": false,
+"ms": 171.96449998300523
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "clean",
+"gt": "Ladies Only",
+"hyp": "Ladies Only",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 152.75789995212108
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "wild",
+"gt": "Ladies Only",
+"hyp": "Ladies Only",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 145.5353000201285
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "scene",
+"gt": "Ladies Only",
+"hyp": "Ladies Only",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 168.1199999875389
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "clean",
+"gt": "Pharmacy Open",
+"hyp": "Pharmacy Open",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 54.7241999884136
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "wild",
+"gt": "Pharmacy Open",
+"hyp": "Pharmacy Open",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 212.05079997889698
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "scene",
+"gt": "Pharmacy Open",
+"hyp": "Pharmacy Open",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 180.52970001008362
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "clean",
+"gt": "Manufactured On",
+"hyp": "ManufacturedOn",
+"cer": 0.06666666666666667,
+"wer": 1.0,
+"exact": false,
+"ms": 66.03980000363663
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "wild",
+"gt": "Manufactured On",
+"hyp": "Manufactured On",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 58.90829995041713
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "scene",
+"gt": "Manufactured On",
+"hyp": "Manufactured On",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 174.94129994884133
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "clean",
+"gt": "Price 250 Taka",
+"hyp": "Price 250Taka",
+"cer": 0.07142857142857142,
+"wer": 0.6666666666666666,
+"exact": false,
+"ms": 59.663499996531755
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "wild",
+"gt": "Price 250 Taka",
+"hyp": "Price 250 Taka",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 58.31469997065142
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "scene",
+"gt": "Price 250 Taka",
+"hyp": "Price 250 Taka",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 173.0340999783948
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "clean",
+"gt": "District Office",
+"hyp": "District Office",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 67.3841999960132
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "wild",
+"gt": "District Office",
+"hyp": "District Office",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 59.36969997128472
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "scene",
+"gt": "District Office",
+"hyp": "District Office",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 189.51229995582253
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "clean",
+"gt": "Police Station",
+"hyp": "Police Station",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 62.49399995431304
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "wild",
+"gt": "Police Station",
+"hyp": "Police Station",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 144.68560001114383
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "scene",
+"gt": "Police Station",
+"hyp": "Police Station",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 178.48800000501797
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "clean",
+"gt": "Way Out",
+"hyp": "Way Out",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 55.38789997808635
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "wild",
+"gt": "Way Out",
+"hyp": "Way Out",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 62.3632000060752
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "scene",
+"gt": "Way Out",
+"hyp": "Way Out",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 176.40579998260364
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "clean",
+"gt": "No Parking",
+"hyp": "No Parking",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 56.43860000418499
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "wild",
+"gt": "No Parking",
+"hyp": "No Parking",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 58.64519998431206
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "scene",
+"gt": "No Parking",
+"hyp": "No Parking",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 167.68740001134574
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "clean",
+"gt": "Lentils Half kg",
+"hyp": "Lentils Half kg",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 61.555500025860965
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "wild",
+"gt": "Lentils Half kg",
+"hyp": "Lentils Half kg",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 54.65740000363439
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "scene",
+"gt": "Lentils Half kg",
+"hyp": "Lentils Half kg",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 170.78360001323745
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "clean",
+"gt": "Classroom",
+"hyp": "Classroom",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 58.14849998569116
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "wild",
+"gt": "Classroom",
+"hyp": "Classroom",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 148.22269999422133
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "scene",
+"gt": "Classroom",
+"hyp": "Classroom",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 182.97740002162755
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "clean",
+"gt": "Head Teacher",
+"hyp": "Head Teacher",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 56.60619999980554
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "wild",
+"gt": "Head Teacher",
+"hyp": "Head Teacher",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 55.626099987421185
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "scene",
+"gt": "Head Teacher",
+"hyp": "Head Teacher",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 177.1735000074841
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "clean",
+"gt": "Rajshahi University",
+"hyp": "Rajshahi University",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 65.04789995960891
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "wild",
+"gt": "Rajshahi University",
+"hyp": "Rajshahi University",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 120.75760000152513
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "scene",
+"gt": "Rajshahi University",
+"hyp": "Rashaht Unversity",
+"cer": 0.15789473684210525,
+"wer": 1.0,
+"exact": false,
+"ms": 170.39919999660924
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "clean",
+"gt": "Fire Extinguisher",
+"hyp": "Fire Extinguisher",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 55.13779999455437
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "wild",
+"gt": "Fire Extinguisher",
+"hyp": "Fire Extinguisher",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 121.55439995694906
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "scene",
+"gt": "Fire Extinguisher",
+"hyp": "Fire Extinguisher",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 182.01019999105483
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "clean",
+"gt": "Open on Friday",
+"hyp": "Open on Friday",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 144.4107999559492
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "wild",
+"gt": "Open on Friday",
+"hyp": "Open on Friday",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 148.02520000375807
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "scene",
+"gt": "Open on Friday",
+"hyp": "Open Friday",
+"cer": 0.21428571428571427,
+"wer": 0.3333333333333333,
+"exact": false,
+"ms": 424.44889998296276
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "clean",
+"gt": "Accident Ward",
+"hyp": "Accident Ward",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 66.89010001718998
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "wild",
+"gt": "Accident Ward",
+"hyp": "Accident Ward",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 54.88210002658889
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "scene",
+"gt": "Accident Ward",
+"hyp": "Accident Ward",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 170.22129998076707
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "clean",
+"gt": "Onion",
+"hyp": "Onion",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 159.90269999019802
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "wild",
+"gt": "Onion",
+"hyp": "Onion",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 54.7249999945052
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "scene",
+"gt": "Onion",
+"hyp": "Onion",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 170.924499980174
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "clean",
+"gt": "Gas Connection",
+"hyp": "Gas Connection",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 61.72769999830052
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "wild",
+"gt": "Gas Connection",
+"hyp": "Gas Connection",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 60.11130003025755
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "scene",
+"gt": "Gas Connection",
+"hyp": "Gas Connection",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 170.40590004762635
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "clean",
+"gt": "Old Age Home",
+"hyp": "Old Age Home",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 67.9799999925308
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "wild",
+"gt": "Old Age Home",
+"hyp": "Old Age Home",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 157.68170001683757
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "scene",
+"gt": "Old Age Home",
+"hyp": "Old Age Home",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 177.04039998352528
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "clean",
+"gt": "Deposit Money Here",
+"hyp": "Deposit Money Here",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 59.56990004051477
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "wild",
+"gt": "Deposit Money Here",
+"hyp": "Deposit Money Here",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 153.52450002683327
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "scene",
+"gt": "Deposit Money Here",
+"hyp": "Deposit Money Here",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 188.59919998794794
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "clean",
+"gt": "Cooking Oil",
+"hyp": "Cooking Oil",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 56.07440002495423
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "wild",
+"gt": "Cooking Oil",
+"hyp": "Cooking Oil",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 156.3297999673523
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "scene",
+"gt": "Cooking Oil",
+"hyp": "Cooking Oil",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 185.47319999197498
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "clean",
+"gt": "For Sale",
+"hyp": "For Sale",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 63.68100002873689
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "wild",
+"gt": "For Sale",
+"hyp": "For Sale",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 142.81609997851774
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "scene",
+"gt": "For Sale",
+"hyp": "For Sale",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 173.59189997659996
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "clean",
+"gt": "Dental Care",
+"hyp": "Dental Care",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 62.758600048255175
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "wild",
+"gt": "Dental Care",
+"hyp": "Dental Care",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 59.42439998034388
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "scene",
+"gt": "Dental Care",
+"hyp": "Dental Care",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 167.96950000571087
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "clean",
+"gt": "Chilli",
+"hyp": "Chilli",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 56.34050001390278
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "wild",
+"gt": "Chilli",
+"hyp": "Chilli",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 132.21299997530878
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "scene",
+"gt": "Chilli",
+"hyp": "Chilli",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 171.69839999405667
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "clean",
+"gt": "Bus Fare 30 Taka",
+"hyp": "BusFare 30Taka",
+"cer": 0.125,
+"wer": 1.0,
+"exact": false,
+"ms": 66.45470001967624
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "wild",
+"gt": "Bus Fare 30 Taka",
+"hyp": "Bus Fare 30 Taka",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 125.85920002311468
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "scene",
+"gt": "Bus Fare 30 Taka",
+"hyp": "Bus Fare 30 Taka",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 173.40289999265224
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "clean",
+"gt": "মহিলাদের জন্য সংরক্ষিত",
+"hyp": "মহিলাদের জন্য সংরক্ষিত",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 66.83640001574531
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "wild",
+"gt": "মহিলাদের জন্য সংরক্ষিত",
+"hyp": "মহিলাদের জন্য সংরক্ষিত",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 126.21419999049976
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "scene",
+"gt": "মহিলাদের জন্য সংরক্ষিত",
+"hyp": "মহিলাদের জন্য সংরক্ষিত",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 913.3976000011899
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "clean",
+"gt": "ফার্মেসি",
+"hyp": "ফার্মেসি",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 73.99109995458275
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "wild",
+"gt": "ফার্মেসি",
+"hyp": "ফার্মেসি",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 59.51120000099763
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "scene",
+"gt": "ফার্মেসি",
+"hyp": "ফার্মেসি",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 177.38170002121478
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "clean",
+"gt": "উৎপাদনের তারিখ",
+"hyp": "উৎপাদনের তারিখ",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 168.48409996600822
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "wild",
+"gt": "উৎপাদনের তারিখ",
+"hyp": "উৎপাদনের তারিখ",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 230.24040000746027
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "scene",
+"gt": "উৎপাদনের তারিখ",
+"hyp": "উৎপাদনের তারিখ",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 197.54900003317744
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "clean",
+"gt": "মূল্য ২৫০ টাকা",
+"hyp": "মূল্য ২৫০ টাকা",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 202.6678000111133
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "wild",
+"gt": "মূল্য ২৫০ টাকা",
+"hyp": "মূল্য ২৫০ টাকা",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 283.2728999783285
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "scene",
+"gt": "মূল্য ২৫০ টাকা",
+"hyp": "মূল্য ২৫০ টাকা",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 243.1308999657631
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "clean",
+"gt": "জেলা প্রশাসকের কার্যালয়",
+"hyp": "জেলা প্রশাসকের কার্যালয়",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 91.57310001319274
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "wild",
+"gt": "জেলা প্রশাসকের কার্যালয়",
+"hyp": "জেলা প্রশাসকের কার্যালয়",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 203.7226000102237
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "scene",
+"gt": "জেলা প্রশাসকের কার্যালয়",
+"hyp": "জেলা প্রশাসকের কার্যালয়",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 1062.2622999944724
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "clean",
+"gt": "থানা",
+"hyp": "থানা",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 141.10920001985505
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "wild",
+"gt": "থানা",
+"hyp": "থানা",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 149.1752999718301
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "scene",
+"gt": "থানা",
+"hyp": "থানা",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 193.54330003261566
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "clean",
+"gt": "বাইরে যাওয়ার পথ",
+"hyp": "বাইরে যাওয়ার পথ",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 59.90089999977499
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "wild",
+"gt": "বাইরে যাওয়ার পথ",
+"hyp": "বাইরে যাওয়ার পথ",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 161.46189998835325
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "scene",
+"gt": "বাইরে যাওয়ার পথ",
+"hyp": "বাইরে যাওয়ার পথ",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 357.09000000497326
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "clean",
+"gt": "গাড়ি রাখা নিষেধ",
+"hyp": "গাড়ি রাখা নিষেধ",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 56.011500011663884
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "wild",
+"gt": "গাড়ি রাখা নিষেধ",
+"hyp": "গাড়ি রাখা নিষেধ",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 145.38529998390004
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "scene",
+"gt": "গাড়ি রাখা নিষেধ",
+"hyp": "গাড়ি রাখা নিষেধ",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 843.3599999989383
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "clean",
+"gt": "ডাল আধা কেজি",
+"hyp": "ডাল আধা কেজি",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 147.86339999409392
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "wild",
+"gt": "ডাল আধা কেজি",
+"hyp": "ডাল আধা কেজি",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 143.4298999956809
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "scene",
+"gt": "ডাল আধা কেজি",
+"hyp": "ডাল আধা কেজি",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 182.80040001263842
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "clean",
+"gt": "শ্রেণিকক্ষ",
+"hyp": "শ্রেণিকক্ষ",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 153.26059999642894
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "wild",
+"gt": "শ্রেণিকক্ষ",
+"hyp": "শ্রেণিকক্ষ",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 150.42419999372214
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "scene",
+"gt": "শ্রেণিকক্ষ",
+"hyp": "শ্রেণিকক্ষ",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 190.00609999056906
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "clean",
+"gt": "প্রধান শিক্ষক",
+"hyp": "প্রধান শিক্ষক",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 59.22369996551424
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "wild",
+"gt": "প্রধান শিক্ষক",
+"hyp": "প্রধান শিক্ষক",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 147.58079999592155
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "scene",
+"gt": "প্রধান শিক্ষক",
+"hyp": "প্রধান শিক্ষক",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 190.38129999535158
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "clean",
+"gt": "রাজশাহী বিশ্ববিদ্যালয়",
+"hyp": "রাজশাহী বিশ্ববিদ্যালয়",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 155.5555000086315
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "wild",
+"gt": "রাজশাহী বিশ্ববিদ্যালয়",
+"hyp": "রাজশাহী বিশ্ববিদ্যালয়",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 150.97230003448203
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "scene",
+"gt": "রাজশাহী বিশ্ববিদ্যালয়",
+"hyp": "রাজশাহী বিশ্ববিদ্যালয়",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 175.442399980966
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "clean",
+"gt": "অগ্নি নির্বাপক",
+"hyp": "অগ্নি নির্বাপক",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 58.784900000318885
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "wild",
+"gt": "অগ্নি নির্বাপক",
+"hyp": "অগ্নি নির্বাপক",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 219.58630002336577
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "scene",
+"gt": "অগ্নি নির্বাপক",
+"hyp": "অগ্নি নির্বা পক",
+"cer": 0.07142857142857142,
+"wer": 1.0,
+"exact": false,
+"ms": 839.7759999497794
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "clean",
+"gt": "শুক্রবার খোলা",
+"hyp": "শুক্রবার খোলা",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 56.38849997194484
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "wild",
+"gt": "শুক্রবার খোলা",
+"hyp": "শুক্রবার খোলা",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 56.7530999542214
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "scene",
+"gt": "শুক্রবার খোলা",
+"hyp": "শুক্রবার খোলা",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 164.99399999156594
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "clean",
+"gt": "জরুরি বিভাগ",
+"hyp": "জরুরি বিভাগ",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 157.621200021822
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "wild",
+"gt": "জরুরি বিভাগ",
+"hyp": "জরুরি বিভাগ",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 146.94949996192008
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "scene",
+"gt": "জরুরি বিভাগ",
+"hyp": "জরুরি বিভাগ",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 168.47540001617745
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "clean",
+"gt": "পেঁয়াজ",
+"hyp": "",
+"cer": 1.0,
+"wer": 1.0,
+"exact": false,
+"ms": 143.92440003575757
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "wild",
+"gt": "পেঁয়াজ",
+"hyp": "",
+"cer": 1.0,
+"wer": 1.0,
+"exact": false,
+"ms": 143.81179999327287
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "scene",
+"gt": "পেঁয়াজ",
+"hyp": "পেয়াজ",
+"cer": 0.14285714285714285,
+"wer": 1.0,
+"exact": false,
+"ms": 174.3494999827817
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "clean",
+"gt": "গ্যাস সংযোগ",
+"hyp": "গ্যাস সংযোগ",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 58.547799999359995
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "wild",
+"gt": "গ্যাস সংযোগ",
+"hyp": "গ্যাস সংযোগ",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 158.44149998156354
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "scene",
+"gt": "গ্যাস সংযোগ",
+"hyp": "গ্যাস সংযোগ",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 180.55019999155775
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "clean",
+"gt": "বৃদ্ধাশ্রম",
+"hyp": "বৃদ্ধাশ্রম",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 149.3614999926649
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "wild",
+"gt": "বৃদ্ধাশ্রম",
+"hyp": "বৃদ্ধাশ্রম",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 158.91579998424277
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "scene",
+"gt": "বৃদ্ধাশ্রম",
+"hyp": "বৃদ্ধাশ্রম",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 168.97729999618605
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "clean",
+"gt": "টাকা জমা দিন",
+"hyp": "টাকা জমা দিন",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 57.913600001484156
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "wild",
+"gt": "টাকা জমা দিন",
+"hyp": "টাকা জমা দিন",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 211.32060000672936
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "scene",
+"gt": "টাকা জমা দিন",
+"hyp": "sat",
+"cer": 1.0,
+"wer": 1.0,
+"exact": false,
+"ms": 1255.8554999995977
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "clean",
+"gt": "তেল",
+"hyp": "তেল",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 56.69830000260845
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "wild",
+"gt": "তেল",
+"hyp": "তেল",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 148.24159996351227
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "scene",
+"gt": "তেল",
+"hyp": "",
+"cer": 1.0,
+"wer": 1.0,
+"exact": false,
+"ms": 174.91990001872182
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "clean",
+"gt": "বিক্রয় হবে",
+"hyp": "বিক্রয় হবে",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 147.574300004635
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "wild",
+"gt": "বিক্রয় হবে",
+"hyp": "বিক্রয় হবে",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 227.86429995903745
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "scene",
+"gt": "বিক্রয় হবে",
+"hyp": "বিক্রয় হবে",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 181.54760001925752
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "clean",
+"gt": "দন্ত চিকিৎসা",
+"hyp": "দন্ত চিকিৎসা",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 57.25120002171025
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "wild",
+"gt": "দন্ত চিকিৎসা",
+"hyp": "দন্ত চিকিৎসা",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 149.37290002126247
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "scene",
+"gt": "দন্ত চিকিৎসা",
+"hyp": "দন্ত চিকিৎসা",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 201.58420002553612
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "clean",
+"gt": "মরিচ",
+"hyp": "মরিচ",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 60.742200003005564
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "wild",
+"gt": "মরিচ",
+"hyp": "মরিচ",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 152.0054999855347
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "scene",
+"gt": "মরিচ",
+"hyp": "মরিচ",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 162.96479996526614
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "clean",
+"gt": "বাসের ভাড়া",
+"hyp": "বাসের ভাড়া",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 64.73029998596758
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "wild",
+"gt": "বাসের ভাড়া",
+"hyp": "বাসের ভাড়া",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 162.5715999980457
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "scene",
+"gt": "বাসের ভাড়া",
+"hyp": "বাসের ভাড়া",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 189.07050002599135
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "clean",
+"gt": "Ladies Only",
+"hyp": "Ladies Only",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 69.95039997855201
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "wild",
+"gt": "Ladies Only",
+"hyp": "Ladies Only",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 70.06619998719543
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "scene",
+"gt": "Ladies Only",
+"hyp": "Ladies Only",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 180.89930003043264
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "clean",
+"gt": "Pharmacy Open",
+"hyp": "Pharmacy Open",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 65.17059996258467
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "wild",
+"gt": "Pharmacy Open",
+"hyp": "Pharmacy Open",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 70.88499999372289
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "scene",
+"gt": "Pharmacy Open",
+"hyp": "Pharmacy Open",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 206.84609998716041
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "clean",
+"gt": "Manufactured On",
+"hyp": "Manufactured On",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 99.27430003881454
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "wild",
+"gt": "Manufactured On",
+"hyp": "Manufactured On",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 146.7267000116408
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "scene",
+"gt": "Manufactured On",
+"hyp": "Manufactured On",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 246.56749999849126
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "clean",
+"gt": "Price 250 Taka",
+"hyp": "Price 250 Taka",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 109.337100002449
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "wild",
+"gt": "Price 250 Taka",
+"hyp": "Price 250 Taka",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 151.96970000397414
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "scene",
+"gt": "Price 250 Taka",
+"hyp": "Price 250 Taka",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 279.81809998163953
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "clean",
+"gt": "District Office",
+"hyp": "District Office",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 114.1776999575086
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "wild",
+"gt": "District Office",
+"hyp": "District Office",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 66.16950000170618
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "scene",
+"gt": "District Office",
+"hyp": "District Office",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 537.9194000270218
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "clean",
+"gt": "Police Station",
+"hyp": "Police Station",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 66.0761000472121
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "wild",
+"gt": "Police Station",
+"hyp": "Pollice sation",
+"cer": 0.21428571428571427,
+"wer": 1.0,
+"exact": false,
+"ms": 166.40230000484735
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "scene",
+"gt": "Police Station",
+"hyp": "",
+"cer": 1.0,
+"wer": 1.0,
+"exact": false,
+"ms": 177.99100000411272
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "clean",
+"gt": "Way Out",
+"hyp": "Way Out",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 65.91210002079606
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "wild",
+"gt": "Way Out",
+"hyp": "Way Out",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 75.75349998660386
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "scene",
+"gt": "Way Out",
+"hyp": "Way Out",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 185.50000002142042
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "clean",
+"gt": "No Parking",
+"hyp": "No Parking",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 68.96609999239445
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "wild",
+"gt": "No Parking",
+"hyp": "No Parking",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 60.54259999655187
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "scene",
+"gt": "No Parking",
+"hyp": "No Parking",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 879.3112999992445
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "clean",
+"gt": "Lentils Half kg",
+"hyp": "Lentils Half kg",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 57.27479996858165
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "wild",
+"gt": "Lentils Half kg",
+"hyp": "Lentils Half kg",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 54.916499997489154
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "scene",
+"gt": "Lentils Half kg",
+"hyp": "Lentis Half kg",
+"cer": 0.06666666666666667,
+"wer": 0.3333333333333333,
+"exact": false,
+"ms": 178.06329997256398
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "clean",
+"gt": "Classroom",
+"hyp": "Classroom",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 62.55800003418699
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "wild",
+"gt": "Classroom",
+"hyp": "Classroom",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 67.6585000474006
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "scene",
+"gt": "Classroom",
+"hyp": "Classroom",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 184.51089999871328
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "clean",
+"gt": "Head Teacher",
+"hyp": "Head Teacher",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 60.21870003314689
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "wild",
+"gt": "Head Teacher",
+"hyp": "Head Teacher",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 142.48819998465478
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "scene",
+"gt": "Head Teacher",
+"hyp": "Head Teacher",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 209.2267000116408
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "clean",
+"gt": "Rajshahi University",
+"hyp": "Rajshahi University",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 66.52150000445545
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "wild",
+"gt": "Rajshahi University",
+"hyp": "Rajshahi University",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 67.89160001790151
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "scene",
+"gt": "Rajshahi University",
+"hyp": "Rajshahi iUniversity",
+"cer": 0.05263157894736842,
+"wer": 0.5,
+"exact": false,
+"ms": 179.2657999903895
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "clean",
+"gt": "Fire Extinguisher",
+"hyp": "Fire Extinguisher",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 70.12559997383505
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "wild",
+"gt": "Fire Extinguisher",
+"hyp": "Fire Extinguisher",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 337.66999997897074
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "scene",
+"gt": "Fire Extinguisher",
+"hyp": "Fire Extinguisher",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 257.76510004652664
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "clean",
+"gt": "Open on Friday",
+"hyp": "Open on Friday",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 258.3835000405088
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "wild",
+"gt": "Open on Friday",
+"hyp": "Open on Friday",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 312.67039995873347
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "scene",
+"gt": "Open on Friday",
+"hyp": "Open onFni",
+"cer": 0.35714285714285715,
+"wer": 0.6666666666666666,
+"exact": false,
+"ms": 994.7577000129968
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "clean",
+"gt": "Accident Ward",
+"hyp": "Accident Ward",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 66.78309995913878
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "wild",
+"gt": "Accident Ward",
+"hyp": "Accident Ward",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 155.81700002076104
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "scene",
+"gt": "Accident Ward",
+"hyp": "Accident Ward",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 185.13469997560605
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "clean",
+"gt": "Onion",
+"hyp": "Onion",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 64.05390001600608
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "wild",
+"gt": "Onion",
+"hyp": "Onion",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 63.2880000048317
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "scene",
+"gt": "Onion",
+"hyp": "Onion",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 183.23540000710636
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "clean",
+"gt": "Gas Connection",
+"hyp": "Gas Connection",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 163.3725999854505
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "wild",
+"gt": "Gas Connection",
+"hyp": "Gas Connection",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 62.23740003770217
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "scene",
+"gt": "Gas Connection",
+"hyp": "Gas Connection",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 183.5469999932684
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "clean",
+"gt": "Old Age Home",
+"hyp": "Old Age Home",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 58.36769996676594
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "wild",
+"gt": "Old Age Home",
+"hyp": "Old Age Home",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 236.41750001115724
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "scene",
+"gt": "Old Age Home",
+"hyp": "Old Age Home",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 180.2974000456743
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "clean",
+"gt": "Deposit Money Here",
+"hyp": "Deposit Money Here",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 162.17809997033328
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "wild",
+"gt": "Deposit Money Here",
+"hyp": "Deposit Money Here",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 158.0991999944672
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "scene",
+"gt": "Deposit Money Here",
+"hyp": "Deposit Money Here",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 194.70340001862496
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "clean",
+"gt": "Cooking Oil",
+"hyp": "Cooking Oil",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 155.57790000457317
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "wild",
+"gt": "Cooking Oil",
+"hyp": "Cooking Oil",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 152.47450000606477
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "scene",
+"gt": "Cooking Oil",
+"hyp": "Cooking Oil",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 168.94990002037957
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "clean",
+"gt": "For Sale",
+"hyp": "For Sale",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 58.97190002724528
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "wild",
+"gt": "For Sale",
+"hyp": "For Sale",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 59.531800041440874
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "scene",
+"gt": "For Sale",
+"hyp": "For Sale",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 168.63050003303215
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "clean",
+"gt": "Dental Care",
+"hyp": "Denta Care",
+"cer": 0.09090909090909091,
+"wer": 0.5,
+"exact": false,
+"ms": 56.92160001490265
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "wild",
+"gt": "Dental Care",
+"hyp": "Dental Care",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 55.69060001289472
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "scene",
+"gt": "Dental Care",
+"hyp": "Dental Care",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 168.65529998904094
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "clean",
+"gt": "Chilli",
+"hyp": "Chilli",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 55.65560003742576
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "wild",
+"gt": "Chilli",
+"hyp": "Chilli",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 143.3730999706313
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "scene",
+"gt": "Chilli",
+"hyp": "Chilli",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 175.2070999937132
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "clean",
+"gt": "Bus Fare 30 Taka",
+"hyp": "Bus Fare 30 Taka",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 64.60109999170527
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "wild",
+"gt": "Bus Fare 30 Taka",
+"hyp": "Bus Fare 30 Taka",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 133.7348999804817
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "scene",
+"gt": "Bus Fare 30 Taka",
+"hyp": "Bus Fare 30 Taka",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 439.8722999612801
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "clean",
+"gt": "মহিলাদের জন্য সংরক্ষিত",
+"hyp": "মহিলাদের জন্য সংরক্ষিত",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 161.06690000742674
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "wild",
+"gt": "মহিলাদের জন্য সংরক্ষিত",
+"hyp": "মহিলাদের জন্য সংরক্ষিত",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 318.95950000034645
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "scene",
+"gt": "মহিলাদের জন্য সংরক্ষিত",
+"hyp": "মহিলাদের জন্য সংরক্ষিত",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 561.992300034035
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "clean",
+"gt": "ফার্মেসি",
+"hyp": "ফার্মেসি",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 151.55599999707192
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "wild",
+"gt": "ফার্মেসি",
+"hyp": "ফার্মেসি",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 147.95800001593307
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "scene",
+"gt": "ফার্মেসি",
+"hyp": "ফার্মেসি",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 170.46440002741292
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "clean",
+"gt": "উৎপাদনের তারিখ",
+"hyp": "উৎপাদনের তারিখ",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 150.179999996908
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "wild",
+"gt": "উৎপাদনের তারিখ",
+"hyp": "উৎপাদনের তারিখ",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 127.07700004102662
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "scene",
+"gt": "উৎপাদনের তারিখ",
+"hyp": "উৎপাদনের তারিখ",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 178.1796999857761
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "clean",
+"gt": "মূল্য ২৫০ টাকা",
+"hyp": "মূল্য ২৫০ টাকা",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 148.60729995416477
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "wild",
+"gt": "মূল্য ২৫০ টাকা",
+"hyp": "মূল্য ২৫০ টাকা",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 209.890500002075
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "scene",
+"gt": "মূল্য ২৫০ টাকা",
+"hyp": "মূল্য ২৫০ টাকা",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 599.2241000058129
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "clean",
+"gt": "জেলা প্রশাসকের কার্যালয়",
+"hyp": "জেলা প্রশাসকের কার্যালয়",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 145.32360003795475
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "wild",
+"gt": "জেলা প্রশাসকের কার্যালয়",
+"hyp": "জেলা প্রশাসকের কার্যালয়",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 55.68520002998412
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "scene",
+"gt": "জেলা প্রশাসকের কার্যালয়",
+"hyp": "জেলা প্রশাসকের কার্যালয়",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 383.0679000238888
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "clean",
+"gt": "থানা",
+"hyp": "থানা",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 50.077299994882196
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "wild",
+"gt": "থানা",
+"hyp": "থানা",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 141.84220001334324
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "scene",
+"gt": "থানা",
+"hyp": "থানা",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 169.821800023783
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "clean",
+"gt": "বাইরে যাওয়ার পথ",
+"hyp": "বাইরে যাওয়ার পথ",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 153.76269997796044
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "wild",
+"gt": "বাইরে যাওয়ার পথ",
+"hyp": "বাইরে যাওয়ার পথ",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 55.10999995749444
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "scene",
+"gt": "বাইরে যাওয়ার পথ",
+"hyp": "বাইরে যাওয়ার পথ",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 175.14860001392663
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "clean",
+"gt": "গাড়ি রাখা নিষেধ",
+"hyp": "গাড়ি রাখা নিষেধ",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 147.81169994967058
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "wild",
+"gt": "গাড়ি রাখা নিষেধ",
+"hyp": "গাড়ি রাখা নিষেধ",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 212.2415999765508
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "scene",
+"gt": "গাড়ি রাখা নিষেধ",
+"hyp": "গাড়ি রাখা নিষেধ",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 169.7662000078708
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "clean",
+"gt": "ডাল আধা কেজি",
+"hyp": "ডাল আধা কেজি",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 56.841000041458756
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "wild",
+"gt": "ডাল আধা কেজি",
+"hyp": "ডাল আধা কেজি",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 227.25369996624067
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "scene",
+"gt": "ডাল আধা কেজি",
+"hyp": "ডাল আধা কেজি",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 167.2344999969937
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "clean",
+"gt": "শ্রেণিকক্ষ",
+"hyp": "শ্রেণিকক্ষ",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 62.33669997891411
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "wild",
+"gt": "শ্রেণিকক্ষ",
+"hyp": "শ্রেণিকক্ষ",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 144.74540000082925
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "scene",
+"gt": "শ্রেণিকক্ষ",
+"hyp": "শ্রেণিকক্ষ",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 180.46920001506805
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "clean",
+"gt": "প্রধান শিক্ষক",
+"hyp": "প্রধান শিক্ষক",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 138.21040000766516
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "wild",
+"gt": "প্রধান শিক্ষক",
+"hyp": "প্রধান শিক্ষক",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 122.8409000323154
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "scene",
+"gt": "প্রধান শিক্ষক",
+"hyp": "প্রধান শিক্ষক",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 184.90940000629053
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "clean",
+"gt": "রাজশাহী বিশ্ববিদ্যালয়",
+"hyp": "রাজশাহী বিশ্ববিদ্যালয়",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 152.27979997871444
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "wild",
+"gt": "রাজশাহী বিশ্ববিদ্যালয়",
+"hyp": "রাজশাহী বিশ্ববিদ্যালয়",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 149.2681999807246
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "scene",
+"gt": "রাজশাহী বিশ্ববিদ্যালয়",
+"hyp": "রাজশাহী বিশ্ববিদ্যালয়",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 168.91889995895326
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "clean",
+"gt": "অগ্নি নির্বাপক",
+"hyp": "অগ্নি নির্বাপক",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 52.71080002421513
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "wild",
+"gt": "অগ্নি নির্বাপক",
+"hyp": "অগ্নি নির্বাপক",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 144.22030001878738
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "scene",
+"gt": "অগ্নি নির্বাপক",
+"hyp": "অগ্নি নির্বাপক",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 172.87629999918863
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "clean",
+"gt": "শুক্রবার খোলা",
+"hyp": "শুক্রবার খোলা",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 55.26870000176132
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "wild",
+"gt": "শুক্রবার খোলা",
+"hyp": "শুক্রবার খোলা",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 143.89810001011938
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "scene",
+"gt": "শুক্রবার খোলা",
+"hyp": "শুক্রবার খোলা",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 386.4769000210799
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "clean",
+"gt": "জরুরি বিভাগ",
+"hyp": "জরুরি বিভাগ",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 137.8880999982357
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "wild",
+"gt": "জরুরি বিভাগ",
+"hyp": "জরুরি বিতাগ",
+"cer": 0.09090909090909091,
+"wer": 0.5,
+"exact": false,
+"ms": 153.53430004324764
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "scene",
+"gt": "জরুরি বিভাগ",
+"hyp": "জরুরি বিভাগ",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 210.28950001345947
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "clean",
+"gt": "পেঁয়াজ",
+"hyp": "",
+"cer": 1.0,
+"wer": 1.0,
+"exact": false,
+"ms": 156.27859998494387
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "wild",
+"gt": "পেঁয়াজ",
+"hyp": "",
+"cer": 1.0,
+"wer": 1.0,
+"exact": false,
+"ms": 225.79729999415576
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "scene",
+"gt": "পেঁয়াজ",
+"hyp": "",
+"cer": 1.0,
+"wer": 1.0,
+"exact": false,
+"ms": 185.65769999986514
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "clean",
+"gt": "গ্যাস সংযোগ",
+"hyp": "গ্যাস সংযোগ",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 67.25650001317263
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "wild",
+"gt": "গ্যাস সংযোগ",
+"hyp": "গ্যাস সংযোগ",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 67.3582999734208
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "scene",
+"gt": "গ্যাস সংযোগ",
+"hyp": "গ্যাস সংযোগ",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 189.27869998151436
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "clean",
+"gt": "বৃদ্ধাশ্রম",
+"hyp": "বৃ্াশ্রম",
+"cer": 0.2,
+"wer": 1.0,
+"exact": false,
+"ms": 152.94910001102835
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "wild",
+"gt": "বৃদ্ধাশ্রম",
+"hyp": "বৃদ্ধাশ্রম",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 151.2679000152275
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "scene",
+"gt": "বৃদ্ধাশ্রম",
+"hyp": "বৃদ্ধাশ্রম",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 461.7951000109315
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "clean",
+"gt": "টাকা জমা দিন",
+"hyp": "টাকা জমা দিন",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 211.43780002603307
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "wild",
+"gt": "টাকা জমা দিন",
+"hyp": "টাকা জমা দিন",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 218.87610002886504
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "scene",
+"gt": "টাকা জমা দিন",
+"hyp": "টাকা জমা দিন",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 261.1172999604605
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "clean",
+"gt": "তেল",
+"hyp": "তেল",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 122.96340003376827
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "wild",
+"gt": "তেল",
+"hyp": "তেল",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 218.37760001653805
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "scene",
+"gt": "তেল",
+"hyp": "তেল",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 261.5038999938406
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "clean",
+"gt": "বিক্রয় হবে",
+"hyp": "বিক্রয় হবে",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 215.1451999670826
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "wild",
+"gt": "বিক্রয় হবে",
+"hyp": "বিক্রয় হবে",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 263.0942999967374
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "scene",
+"gt": "বিক্রয় হবে",
+"hyp": "বিক্রয় হবে",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 171.75919999135658
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "clean",
+"gt": "দন্ত চিকিৎসা",
+"hyp": "দন্ত চিকিৎসা",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 144.97760002268478
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "wild",
+"gt": "দন্ত চিকিৎসা",
+"hyp": "দন্ত চিকিৎসা",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 163.88299997197464
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "scene",
+"gt": "দন্ত চিকিৎসা",
+"hyp": "দন্ত চিকিৎসা",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 186.17529998300597
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "clean",
+"gt": "মরিচ",
+"hyp": "মরিচ",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 63.63739998778328
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "wild",
+"gt": "মরিচ",
+"hyp": "মরিচ",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 59.12529997294769
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "scene",
+"gt": "মরিচ",
+"hyp": "মরিচ",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 413.8840999803506
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "clean",
+"gt": "বাসের ভাড়া",
+"hyp": "বাসের ভাড়া",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 58.80679999245331
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "wild",
+"gt": "বাসের ভাড়া",
+"hyp": "বাসের ভাড়া",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 59.198400005698204
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "scene",
+"gt": "বাসের ভাড়া",
+"hyp": "বাসের",
+"cer": 0.5454545454545454,
+"wer": 0.5,
+"exact": false,
+"ms": 179.90430002100766
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "clean",
+"gt": "Ladies Only",
+"hyp": "Ladies Only",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 143.93010002095252
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "wild",
+"gt": "Ladies Only",
+"hyp": "Ladies Only",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 158.52640004595742
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "scene",
+"gt": "Ladies Only",
+"hyp": "Ladies Only",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 184.66160004027188
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "clean",
+"gt": "Pharmacy Open",
+"hyp": "Pharmacy Open",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 66.21060002362356
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "wild",
+"gt": "Pharmacy Open",
+"hyp": "Pharmacy Open",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 61.45879998803139
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "scene",
+"gt": "Pharmacy Open",
+"hyp": "Pharmacy Open",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 184.48809999972582
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "clean",
+"gt": "Manufactured On",
+"hyp": "Manuiactured On",
+"cer": 0.06666666666666667,
+"wer": 0.5,
+"exact": false,
+"ms": 65.56850002380088
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "wild",
+"gt": "Manufactured On",
+"hyp": "Manufactured On",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 124.72550000529736
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "scene",
+"gt": "Manufactured On",
+"hyp": "Manufactured On",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 177.99519997788593
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "clean",
+"gt": "Price 250 Taka",
+"hyp": "Price 250 Taka",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 58.42690001009032
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "wild",
+"gt": "Price 250 Taka",
+"hyp": "Prce250Taka",
+"cer": 0.21428571428571427,
+"wer": 1.0,
+"exact": false,
+"ms": 56.94149999180809
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "scene",
+"gt": "Price 250 Taka",
+"hyp": "Price 250 Taka",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 172.77770000509918
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "clean",
+"gt": "District Office",
+"hyp": "District Office",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 55.91120000462979
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "wild",
+"gt": "District Office",
+"hyp": "District Office",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 59.550599951762706
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "scene",
+"gt": "District Office",
+"hyp": "District Office",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 173.37929998757318
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "clean",
+"gt": "Police Station",
+"hyp": "Police Station",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 58.528700028546154
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "wild",
+"gt": "Police Station",
+"hyp": "Police Station",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 135.07910002954304
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "scene",
+"gt": "Police Station",
+"hyp": "Police Station",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 181.93689995678142
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "clean",
+"gt": "Way Out",
+"hyp": "Way Out",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 63.43809998361394
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "wild",
+"gt": "Way Out",
+"hyp": "Way Out",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 61.31429999368265
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "scene",
+"gt": "Way Out",
+"hyp": "Way Out",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 398.3841000008397
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "clean",
+"gt": "No Parking",
+"hyp": "No Parking",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 57.9011999652721
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "wild",
+"gt": "No Parking",
+"hyp": "No Parking",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 216.4168999879621
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "scene",
+"gt": "No Parking",
+"hyp": "No Parking",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 170.10869999649003
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "clean",
+"gt": "Lentils Half kg",
+"hyp": "Lentils Half kg",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 63.11160000041127
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "wild",
+"gt": "Lentils Half kg",
+"hyp": "Lentils Half kg",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 128.15360003151
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "scene",
+"gt": "Lentils Half kg",
+"hyp": "Lentils Half kg",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 182.88829998346046
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "clean",
+"gt": "Classroom",
+"hyp": "Classroom",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 55.811199999880046
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "wild",
+"gt": "Classroom",
+"hyp": "Classroom",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 54.59580000024289
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "scene",
+"gt": "Classroom",
+"hyp": "Classroom",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 175.8385999710299
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "clean",
+"gt": "Head Teacher",
+"hyp": "Head Teacher",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 56.6353999893181
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "wild",
+"gt": "Head Teacher",
+"hyp": "Head Teacher",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 146.7296999762766
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "scene",
+"gt": "Head Teacher",
+"hyp": "Head Teacher",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 172.83790005603805
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "clean",
+"gt": "Rajshahi University",
+"hyp": "Rajshahi University",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 55.05670001730323
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "wild",
+"gt": "Rajshahi University",
+"hyp": "Rajshahi University",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 53.78909996943548
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "scene",
+"gt": "Rajshahi University",
+"hyp": "Rajshahi University",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 176.56669998541474
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "clean",
+"gt": "Fire Extinguisher",
+"hyp": "Fire Extinguisher",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 57.52879998181015
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "wild",
+"gt": "Fire Extinguisher",
+"hyp": "Fire Extinguisher",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 140.21929999580607
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "scene",
+"gt": "Fire Extinguisher",
+"hyp": "fire Extinguisher",
+"cer": 0.058823529411764705,
+"wer": 0.5,
+"exact": false,
+"ms": 883.740899967961
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "clean",
+"gt": "Open on Friday",
+"hyp": "Openon Friday",
+"cer": 0.07142857142857142,
+"wer": 0.6666666666666666,
+"exact": false,
+"ms": 62.143399962224066
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "wild",
+"gt": "Open on Friday",
+"hyp": "Open on Friday",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 221.816300007049
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "scene",
+"gt": "Open on Friday",
+"hyp": "Open on Friday",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 179.47020003339276
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "clean",
+"gt": "Accident Ward",
+"hyp": "Accident Ward",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 64.88289998378605
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "wild",
+"gt": "Accident Ward",
+"hyp": "Accident Ward",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 123.28459997661412
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "scene",
+"gt": "Accident Ward",
+"hyp": "Accident Ward",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 177.23949998617172
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "clean",
+"gt": "Onion",
+"hyp": "Onion",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 53.851199976634234
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "wild",
+"gt": "Onion",
+"hyp": "Onion",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 117.66869999701157
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "scene",
+"gt": "Onion",
+"hyp": "Onion",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 178.3230999717489
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "clean",
+"gt": "Gas Connection",
+"hyp": "Gas Connection",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 52.69320000661537
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "wild",
+"gt": "Gas Connection",
+"hyp": "Gas Connection",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 60.76610001036897
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "scene",
+"gt": "Gas Connection",
+"hyp": "Gas Connection",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 185.03519997466356
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "clean",
+"gt": "Old Age Home",
+"hyp": "Old Age Home",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 146.88349998323247
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "wild",
+"gt": "Old Age Home",
+"hyp": "Old Age Home",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 149.1226000362076
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "scene",
+"gt": "Old Age Home",
+"hyp": "Old Age Home",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 424.230600008741
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "clean",
+"gt": "Deposit Money Here",
+"hyp": "Deposit Money Here",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 71.11240003723651
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "wild",
+"gt": "Deposit Money Here",
+"hyp": "Deposit Money Here",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 62.19730002339929
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "scene",
+"gt": "Deposit Money Here",
+"hyp": "Deposit Money Here",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 396.71120001003146
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "clean",
+"gt": "Cooking Oil",
+"hyp": "Cooking Oil",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 150.9622000157833
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "wild",
+"gt": "Cooking Oil",
+"hyp": "Cooking Oil",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 144.04039998771623
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "scene",
+"gt": "Cooking Oil",
+"hyp": "Cooking Oil",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 179.26260002423078
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "clean",
+"gt": "For Sale",
+"hyp": "For Sale",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 55.13599998084828
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "wild",
+"gt": "For Sale",
+"hyp": "For Sale",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 56.71919998712838
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "scene",
+"gt": "For Sale",
+"hyp": "For Sale",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 170.33399996580556
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "clean",
+"gt": "Dental Care",
+"hyp": "Dental Care",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 51.51850002584979
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "wild",
+"gt": "Dental Care",
+"hyp": "Dental Care",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 116.19219998829067
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "scene",
+"gt": "Dental Care",
+"hyp": "Dental Care",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 179.9810000229627
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "clean",
+"gt": "Chilli",
+"hyp": "Chilli",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 62.348000006750226
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "wild",
+"gt": "Chilli",
+"hyp": "Chilli",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 53.939899953547865
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "scene",
+"gt": "Chilli",
+"hyp": "Chilli",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 360.9005999751389
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "clean",
+"gt": "Bus Fare 30 Taka",
+"hyp": "Bus Fare 30 Taka",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 67.3642999609001
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "wild",
+"gt": "Bus Fare 30 Taka",
+"hyp": "Bus Fare 30 Taka",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 136.1390000092797
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "scene",
+"gt": "Bus Fare 30 Taka",
+"hyp": "Bus Fare 30 Taka",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 176.9219000125304
+}
+],
+"real": [
+{
+"lang": "bn",
+"gt": "উপহার",
+"hyp": "উপহার",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "ফেলিবেন",
+"hyp": "ফেলিবেন",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "শনিবার",
+"hyp": "শনিবার",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "কেন্দ্রে",
+"hyp": "কেন্দ্রে",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "অনলাইনে",
+"hyp": "অনলাইনে",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "বি.",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "সুটিং,",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "ডল",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "কারিগরি",
+"hyp": "কারিগরি",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "যদি",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "স্টোর্স",
+"hyp": "দটোরস",
+"cer": 0.429
+},
+{
+"lang": "bn",
+"gt": "ফাইবারের",
+"hyp": "ফাইবারের",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "৮",
+"hyp": "S",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "সার্ভিস",
+"hyp": "সার্ভিস",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "ষ্টেট",
+"hyp": "ষ্টেট",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "লহ্মী'র",
+"hyp": "রক্মার",
+"cer": 0.571
+},
+{
+"lang": "bn",
+"gt": "হইল",
+"hyp": "হইল",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "৪৯",
+"hyp": "৪৯",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "দোকান",
+"hyp": "দোকান",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "মহাপ্রভু",
+"hyp": "মহাপ্রত্ু",
+"cer": 0.25
+},
+{
+"lang": "bn",
+"gt": "এখানে",
+"hyp": "এখানে",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "আধুনিক",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "কোল-",
+"hyp": "কোল",
+"cer": 0.25
+},
+{
+"lang": "bn",
+"gt": "মঞ্চে",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "পুনরায়",
+"hyp": "পুরায়",
+"cer": 0.143
+},
+{
+"lang": "bn",
+"gt": "নং",
+"hyp": "নং",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "না",
+"hyp": "না",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "অপ্সরা",
+"hyp": "অস্সরা",
+"cer": 0.167
+},
+{
+"lang": "bn",
+"gt": "বাইক",
+"hyp": "বাইক",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "সি",
+"hyp": "সি",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "কল্যাণ",
+"hyp": "কল্যাণ",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "রাধামাধব",
+"hyp": "রধামাধব",
+"cer": 0.125
+},
+{
+"lang": "bn",
+"gt": "মেরামত",
+"hyp": "মেরামত",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "ও",
+"hyp": "ও",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "লেগিংস্",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "যোগাযোগ",
+"hyp": "যোগাযোগ",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "আইডিয়া",
+"hyp": "আইডিয়া",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "দিন।।",
+"hyp": "দিন",
+"cer": 0.4
+},
+{
+"lang": "bn",
+"gt": "বিশ্বস্ত",
+"hyp": "বিশ্বস্ত",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "কোলকাতা-",
+"hyp": "কোলকাতা",
+"cer": 0.125
+},
+{
+"lang": "bn",
+"gt": "টাকা",
+"hyp": "টাকা",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "এবং",
+"hyp": "এবং",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "ট্যুর",
+"hyp": "ট্যুর",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "মাটি",
+"hyp": "মাটি",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "বিশেষজ্ঞ",
+"hyp": "বিশেষজ্ঞ",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "যেমন",
+"hyp": "যেমন",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "আসুন",
+"hyp": "Sac",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "রোড",
+"hyp": "রোড",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "করব।\"",
+"hyp": "করব",
+"cer": 0.4
+},
+{
+"lang": "bn",
+"gt": "কই",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "সি",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "এন্ড",
+"hyp": "এন্ড",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "স্টেট",
+"hyp": "স্েটট",
+"cer": 0.4
+},
+{
+"lang": "bn",
+"gt": "ছাড়",
+"hyp": "ছড্ে",
+"cer": 0.75
+},
+{
+"lang": "bn",
+"gt": "রাখে",
+"hyp": "রাখে",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "পক্ষে",
+"hyp": "পম্ন",
+"cer": 0.6
+},
+{
+"lang": "bn",
+"gt": "বি.",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "৪৯",
+"hyp": "৪ ৯",
+"cer": 0.5
+},
+{
+"lang": "bn",
+"gt": "কোং",
+"hyp": "Si",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "করা",
+"hyp": "করা",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "অন্তর্ভুক্ত",
+"hyp": "অন্তর্ভুক্ত",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "সরঞ্জাম",
+"hyp": "সরঞ্জাম",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "বঃ",
+"hyp": "A0 0.",
+"cer": 2.5
+},
+{
+"lang": "bn",
+"gt": "ওজন",
+"hyp": "ওজন",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "গনতান্ত্রিক",
+"hyp": "Dনতটিক",
+"cer": 0.636
+},
+{
+"lang": "bn",
+"gt": "বিশেষজ্ঞ",
+"hyp": "বিশেষজ্ঞ",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "অতিথি",
+"hyp": "অতিপি",
+"cer": 0.2
+},
+{
+"lang": "bn",
+"gt": "কে.",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "জা",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "হালদার",
+"hyp": "পুরদর",
+"cer": 0.667
+},
+{
+"lang": "bn",
+"gt": "শোরুম",
+"hyp": "শোর্ম",
+"cer": 0.2
+},
+{
+"lang": "bn",
+"gt": "বশীকরণ",
+"hyp": "বশীকর",
+"cer": 0.167
+},
+{
+"lang": "bn",
+"gt": "পাল",
+"hyp": "পাল",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "এই",
+"hyp": "এই",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "এখানে",
+"hyp": "এখানে",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "মেডিকেল",
+"hyp": "মেডিকেল",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "বিশাল",
+"hyp": "বিশাল",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "ধর্মনিরপেক্ষ",
+"hyp": "kলরেপেন",
+"cer": 0.833
+},
+{
+"lang": "bn",
+"gt": "কোলকাতা",
+"hyp": "কোলকাতা",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "দিন।",
+"hyp": "দিনl",
+"cer": 0.25
+},
+{
+"lang": "bn",
+"gt": "ম্যানসন",
+"hyp": "Eনসন",
+"cer": 0.571
+},
+{
+"lang": "bn",
+"gt": "জুয়েলার্স",
+"hyp": "জুয়েবার্স",
+"cer": 0.1
+},
+{
+"lang": "bn",
+"gt": "দ্রব্যের",
+"hyp": "ট",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "পাটপুর",
+"hyp": "পাটপু পুর",
+"cer": 0.5
+},
+{
+"lang": "bn",
+"gt": "শুভ",
+"hyp": "শুত",
+"cer": 0.333
+},
+{
+"lang": "bn",
+"gt": "তিন",
+"hyp": "L",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "দুর্গা",
+"hyp": "দুর্গা",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "ঘোষ",
+"hyp": "থীষষ্র",
+"cer": 1.667
+},
+{
+"lang": "bn",
+"gt": "গহনা",
+"hyp": "গহনা",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "২টায়",
+"hyp": "২টীয়",
+"cer": 0.2
+},
+{
+"lang": "bn",
+"gt": "হয়।",
+"hyp": "হয়",
+"cer": 0.25
+},
+{
+"lang": "bn",
+"gt": "নিউ",
+"hyp": "ড",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "কার্য্যালয়",
+"hyp": "কবর্জালয়",
+"cer": 0.364
+},
+{
+"lang": "bn",
+"gt": "হয়।",
+"hyp": "হয়",
+"cer": 0.25
+},
+{
+"lang": "bn",
+"gt": "যায়",
+"hyp": "যায়",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "ও",
+"hyp": "ও",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "বেলঘরিয়া",
+"hyp": "বেলঘরিয়া",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "প্রতিষ্টান।",
+"hyp": "প্রতিষ্টান",
+"cer": 0.091
+},
+{
+"lang": "bn",
+"gt": "এবং",
+"hyp": "এবং",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "হবে",
+"hyp": "হ্",
+"cer": 0.667
+},
+{
+"lang": "bn",
+"gt": "যায়",
+"hyp": "যয়ে",
+"cer": 0.5
+},
+{
+"lang": "bn",
+"gt": "সুন্দর",
+"hyp": "সুন্দর",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "ব্যাগ",
+"hyp": "ব্যাগ",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "বেলঘরিয়া",
+"hyp": "বেলঘরিয়া",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "ভ্যান",
+"hyp": "ভ্যান",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "সাইকেল",
+"hyp": "সাইফেল",
+"cer": 0.167
+},
+{
+"lang": "bn",
+"gt": "করা",
+"hyp": "তত্রা",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "বাজার",
+"hyp": "বাজার",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "পেন্টেস",
+"hyp": "পেন্টস",
+"cer": 0.143
+},
+{
+"lang": "bn",
+"gt": "স্টেট",
+"hyp": "স্টেট",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "যোগাযোগ",
+"hyp": "মোগামোত",
+"cer": 0.429
+},
+{
+"lang": "bn",
+"gt": "ভোট",
+"hyp": "ভোট",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "অ",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "এ.সি,",
+"hyp": "এ1",
+"cer": 0.8
+},
+{
+"lang": "bn",
+"gt": "সেগুন",
+"hyp": "সেগুন",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "কলকাতা-",
+"hyp": "কোলকাতা",
+"cer": 0.286
+},
+{
+"lang": "bn",
+"gt": "কোলকাতা-",
+"hyp": "কোলকাতা",
+"cer": 0.125
+},
+{
+"lang": "bn",
+"gt": "জয়েলার্স",
+"hyp": "জয়েলার্স",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "বিশ্বস্ত",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "কোতুলপুর",
+"hyp": "কাজুলপুর",
+"cer": 0.25
+},
+{
+"lang": "bn",
+"gt": "বঁাকুড়া",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "কুল",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "না",
+"hyp": "না",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "অঙ্গশ্রী",
+"hyp": "অস্শ্রী",
+"cer": 0.25
+},
+{
+"lang": "bn",
+"gt": "সন্ধানে",
+"hyp": "সন্ধানে",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "অযথা",
+"hyp": "অয় যথা",
+"cer": 0.75
+},
+{
+"lang": "bn",
+"gt": "স্টেশন",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "রাত্নগৄহ",
+"hyp": "রস্বগাহ",
+"cer": 0.5
+},
+{
+"lang": "bn",
+"gt": "সেন্টার",
+"hyp": "সেন্টার",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "মঙ্গলবার",
+"hyp": "মঙ্গলবার",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "মোঃ-",
+"hyp": "E",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "ও",
+"hyp": "ও",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "অ্যালকোহল",
+"hyp": "অ্যালকোহল",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "উদ্যান",
+"hyp": "উদ্যান",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "কান্ত",
+"hyp": "কান্ত",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "সেন্টার",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "গোল্ড",
+"hyp": "গোল্ড",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "ফিডার",
+"hyp": "ফিডার",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "যত্ন",
+"hyp": "যত্ন",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "কোল-",
+"hyp": "কোল",
+"cer": 0.25
+},
+{
+"lang": "bn",
+"gt": "ও",
+"hyp": "ও",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "প্যালেস",
+"hyp": "Fg",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "টি-শার্ট",
+"hyp": "টি-শার্ট",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "হিমানী",
+"hyp": "হিমানী",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "নম্বর",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "বিশ্ব",
+"hyp": "রিনন",
+"cer": 0.8
+},
+{
+"lang": "bn",
+"gt": "টেলি",
+"hyp": "DI লি",
+"cer": 0.75
+},
+{
+"lang": "bn",
+"gt": "প্রতি",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "পাওয়া",
+"hyp": "পাওয়া",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "বাঁচিয়েছে",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "শাড়ী",
+"hyp": "শড়ী",
+"cer": 0.2
+},
+{
+"lang": "bn",
+"gt": "ভবন",
+"hyp": "রবন",
+"cer": 0.333
+},
+{
+"lang": "bn",
+"gt": "করা",
+"hyp": "রুর",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "ফেলিবেন",
+"hyp": "ফেলিবেন",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "৭০০০৪৯",
+"hyp": "৭০০০৪৯",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "মা",
+"hyp": "B",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "গ্যারান্টী",
+"hyp": "গ্যারান্টী",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "সাবধান",
+"hyp": "সাবধান",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "বি.",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "সেকেন্ড",
+"hyp": "মোকেণ্ড",
+"cer": 0.429
+},
+{
+"lang": "bn",
+"gt": "কলি",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "শ্রীগুরু",
+"hyp": "ম",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "প্রিন্ট",
+"hyp": "প্রিন্ট",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "বিশ্বস্ত",
+"hyp": "বিষণ্",
+"cer": 0.625
+},
+{
+"lang": "bn",
+"gt": "বাঁকুড়া",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "দেশী",
+"hyp": "দেশী",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "৭০০",
+"hyp": "700",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "মাধ্যমিক",
+"hyp": "চধ্যমিব",
+"cer": 0.375
+},
+{
+"lang": "bn",
+"gt": "খাওয়ার",
+"hyp": "খাওয়ার",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "মানবিক",
+"hyp": "মানবিক",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "জনপ্রিয়",
+"hyp": "জনাপত্রয়",
+"cer": 0.375
+},
+{
+"lang": "bn",
+"gt": "ব্যাঙ্কের",
+"hyp": "ব্যাঙ্কের",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "ঠিকানায়।",
+"hyp": "ইকানায়।",
+"cer": 0.222
+},
+{
+"lang": "bn",
+"gt": "-৪৯",
+"hyp": "৪১",
+"cer": 0.667
+},
+{
+"lang": "bn",
+"gt": "স্ট্যাম্প",
+"hyp": "স্ট্যাপ",
+"cer": 0.222
+},
+{
+"lang": "bn",
+"gt": "পান্তুউ",
+"hyp": "গান্ত্র",
+"cer": 0.429
+},
+{
+"lang": "bn",
+"gt": "কলি",
+"hyp": "NL",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "সেন্টার",
+"hyp": "হরাষ্টার",
+"cer": 0.571
+},
+{
+"lang": "bn",
+"gt": "শিল্পরূপ",
+"hyp": "তলপারপস",
+"cer": 0.75
+},
+{
+"lang": "bn",
+"gt": "অভিযান",
+"hyp": "অভিযান",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "যায়",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "রোড",
+"hyp": "রোড",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "চলছে",
+"hyp": "চলহে",
+"cer": 0.25
+},
+{
+"lang": "bn",
+"gt": "এম.",
+"hyp": "এম।",
+"cer": 0.333
+},
+{
+"lang": "bn",
+"gt": "এম",
+"hyp": "এম",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "রিচার্জ",
+"hyp": "রিচার্জ",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "কেন্দ্র",
+"hyp": "কেন্র",
+"cer": 0.286
+},
+{
+"lang": "bn",
+"gt": "ষ্ট্রীট,",
+"hyp": "ষ্র্রীট.",
+"cer": 0.25
+},
+{
+"lang": "bn",
+"gt": "এম.",
+"hyp": "এমস",
+"cer": 0.333
+},
+{
+"lang": "bn",
+"gt": "দ্রুত",
+"hyp": "৩",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "বেস্ট্",
+"hyp": "বেস্ট্",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "মেডপ্লাস",
+"hyp": "মেডপ্লাস",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "আট",
+"hyp": "আর্ট",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "গিফ্ট",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "স্ট্রিট",
+"hyp": "স্রিটট",
+"cer": 0.429
+},
+{
+"lang": "bn",
+"gt": "উত্তর",
+"hyp": "উত্তর",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "অনলাইনে",
+"hyp": "অনলাইনে",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "রং",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "ফর্ম",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "কলকাতা",
+"hyp": "কলকাতা",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "গ্রাম",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "হইতে",
+"hyp": "হইতে",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "বীণাপানী",
+"hyp": "বীনাসলী",
+"cer": 0.5
+},
+{
+"lang": "bn",
+"gt": "শিশুরোগ",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "সুদের",
+"hyp": "সুদের",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "জা",
+"hyp": "জা",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "তো",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "মঙ্গল",
+"hyp": "সমঙ্গলে",
+"cer": 0.4
+},
+{
+"lang": "bn",
+"gt": "উমা",
+"hyp": "G",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "ফিলাপ",
+"hyp": "সিলপ",
+"cer": 0.4
+},
+{
+"lang": "bn",
+"gt": "ফটো",
+"hyp": "ফটো",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "নিতাই",
+"hyp": "যলাস",
+"cer": 0.8
+},
+{
+"lang": "bn",
+"gt": "প্রধান",
+"hyp": "প্রধাল",
+"cer": 0.167
+},
+{
+"lang": "bn",
+"gt": "লিফকেয়ার",
+"hyp": "লিফকেয়ার",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "শুক্রবার",
+"hyp": "শুক্রবার",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "সামনে",
+"hyp": "সামনে",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "বেডিং",
+"hyp": "ন উ",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "ঘোষটেলার্স",
+"hyp": "EFOFF",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "আরাম",
+"hyp": "যারস্",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "ও",
+"hyp": "ও",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "সাম্প্রদায়িক",
+"hyp": "অাম্প্রদায়িব",
+"cer": 0.154
+},
+{
+"lang": "bn",
+"gt": "এখানে",
+"hyp": "এখান",
+"cer": 0.2
+},
+{
+"lang": "bn",
+"gt": "আসলেই",
+"hyp": "অসলেই",
+"cer": 0.2
+},
+{
+"lang": "bn",
+"gt": "করা",
+"hyp": "করা",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "উদয়পুর",
+"hyp": "উদয়পুর",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "সেন্টার",
+"hyp": "সেন্টার",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "করিবেন",
+"hyp": "করিবেন",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "প্রমান-পত্র",
+"hyp": "প্রমান-পত্র",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "প্যালেস",
+"hyp": "প্ালেস",
+"cer": 0.143
+},
+{
+"lang": "bn",
+"gt": "সম্ভার",
+"hyp": "সম্ডার",
+"cer": 0.167
+},
+{
+"lang": "bn",
+"gt": "হোটেল",
+"hyp": "জৈটের",
+"cer": 0.6
+},
+{
+"lang": "bn",
+"gt": "মোটর",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "আপনাদের",
+"hyp": "আ্রপনাদের",
+"cer": 0.286
+},
+{
+"lang": "bn",
+"gt": "কলকাতা-",
+"hyp": "কলকাতা",
+"cer": 0.143
+},
+{
+"lang": "bn",
+"gt": "করতে",
+"hyp": "করতে",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "নিমতা,",
+"hyp": "নিমতা",
+"cer": 0.167
+},
+{
+"lang": "bn",
+"gt": "শিক্ষা",
+"hyp": "শিকা",
+"cer": 0.333
+},
+{
+"lang": "bn",
+"gt": "রোল",
+"hyp": "রোল",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "পার্লার",
+"hyp": "পালার",
+"cer": 0.286
+},
+{
+"lang": "bn",
+"gt": "সঙ্গম",
+"hyp": "স গম",
+"cer": 0.4
+},
+{
+"lang": "bn",
+"gt": "রোড,",
+"hyp": "রোড",
+"cer": 0.25
+},
+{
+"lang": "bn",
+"gt": "কোলকাতা",
+"hyp": "কোলকাতা",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "প্রাণ",
+"hyp": "প্রাণ",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "জনপ্রিয়",
+"hyp": "জনাপ্রয়",
+"cer": 0.25
+},
+{
+"lang": "bn",
+"gt": "রাখিবেন",
+"hyp": "রাখিবেন",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "২০,",
+"hyp": "২০",
+"cer": 0.333
+},
+{
+"lang": "bn",
+"gt": "ডাকঘর",
+"hyp": "ডাকমর",
+"cer": 0.2
+},
+{
+"lang": "bn",
+"gt": "আই",
+"hyp": "আই",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "গৌর",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "চয়েস",
+"hyp": "চয়েস",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "মমতা",
+"hyp": "মমতা",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "ফাইবার",
+"hyp": "ফাইবার",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "প্রধান",
+"hyp": "প্রধান",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "ভান্ডার",
+"hyp": "ভাণ্ডার",
+"cer": 0.143
+},
+{
+"lang": "bn",
+"gt": "লক্ষ্মী",
+"hyp": "লিশষমী",
+"cer": 0.429
+},
+{
+"lang": "bn",
+"gt": "করুন",
+"hyp": "করুন",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "বিউটি",
+"hyp": "বি্উাট",
+"cer": 0.6
+},
+{
+"lang": "bn",
+"gt": "রাম",
+"hyp": "রাম",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "অনিমা",
+"hyp": "আনিমা",
+"cer": 0.2
+},
+{
+"lang": "bn",
+"gt": "রেডিমেড",
+"hyp": "রেডিমেড",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "ক্লাসিক",
+"hyp": "ক্লাসিক",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "বাজার",
+"hyp": "বাজার",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "বাড়ীতে",
+"hyp": "ডি ৬২",
+"cer": 0.857
+},
+{
+"lang": "bn",
+"gt": "অয়েল",
+"hyp": "অায়েল",
+"cer": 0.2
+},
+{
+"lang": "bn",
+"gt": "প্রোঃ",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "বিভিন্ন",
+"hyp": "বিডিন্ন",
+"cer": 0.143
+},
+{
+"lang": "bn",
+"gt": "আধুনিক",
+"hyp": "আধুনিব",
+"cer": 0.167
+},
+{
+"lang": "bn",
+"gt": "রোড,",
+"hyp": "রোড",
+"cer": 0.25
+},
+{
+"lang": "bn",
+"gt": "এম",
+"hyp": "এম.",
+"cer": 0.5
+},
+{
+"lang": "bn",
+"gt": "৭০০০৫৬",
+"hyp": "R০0০৫ড",
+"cer": 0.5
+},
+{
+"lang": "bn",
+"gt": "২৯শে",
+"hyp": "২৯ শ",
+"cer": 0.5
+},
+{
+"lang": "bn",
+"gt": "৪৬",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "ম্যানসন",
+"hyp": "3",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "পড়ানো",
+"hyp": "পড়ানো",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "আফ্রিকান",
+"hyp": "আফ্রিকার",
+"cer": 0.125
+},
+{
+"lang": "bn",
+"gt": "অজন্তা",
+"hyp": "অজন্ত",
+"cer": 0.167
+},
+{
+"lang": "bn",
+"gt": "মাতুন,",
+"hyp": "মাতুন্",
+"cer": 0.167
+},
+{
+"lang": "bn",
+"gt": "স্টল",
+"hyp": "এন",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "মোবাইল",
+"hyp": "মোবাইল",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "পরমা",
+"hyp": "সিরমা",
+"cer": 0.5
+},
+{
+"lang": "bn",
+"gt": "আনন্দ",
+"hyp": "আনন্দ",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "বুটিক",
+"hyp": "কটি",
+"cer": 0.6
+},
+{
+"lang": "bn",
+"gt": "এর",
+"hyp": "এর",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "ননী",
+"hyp": "ননীঃ",
+"cer": 0.333
+},
+{
+"lang": "bn",
+"gt": "কালার",
+"hyp": "কালার",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "সায়েন্স",
+"hyp": "সায়েন্স",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "এম",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "দিন",
+"hyp": "দিন",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "মধ্যে",
+"hyp": "Fত",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "৫৬",
+"hyp": "৫৬",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "থেকে",
+"hyp": "থেকে",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "রকমের",
+"hyp": "রকমের",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "ফার্ণিচার",
+"hyp": "ফাণিচার",
+"cer": 0.222
+},
+{
+"lang": "bn",
+"gt": "ভ্যারাইটিস্",
+"hyp": "বল্্ট",
+"cer": 0.909
+},
+{
+"lang": "bn",
+"gt": "কলকাতা",
+"hyp": "কলকাতা",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "দুধ",
+"hyp": "দুধ",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "বি.",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "৪১",
+"hyp": "8",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "মদন",
+"hyp": "মদন",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "আমেদাবাদ",
+"hyp": "আমেদাবাদ",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "করিবেন",
+"hyp": "করিবেন",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "পরমা",
+"hyp": "M98",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "কে.",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "যায়",
+"hyp": "যা",
+"cer": 0.5
+},
+{
+"lang": "bn",
+"gt": "রাজু",
+"hyp": "S",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "চিহ্নে",
+"hyp": "চিক্টে",
+"cer": 0.333
+},
+{
+"lang": "bn",
+"gt": "কুমার",
+"hyp": "কুমার",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "ফেসিয়াল",
+"hyp": "ফেসিয়াল",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "যেকোন",
+"hyp": "যেকোন",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "অফিস",
+"hyp": "অফিস",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "সরঞ্জাম",
+"hyp": "সবজম",
+"cer": 0.571
+},
+{
+"lang": "bn",
+"gt": "এমপ্লয়মেন্ট",
+"hyp": "এমপ্নয়মেন্ট",
+"cer": 0.083
+},
+{
+"lang": "bn",
+"gt": "জানালা",
+"hyp": "জানালা",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "কটুলপুর",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "ইন্টারনেট",
+"hyp": "ইিন্টারনের",
+"cer": 0.222
+},
+{
+"lang": "bn",
+"gt": "করা",
+"hyp": "করা",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "করা",
+"hyp": "OI",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "কৃষক",
+"hyp": "কৃষক",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "জ্যোৎস্না",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "আরামবাগেই",
+"hyp": "আরামবাগেই",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "ফিলাপ,",
+"hyp": "দিলাপ",
+"cer": 0.333
+},
+{
+"lang": "bn",
+"gt": "(বাপি)",
+"hyp": "বিপ্রি",
+"cer": 0.833
+},
+{
+"lang": "bn",
+"gt": "জুয়েলার্স",
+"hyp": "জুয়েলার্স",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "ট্যাক্স,",
+"hyp": "ট্যাক্স",
+"cer": 0.125
+},
+{
+"lang": "bn",
+"gt": "ও",
+"hyp": "ও",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "উপহার",
+"hyp": "উ্পহার",
+"cer": 0.2
+},
+{
+"lang": "bn",
+"gt": "৭০০০৪৯",
+"hyp": "৭০০০৪৯",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "পাওয়া",
+"hyp": "পাওয়া",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "বিশেষ",
+"hyp": "বিশেষ",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "ভাগ্য",
+"hyp": "অগ্য",
+"cer": 0.4
+},
+{
+"lang": "bn",
+"gt": "১৮৯৯",
+"hyp": "১৮৯৯",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "১৮",
+"hyp": "১৮",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "এবারের",
+"hyp": "এবারের",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "রস্‌",
+"hyp": "রস",
+"cer": 0.5
+},
+{
+"lang": "bn",
+"gt": "বনহুগলী,",
+"hyp": "রৌইলর",
+"cer": 0.875
+},
+{
+"lang": "bn",
+"gt": "১,",
+"hyp": "9",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "এখানে",
+"hyp": "এখানে",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "এখানে",
+"hyp": "এখানে",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "নিউ",
+"hyp": "নিউ",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "সি-ব্লক,",
+"hyp": "সি-ব্লক.",
+"cer": 0.125
+},
+{
+"lang": "bn",
+"gt": "গিরিশ",
+"hyp": "নিরিশ",
+"cer": 0.2
+},
+{
+"lang": "bn",
+"gt": "ঘটিকায়",
+"hyp": "ঘটিকার়",
+"cer": 0.143
+},
+{
+"lang": "bn",
+"gt": "কাছে",
+"hyp": "কাছে",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "বি.",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "আনন্দ",
+"hyp": "আনন্দ",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "ফোন",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "রাজশ্রী",
+"hyp": "বাজমী",
+"cer": 0.571
+},
+{
+"lang": "bn",
+"gt": "ধন্যবাদ",
+"hyp": "ধন্যবাদ",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "না",
+"hyp": "d",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "জল",
+"hyp": "জল",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "ঠাণ্ডা",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "হয়",
+"hyp": "হয়",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "পাঞ্জাবী",
+"hyp": "পাজাবী",
+"cer": 0.25
+},
+{
+"lang": "bn",
+"gt": "রোড,",
+"hyp": "রে ড",
+"cer": 0.75
+},
+{
+"lang": "bn",
+"gt": "এখন",
+"hyp": "এখন",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "আন্যান্য",
+"hyp": "অন্যান্য",
+"cer": 0.125
+},
+{
+"lang": "bn",
+"gt": "কুসুম",
+"hyp": "কব়ন",
+"cer": 0.8
+},
+{
+"lang": "bn",
+"gt": "খ্রীঃ",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "টা",
+"hyp": "টা",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "মশলা",
+"hyp": "মশলা",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "পুরুষোত্তম",
+"hyp": "পুরুষোত্ম",
+"cer": 0.1
+},
+{
+"lang": "bn",
+"gt": "শার্ট,",
+"hyp": "শার্ট",
+"cer": 0.167
+},
+{
+"lang": "bn",
+"gt": "রিপেয়ারিং",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "মনসা'র",
+"hyp": "শুনঙসার",
+"cer": 0.667
+},
+{
+"lang": "bn",
+"gt": "পানীয়",
+"hyp": "পানীয়",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "নরোত্তম",
+"hyp": "নরোগুম",
+"cer": 0.429
+},
+{
+"lang": "bn",
+"gt": "জন্য",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "মোবাইল",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "শিক্ষা",
+"hyp": "শিক্ষা",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "বাঁকুড়া",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "কনট্রাক্টর",
+"hyp": "কনট্রাক্টর",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "সোনা",
+"hyp": "ভান",
+"cer": 0.75
+},
+{
+"lang": "bn",
+"gt": "অন্তর্গত",
+"hyp": "অন্তর্গত",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "ও",
+"hyp": "ও",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "ভাড়া",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "পদযাত্রা",
+"hyp": "সদযামY",
+"cer": 0.625
+},
+{
+"lang": "bn",
+"gt": "পাওয়া",
+"hyp": "পাওয়া",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "সেন্টার",
+"hyp": "সেন্টার",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "মানুষের",
+"hyp": "মানুষের",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "আনন্দ",
+"hyp": "আননদ",
+"cer": 0.2
+},
+{
+"lang": "bn",
+"gt": "লাহিটেলিকম",
+"hyp": "লাহিটেলিকম",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "ক্লিনার্স",
+"hyp": "করিলাল্",
+"cer": 0.556
+},
+{
+"lang": "bn",
+"gt": "রোড",
+"hyp": "রোড",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "ঘোষ",
+"hyp": "ঘোষ",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "স্পা",
+"hyp": "Cস",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "উন্নয়নের",
+"hyp": "উনয়নের",
+"cer": 0.222
+},
+{
+"lang": "bn",
+"gt": "৮৪/১,",
+"hyp": "৮8/১",
+"cer": 0.4
+},
+{
+"lang": "bn",
+"gt": "বিবেকানন্দ",
+"hyp": "বিবেকানন্দ",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "কলিকাতা",
+"hyp": "কলিকাতা",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "পেপার",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "সাজ",
+"hyp": "সাজ",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "ভাড়া",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "শ্রী",
+"hyp": "শ্রী",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "ম্যারেজ",
+"hyp": "ম্যারেজ",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "দেওযা",
+"hyp": "দেওয়া",
+"cer": 0.2
+},
+{
+"lang": "bn",
+"gt": "কমলা",
+"hyp": "E্চার",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "রোড",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "কলকাতা",
+"hyp": "কলকাত",
+"cer": 0.167
+},
+{
+"lang": "bn",
+"gt": "শুরু",
+"hyp": "শু রু",
+"cer": 0.25
+},
+{
+"lang": "bn",
+"gt": "এন্ড",
+"hyp": "এস্ড",
+"cer": 0.25
+},
+{
+"lang": "bn",
+"gt": "শীততাপ",
+"hyp": "শীততাপ",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "বিউটি",
+"hyp": "বিউটি",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "জানুয়ারী",
+"hyp": "জানুযারী",
+"cer": 0.111
+},
+{
+"lang": "bn",
+"gt": "স্ত্রীরোগ",
+"hyp": "ব্রীরেগ",
+"cer": 0.444
+},
+{
+"lang": "bn",
+"gt": "জেলা",
+"hyp": "জেলা",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "ঢালাই",
+"hyp": "ঢালাই",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "প্রাদেশিক",
+"hyp": "প্রাদেশিক",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "জেরক্স",
+"hyp": "জের্স",
+"cer": 0.167
+},
+{
+"lang": "bn",
+"gt": "প্রার্থী",
+"hyp": "প্রত",
+"cer": 0.625
+},
+{
+"lang": "bn",
+"gt": "আসুন",
+"hyp": "আসুন",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "লেডিস",
+"hyp": "ভথ্",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "মশলা",
+"hyp": "মশলা",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "শিবশঙ্কর",
+"hyp": "শিবশঙ্কর",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "মধুসূদন",
+"hyp": "মধুসুদন",
+"cer": 0.143
+},
+{
+"lang": "bn",
+"gt": "আশীর্বাদ",
+"hyp": "আর্শীবাষ",
+"cer": 0.625
+},
+{
+"lang": "bn",
+"gt": "শিল্পী",
+"hyp": "শি গ্লী",
+"cer": 0.5
+},
+{
+"lang": "bn",
+"gt": "সেগুন",
+"hyp": "রেতন",
+"cer": 0.6
+},
+{
+"lang": "bn",
+"gt": "ভাড়া",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "টি-শার্ট",
+"hyp": "টি-শার্ট",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "স্কুটি",
+"hyp": "হুরট্",
+"cer": 0.833
+},
+{
+"lang": "bn",
+"gt": "সংবাদ",
+"hyp": "সংবাদ",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "আপনাকে",
+"hyp": "আপনাকে",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "যাত্রী",
+"hyp": "যাএ্রী",
+"cer": 0.167
+},
+{
+"lang": "bn",
+"gt": "কোতুলপুর",
+"hyp": "ণণোতুলধুর",
+"cer": 0.375
+},
+{
+"lang": "bn",
+"gt": "কামারপুকুর",
+"hyp": "হারনার",
+"cer": 0.7
+},
+{
+"lang": "bn",
+"gt": "এবং",
+"hyp": "এবং",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "মাট",
+"hyp": "মার্ট",
+"cer": 0.667
+},
+{
+"lang": "bn",
+"gt": "জন",
+"hyp": "জন",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "বেলঘরিয়া,",
+"hyp": "বলঘরিয়া",
+"cer": 0.2
+},
+{
+"lang": "bn",
+"gt": "১০৪",
+"hyp": "D০৪",
+"cer": 0.333
+},
+{
+"lang": "bn",
+"gt": "ও",
+"hyp": "ও",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "এম",
+"hyp": "এম.",
+"cer": 0.5
+},
+{
+"lang": "bn",
+"gt": "সামগ্রী",
+"hyp": "সামগ্রী",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "রিপেয়ারিং",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "নিমচাঁদ",
+"hyp": "নিমটদি",
+"cer": 0.571
+},
+{
+"lang": "bn",
+"gt": "মেস",
+"hyp": "মেস",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "রাম",
+"hyp": "রাম",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "কেন?",
+"hyp": "কে ন2",
+"cer": 0.5
+},
+{
+"lang": "bn",
+"gt": "এ",
+"hyp": "এ",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "কৃশানু",
+"hyp": "কৃশানু",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "ভিতরে",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "বিদ্যালয়",
+"hyp": "বিদ্যালয়",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "মোঃ",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "৮",
+"hyp": "৮",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "বাস্ত্ত-",
+"hyp": "বাE",
+"cer": 0.75
+},
+{
+"lang": "bn",
+"gt": "স্টোর্স",
+"hyp": "aট",
+"cer": 0.857
+},
+{
+"lang": "bn",
+"gt": "ব্যাঙ্ক",
+"hyp": "ব্যাঙ্ক",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "সবার",
+"hyp": "সবার",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "ভান্ডার",
+"hyp": "ভান্ডার",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "দমদম",
+"hyp": "দমদম",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "গ্যারান্টি",
+"hyp": "গ্যারান্টি",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "দেবী",
+"hyp": "দিবী",
+"cer": 0.25
+},
+{
+"lang": "bn",
+"gt": "প্লেট",
+"hyp": "প্লেট",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "প্রেম",
+"hyp": "প্রেম",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "যায়",
+"hyp": "যায়",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "প্যাকেজ",
+"hyp": "প্যাকেজ",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "বার্ষিকীতে",
+"hyp": "বার্ষিকীতে",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "সাতগেছিমা",
+"hyp": "স্রতেগেছিমা",
+"cer": 0.333
+},
+{
+"lang": "bn",
+"gt": "স্মরনী",
+"hyp": "5 N-o",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "গৄহ",
+"hyp": "গৄহ",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "নিক",
+"hyp": "ব্রি",
+"cer": 1.333
+},
+{
+"lang": "bn",
+"gt": "ভর্তি",
+"hyp": "ভ্তি",
+"cer": 0.2
+},
+{
+"lang": "bn",
+"gt": "চিহ্নে",
+"hyp": "চিহ্টে",
+"cer": 0.167
+},
+{
+"lang": "bn",
+"gt": "হোমিওপাথি",
+"hyp": "হোমিওপ্যাথি",
+"cer": 0.222
+},
+{
+"lang": "bn",
+"gt": "স্টেট",
+"hyp": "স্টেট",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "নির্মাণ",
+"hyp": "নিরমণি",
+"cer": 0.429
+},
+{
+"lang": "bn",
+"gt": "ষ্টার",
+"hyp": "ষ্টার",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "মোড়",
+"hyp": "মোড়",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "সামগ্রী,",
+"hyp": "সামগ্রী",
+"cer": 0.125
+},
+{
+"lang": "bn",
+"gt": "কমরেড",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "স্টেট",
+"hyp": "স্টেট",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "দাস",
+"hyp": "দাস",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "ভাণ্ডার",
+"hyp": "ভাণ্র",
+"cer": 0.286
+},
+{
+"lang": "bn",
+"gt": "উৎসবে",
+"hyp": "উৎসবে",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "এলাহাবাদ",
+"hyp": "এলাহাবাদ",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "ওজন",
+"hyp": "তজন",
+"cer": 0.333
+},
+{
+"lang": "bn",
+"gt": "মঙ্গল",
+"hyp": "মঙ্গল",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "ইংরাজঈ",
+"hyp": "ইংরাজী",
+"cer": 0.167
+},
+{
+"lang": "bn",
+"gt": "শহীদ",
+"hyp": "শহীদ",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "দ্বারা",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "রোড",
+"hyp": "রোড",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "স্টীল",
+"hyp": "টীল",
+"cer": 0.4
+},
+{
+"lang": "bn",
+"gt": "স্বাতী",
+"hyp": "স্বাতী",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "প্রতি",
+"hyp": "প্রতি",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "মা",
+"hyp": "su",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "দ্বিতীয়",
+"hyp": "Lা",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "লোন",
+"hyp": "লোন",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "ধরনের",
+"hyp": "ধরনের",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "রক্ষায়",
+"hyp": "রক্ষায়",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "সেন্টার",
+"hyp": "সেন্টার",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "কালচার",
+"hyp": "কালচার",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "রোড,",
+"hyp": "রাড",
+"cer": 0.5
+},
+{
+"lang": "bn",
+"gt": "করার",
+"hyp": "করার",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "করে",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "পি",
+"hyp": "পি",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "ইন্ডিয়া",
+"hyp": "ইডিয়া",
+"cer": 0.25
+},
+{
+"lang": "bn",
+"gt": "কাজ",
+"hyp": "কাজ",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "ইলেকট্রিক্যাল",
+"hyp": "ইলেকট্রিক্যাল",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "মোবাইল",
+"hyp": "মোবইল",
+"cer": 0.167
+},
+{
+"lang": "bn",
+"gt": "রোড.",
+"hyp": "রোডা",
+"cer": 0.25
+},
+{
+"lang": "en",
+"gt": "15.00",
+"hyp": "15.00",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "NB",
+"hyp": "E",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "21",
+"hyp": "21",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "PAVIMENTI",
+"hyp": "PAVEN",
+"cer": 0.444
+},
+{
+"lang": "en",
+"gt": "SKI",
+"hyp": "E4া",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "5+1",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "75",
+"hyp": "75",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "P",
+"hyp": "P",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "suis-je",
+"hyp": "Eus",
+"cer": 0.714
+},
+{
+"lang": "en",
+"gt": "9",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "A.T.M.",
+"hyp": "A.T.M.",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "ALALAWI",
+"hyp": "A.XLAwI",
+"cer": 0.429
+},
+{
+"lang": "en",
+"gt": "Kein",
+"hyp": "Kein",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "Esposito,",
+"hyp": "Esposito",
+"cer": 0.111
+},
+{
+"lang": "en",
+"gt": "preferisci",
+"hyp": "preleriscl",
+"cer": 0.2
+},
+{
+"lang": "en",
+"gt": "dal",
+"hyp": "Bal",
+"cer": 0.333
+},
+{
+"lang": "en",
+"gt": "ST",
+"hyp": "U",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "seguici",
+"hyp": "seguic",
+"cer": 0.143
+},
+{
+"lang": "en",
+"gt": "NOI",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "mit",
+"hyp": "mit",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "FIRENZE",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "è",
+"hyp": "O",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "kg",
+"hyp": "kg",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "Cod.",
+"hyp": "Cod.",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "STORE",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "de",
+"hyp": "de",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "DOMENICHE",
+"hyp": "DOrENCHE",
+"cer": 0.222
+},
+{
+"lang": "en",
+"gt": "Hier",
+"hyp": "Hier",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "ROBERTO",
+"hyp": "ROBERTO",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "i",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "here",
+"hyp": "herd",
+"cer": 0.25
+},
+{
+"lang": "en",
+"gt": "L'atto",
+"hyp": "L'atto",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "conoscere",
+"hyp": "conoscere",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "FISH",
+"hyp": "EISH",
+"cer": 0.25
+},
+{
+"lang": "en",
+"gt": "SOUK",
+"hyp": "SOUK",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "512.",
+"hyp": "512",
+"cer": 0.25
+},
+{
+"lang": "en",
+"gt": "AR",
+"hyp": "AF",
+"cer": 0.5
+},
+{
+"lang": "en",
+"gt": "DONG",
+"hyp": "DONG",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "9-19h",
+"hyp": "9-19 h",
+"cer": 0.2
+},
+{
+"lang": "en",
+"gt": "You",
+"hyp": "You",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "2,800~",
+"hyp": "2.800",
+"cer": 0.333
+},
+{
+"lang": "en",
+"gt": "VIA",
+"hyp": "VIA",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "e",
+"hyp": "e",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "D",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "e",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "tout",
+"hyp": "tout",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "della",
+"hyp": "della",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "OF",
+"hyp": "OF",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "St",
+"hyp": "St",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "REGNO",
+"hyp": "REOND",
+"cer": 0.4
+},
+{
+"lang": "en",
+"gt": "il",
+"hyp": "il",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "University",
+"hyp": "University",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "i",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "aprile",
+"hyp": "aprile",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "mobile",
+"hyp": "mobile",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "90",
+"hyp": "90",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "condition",
+"hyp": "conditona",
+"cer": 0.222
+},
+{
+"lang": "en",
+"gt": "ROBIN",
+"hyp": "ROBIN",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "Anmeldung!",
+"hyp": "Anmeldungl",
+"cer": 0.1
+},
+{
+"lang": "en",
+"gt": "UI",
+"hyp": "üi",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "DELL",
+"hyp": "DELL",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "14",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "DB-",
+"hyp": "DB",
+"cer": 0.333
+},
+{
+"lang": "en",
+"gt": "recycle",
+"hyp": "recycle",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "DINASTIA",
+"hyp": "DINASTIA",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "vos",
+"hyp": "vos",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "BOULEVARD",
+"hyp": "E",
+"cer": 0.889
+},
+{
+"lang": "en",
+"gt": "XX",
+"hyp": "A AA",
+"cer": 2.0
+},
+{
+"lang": "en",
+"gt": "CINESE",
+"hyp": "CINESE",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "not",
+"hyp": "not",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "13",
+"hyp": "1K",
+"cer": 0.5
+},
+{
+"lang": "en",
+"gt": "Euro",
+"hyp": "Eurd",
+"cer": 0.25
+},
+{
+"lang": "en",
+"gt": "FREDERIC",
+"hyp": "FREDERIC",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "ECONOMIC",
+"hyp": "ECONOMIC",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "NO.",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "VIELE",
+"hyp": "VIELE",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "Duft",
+"hyp": "H",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "QUALITY",
+"hyp": "QUALITY",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "No.7",
+"hyp": "No.7",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "THiNKS",
+"hyp": "THiNKS",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "1899",
+"hyp": "1899",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "VILLE",
+"hyp": "VILLE",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "\"SOGNO",
+"hyp": "SOGNO",
+"cer": 0.167
+},
+{
+"lang": "en",
+"gt": "Biannenaasse",
+"hyp": "pBiauneugased",
+"cer": 0.5
+},
+{
+"lang": "en",
+"gt": "riservata",
+"hyp": "riservata",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "Last",
+"hyp": "Last",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "CS",
+"hyp": "ট",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "L'Ours",
+"hyp": "T'Ours",
+"cer": 0.167
+},
+{
+"lang": "en",
+"gt": "NANJING",
+"hyp": "NANJING",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "deficienze",
+"hyp": "deficienze",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "55",
+"hyp": "E",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "Restaurant",
+"hyp": "Restaurant",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "e",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "SPECIALIZZATO",
+"hyp": "SPECIALIZZATO",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "costi",
+"hyp": "costi",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "VIP",
+"hyp": "VIP",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "2016",
+"hyp": "2016",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "di",
+"hyp": "W",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "figure",
+"hyp": "figure",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "ACTIVE",
+"hyp": "ACTIVE",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "punti",
+"hyp": "punti",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "XI",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "bleeds",
+"hyp": "bleeds",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "HAUS",
+"hyp": "HAus",
+"cer": 0.5
+},
+{
+"lang": "en",
+"gt": "9",
+"hyp": "9",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "South",
+"hyp": "South",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "dicembre",
+"hyp": "dIcembre",
+"cer": 0.125
+},
+{
+"lang": "en",
+"gt": "Gate",
+"hyp": "Gate",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "2016",
+"hyp": "2016",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "complere",
+"hyp": "compiere",
+"cer": 0.125
+},
+{
+"lang": "en",
+"gt": "the",
+"hyp": "the",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "563-3929",
+"hyp": "563-3929",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "panna",
+"hyp": "panna",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "PIANO",
+"hyp": "PIANO",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "il",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "est",
+"hyp": "est",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "VIA",
+"hyp": "VIA",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "über",
+"hyp": "uber",
+"cer": 0.25
+},
+{
+"lang": "en",
+"gt": "HOT",
+"hyp": "HOT",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "M",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "VENETO",
+"hyp": "MN",
+"cer": 0.833
+},
+{
+"lang": "en",
+"gt": "15€",
+"hyp": "15€",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "panna",
+"hyp": "panna",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "Cuki",
+"hyp": "ICuki",
+"cer": 0.25
+},
+{
+"lang": "en",
+"gt": "19:30",
+"hyp": "19:30",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "\"Acquista",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "info",
+"hyp": "Info",
+"cer": 0.25
+},
+{
+"lang": "en",
+"gt": "di",
+"hyp": "di",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "ES",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "RüntestraBe",
+"hyp": "Rüntestraße",
+"cer": 0.091
+},
+{
+"lang": "en",
+"gt": "votre",
+"hyp": "votre",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "Matière",
+"hyp": "Matiere",
+"cer": 0.143
+},
+{
+"lang": "en",
+"gt": "elettronico",
+"hyp": "elettronico",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "CARAMELLA",
+"hyp": "CARAMELLA",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "LA",
+"hyp": "LA",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "5045",
+"hyp": "5645",
+"cer": 0.25
+},
+{
+"lang": "en",
+"gt": "SEASON",
+"hyp": "BEASON",
+"cer": 0.167
+},
+{
+"lang": "en",
+"gt": "et",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "Lucy",
+"hyp": "LUCY",
+"cer": 0.75
+},
+{
+"lang": "en",
+"gt": "DEVELOPMENT",
+"hyp": "DEVELOPMENT",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "Kreuztal",
+"hyp": "Kreuztal",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "MAGNETIC",
+"hyp": "MAGNETIC",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "INTEGRALE",
+"hyp": "NTEGRALE",
+"cer": 0.111
+},
+{
+"lang": "en",
+"gt": "SE:",
+"hyp": "SE",
+"cer": 0.333
+},
+{
+"lang": "en",
+"gt": "della",
+"hyp": "della",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "BOYS",
+"hyp": "DOTvব",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "P",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "IMMOBILIARE",
+"hyp": "IMMOB3ILIARE",
+"cer": 0.091
+},
+{
+"lang": "en",
+"gt": "e",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "5,89",
+"hyp": "5 89",
+"cer": 0.25
+},
+{
+"lang": "en",
+"gt": "berühmte",
+"hyp": "berühmte",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "21",
+"hyp": "2",
+"cer": 0.5
+},
+{
+"lang": "en",
+"gt": "O.",
+"hyp": "O",
+"cer": 0.5
+},
+{
+"lang": "en",
+"gt": "PATRIOTA",
+"hyp": "PATRIOTA",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "IL",
+"hyp": "IL",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "the",
+"hyp": "ha",
+"cer": 0.667
+},
+{
+"lang": "en",
+"gt": "M",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "BEER",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "RTER",
+"hyp": "RTER",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "6",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "IL",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "eccetto",
+"hyp": "eccetta",
+"cer": 0.143
+},
+{
+"lang": "en",
+"gt": "CORPORATION",
+"hyp": "ন",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "Play",
+"hyp": "Ple",
+"cer": 0.5
+},
+{
+"lang": "en",
+"gt": "E",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "TAXI",
+"hyp": "TAX",
+"cer": 0.25
+},
+{
+"lang": "en",
+"gt": "Office",
+"hyp": "Office",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "P",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "750m",
+"hyp": "750m",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "MONTENAPOLEONE",
+"hyp": "MONTENAPOLEONE",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "Fax",
+"hyp": "Fax",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "you",
+"hyp": "you",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "DI",
+"hyp": "DI",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "Library",
+"hyp": "Gibrary",
+"cer": 0.143
+},
+{
+"lang": "en",
+"gt": "1",
+"hyp": "E",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "LIBERE",
+"hyp": "LIBERE",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "CAPI",
+"hyp": "DAP",
+"cer": 0.5
+},
+{
+"lang": "en",
+"gt": "benessere.",
+"hyp": "benessere.",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "abgeschleppt",
+"hyp": "abgeschleppt",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "Internet,",
+"hyp": "Internet",
+"cer": 0.111
+},
+{
+"lang": "en",
+"gt": "la",
+"hyp": "la",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "EASTERN",
+"hyp": "EASTERN",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "02-518-5489",
+"hyp": "02-518-5489",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "W1",
+"hyp": "WI",
+"cer": 0.5
+},
+{
+"lang": "en",
+"gt": "Lyca",
+"hyp": "Lyca",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "IN",
+"hyp": "IN",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "Museum",
+"hyp": "Museum",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "demeure",
+"hyp": "demeure",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "km",
+"hyp": "km",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "in",
+"hyp": "in",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "02",
+"hyp": "02",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "Keidaisemon",
+"hyp": "Keidaiseimon",
+"cer": 0.091
+},
+{
+"lang": "en",
+"gt": "STORICO",
+"hyp": "STORICO",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "TSUTAYA",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "Städtebauförderung",
+"hyp": "Städtebauförderung",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "GT",
+"hyp": "G",
+"cer": 0.5
+},
+{
+"lang": "en",
+"gt": "TIPO",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "Susukino",
+"hyp": "Susukino",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "19h",
+"hyp": "19h",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "THE",
+"hyp": "HE",
+"cer": 0.333
+},
+{
+"lang": "en",
+"gt": "AUCH",
+"hyp": "AUCH",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "BETTENLAGER",
+"hyp": "BETTENLAGER",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "Little",
+"hyp": "Little",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "L'ARIA",
+"hyp": "L'ARIA",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "City",
+"hyp": "C",
+"cer": 0.75
+},
+{
+"lang": "en",
+"gt": "ABWARTEN!",
+"hyp": "ABWARTEN",
+"cer": 0.111
+},
+{
+"lang": "en",
+"gt": "8644277,",
+"hyp": "8644277",
+"cer": 0.125
+},
+{
+"lang": "en",
+"gt": "del",
+"hyp": "del",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "accessi",
+"hyp": "accessi",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "FLAT,",
+"hyp": "FLAT.",
+"cer": 0.2
+},
+{
+"lang": "en",
+"gt": "VI",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "ADVERTISING",
+"hyp": "RoVERTIsiNE",
+"cer": 0.455
+},
+{
+"lang": "en",
+"gt": "TENERELLA",
+"hyp": "KENERHLA",
+"cer": 0.333
+},
+{
+"lang": "en",
+"gt": "con",
+"hyp": "Con",
+"cer": 0.333
+},
+{
+"lang": "en",
+"gt": "MOIS,",
+"hyp": "MoIS",
+"cer": 0.4
+},
+{
+"lang": "en",
+"gt": "fa",
+"hyp": "f",
+"cer": 0.5
+},
+{
+"lang": "en",
+"gt": "Arabia",
+"hyp": "Arabia",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "vendredi",
+"hyp": "vendredi",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "R",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "Fuβ",
+"hyp": "Fu8",
+"cer": 0.333
+},
+{
+"lang": "en",
+"gt": "È",
+"hyp": "m",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "Cuki",
+"hyp": "Cuki",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "in",
+"hyp": "in",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "A7",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "SIEGEN",
+"hyp": "SIEGEN",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "2",
+"hyp": "2",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "Friedrich-Wilhelm-Pl.17",
+"hyp": "Friedrich-Wilhelm-PI.17",
+"cer": 0.043
+},
+{
+"lang": "en",
+"gt": "261-1470",
+"hyp": "261-447",
+"cer": 0.25
+},
+{
+"lang": "en",
+"gt": "ALZOOR",
+"hyp": "ARoa",
+"cer": 0.833
+},
+{
+"lang": "en",
+"gt": "(1F)",
+"hyp": "1F",
+"cer": 0.5
+},
+{
+"lang": "en",
+"gt": "Parkschein",
+"hyp": "Parkschein",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "L'Atelier",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "Verkehr",
+"hyp": "Verkehr",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "LINEA",
+"hyp": "LINEA",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "Bldg.",
+"hyp": "Bldg",
+"cer": 0.2
+},
+{
+"lang": "en",
+"gt": "FULL",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "Wertstoffe",
+"hyp": "Wertstoffe",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "YARDS",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "Exit",
+"hyp": "Exit",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "BANK",
+"hyp": "BANK",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "LETTERATURA",
+"hyp": "LETTERATURA",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "loro",
+"hyp": "loro",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "MARYLAND",
+"hyp": "হ্ন",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "GALILEO",
+"hyp": "GALILEO",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "motor",
+"hyp": "motor",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "RUNNING",
+"hyp": "RUNNING",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "6",
+"hyp": "6",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "AL",
+"hyp": "AL",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "Skin",
+"hyp": "Skin",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "PENALTIES",
+"hyp": "PENALTIES",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "3-chome",
+"hyp": "3-chome",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "HA",
+"hyp": "HA",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "Pocom",
+"hyp": "Pocom",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "it",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "H",
+"hyp": "H",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "B.",
+"hyp": "B",
+"cer": 0.5
+},
+{
+"lang": "en",
+"gt": "ORARIO",
+"hyp": "ORARIO",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "WILLOW",
+"hyp": "MLLOW",
+"cer": 0.333
+},
+{
+"lang": "en",
+"gt": "600",
+"hyp": "BWy",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "1,99",
+"hyp": "1,99",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "rossi,",
+"hyp": "rossi",
+"cer": 0.167
+},
+{
+"lang": "en",
+"gt": "CLUB",
+"hyp": "CLUB",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "Uhr",
+"hyp": "Uhr",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "x",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "SUP'COM",
+"hyp": "SUP'COM",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "53km",
+"hyp": "53km",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "O",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "2",
+"hyp": "E",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "Studi",
+"hyp": "Studl",
+"cer": 0.2
+},
+{
+"lang": "en",
+"gt": "für",
+"hyp": "a",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "MULLICAN",
+"hyp": "MULLICAN",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "YU",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "DRESSE",
+"hyp": "DRESSE",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "für:",
+"hyp": "für",
+"cer": 0.25
+},
+{
+"lang": "en",
+"gt": "costituzionale",
+"hyp": "costituzionale",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "HH.",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "is",
+"hyp": "O",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "Rauscher",
+"hyp": "Rusched",
+"cer": 0.25
+},
+{
+"lang": "en",
+"gt": "PHONES",
+"hyp": "PHONE",
+"cer": 0.167
+},
+{
+"lang": "en",
+"gt": "Hinode",
+"hyp": "Hinode",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "SOON",
+"hyp": "SoON",
+"cer": 0.25
+},
+{
+"lang": "en",
+"gt": "NAZARIO",
+"hyp": "NAZARIO",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "TEATROMARTINITT.",
+"hyp": "TEATROMARTINITT.",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "FSB",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "R",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "origine.",
+"hyp": "aubyuo",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "GOTE",
+"hyp": "go5",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "domotica",
+"hyp": "domotica",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "faggio",
+"hyp": "faggio",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "Liaison",
+"hyp": "Uostel",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "COPPA",
+"hyp": "COPPA",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "OULED",
+"hyp": "OULED",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "PARTITA",
+"hyp": "PARTTA",
+"cer": 0.143
+},
+{
+"lang": "en",
+"gt": "Billet",
+"hyp": "Billet",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "IN",
+"hyp": "A",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "Nihondaire",
+"hyp": "Nihondaira",
+"cer": 0.1
+},
+{
+"lang": "en",
+"gt": "2",
+"hyp": "2",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "FICO!",
+"hyp": "FICO",
+"cer": 0.2
+},
+{
+"lang": "en",
+"gt": "Geld",
+"hyp": "Geld",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "Mithelferinnen",
+"hyp": "Mithelferinnen",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "RISERVATO",
+"hyp": "RISERVATO",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "Sarrazinstraße",
+"hyp": "Sarrazinstraße",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "e",
+"hyp": "e",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "tue",
+"hyp": "tue",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "ze",
+"hyp": "Z e",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "590m",
+"hyp": "590m",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "EN",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "dei",
+"hyp": "dei",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "Getränke",
+"hyp": "Getrdnke",
+"cer": 0.125
+},
+{
+"lang": "en",
+"gt": "i",
+"hyp": "O",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "(AL-AMEEN)",
+"hyp": "AL-AMEEN",
+"cer": 0.2
+},
+{
+"lang": "en",
+"gt": "MERRY",
+"hyp": "RERRr",
+"cer": 0.4
+},
+{
+"lang": "en",
+"gt": "Condominio",
+"hyp": "Condominio",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "Tutto",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "lidabashi",
+"hyp": "lidabashi",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "3,39",
+"hyp": "3.39",
+"cer": 0.25
+},
+{
+"lang": "en",
+"gt": "N",
+"hyp": "N",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "qualité",
+"hyp": "qualie",
+"cer": 0.286
+},
+{
+"lang": "en",
+"gt": "TOUTE",
+"hyp": "it",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "MONUMENT",
+"hyp": "MONUMENT",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "Line",
+"hyp": "Line",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "e",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "Crines",
+"hyp": "DESIGN",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "DELL'EPILAZIONE",
+"hyp": "DeLL'EPILAZIONE",
+"cer": 0.067
+},
+{
+"lang": "en",
+"gt": "Road",
+"hyp": "Road",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "brygger",
+"hyp": "brygger",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "shut",
+"hyp": "Ehut",
+"cer": 0.25
+},
+{
+"lang": "en",
+"gt": "UN",
+"hyp": "UN",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "Issue",
+"hyp": "Issue",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "LAYETTE",
+"hyp": "LAYETTE",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "030",
+"hyp": "030",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "Municipale",
+"hyp": "Municipale",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "KAISeR",
+"hyp": "KAseR",
+"cer": 0.333
+},
+{
+"lang": "en",
+"gt": "come",
+"hyp": "come",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "alla",
+"hyp": "থ্রা",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "Rialzato",
+"hyp": "Rialzato",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "3.5",
+"hyp": "35",
+"cer": 0.333
+},
+{
+"lang": "en",
+"gt": "1881173",
+"hyp": "1B91173",
+"cer": 0.286
+},
+{
+"lang": "en",
+"gt": "Agréé",
+"hyp": "Agréé",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "Brdg-N.",
+"hyp": "Brdg-N",
+"cer": 0.143
+},
+{
+"lang": "en",
+"gt": "0",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "CORSICA",
+"hyp": "HINt",
+"cer": 0.857
+},
+{
+"lang": "en",
+"gt": "LOTS",
+"hyp": "LOTS",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "TAX",
+"hyp": "TAX",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "Complexe",
+"hyp": "Complexe",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "Seat",
+"hyp": "Seat",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "035",
+"hyp": "U52 n2S",
+"cer": 2.333
+},
+{
+"lang": "en",
+"gt": "access",
+"hyp": "access",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "2,50",
+"hyp": "2,50",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "un",
+"hyp": "un",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "RESTITUISCICI",
+"hyp": "KESTITUSCIC",
+"cer": 0.231
+},
+{
+"lang": "en",
+"gt": "TROTTOIR",
+"hyp": "TROTTOIR",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "Opihcio",
+"hyp": "Opifcio",
+"cer": 0.143
+},
+{
+"lang": "en",
+"gt": "sorprese,",
+"hyp": "sorprese",
+"cer": 0.111
+},
+{
+"lang": "en",
+"gt": "ALIA",
+"hyp": "ALIA",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "16",
+"hyp": "16",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "PREZZO",
+"hyp": "DRETa",
+"cer": 0.667
+},
+{
+"lang": "en",
+"gt": "LA",
+"hyp": "A",
+"cer": 0.5
+},
+{
+"lang": "en",
+"gt": "65°",
+"hyp": "65",
+"cer": 0.333
+},
+{
+"lang": "en",
+"gt": "Buon",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "VOUS",
+"hyp": "VOUS",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "CRE",
+"hyp": "RI",
+"cer": 0.667
+},
+{
+"lang": "en",
+"gt": "A",
+"hyp": "A",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "Sworn",
+"hyp": "Sworn",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "procedimento",
+"hyp": "procedimento",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "61/a",
+"hyp": "6l/a",
+"cer": 0.25
+},
+{
+"lang": "en",
+"gt": "CONSOLE",
+"hyp": "CONSOLE",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "Tramvie,",
+"hyp": "Tramvie",
+"cer": 0.125
+},
+{
+"lang": "en",
+"gt": "una",
+"hyp": "una",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "Bar",
+"hyp": "Bar",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "BAC",
+"hyp": "S",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "N.",
+"hyp": "N.",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "19",
+"hyp": "19",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "Information",
+"hyp": "Information",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "dépôt",
+"hyp": "dépöt",
+"cer": 0.2
+},
+{
+"lang": "en",
+"gt": "PAZZA",
+"hyp": "PAZZA",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "uomo",
+"hyp": "uomo",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "www.omirosis.de",
+"hyp": "www.omirosis.de",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "QUALITE",
+"hyp": "OUALI",
+"cer": 0.429
+},
+{
+"lang": "en",
+"gt": "System",
+"hyp": "System",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "distribution",
+"hyp": "distribution",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "Dubai",
+"hyp": "Dubai",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "STO",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "NETGEAR",
+"hyp": "NETGEAR",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "District",
+"hyp": "District",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "GOSSIP",
+"hyp": "GOSSIP",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "Demeocq",
+"hyp": "Demeocq",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "quotidiano",
+"hyp": "Euotidiano",
+"cer": 0.1
+},
+{
+"lang": "en",
+"gt": "Metro",
+"hyp": "Metro",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "DEPOSER",
+"hyp": "DEPOSER",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "WOMEN'S",
+"hyp": "WOMEN'S",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "COMUNE",
+"hyp": "COMUNE",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "FURNISHED",
+"hyp": "FURNISHED",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "149",
+"hyp": "149",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "Parking",
+"hyp": "Parking",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "Caralina's",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "T",
+"hyp": "T",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "22",
+"hyp": "22",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "resioui'",
+"hyp": "RESIDU",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "IX",
+"hyp": "X",
+"cer": 0.5
+},
+{
+"lang": "en",
+"gt": "de",
+"hyp": "d e",
+"cer": 0.5
+},
+{
+"lang": "en",
+"gt": "OSUOTICO",
+"hyp": "OSMOTICC",
+"cer": 0.25
+},
+{
+"lang": "en",
+"gt": "Super",
+"hyp": "Suber",
+"cer": 0.2
+},
+{
+"lang": "en",
+"gt": "INDIA",
+"hyp": "LNDA",
+"cer": 0.4
+},
+{
+"lang": "en",
+"gt": "Berufsfeldorientierung",
+"hyp": "Berufsfeldorientierung",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "Gocce",
+"hyp": "Gocce",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "No",
+"hyp": "No",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "ALE",
+"hyp": "ALE",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "MILANO",
+"hyp": "MLANO",
+"cer": 0.167
+},
+{
+"lang": "en",
+"gt": "5",
+"hyp": "E্র",
+"cer": 3.0
+},
+{
+"lang": "en",
+"gt": "creiamo",
+"hyp": "creiamo",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "OF",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "BOUTIQUE",
+"hyp": "Biuc",
+"cer": 0.875
+},
+{
+"lang": "en",
+"gt": "LINEA",
+"hyp": "LINEA",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "on",
+"hyp": "on",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "PALOMA",
+"hyp": "LNON",
+"cer": 0.833
+},
+{
+"lang": "en",
+"gt": "de",
+"hyp": "de",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "lhren",
+"hyp": "Ihren",
+"cer": 0.2
+},
+{
+"lang": "en",
+"gt": "1-chome",
+"hyp": "1chome",
+"cer": 0.143
+},
+{
+"lang": "en",
+"gt": "15,M.B.Road.Kol-49",
+"hyp": "15,M.B.Road.Kol-49",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "ist",
+"hyp": "ist",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "Office",
+"hyp": "Office",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "CON",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "3.2",
+"hyp": "3.2",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "ASHAKIRAN",
+"hyp": "E",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "DOOKIE",
+"hyp": "DOOKE",
+"cer": 0.167
+},
+{
+"lang": "en",
+"gt": "2871",
+"hyp": "DQ COII",
+"cer": 1.75
+},
+{
+"lang": "en",
+"gt": "The",
+"hyp": "The",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "DI",
+"hyp": "TO",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "cass",
+"hyp": "cass",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "minutes",
+"hyp": "minutes",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "2017",
+"hyp": "2017",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "REALE",
+"hyp": "REALE",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "DIGITAL",
+"hyp": "DIGITAL",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "60",
+"hyp": "60",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "0555",
+"hyp": "০555",
+"cer": 0.25
+},
+{
+"lang": "en",
+"gt": "000-0000",
+"hyp": "000-0000",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "TRILOCALE",
+"hyp": "ERILOCAE",
+"cer": 0.222
+},
+{
+"lang": "en",
+"gt": "Zarina's",
+"hyp": "Zatinad",
+"cer": 0.375
+},
+{
+"lang": "en",
+"gt": "en",
+"hyp": "en",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "AI",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "TRENTINI",
+"hyp": "TRENTINI",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "NATALE",
+"hyp": "NATALE",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "PER",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "zum",
+"hyp": "zum",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "1,4g",
+"hyp": "1.47",
+"cer": 0.5
+},
+{
+"lang": "en",
+"gt": "Öffnungszeiten",
+"hyp": "Offnungszeiten",
+"cer": 0.071
+},
+{
+"lang": "en",
+"gt": "cu",
+"hyp": "cu",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "175",
+"hyp": "175",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "SERA",
+"hyp": "SERA",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "ARRÊT",
+"hyp": "ARRÉT",
+"cer": 0.2
+},
+{
+"lang": "en",
+"gt": "BAIYUN",
+"hyp": "BAIYUN",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "Papyrus",
+"hyp": "E",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "JACOBS",
+"hyp": "JACOES",
+"cer": 0.167
+},
+{
+"lang": "en",
+"gt": "Zoo",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "B.",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "n°",
+"hyp": "n",
+"cer": 0.5
+},
+{
+"lang": "en",
+"gt": "NASTR",
+"hyp": "NASTE",
+"cer": 0.2
+},
+{
+"lang": "en",
+"gt": "ntonio",
+"hyp": "ntonio",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "Nach",
+"hyp": "Nach",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "noodle",
+"hyp": "noodle",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "THE",
+"hyp": "THE",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "2016",
+"hyp": "2016",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "X",
+"hyp": "A",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "safer",
+"hyp": "safer",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "IL",
+"hyp": "II",
+"cer": 0.5
+},
+{
+"lang": "en",
+"gt": "E.49.00",
+"hyp": "E.48.09",
+"cer": 0.286
+},
+{
+"lang": "en",
+"gt": "Sasa",
+"hyp": "DS",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "10",
+"hyp": "1",
+"cer": 0.5
+},
+{
+"lang": "en",
+"gt": "ROMANA",
+"hyp": "ROMANA",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "WORTH",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "(200g)",
+"hyp": "Cpag",
+"cer": 0.833
+},
+{
+"lang": "en",
+"gt": "Siegen",
+"hyp": "Siegen",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "pas",
+"hyp": "pos",
+"cer": 0.333
+},
+{
+"lang": "en",
+"gt": "QUESTA",
+"hyp": "QUESTA",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "TUI",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "pickup",
+"hyp": "plckup",
+"cer": 0.167
+},
+{
+"lang": "en",
+"gt": "be",
+"hyp": "be",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "VOYAGEZ",
+"hyp": "VOYAGEZ",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "AppStore",
+"hyp": "App Store",
+"cer": 0.125
+},
+{
+"lang": "en",
+"gt": "si",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "WE",
+"hyp": "I WE",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "PL",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "Down",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "MEDICALES",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "NATURA",
+"hyp": "NATURA",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "CA",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "YAMAHA",
+"hyp": "Y",
+"cer": 0.833
+},
+{
+"lang": "en",
+"gt": "fantasic",
+"hyp": "fantasia",
+"cer": 0.125
+},
+{
+"lang": "en",
+"gt": "me",
+"hyp": "ne",
+"cer": 0.5
+},
+{
+"lang": "en",
+"gt": "BIG",
+"hyp": "D",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "FIOR",
+"hyp": "FIOR",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "PASSED",
+"hyp": "PASSED",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "FRIEDRICHSTRASSE",
+"hyp": "FRIEDRICHSTRASSE",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "WTO",
+"hyp": "Ae",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "HOT",
+"hyp": "n",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "spez.",
+"hyp": "spez.",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "B440",
+"hyp": "B440",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "âme",
+"hyp": "ame",
+"cer": 0.333
+},
+{
+"lang": "en",
+"gt": "MARIA",
+"hyp": "MARIA",
+"cer": 0.0
+}
+]
+}

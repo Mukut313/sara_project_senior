@@ -1,0 +1,31 @@
+{
+ "run": "r2",
+ "step": 72000,
+ "params_M": 2.263,
+ "input": "1x48xW grey",
+ "validation_fp32": {
+  "bn": 0.14282577656261866,
+  "en": 0.12100327450327451,
+  "rendered": 0.002774003623188406,
+  "score": 0.08886768489636053
+ },
+ "validation_int8": {
+  "bn": 0.16054173312068049,
+  "en": 0.1178008658008658,
+  "rendered": 0.002144607843137255,
+  "score": 0.09349573558822784
+ },
+ "int8_kept": true,
+ "training": {
+  "name": "r2",
+  "steps": 80000,
+  "bs": 128,
+  "lr": 0.002,
+  "workers": 13,
+  "real": 0.3,
+  "width": 1.0,
+  "eval": 3000,
+  "seed": 42,
+  "init": "ocr_bench/rec5_runs/r1_step9000.pt"
+ }
+}

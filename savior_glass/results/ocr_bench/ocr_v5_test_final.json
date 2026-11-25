@@ -1,0 +1,264 @@
+{
+ "split": "test",
+ "label": "final",
+ "minutes": 8.1,
+ "settings": {
+  "OCR5_BOX_THRESH": 0.5,
+  "OCR5_CROP_PAD": 0.0,
+  "OCR5_DB_THRESH": 0.3,
+  "OCR5_DESKEW_MIN_DEG": 4.0,
+  "OCR5_DET_BACKEND": "cpu",
+  "OCR5_DET_LIMIT": 960,
+  "OCR5_DET_ONNX": "D:\\SARA senior project - clean clone\\savior_glass\\models\\ppocr\\ppocrv5_mobile_det.onnx",
+  "OCR5_EVEN_LIGHT_FIND": false,
+  "OCR5_EVEN_LIGHT_READ": false,
+  "OCR5_FLATTEN_PAGE": true,
+  "OCR5_GROUP": 6,
+  "OCR5_MAIN_BLOCK": "auto",
+  "OCR5_MIN_CONF": 0.45,
+  "OCR5_MIN_LINE_PX": 7.0,
+  "OCR5_PAGE_MIN_LINES": 3,
+  "OCR5_RECOGNIZER": "sara",
+  "OCR5_REC_DIR": "D:\\SARA senior project - clean clone\\savior_glass\\models\\ocr5_rec",
+  "OCR5_REC_INT8": false,
+  "OCR5_THREADS": 4,
+  "OCR5_TRY_FLIP": true,
+  "OCR5_UNCLIP": 1.6
+ },
+ "rec_model": {
+  "run": "r2",
+  "step": 72000,
+  "params_M": 2.263,
+  "input": "1x48xW grey",
+  "validation_fp32": {
+   "bn": 0.14282577656261866,
+   "en": 0.12100327450327451,
+   "rendered": 0.002774003623188406,
+   "score": 0.08886768489636053
+  },
+  "validation_int8": {
+   "bn": 0.16054173312068049,
+   "en": 0.1178008658008658,
+   "rendered": 0.002144607843137255,
+   "score": 0.09349573558822784
+  },
+  "int8_kept": true,
+  "training": {
+   "name": "r2",
+   "steps": 80000,
+   "bs": 128,
+   "lr": 0.002,
+   "workers": 13,
+   "real": 0.3,
+   "width": 1.0,
+   "eval": 3000,
+   "seed": 42,
+   "init": "ocr_bench/rec5_runs/r1_step9000.pt"
+  }
+ },
+ "rendered": {
+  "overall": {
+   "n": 432,
+   "cer": 0.04041238089467579,
+   "wer": 0.06983024691358024,
+   "exact": 0.9143518518518519
+  },
+  "bn": {
+   "n": 216,
+   "cer": 0.06032422438672439,
+   "wer": 0.08333333333333333,
+   "exact": 0.9027777777777778
+  },
+  "en": {
+   "n": 216,
+   "cer": 0.020500537402627184,
+   "wer": 0.05632716049382716,
+   "exact": 0.9259259259259259
+  },
+  "by_cond": {
+   "clean": {
+    "all": {
+     "n": 144,
+     "cer": 0.027028469215969218,
+     "wer": 0.06481481481481481,
+     "exact": 0.9236111111111112
+    },
+    "bn": {
+     "n": 72,
+     "cer": 0.04722222222222222,
+     "wer": 0.06944444444444445,
+     "exact": 0.9305555555555556
+    }
+   },
+   "scene": {
+    "all": {
+     "n": 144,
+     "cer": 0.06857736033674502,
+     "wer": 0.09606481481481481,
+     "exact": 0.875
+    },
+    "bn": {
+     "n": 72,
+     "cer": 0.08844020562770563,
+     "wer": 0.1111111111111111,
+     "exact": 0.8611111111111112
+    }
+   },
+   "wild": {
+    "all": {
+     "n": 144,
+     "cer": 0.02563131313131313,
+     "wer": 0.04861111111111111,
+     "exact": 0.9444444444444444
+    },
+    "bn": {
+     "n": 72,
+     "cer": 0.045310245310245315,
+     "wer": 0.06944444444444445,
+     "exact": 0.9166666666666666
+    }
+   }
+  },
+  "per_seed_cer": [
+   0.03421638059795954,
+   0.057523761265537585,
+   0.029497000820530233
+  ],
+  "per_seed_bn_cer": [
+   0.05960948773448774,
+   0.06808035714285715,
+   0.053282828282828286
+  ],
+  "cer_seed_sd": 0.015005586960133816,
+  "latency_ms_median": 193.04419995751232
+ },
+ "real_words": {
+  "bn": {
+   "n_images": 500,
+   "n_words": 500,
+   "cer": 0.3259,
+   "wer": 0.566,
+   "cer_without_zero_width": 0.3255,
+   "nothing_read": 0.12,
+   "word_exact": 0.46,
+   "latency_ms_median": 439.5
+  },
+  "en": {
+   "n_images": 500,
+   "n_words": 500,
+   "cer": 0.3034,
+   "wer": 0.492,
+   "cer_without_zero_width": 0.3034,
+   "nothing_read": 0.122,
+   "word_exact": 0.526,
+   "latency_ms_median": 431.2
+  },
+  "mean_cer": 0.3146
+ },
+ "ocr_v4_same_sets": {
+  "real_words": {
+   "bn": {
+    "n_images": 500,
+    "n_words": 500,
+    "cer": 0.2106,
+    "wer": 0.436,
+    "cer_without_zero_width": 0.2103,
+    "nothing_read": 0.042,
+    "word_exact": 0.572,
+    "latency_ms_median": 3697.6
+   },
+   "en": {
+    "n_images": 500,
+    "n_words": 500,
+    "cer": 0.3808,
+    "wer": 0.628,
+    "cer_without_zero_width": 0.3808,
+    "nothing_read": 0.172,
+    "word_exact": 0.406,
+    "latency_ms_median": 3720.0
+   },
+   "mean_cer": 0.2957
+  },
+  "rendered": {
+   "cer": 0.0142,
+   "cer_bn": 0.015,
+   "cer_en": 0.0135,
+   "wer": 0.0417,
+   "n_images": 432
+  },
+  "error_examples": [
+   {
+    "lang": "bn",
+    "gt": "ও",
+    "hyp": "12",
+    "cer": 2.0
+   },
+   {
+    "lang": "bn",
+    "gt": "পদযাত্রা",
+    "hyp": "যুর নিংটন-বেলা-২টা",
+    "cer": 2.0
+   },
+   {
+    "lang": "en",
+    "gt": "P",
+    "hyp": "P4H",
+    "cer": 2.0
+   },
+   {
+    "lang": "en",
+    "gt": "M",
+    "hyp": "oV",
+    "cer": 2.0
+   },
+   {
+    "lang": "bn",
+    "gt": "গিফ্ট",
+    "hyp": "সামsা পsn",
+    "cer": 1.8
+   },
+   {
+    "lang": "bn",
+    "gt": "বঃ",
+    "hyp": "0 0",
+    "cer": 1.5
+   },
+   {
+    "lang": "en",
+    "gt": "it",
+    "hyp": "ffE",
+    "cer": 1.5
+   },
+   {
+    "lang": "en",
+    "gt": "on",
+    "hyp": "I77",
+    "cer": 1.5
+   },
+   {
+    "lang": "bn",
+    "gt": "ডল",
+    "hyp": "",
+    "cer": 1.0
+   },
+   {
+    "lang": "bn",
+    "gt": "নং",
+    "hyp": "",
+    "cer": 1.0
+   },
+   {
+    "lang": "bn",
+    "gt": "জা",
+    "hyp": "",
+    "cer": 1.0
+   },
+   {
+    "lang": "bn",
+    "gt": "ও",
+    "hyp": "",
+    "cer": 1.0
+   }
+  ]
+ }
+}

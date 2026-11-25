@@ -1,0 +1,599 @@
+"""
+Smart Glass Configuration
+All tunable constants in one place.
+"""
+import os
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+
+def _raspberry_pi_5() -> bool:
+    """True only when this process is running on a Raspberry Pi 5."""
+    try:
+        text = open("/proc/device-tree/model", encoding="utf-8", errors="ignore").read()
+    except OSError:
+        return False
+    return "Raspberry Pi 5" in text
+
+
+ON_RASPBERRY_PI_5 = _raspberry_pi_5()
+
+# ---------------------------------------------------------------------------
+# GPIO Pin Numbers (BCM mode — works with rpi-lgpio on RPi 5)
+# ---------------------------------------------------------------------------
+BUTTON_MODE     = 17   # Cycle through modes
+BUTTON_ACTION   = 27   # Capture frame / trigger detection (object & currency: announce immediately;
+                       #   OCR: snap + OCR + store text in the session — does NOT speak it yet)
+BUTTON_READ     = 24   # Speak back the OCR text most recently stored by ACTION (OCR mode only)
+BUTTON_VOL_UP   = 22   # Volume up
+BUTTON_VOL_DOWN = 23   # Volume down
+BUTTON_DEBOUNCE_MS = 250
+
+# ---------------------------------------------------------------------------
+# Camera
+# ---------------------------------------------------------------------------
+# Camera. CAMERA_BACKEND: auto (Pi ribbon camera through picamera2 if one is detected, else OpenCV),
+# picamera2, or opencv. CAMERA_INDEX is the first OpenCV device tried; other /dev/video* devices are tried
+# after it. Both can be set from the environment. Check what the Pi sees with: python scripts/check_camera.py
+CAMERA_BACKEND = os.environ.get("CAMERA_BACKEND", "auto")
+CAMERA_INDEX  = int(os.environ.get("CAMERA_INDEX", "0"))
+# Capture size. 640 x 480 is what the Pi was benchmarked at. A larger size gives text and notes more pixels
+# (try CAMERA_WIDTH=1280 CAMERA_HEIGHT=720 on a webcam, 1640 x 1232 on the Pi Camera v2) at the cost of speed.
+CAMERA_WIDTH  = int(os.environ.get("CAMERA_WIDTH", "640"))
+CAMERA_HEIGHT = int(os.environ.get("CAMERA_HEIGHT", "480"))
+CAMERA_FPS    = 30
+# The C270 sits upside down on the glass: every frame is turned 180 degrees there. Off on Windows (laptop webcam);
+# CAMERA_ROTATE_180=0 or 1 overrides.
+CAMERA_ROTATE_180 = os.environ.get("CAMERA_ROTATE_180", "0" if os.name == "nt" else "1") == "1"
+FRAME_BUFFER_SIZE = 2  # deque maxlen — keep only the freshest frames
+
+# ---------------------------------------------------------------------------
+# Application Modes
+# ---------------------------------------------------------------------------
+MODE_OCR      = 0
+MODE_OBJECT   = 1
+MODE_CURRENCY = 2
+MODE_CLAUDE   = 3   # Online Claude vision (internet + API key required)
+MODE_EMOTION  = 4   # Facial expression of the nearest face (modes/emotion_mode.py)
+
+# Bangla mode announcements spoken on switch
+MODE_NAMES_BN = [
+    "টেক্সট রিডিং মোড",        # Text Reading Mode (offline EasyOCR)
+    "অবজেক্ট ডিটেকশন মোড",     # Object Detection Mode
+    "কারেন্সি ডিটেকশন মোড",    # Currency Detection Mode
+    "অনলাইন ক্লড মোড",         # Online Claude (Windows: C key)
+    "ইমোশন ডিটেকশন মোড",       # Emotion Detection Mode
+]
+
+# ---------------------------------------------------------------------------
+# Model Paths
+# ---------------------------------------------------------------------------
+# Object model. YOLOv8s is more accurate (mAP@0.5 0.551 against 0.453 for YOLOv8n on all of COCO val2017) and slower:
+# on the Raspberry Pi 5, 562 ms against 227 ms per scan (benchmark_report/REPORT.md, 13 October 2026, a hot board).
+# YOLO_MODEL=yolov8n.pt chooses the faster one, for example when the board runs hot.
+# OBJECT_PROFILE=fast uses YOLOv8n (Pi 5: 195 ms a scan against 468 ms; COCO mAP@0.5 lower, see the thesis table),
+# OBJECT_PROFILE=accurate (default) YOLOv8s. YOLO_MODEL names a file directly and wins over the profile.
+OBJECT_PROFILE = os.environ.get("OBJECT_PROFILE", "accurate")
+YOLO_MODEL_PATH     = os.path.join(BASE_DIR, "models", os.environ.get(
+    "YOLO_MODEL", "yolov8n.pt" if OBJECT_PROFILE == "fast" else "yolov8s.pt"))
+YOLO_MODEL_FALLBACK = os.path.join(BASE_DIR, "models", "yolov8n.pt")
+# OBJECT_BACKEND=hailo runs the object detector on a Raspberry Pi AI HAT (Hailo-8): Hailo's compile of the same COCO
+# YOLOv8s (hailo_yolo.py), about 12 ms a picture on the chip against about 450 ms for yolov8s.pt on the CPU. Off by
+# default; when the chip or the HEF is missing, or the chip fails while running, object mode falls back to the CPU model.
+# AI_HAT=1 turns on every AI HAT path at once (object detector, text detector); each still falls back to the CPU on
+# its own when the chip can't be used. OBJECT_BACKEND / OCR_DETECTOR set explicitly win over it.
+AI_HAT = os.environ.get("AI_HAT", "0") == "1"
+OBJECT_BACKEND = os.environ.get("OBJECT_BACKEND", "hailo" if AI_HAT else "cpu").strip().lower()
+HAILO_YOLO_HEF = os.environ.get("HAILO_YOLO_HEF", "/usr/share/hailo-models/yolov8s_h8.hef")
+CURRENCY_MODEL_PATH = os.path.join(BASE_DIR, "models", "currency_mobilenet.pt")
+# On a Pi 5 the measured device model is the 18 MB INT8 detector. Elsewhere keep the
+# PyTorch weights; ONNX is slower to start when onnxruntime is missing.
+_DETECTOR_DIR = os.path.abspath(os.path.join(BASE_DIR, "..", "realtime_bangla_taka_detection", "models"))
+# Since 15 October 2026: the detector fine-tuned with hand-held close-ups (realtime_bangla_taka_detection/
+# scripts/train_closeups.py; epoch and threshold chosen on validation; paper_evidence/HANDHELD_FINETUNE.md).
+# Test, read once: NSTU hand-held close-ups 11.8 % -> 47.5 % right (laptop), 8.7 % -> 33.5 % (Pi, 8-bit); Bangla
+# Money 89.6 % -> 94.1 % (laptop), 88.7 % -> 87.6 % (Pi). Each file has its own announce threshold below.
+# CURRENCY_DETECTOR=v1 goes back to the earlier detector and its 0.60 threshold.
+# Since 29 October 2026 the Pi runs the same full-precision file as the laptop. The 8-bit copy lowers the confidence on
+# close-ups (hand-held validation at 0.75: 38.4 % right against 49.7 %, results/closeup_ft/handheld_int8.json), and in
+# the two app sessions on the Pi that day 7 of 10 currency presses stayed below its 0.80 threshold (1 found no note)
+# (benchmark_report/raw/field/). Cost on the Pi (29 October, earlier detector, same YOLOv8s): PyTorch 556 ms against
+# 261 ms for 8-bit. CURRENCY_DETECTOR=int8 goes back to the 8-bit file and its 0.80 threshold.
+# Since 23 November 2026 (default "nstu"): the hand-held detector re-trained with NSTU-BDTAKA train photos
+# (realtime_bangla_taka_detection/scripts/dataset/make_nstu_weak.py; epoch and threshold chosen on validation by
+# eval_nstu_weak.py, the 8-bit copy by eval_nstu_int8.py; test read once). NSTU hand-held test, right answers:
+# laptop 47.5 % -> 94.7 % (best_nstu.pt, 0.85), Pi 8-bit 88.7 % (best_nstu_int8.onnx, 0.90; the 8-bit copy of the
+# earlier detector 33.5 %). Bangla Money: 94.1 % -> 85.9 % (laptop file), 91.4 % (8-bit file). The Pi uses the 8-bit
+# file: better than the earlier full-precision Pi detector on NSTU (88.7 % against 47.5 %), 2.7 points lower on Bangla
+# Money, about half the time. CURRENCY_DETECTOR=handheld (earlier full-precision file, 0.75), int8 (its 8-bit copy,
+# 0.80), nstu_fp32 (best_nstu.pt on the Pi too) or v1 go back.
+# Default since 23 November 2026, "cascade": the NSTU re-trained detector answers when it is sure (laptop best_nstu.pt
+# at 0.85, Pi best_nstu_int8.onnx at 0.90), otherwise the earlier hand-held detector answers at its own 0.75. Chosen
+# on validation by realtime_bangla_taka_detection/scripts/eval/eval_detector_cascade.py (results/nstu_weak/
+# cascade.json); test read once, right answers: NSTU hand-held 47.5 % -> 95.7 % laptop / 90.2 % Pi; Bangla Money
+# 94.1 % -> 95.8 % / 97.1 %; whole flat BanglaTaka photos 95.1 % -> 95.1 % / 94.7 %. Either model alone loses on one
+# kind of picture (the NSTU one alone answers only about half of the whole flat notes).
+_det = os.environ.get("CURRENCY_DETECTOR", "cascade")
+_cascade = _det == "cascade"
+if _cascade:
+    _first = "best_nstu_int8.onnx" if ON_RASPBERRY_PI_5 else "best_nstu.pt"
+    if os.path.isfile(os.path.join(_DETECTOR_DIR, _first)) and os.path.isfile(os.path.join(_DETECTOR_DIR, "best_handheld.pt")):
+        CURRENCY_FIRST_PATH = os.path.join(_DETECTOR_DIR, _first)
+        CURRENCY_FIRST_CONF = 0.90 if ON_RASPBERRY_PI_5 else 0.85
+    else:                                                              # files not pulled yet: the hand-held one alone
+        _cascade = False
+    _det = "handheld"
+if not _cascade:
+    CURRENCY_FIRST_PATH, CURRENCY_FIRST_CONF = "", 1.0
+_v1 = _det == "v1"
+_int8 = ON_RASPBERRY_PI_5 and _det == "int8"
+_nstu = _det in ("nstu", "nstu_fp32")
+_nstu_int8 = _det == "nstu" and ON_RASPBERRY_PI_5
+if _nstu:
+    _cur_file = "best_nstu_int8.onnx" if _nstu_int8 else "best_nstu.pt"
+else:
+    _cur_file = ("best_int8.onnx" if ON_RASPBERRY_PI_5 else "best.pt") if _v1 else \
+        ("best_handheld_int8.onnx" if _int8 else "best_handheld.pt")
+if _nstu and not os.path.isfile(os.path.join(_DETECTOR_DIR, _cur_file)):   # new file not pulled yet: the hand-held one
+    _nstu, _nstu_int8, _cur_file = False, False, "best_handheld.pt"
+if not os.path.isfile(os.path.join(_DETECTOR_DIR, _cur_file)):          # new file not pulled yet: the earlier one
+    _v1, _cur_file = True, ("best_int8.onnx" if ON_RASPBERRY_PI_5 else "best.pt")
+CURRENCY_YOLO_PATH = os.path.join(_DETECTOR_DIR, _cur_file)
+HAPTIC_PIN          = 13   # BCM — vibration motor for note confirmation
+
+# Genuine/jaal verdict on the detected note. Off: on whole-note photos of genuine notes the
+# JaalTaka-trained checker said "jaal" for 20-59 % of them and missed 40 % of counterfeits
+# (paper_evidence/JAAL_VERDICT_FIXED.md). The app says the check was not done instead.
+# Turn on only with a checker validated on whole-note photos.
+JAAL_VERDICT_ENABLED = False
+
+# BD_Counterfeit EfficientNet auth (models/bd_counterfeit_auth.pt): 200 / 500 / 1000.
+# Locked test: 100% image/note accuracy with mean conf ~0.999 (see
+# realtime_bangla_taka_detection/results/bd_counterfeit_auth_metrics.json).
+# Glass speak: "সম্ভবত আসল" when REAL at >= BD_AUTH_MIN_CONF, else "হাতে যাচাই করুন".
+# Never speaks "জাল" to the wearer.
+BD_AUTH_ENABLED = True
+# Raised 0.90 → 0.95 after robust finetune + TTA (results/bd_auth_jump.json): fewer false REAL.
+BD_AUTH_MIN_CONF = 0.95
+BD_AUTH_DENOMINATIONS = ("200_taka", "500_taka", "1000_taka")
+_bd_main = os.path.abspath(os.path.join(
+    BASE_DIR, "..", "realtime_bangla_taka_detection", "models", "bd_counterfeit_auth.pt"))
+_bd_robust = os.path.abspath(os.path.join(
+    BASE_DIR, "..", "realtime_bangla_taka_detection", "models", "bd_counterfeit_auth_robust.pt"))
+BD_AUTH_WEIGHTS = _bd_robust if os.path.isfile(_bd_robust) else _bd_main
+# SARA Trust Index: multi-signal blind-safe packet (reason + next action + stars). Never says জাল.
+SARA_TRUST_ENABLED = True
+SARA_TRUST_MIN_FOR_GENUINE = 80
+
+# Safe counterfeit check (policy E, paper_evidence/JAAL_VERDICT_FIXED.md, 2026-09-29).
+# Used only when BD_AUTH_ENABLED is off or BD weights are missing.
+# 500 / 1000 Taka only. Four JaalTaka-style views are cut from the note crop and scored by PRMVT.
+# The glass says "সম্ভবত আসল" (likely genuine) only if p(genuine) > JAAL_SAFE_TAU, otherwise
+# "হাতে যাচাই করুন" (check by hand). It never says "জাল" (counterfeit).
+# JAAL_SAFE_TAU is the highest score of any JaalTaka VALIDATION counterfeit note. Measured once:
+# 0 / 88 JaalTaka test counterfeits and 0 / 25 whole-note counterfeit photos were passed.
+JAAL_SAFE_POLICY_ENABLED = True
+JAAL_SAFE_TAU = 0.9995918869972229
+JAAL_SAFE_DENOMINATIONS = ("500_taka", "1000_taka")
+# View windows (x0, y0, x1, y1) on the landscape note crop, medians over 200 JaalTaka TRAIN notes
+# (realtime_bangla_taka_detection/results/jaal_whole/view_geometry.json).
+# Back-lit watermark check. Off by default since 29 October 2026, on the Pi too: with the glass's C270 webcam all 6
+# guided checks in the two app sessions timed out after 10 s (65 of 111 frames blurry, 46 with no note;
+# benchmark_report/raw/field/), and a press during that time was ignored. Its thresholds were set on JaalTaka photos,
+# not on this camera. WATERMARK_CHECK_ENABLED=1 turns it on. It never says "counterfeit".
+_wm_env = os.environ.get("WATERMARK_CHECK_ENABLED")
+WATERMARK_CHECK_ENABLED = False if _wm_env is None else _wm_env == "1"
+WATERMARK_MODEL_PATH = os.path.abspath(os.path.join(
+    BASE_DIR, "..", "realtime_bangla_taka_detection", "models", "watermark_mobilenetv2_int8.onnx"))  # MobileNetV2 INT8, chosen on VAL AUC; same decisions as FP32
+WATERMARK_CLEAR_THRESHOLD = 0.5
+# Learned watermark localizer (no template, no SIFT). Seed chosen on VALIDATION corner error (seed 42).
+# On unseen-print test notes it ties the SIFT path (92.4 vs 92.9 %, McNemar p = 1.0) and also covers the 25 / 222
+# photos SIFT cannot register (realtime_bangla_taka_detection/results/watermark_localizer/). SIFT stays the fallback.
+WATERMARK_LOCALIZER_PATH = os.path.abspath(os.path.join(
+    BASE_DIR, "..", "realtime_bangla_taka_detection", "models", "watermark_localizer_seed42.onnx"))
+# Guided capture for the watermark check (modes/capture_guide.py): after a 500 / 1,000 Taka note is
+# announced, ask the user to hold it to the light, reject dark / blurry frames, then check.
+# Thresholds: 2nd percentile of JaalTaka VALIDATION back-lit photos
+# (realtime_bangla_taka_detection/results/capture_guide/thresholds.json); on test photos they accept
+# 213 / 222 clean and 0 / 222 darkened or defocused. Recalibrate on the glass camera before the study.
+_cg_env = os.environ.get("CAPTURE_GUIDE_ENABLED")
+CAPTURE_GUIDE_ENABLED = WATERMARK_CHECK_ENABLED if _cg_env is None else _cg_env == "1"
+CAPTURE_GUIDE_MIN_MEAN = 73.87
+CAPTURE_GUIDE_MIN_LAPVAR = 106.75
+CAPTURE_GUIDE_TIMEOUT_S = 10.0
+# User-study condition (STUDY_CONDITION): "guided" uses the thresholds above; "unguided" asks once for the
+# light and checks the first frame with a note in it (no dark / blur rejection). Logged with every check.
+STUDY_CONDITION = os.environ.get("STUDY_CONDITION", "guided")
+CAPTURE_GUIDE_PROMPT_GAP_S = 2.5
+
+# UV security-fibre check (modes/uv_check.py) for 200, 500 and 1,000 Taka notes: a genuine note shows short glowing
+# fibres under a UV lamp, on paper that stays dull. OFF by default: it was measured on phone photographs only, not
+# through the glass camera, and never on a counterfeit note (none were available).
+# Measured on 118 phone photographs of genuine notes (results/uv_check/):
+#  * 2026-10-12, one split by capture order (uv_fibre_check.json): 29 of 43 test notes accepted (67 %). The threshold
+#    (14) had been set on front-side photographs and was tested on back-side ones taken from further away.
+#  * 2026-10-13, blocked 5-fold cross-validation over capture order, threshold from the other four blocks, same rule
+#    (uv_blocked_cv.json): 103 of 111 accepted (92.8 %, Wilson 95 % 86.4-96.3; 200 Taka 45/45, 500 Taka 36/40,
+#    1,000 Taka 22/26); all 71 patches of the plain surface beside the note rejected.
+#  * 2026-10-13, evening: a SIMULATION with fibre-free printed sheets (scripts/uv_stress_sim.py) showed that the check
+#    above also accepted them: with JPEG compression 93 % of 120 simulated sheets passed, because the colour smear at
+#    print edges was counted as fibres. Most of what had been counted on genuine notes was of the same kind.
+#    A brightness condition did not help (balanced accuracy 0.50). A COLOUR condition does: a fibre pixel must be
+#    less blue than the paper by more than UV_COLOUR_THRESHOLD and lie on lit paper. Nested blocked 5-fold with
+#    development and held-out sheets (scripts/uv_robust_study.py, results/uv_check/uv_robust_study.json):
+#    95 of 111 genuine photographs accepted (85.6 %, Wilson 77.9-90.9) and 88.6 % of held-out simulated sheets
+#    rejected. With the setting below (chosen on all genuine photographs and the development sheets) 223 of 240
+#    held-out sheets are rejected (JPEG 50: 48 of 60). The old check rejected 4 of 240.
+# Still not measured: a real counterfeit note, real printed paper under the lamp, and the glass camera. The fibre-free
+# side is a simulation. Slight blur hides fibres, so the UV picture must be close and sharp.
+UV_CHECK_ENABLED = os.environ.get("UV_CHECK_ENABLED", "0") == "1"
+UV_DENOMINATIONS = ("200_taka", "500_taka", "1000_taka")
+UV_MIN_FIBRES = int(os.environ.get("UV_MIN_FIBRES", "1"))       # see above; set again for the glass camera
+UV_REL_THRESHOLD = 0.12                                        # fibre brightness relative to the local lamp level
+UV_COLOUR_THRESHOLD = float(os.environ.get("UV_COLOUR_THRESHOLD", "0.22"))   # how much less blue than the paper a fibre must be
+UV_LUM_THRESHOLD = 0.0                                         # brightness condition: tried, no gain, off
+# 2026-11-24, the first REAL counterfeit notes under UV (36 pictures, 12 serials, data set/fake_bd_cur/uv_fake_cur; the
+# notes carry no fibres): the check above accepted all 36 - glowing printed ink (letters, guilloche, outlines) was
+# counted as fibres. Such marks lie close together; a genuine fibre lies on its own. Now only ISOLATED fibres count
+# (no other candidate mark within UV_ISOLATION_PX at 600 px width), and a picture with more than UV_MAX_CLUSTERED
+# non-isolated fibres is not accepted. Chosen on train + validation notes by scripts/uv_fibre_v2.py
+# (results/uv_auth/fibre_v2.json): test, read once - genuine 20/23 accepted as before, counterfeits 6/6 -> 1/6; with
+# each class given the other's colours, 20/23 and 0/6 (a colour shortcut fell to 0/23 and 6/6). The counterfeits were
+# CamScanner scans, the genuine notes glass-camera photos. UV_ISOLATION_PX=0 gives the earlier check back.
+UV_ISOLATION_PX = float(os.environ.get("UV_ISOLATION_PX", "10"))
+UV_MAX_CLUSTERED = int(os.environ.get("UV_MAX_CLUSTERED", "20"))
+_uv_pin = os.environ.get("UV_LIGHT_PIN", "")
+UV_LIGHT_PIN = int(_uv_pin) if _uv_pin else None               # BCM pin that switches the lamp; None = lamp switched by hand
+UV_SETTLE_S = 0.4
+UV_TIMEOUT_S = 6.0
+# The word "counterfeit" is not spoken unless this is switched on by hand. A worn or washed genuine note can lose its
+# fibres, and the user cannot check the answer; the default wording is "UV marks not found, check by hand".
+UV_SAY_COUNTERFEIT = os.environ.get("UV_SAY_COUNTERFEIT", "0") == "1"
+# A press with the note under the UV lamp (since 29 October 2026): the frame is almost only blue, so currency mode answers
+# with the UV fibre check above for that press, with no extra step to switch on. Picture taken under the lamp when its
+# mean blue is more than UV_FRAME_BG_RATIO times its mean green; set midway between the bluest ordinary validation photo
+# and the least blue UV calibration photo or webcam-style frame of one (scripts/uv_frame_rule.py,
+# results/uv_check/uv_frame_rule.json: test 47 of 47 UV photos recognised, 0 of 2,282 ordinary photos taken). Not measured
+# with the C270 webcam. UV_FRAME_CHECK_ENABLED=0 turns it off.
+UV_FRAME_CHECK_ENABLED = os.environ.get("UV_FRAME_CHECK_ENABLED", "1") == "1"
+UV_FRAME_BG_RATIO = float(os.environ.get("UV_FRAME_BG_RATIO", "2.136"))
+UV_FRAME_EXTRA_S = 2.0          # no fibres on the press frame: look at more frames for this long
+JAAL_VIEW_WINDOWS = (
+    (0.0, 0.0, 0.4758, 1.0),
+    (0.2843, 0.0, 0.8256, 1.0),
+    (0.5725, 0.0, 1.0, 1.0),
+    (0.5094, 0.0, 1.0, 1.0),
+)
+
+# Announce a Taka denomination only when the top detector box reaches this confidence.
+# Chosen on validation only (NSTU validation notes + demonetized notes and coins as unknowns);
+# on the Bangla Money test it cut 1-taka notes announced as another value from 43.6 % to 22.8 %
+# and kept 89.6 % of known notes correct (was 91.5 %). paper_evidence/OPEN_SET_REJECTION.md
+# Threshold of the detector in use, each chosen by the same open-set rule on the same validation pool
+# (eval_open_set.py, eval_closeup_ft.py tau, eval_handheld_int8.py): earlier detector 0.60; hand-held detector 0.75
+# (full precision) and 0.80 (8-bit, Pi).
+CURRENCY_ANNOUNCE_CONF = 0.60 if _v1 else (0.90 if _nstu_int8 else 0.85 if _nstu else 0.80 if _int8 else 0.75)
+# Several notes in one picture: count the sure ones and speak the total ("3 notes: ..., total 650 Taka").
+# Both numbers were fixed before the test (the announce confidence above and an overlap of 0.5 for "same note");
+# measured in scripts/eval_multi_note.py, results/multi_note_total.json. Counterfeit checks stay single-note.
+CURRENCY_COUNT_NOTES = os.environ.get("CURRENCY_COUNT_NOTES", "1") == "1"
+CURRENCY_COUNT_IOU = 0.5
+LABELS_BN_PATH      = os.path.join(BASE_DIR, "assets", "labels_bn.json")
+
+# Piper TTS models. Binary is project-local (models/piper/engine/), not /usr/local/bin, because
+# installing there needs sudo and this deploy has none; the binary's RUNPATH is $ORIGIN so its
+# bundled .so files are found alongside it without an installer step.
+PIPER_EN_MODEL = os.path.join(BASE_DIR, "models", "piper", "en_US-amy-low.onnx")
+PIPER_BN_MODEL = os.path.join(BASE_DIR, "models", "piper", "bn_BD-google-medium.onnx")
+PIPER_BINARY   = os.path.join(BASE_DIR, "models", "piper", "engine", "piper")
+
+# ---------------------------------------------------------------------------
+# Text-to-Speech
+# ---------------------------------------------------------------------------
+ESPEAK_VOICE_BN  = "bn"      # espeak-ng Bangla voice code
+ESPEAK_VOICE_EN  = "en-us"   # espeak-ng English voice code
+# Words per minute. 135 is slower than espeak's 150 for clarity. On the Pi 175 wpm would cut speech time by ~27 %;
+# that trades clarity for speed and is for blind users to judge, so the default stays 135. Try it with ESPEAK_SPEED=175.
+ESPEAK_SPEED     = int(os.environ.get("ESPEAK_SPEED", "135"))
+ESPEAK_PITCH     = 45         # 0-99, default 50; slightly lower reads less shrill/robotic
+ESPEAK_WORD_GAP  = 4          # 1/100s pause between words — improves intelligibility
+DEFAULT_VOLUME   = 80         # percent (0–100)
+VOLUME_STEP      = 10         # percent per button press
+TTS_QUEUE_MAXSIZE = 5         # drop old items if queue fills
+TTS_INTER_UTTERANCE_PAUSE = 0.15  # seconds between queued utterances (sentences/segments)
+# Which voice speaks: "auto" = Piper where its model is installed (natural voice), espeak-ng otherwise;
+# "espeak" = espeak-ng only (the lightest; use it if Piper is too slow on a hot board).
+TTS_VOICE = os.environ.get("TTS_VOICE", "auto")
+# Piper speaking rate: 1.0 is the voice's own pace, above 1 is slower. For blind listeners to judge.
+PIPER_LENGTH_SCALE = float(os.environ.get("PIPER_LENGTH_SCALE", "1.0"))
+# Silence played before and after each piece, so the sound device does not swallow the first or last syllable.
+TTS_LEAD_IN_MS = int(os.environ.get("TTS_LEAD_IN_MS", "150"))
+TTS_TAIL_MS = 80
+# Text reading takes many seconds on the Pi. So that the user knows the press was taken, the glass says "reading"
+# at once and gives a soft tick every OCR_PROGRESS_TICK_S seconds until the answer comes (0 = no ticks).
+OCR_PROGRESS_CUE = os.environ.get("OCR_PROGRESS_CUE", "1") == "1"
+OCR_PROGRESS_TICK_S = float(os.environ.get("OCR_PROGRESS_TICK_S", "4"))
+
+# ---------------------------------------------------------------------------
+# Voice commands (voice_commands.py): offline, English command words, Vosk small model
+# ---------------------------------------------------------------------------
+# "auto" = on when the recogniser, its model and a microphone are there; "0" = off; "1" = on.
+VOICE_COMMANDS = os.environ.get("VOICE_COMMANDS", "auto")
+VOICE_CMD_MODEL = os.path.join(BASE_DIR, "models", "vosk", "vosk-model-small-en-us-0.15")
+# Every word of a command must be recognised with at least this confidence, or the command is ignored.
+VOICE_CMD_MIN_CONF = float(os.environ.get("VOICE_CMD_MIN_CONF", "0.5"))
+VOICE_CMD_WAKE = os.environ.get("VOICE_WAKE_WORD", "glass")     # say "glass, read text"; VOICE_WAKE_WORD= (empty) turns it off
+VOICE_CMD_MIC = os.environ.get("VOICE_MIC", "")                 # part of the microphone's name; empty = system default
+VOICE_CMD_DEAF_AFTER_SPEECH_S = 0.4                             # the room still rings a little after the glass spoke
+VOICE_CMD_SETTLE_S = 1.2                                        # after a mode change by voice, before the capture
+# Chosen 15 October 2026 on 8 design voices, measured once on 12 held-out voices (scripts/voice_eval.py,
+# results/voice_eval.json, paper_evidence/VOICE_COMMANDS_FAST.md): wake word "glass", unknown words at the edges
+# ignored, word confidence 0.5, Vosk's own end of speech, no front end. Held-out: clean 100 %, whisper 98.9 %,
+# street noise at 0 dB 82.5 %, other people talking at 10 dB 54.3 % (was 3.2 %); false commands 13 of 5,040
+# ordinary sentences (was 212).
+# Early decision on a settled partial result, and the audio front end ("none", "denoise", "level", "denoise+level").
+# Both are chosen by scripts/voice_eval.py on the design voices; the defaults below are the chosen ones.
+VOICE_CMD_EARLY = os.environ.get("VOICE_CMD_EARLY", "0") == "1"
+VOICE_CMD_FRONTEND = os.environ.get("VOICE_CMD_FRONTEND", "none")
+VOICE_CMD_ENDPOINT = os.environ.get("VOICE_CMD_ENDPOINT", "vosk")          # or "vad" (Silero; needs silero-vad)
+VOICE_CMD_VAD_END_CHUNKS = int(os.environ.get("VOICE_CMD_VAD_END_CHUNKS", "8"))   # 32 ms chunks of non-speech = end
+VOICE_CMD_STRIP_EDGES = os.environ.get("VOICE_CMD_STRIP_EDGES", "1") == "1"      # wake mode: ignore [unk] at the edges
+
+# ---------------------------------------------------------------------------
+# Online Claude (optional — EasyOCR stays the offline text reader)
+# ---------------------------------------------------------------------------
+ANTHROPIC_API_KEY = os.environ.get("ANTHROPIC_API_KEY", "")
+CLAUDE_MODEL = os.environ.get("CLAUDE_MODEL", "claude-sonnet-4-5")
+CLAUDE_MAX_TOKENS = 600
+# Second online provider (modes/claude_mode.py). Used when only OPENAI_API_KEY is set, or with ONLINE_PROVIDER=openai.
+OPENAI_MODEL = os.environ.get("OPENAI_MODEL", "gpt-5.4-mini")
+
+# Emotion-adaptive feedback (E key in Windows test)
+EMOTION_ADAPTIVE_DEFAULT = True
+
+# ---------------------------------------------------------------------------
+# Inference Thresholds
+# ---------------------------------------------------------------------------
+# EasyOCR decoder. beamsearch (beamWidth=5) is what scripts/eval_ocr_offline.py measured CER
+# with (paper_evidence) and is more accurate on mixed Bangla/English text. Tried greedy on this
+# Pi 5 expecting a speedup (2026-10-01): median went from 18.7 s to 20.6 s (n=8 each) — slightly
+# *slower*, not faster. The ~19 s cost is not the beam-search decode step; it is EasyOCR's text
+# detector running on CPU before decoding ever starts, so switching decoders doesn't touch the
+# bottleneck. Kept beamsearch as the default for its measured accuracy. Override with
+# OCR_DECODER=greedy only if you want to re-check that result yourself.
+OCR_DECODER = os.environ.get("OCR_DECODER", "beamsearch")
+OCR_BEAM_WIDTH = 5
+# EasyOCR's detector scales the input toward canvas_size before running CRAFT. The glass frame is 640 px wide.
+# Pi 5 timing (2026-10-01, one frame): 2560 -> 20.2 s, 640 -> 6.9 s.
+# Choice made on a SELECTION set (24 phrases not in the lexicon, new image seeds, 80 images), rule fixed before
+# the run: smallest canvas whose raw CER is within 0.5 points of 2560 (results/ocr_select_canvas*.json).
+#   raw CER 2560: 13.29 %, 640: 13.84 % (+0.55, Bangla 24.5 -> 25.6 %), 480: 15.37 %, 320: 19.15 %.
+# 640 misses the margin by 0.05 points (paired Wilcoxon p = 0.48, not significant), so the default stays 2560.
+# OCR_CANVAS_SIZE=640 is the fast option: ~2.5-3x faster for about one point more Bangla character error.
+OCR_CANVAS_SIZE = int(os.environ.get("OCR_CANVAS_SIZE", "2560"))
+# EasyOCR group_text_box: a box whose slope is below this value is merged as a horizontal line.
+# The default 0.1 is about tan(6 degrees), which is the rotation used in the offline renderer,
+# so tilted lines were sent to the free-box path instead of the line merger.
+# Chosen on a validation phrase list that is not the 24-phrase set and not the 80-image phrase
+# list (12 Bangla + 12 English, image seeds 9000/9100/9200, 144 images, GPU). Rule fixed first:
+# lowest raw character error, then Bangla error, then seconds. slope_ths=0.2 won
+# (raw 0.0926, Bangla 0.1713) against the default 0.1 (raw 0.1417, Bangla 0.2168).
+# The 24-phrase set and the 80-image set were read once after that choice
+# (results/ocr_improve_summary.json). They were not used to pick the value.
+# 24-phrase raw 0.1162 (baseline 0.1329), Bangla 0.2324 (baseline 0.2449).
+# 80-image raw 0.0831 (baseline 0.0990), Bangla 0.1428 (baseline 0.1746).
+OCR_SLOPE_THS = float(os.environ.get("OCR_SLOPE_THS", "0.2"))
+
+# OCR pipeline v2 (paper_evidence/OCR_TEXT_REGION.md and the other OCR_*.md files, 2026-10-02).
+# Chosen on a validation set of 48 new phrases drawn with correct Bangla shaping (HarfBuzz) in two fonts,
+# three image seeds, clean / distorted / photo-scene images. Held-out test (48 other phrases, three other fonts),
+# read once: character error 9.3 % (pipeline below "legacy") -> 2.4 %; Bangla 11.9 -> 3.2 %; English 6.6 -> 1.6 %.
+#   CLAHE preprocessing, EasyOCR text_threshold 0.8 / low_text 0.3 / slope_ths 0.4 / adjust_contrast 0.7,
+#   keep the dominant text block (boxes with confidence >= 0.2), lines in reading order, text cleanup rules.
+#   The lexicon repair is off in v2: on phrases outside its 24-phrase list it raised error (val 2.83 -> 4.59 %).
+# OCR_PIPELINE=legacy restores the earlier path (bilateral + CLAHE, confidence >= OCR_CONFIDENCE, lexicon repair).
+OCR_PIPELINE = os.environ.get("OCR_PIPELINE", "v2")
+OCR_V2_PARAMS = {"text_threshold": 0.8, "low_text": 0.3, "link_threshold": 0.4, "mag_ratio": 1.0, "contrast_ths": 0.1,
+                 "adjust_contrast": 0.7, "slope_ths": 0.4}
+# Words the recogniser is less sure about than this are dropped. 0.2 was chosen on rendered text. On real word
+# photographs (ICDAR 2019 MLT) a quarter to a half of the words were then not read at all, so four settings were
+# compared on a real validation sample (150 Bangla + 150 Latin-script words, disjoint from the test words;
+# ocr_bench/real_words_tune.py, results/ocr_bench/real_words_tune.json, 2026-10-13). Rule fixed beforehand: lowest
+# real-validation CER among settings whose rendered-validation CER stays within 0.5 points. 0.1 won: real validation
+# 47.8 % against 51.1 %, rendered validation 2.58 % against 2.14 %. On the 1,000 real test words, read once:
+# Bangla 39.2 % (was 41.7 %), Latin script 62.5 % (was 64.9 %); nothing read on 17 % and 38 % (was 25 % and 48 %).
+OCR_V2_MIN_CONF = 0.1
+# When nothing is read, try the picture turned by 90 degrees each way (text standing on its side). Measured on
+# 14 October 2026 (ocr_bench/real_ft_eval.py, step 2): fewer Latin-script words left unread (32.7 -> 28.7 %) but the
+# same real-validation CER (36.65 %), and the rule asked for a lower CER. Off.
+OCR_ROTATE_FALLBACK = os.environ.get("OCR_ROTATE_FALLBACK", "0") == "1"
+# Also retry turned by 90 degrees when the main block's mean confidence is below this (0 = off), keeping the most
+# confident reading. Candidate of ocr_bench/ocr_v3_eval.py; see the decision there before changing it.
+OCR_ROTATE_LOWCONF = float(os.environ.get("OCR_ROTATE_LOWCONF", "0"))
+# Margin EasyOCR adds around each text box before recognising it, as a fraction of the box height (EasyOCR's own
+# default 0.1). Candidate of ocr_bench/ocr_v3_eval.py.
+OCR_ADD_MARGIN = float(os.environ.get("OCR_ADD_MARGIN", "0.1"))
+# Second text-detection pass when the first keeps nothing (ocr_mode._second_pass); None = off. Detector settings
+# that replace the first pass's, and the mean recogniser confidence the reading needs to be kept.
+# Since 23 November 2026 on (candidate S/SV of ocr_bench/ocr_v4_eval.py, chosen on validation): picture at half size,
+# text 0.6, low-text 0.25, kept if the mean confidence is >= 0.2. OCR_SECOND_PASS=0 turns it off.
+OCR_SECOND_PASS = (None if os.environ.get("OCR_SECOND_PASS", "1") == "0"
+                   else {"mag_ratio": 0.5, "text_threshold": 0.6, "low_text": 0.25})
+OCR_SECOND_PASS_MIN_CONF = float(os.environ.get("OCR_SECOND_PASS_MIN_CONF", "0.2"))
+# Letter recogniser (ocr_recognizer_ft.py). Since 14 October 2026: EasyOCR's recogniser fine-tuned on real word
+# photographs (ICDAR 2019 MLT) and blended half and half with the released weights (seed 44), chosen on validation by
+# the rule in ocr_bench/real_ft_eval.py. Test, read once: real words Bangla CER 39.2 -> 28.7 %, Latin script
+# 62.5 -> 50.6 %; rendered test 2.46 -> 2.27 %. Same network, same speed. paper_evidence/OCR_REAL_IMPROVED.md.
+# Fully fine-tuned models were better on real words but worse on printed English, over the 0.5-point rule.
+# Since 23 November 2026: version 2 (ocr_bench/train_real_words_v2.py: all training words, 8,000 steps, augmentation
+# copying the glass's path), blended the same way, chosen with the second pass as candidate SV of
+# ocr_bench/ocr_v4_eval.py (validation mean CER 36.5 -> 25.9 %); shipped by ocr_bench/ship_v4.py. The October blend
+# is still in models/ocr_recognizer_real_blend.
+# OCR_RECOGNIZER_PATH="" gives EasyOCR's released weights back.
+OCR_RECOGNIZER_PATH = os.environ.get("OCR_RECOGNIZER_PATH", os.path.join(BASE_DIR, "models", "ocr_recognizer_real_v2_blend"))
+# Decoder for pipeline v2. Whole-page benchmark (ocr_bench/page_bench.py, laptop CPU limited to 4 threads like the
+# Pi, results/ocr_bench/page_speed_compare.json, 2026-10-11): greedy reads a 12-line page in 6.5 s against 8.9 s
+# for beam search, with the same validation error (48 val phrases x 3 seeds: 2.14 % vs 2.18 %; Bangla 1.59 vs
+# 1.64 %). Rule as for the canvas: keep the faster setting only if validation error stays within 0.5 points.
+# Batch size 16 gave no speed-up; reading at the camera's own size was 41 % faster but +0.74 points error (rejected).
+# The legacy pipeline keeps OCR_DECODER.
+OCR_V2_DECODER = os.environ.get("OCR_V2_DECODER", "greedy")
+# A picture narrower than this is enlarged to this width before reading (the camera gives 640). The detector's time
+# grows with the number of pixels. Study of 14 October 2026 (ocr_bench/width_study.py, results/ocr_bench/width_study.json):
+# the validation rule picked 880, but the one test read did not confirm it (rendered test CER 3.15 % against 2.46 %
+# at 1,200; printed Bangla 4.9 %), and validation varied with width in no order. Kept at 1,200, a cautious departure
+# from the rule. OCR_READ_WIDTH=880 is the faster option; its Pi speed is timed by scripts/pi_check_all.sh.
+OCR_READ_WIDTH = int(os.environ.get("OCR_READ_WIDTH", "1200"))
+# Text detector on the CPU: "auto" uses the ONNX Runtime copy of CRAFT when models/craft_fp32.onnx exists (about twice
+# as fast on four CPU threads with the same validation error, ocr_detector_onnx.py), otherwise PyTorch.
+# "onnx_int8" is faster again but costs 0.65 points of validation error, over the 0.5-point rule: opt-in only.
+# "torch" forces the original detector. Not yet timed on the Raspberry Pi.
+# With the recogniser trained on real words (14 October 2026) the Pi's configuration scores 2.86 % rendered validation
+# CER against the 2.58 % reference, +0.28 points, inside the 0.5-point rule (results/ocr_bench/blend_ship_check.json).
+# ON THE RASPBERRY PI 5 THE DEFAULT IS "onnx_int8" (since 14 October 2026). This is a deliberate exception to the
+# 0.5-point rule, made for speed: on the Pi one pass of the full-precision detector took 11 to 18 s
+# (benchmark_report/REPORT.md, 13 October), and the 8-bit Taka detector is 1.9 times faster than its full-precision
+# version on the same board. Cost, measured on the laptop with the settings now in use: rendered validation CER
+# 3.15 % against 2.58 % (+0.57 points; results/ocr_bench/detector_int8_variants.json). The speed of the 8-bit text
+# detector on the Pi itself has NOT been measured yet. To go back: OCR_DETECTOR=onnx.
+OCR_DETECTOR = os.environ.get("OCR_DETECTOR", "hailo" if AI_HAT else ("onnx_int8" if ON_RASPBERRY_PI_5 else "auto"))
+OCR_DETECTOR_ONNX = os.path.join(BASE_DIR, "models", "craft_fp32.onnx")
+OCR_DETECTOR_ONNX_INT8 = os.path.join(BASE_DIR, "models", "craft_int8_minmax128.onnx")   # MinMax calibration, 128 images
+# OCR_DETECTOR=hailo (opt-in, see hailo_text_detector.py): text is FOUND on the Raspberry Pi AI HAT by Hailo's stock
+# PP-OCRv5 mobile detector; SARA's letter recogniser still reads it on the CPU. If the chip can't be used, the CPU
+# detector below (OCR_HAILO_CPU_FALLBACK) is used instead. OCR_HAILO_MODE: "tile" (picture at its own size, 4 windows)
+# or "resize" (one window).
+HAILO_OCR_DET_HEF = os.environ.get("HAILO_OCR_DET_HEF", os.path.join(BASE_DIR, "models", "hailo", "paddle_ocr_v5_mobile_detection.hef"))
+OCR_HAILO_MODE = os.environ.get("OCR_HAILO_MODE", "tile")
+OCR_HAILO_CPU_FALLBACK = os.environ.get("OCR_HAILO_CPU_FALLBACK", "onnx_int8" if ON_RASPBERRY_PI_5 else "auto")
+# Pages: when the main text block holds at least OCR_STREAM_MIN_LINES lines, each line is spoken as soon as it is
+# read, while the rest of the page is still being read. Measured (results/ocr_bench/page_streaming.json, same 4-thread
+# laptop): first line after 5.5 s on a 12-line page; validation error unchanged (2.14 %, 432 images). Fewer lines
+# (signs, labels) take the normal path. Without the main-text-block rule on pages, validation error rose to 4.95 %
+# (results/ocr_bench/page_streaming_control.json), so the rule is applied on both paths. Not yet timed on the Pi.
+OCR_STREAM_PAGES = os.environ.get("OCR_STREAM_PAGES", "1") == "1"
+OCR_STREAM_MIN_LINES = int(os.environ.get("OCR_STREAM_MIN_LINES", "4"))
+
+# ---------------------------------------------------------------------------
+# OCR v5 (ocr_v5.py): scanner-style reading. Page found and flattened, text lines found by the PP-OCRv5 mobile
+# detector (on the AI HAT with AI_HAT=1, else ONNX on the CPU: the same network both ways), every line cut along its
+# own tilt and read by SARA's own Bangla + English line recogniser (ocr_bench/rec5, ONNX, 2.3 M parameters).
+# No PyTorch / EasyOCR is loaded in this path. OCR_PIPELINE=v2 gives the EasyOCR reader back.
+OCR5_REC_DIR = os.environ.get("OCR5_REC_DIR", os.path.join(BASE_DIR, "models", "ocr5_rec"))
+OCR5_DET_ONNX = os.environ.get("OCR5_DET_ONNX", os.path.join(BASE_DIR, "models", "ppocr", "ppocrv5_mobile_det.onnx"))
+_OCR5_READY = os.path.exists(OCR5_DET_ONNX) and (os.path.exists(os.path.join(OCR5_REC_DIR, "rec.onnx"))
+                                                or os.environ.get("OCR5_RECOGNIZER", "sara") == "easyocr")
+if "OCR_PIPELINE" not in os.environ and _OCR5_READY:
+    OCR_PIPELINE = "v5"
+OCR5_DET_BACKEND = os.environ.get("OCR5_DET_BACKEND", "hailo" if AI_HAT else "cpu")
+OCR5_DET_LIMIT = int(os.environ.get("OCR5_DET_LIMIT", "960"))       # CPU detector: longer side scaled to this
+OCR5_THREADS = int(os.environ.get("OCR5_THREADS", "4" if ON_RASPBERRY_PI_5 else "0"))   # 0 = ONNX Runtime decides
+# 8-bit recogniser (rec_int8.onnx): ~1.8x faster, but Bangla validation CER 16.1 % against 14.3 % for full precision
+# (models/ocr5_rec/model.json). Full precision is the default: a 12-line page costs well under a second of reading.
+OCR5_REC_INT8 = os.environ.get("OCR5_REC_INT8", "0") == "1"
+# Line reader inside v5: "sara" (own ONNX model, fast, no PyTorch) or "easyocr" (the earlier fine-tuned EasyOCR
+# reader on the v5 line crops: needs PyTorch, ~0.8 s a line on the Pi's CPU).
+OCR5_RECOGNIZER = os.environ.get("OCR5_RECOGNIZER", "sara")
+OCR5_FLATTEN_PAGE = os.environ.get("OCR5_FLATTEN_PAGE", "1") == "1"   # find a page outline and warp it flat
+OCR5_PAGE_MIN_LINES = int(os.environ.get("OCR5_PAGE_MIN_LINES", "3"))  # ... only when it holds this many lines
+OCR5_EVEN_LIGHT_FIND = os.environ.get("OCR5_EVEN_LIGHT_FIND", "0") == "1"
+OCR5_EVEN_LIGHT_READ = os.environ.get("OCR5_EVEN_LIGHT_READ", "0") == "1"
+OCR5_DESKEW_MIN_DEG = float(os.environ.get("OCR5_DESKEW_MIN_DEG", "4"))
+OCR5_DB_THRESH = float(os.environ.get("OCR5_DB_THRESH", "0.3"))
+OCR5_BOX_THRESH = float(os.environ.get("OCR5_BOX_THRESH", "0.5"))
+OCR5_UNCLIP = float(os.environ.get("OCR5_UNCLIP", "1.6"))
+OCR5_MIN_LINE_PX = float(os.environ.get("OCR5_MIN_LINE_PX", "7"))
+OCR5_CROP_PAD = float(os.environ.get("OCR5_CROP_PAD", "0.0"))
+OCR5_MIN_CONF = float(os.environ.get("OCR5_MIN_CONF", "0.45"))      # lines read with less confidence are not spoken
+OCR5_MAIN_BLOCK = os.environ.get("OCR5_MAIN_BLOCK", "auto")          # auto = main text block only when no page found
+# Four-point warp from the text itself when no page edge is visible (doc_scanner.text_quad): applied when the text
+# block is tilted or keystoned by more than OCR5_TEXT_WARP_MIN_DEG degrees.
+OCR5_TEXT_WARP = os.environ.get("OCR5_TEXT_WARP", "1") == "1"
+OCR5_TEXT_WARP_MIN_DEG = float(os.environ.get("OCR5_TEXT_WARP_MIN_DEG", "1.5"))
+# Scanner-style clean-up (doc_scanner.enhance): of the picture the lines are read from, and of the text finder's view.
+# Modes: none, even, evensoft, clahe, sharp, denoise, combined with "+". Chosen on validation data by
+# ocr_bench/rec5/tune_scan.py (results/ocr_bench/scan_tune.json, 2026-11-25), mean of val pages / close-up val pages /
+# rendered val CER: no warp, no filter 3.79 %; text warp 3.57 %; + the finder sees an evened-out (shadow-free)
+# picture 3.38 % (chosen; close-up pages 6.42 -> 5.42 %). Filters on the picture the READER sees did not help
+# (whitening, CLAHE, sharpening: 3.55-3.91 %): the recogniser was trained on natural camera pictures.
+OCR5_ENHANCE = os.environ.get("OCR5_ENHANCE", "none")
+OCR5_ENHANCE_FIND = os.environ.get("OCR5_ENHANCE_FIND", "even")
+# ... used only when the plain picture already shows this many lines (pages, labels); never on single words / signs
+OCR5_FIND_ENHANCE_MIN_LINES = int(os.environ.get("OCR5_FIND_ENHANCE_MIN_LINES", "3"))
+OCR5_GROUP = int(os.environ.get("OCR5_GROUP", "6"))
+# Test-time clean-up: lines are read again cleaned up (comma list of doc_scanner.enhance modes) and the most
+# confident reading is kept; only lines read with less than OCR5_TTA_BELOW confidence (1.01 = every line). "" = off.
+# Chosen on validation by ocr_bench/rec5/tune_tta.py (results/ocr_bench/tta_tune.json, 2026-11-25): mean CER of val
+# pages / close-up pages / rendered / real words 10.68 % off -> 10.36 % with "sharp,clahe" on every line (real words
+# 31.8 -> 30.8 %, rendered 3.69 -> 3.40 %, pages unchanged). Two extra reads per line, ~3 ms each on the laptop.
+OCR5_TTA = os.environ.get("OCR5_TTA", "sharp,clahe")
+OCR5_TTA_BELOW = float(os.environ.get("OCR5_TTA_BELOW", "1.01"))
+OCR5_TTA_MARGIN = float(os.environ.get("OCR5_TTA_MARGIN", "0.02"))
+OCR5_TRY_FLIP = os.environ.get("OCR5_TRY_FLIP", "1") == "1"
+# Auto capture (doc_scanner.AutoCapture): in text mode the glass watches the camera and reads by itself as soon as
+# text is in view and the picture is steady and sharp, once per page; it says "bring it closer" / "hold still" when
+# needed. ACTION still reads at once. OCR_AUTO_CAPTURE=0 = button only, as before.
+OCR_AUTO_CAPTURE = os.environ.get("OCR_AUTO_CAPTURE", "1") == "1"
+OCR_AUTO_FPS = float(os.environ.get("OCR_AUTO_FPS", "8"))
+OCR_AUTO_STEADY_S = float(os.environ.get("OCR_AUTO_STEADY_S", "0.5"))
+OCR_AUTO_HINTS = os.environ.get("OCR_AUTO_HINTS", "1") == "1"
+# Auto capture reads by itself only when the text lines are at least this share of the picture height (0.028 = 20 px
+# at 1280 x 720); smaller text gets the spoken hint "bring it closer" first. Raised from 0.022 (16 px) after the first
+# real webcam tests (25 Nov 2026): pages read at 14-16 px line height had most of the letter errors.
+OCR_AUTO_MIN_LINE_FRAC = float(os.environ.get("OCR_AUTO_MIN_LINE_FRAC", "0.028"))
+# Capture size while text mode is on (the other modes keep CAMERA_WIDTH x CAMERA_HEIGHT). At 640 x 480 a line of
+# printed text held at reading distance is only ~6 px tall on the C270; at 1280 x 720 about twice that.
+# OCR_CAMERA_WIDTH=0 = no switch.
+OCR_CAMERA_WIDTH = int(os.environ.get("OCR_CAMERA_WIDTH", "1280"))
+OCR_CAMERA_HEIGHT = int(os.environ.get("OCR_CAMERA_HEIGHT", "720"))
+
+# Speak the captured text immediately after ACTION (READ repeats it). 0 = only confirm the capture, as before.
+# Test preview (preview.py): run the current mode's own detector on the live picture every
+# PREVIEW_LIVE_INTERVAL_S seconds so its boxes follow the camera (currency notes, faces). Only the
+# window for sighted testers uses this; the blind user's headless glass never does. Set to 0 on a busy Pi.
+PREVIEW_LIVE_BOXES = os.environ.get("PREVIEW_LIVE_BOXES", "1") == "1"
+PREVIEW_LIVE_INTERVAL_S = float(os.environ.get("PREVIEW_LIVE_INTERVAL_S", "1.5" if ON_RASPBERRY_PI_5 else "0.7"))
+PREVIEW_CAPTURE_BOX_S = 15.0   # how long the boxes of one capture (text, online picture) stay on screen
+OCR_SPEAK_ON_CAPTURE = os.environ.get("OCR_SPEAK_ON_CAPTURE", "1") == "1"
+# Steadier reading (frame_pick.py, since 29 October 2026): after ACTION in text mode, look for this many seconds and read
+# the sharpest frame. Validation phrases with simulated hand shake, 144 images (scripts/eval_best_frame.py,
+# results/ocr_bench/best_frame.json): press frame shakier than the rest, CER 50.4 % -> 3.5 %; every frame shaken alike,
+# 28.0 % -> 3.8 % (least blurred frame 3.4 / 3.6 %). Real camera shake not measured. 0 turns it off.
+OCR_BEST_FRAME_S = float(os.environ.get("OCR_BEST_FRAME_S", "1.0"))
+OCR_CONFIDENCE      = 0.4    # EasyOCR minimum confidence
+OBJECT_CONFIDENCE   = 0.50   # YOLO minimum confidence
+# Stricter minimum for animals only. In dim indoor tests (2026-10-06) the COCO model called dark clutter
+# "cat" (0.39-0.48) and "dog" (0.48) while the real desk objects scored 0.55-0.65; 0.65 drops the false animals
+# and keeps those objects. Any class not listed uses OBJECT_CONFIDENCE.
+OBJECT_CLASS_CONFIDENCE = {name: 0.65 for name in (
+    "bird", "cat", "dog", "horse", "sheep", "cow", "elephant", "bear", "zebra", "giraffe", "teddy bear")}
+CURRENCY_CONFIDENCE = 0.65   # MobileNetV3 minimum softmax score
+OCR_MIN_CHARS       = 3      # Discard OCR hits shorter than this
+
+# ---------------------------------------------------------------------------
+# Timing / Cooldowns (seconds)
+# ---------------------------------------------------------------------------
+OBJECT_SCAN_INTERVAL      = 1.5   # Seconds between automatic object scans
+# Thermal governor (thermal.py): slows or pauses the automatic object scan and the live preview when the Pi is hot.
+THERMAL_GOVERNOR = os.environ.get("THERMAL_GOVERNOR", "1") == "1"
+THERMAL_WARM_C = float(os.environ.get("THERMAL_WARM_C", "72"))
+THERMAL_HOT_C = float(os.environ.get("THERMAL_HOT_C", "77"))
+THERMAL_CRITICAL_C = float(os.environ.get("THERMAL_CRITICAL_C", "81"))
+# Cooling down, the governor goes back one state at a time, each after this many seconds in the current state.
+THERMAL_RESUME_STEP_S = float(os.environ.get("THERMAL_RESUME_STEP_S", "30"))
+OBJECT_ANNOUNCE_COOLDOWN  = 4.0   # Per-class cooldown to avoid repetition
+DETECTION_THREAD_SLEEP    = 0.1   # Main loop sleep when not in object mode
+
+# ---------------------------------------------------------------------------
+# Logging
+# ---------------------------------------------------------------------------
+LOG_FILE        = os.path.join(BASE_DIR, "logs", "smart_glass.log")
+# Field-test log (field_log.py): logs/field/<run>/events.csv + system.csv + session.json, written by a background
+# thread in batches. FIELD_LOG_ENABLED=0 turns it off; FIELD_LOG_SAVE_FRAMES=1 also keeps one 640 px JPEG per
+# ACTION press (for checking answers later; capped at 2,000 frames and stops when under 500 MB is free).
+FIELD_LOG_ENABLED = os.environ.get("FIELD_LOG_ENABLED", "1") == "1"
+FIELD_LOG_DIR = os.environ.get("FIELD_LOG_DIR", os.path.join(BASE_DIR, "logs", "field"))
+FIELD_LOG_SYS_INTERVAL_S = float(os.environ.get("FIELD_LOG_SYS_INTERVAL_S", "10"))
+FIELD_LOG_SAVE_FRAMES = os.environ.get("FIELD_LOG_SAVE_FRAMES", "0") == "1"
+LOG_MAX_BYTES   = 5 * 1024 * 1024   # 5 MB
+LOG_BACKUP_COUNT = 3

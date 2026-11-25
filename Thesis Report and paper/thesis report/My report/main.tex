@@ -1,0 +1,173 @@
+\documentclass[12pt]{report}
+\usepackage{adjustbox}
+\usepackage{enumitem}
+\usepackage{placeins}
+\usepackage{amsmath}
+\numberwithin{table}{subsection}
+\usepackage{graphicx}
+\usepackage{amsmath, amssymb}
+\usepackage{newtxmath}   % mathematics to match the Times text
+% Compile with XeLaTeX: the real Times New Roman font for the whole report.
+% Loaded after newtxmath, so digits and operators in formulas are Times New Roman too.
+\usepackage{mathspec}    % loads fontspec; also puts Times New Roman digits and letters into formulas
+\setmainfont{Times New Roman}
+\setsansfont{Times New Roman}
+\setmonofont{Courier New}[Scale=0.92]
+\setmathsfont(Digits,Latin)[Numbers={Lining,Proportional}]{Times New Roman}
+\setmathrm{Times New Roman}
+% "%" and the hat accent in formulas would otherwise come from Latin Modern
+\let\pctchar\%
+\DeclareRobustCommand{\%}{\ifmmode\mbox{\pctchar}\else\pctchar\fi}
+\AtBeginDocument{\let\hat\widehat}
+\usepackage{microtype}
+\usepackage{subcaption}
+\usepackage{array}
+\usepackage{cellspace}
+\setlength\cellspacetoplimit{5pt}
+\setlength\cellspacebottomlimit{5pt}
+% Table cells set ragged-right, so that long words and file names do not run into the next column
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{M}[1]{>{\raggedright\arraybackslash}m{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash}p{#1}}
+\emergencystretch=2em
+\usepackage{titlesec}
+\usepackage{framed}
+\usepackage{fancybox}
+\usepackage[english]{babel}
+\usepackage{booktabs}
+\usepackage{xcolor}
+\usepackage{tabularx}
+\usepackage{makecell}
+\usepackage{multirow}
+\usepackage{listings}
+\usepackage[chapter]{algorithm}   % numbered algorithm boxes (Algorithm 3.1, ...)
+\usepackage{algpseudocode}
+\algrenewcommand\algorithmicrequire{\textbf{Input:}}
+\algrenewcommand\algorithmicensure{\textbf{Output:}}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows.meta, positioning, fit, backgrounds}
+\usepackage{hyperref}
+\usepackage{float}
+\usepackage[a4paper, top=1.5cm, bottom=2.5cm, left=2.5cm, right=2.5cm]{geometry}
+
+\hypersetup{hidelinks, pdftitle={A Wearable Assistive Glass for Authenticating Bangladeshi Banknotes: Fusing Physical Security Features and Deep Learning for Visually Impaired Users}}
+
+% All figures of this report are kept in this folder
+\graphicspath{{DIagram fig tab/}}
+
+% Code listing style
+\lstset{
+  basicstyle=\ttfamily\small,
+  breaklines=true,
+  frame=single,
+  columns=fullflexible,
+  keywordstyle=\bfseries,
+  showstringspaces=false
+}
+
+% TikZ styles for block diagrams
+\tikzset{
+  block/.style={rectangle, rounded corners, draw=black, fill=blue!8, minimum width=2.6cm, minimum height=1cm, align=center, font=\small},
+  io/.style={trapezium, trapezium left angle=70, trapezium right angle=110, draw=black, fill=orange!15, minimum height=1cm, align=center, font=\small},
+  decision/.style={diamond, aspect=2, draw=black, fill=green!10, align=center, font=\small, inner sep=1pt},
+  startstop/.style={rectangle, rounded corners=8pt, draw=black, fill=red!10, minimum width=2.6cm, minimum height=0.9cm, align=center, font=\small},
+  arrow/.style={-{Stealth[length=2.5mm]}, thick}
+}
+
+\usepackage{csquotes}
+
+% Bibliography with biblatex
+\usepackage[
+  backend=biber,
+  style=numeric,
+  sorting=none
+]{biblatex}
+\addbibresource{ref.bib}
+
+% Continuous figure numbering
+\usepackage{chngcntr}
+\counterwithout{figure}{chapter}
+
+% Section formatting
+\definecolor{headingblue}{HTML}{4F81BD}
+\newcommand{\headingfont}{\normalfont\bfseries\color{headingblue}}
+\titleformat{\chapter}[block]
+  {\headingfont\huge}{\thechapter}{1em}{\Huge}
+\titleformat{\section}
+  {\headingfont\Large}{\thesection}{1em}{}
+\titleformat{\subsection}
+  {\headingfont\large}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}
+  {\headingfont\normalsize}{\thesubsubsection}{1em}{}
+
+% List of tables: table numbers such as 2.10.0.1 need more room than the default
+\makeatletter
+\renewcommand*\l@table{\@dottedtocline{1}{1.5em}{4.6em}}
+\makeatother
+
+\begin{document}
+
+\begin{titlepage}
+    \centering
+    \includegraphics[width=0.5\textwidth]{iub_logo.png}\par\vspace{0.2cm}
+    {\Large \textbf{A Wearable Assistive Glass for Authenticating Bangladeshi Banknotes: Fusing Physical Security Features and Deep Learning for Visually Impaired Users}\par}
+    \vspace{0.3cm}
+    {\normalsize\itshape A bilingual (Bangla and English) smart glass that also reads printed Bangla and English text and detects everyday objects, offline on a Raspberry Pi~5\par}
+    \vspace{0.5cm}
+    {\Large Spring 2026 \par}
+    \vspace{1cm}
+    {\large Prepared by:\par}
+    \vspace{0.5cm}
+    {\large MD Abdun Fattah Lam\par}
+    {\large ID: 2220014\par}
+    \vspace{0.2cm}
+    {\large Mukut Protim Memo\par}
+    {\large ID: 2020086\par}
+    \vspace{0.2cm}
+    {\large Tanjila Hossain Tapti\par}
+    {\large ID: 2130561\par}
+    \vspace{1cm}
+    {\large Department of Computer Science and Engineering\par}
+    {\large Independent University, Bangladesh\par}
+    \vspace{1cm}
+    {\large Supervised by\par}
+    \vspace{0.5cm}
+    {\large Mohammad Shidujaman, PhD\par}
+    {\large Assistant Professor\par}
+    {\large Department of Computer Science and Engineering\par}
+    {\large School of Engineering, Technology and Sciences\par}
+    {\large Independent University, Bangladesh\par}
+\end{titlepage}
+
+\input{attestation}
+\input{evalcommittee}
+\input{acknow}
+
+\input{abstract}
+
+
+\tableofcontents
+\renewcommand\listfigurename{List of Figures}
+\listoffigures
+\listoftables
+\listofalgorithms
+
+\input{Introduction}
+
+\input{LiteratureReview}
+\input{methodology}
+\input{implementation}
+\input{datasurvey}
+\input{resultandchallenges}
+\input{conclusion}
+
+\appendix
+\chapter{Appendix}
+\input{Appendix}
+
+\phantomsection
+\nocite{*}
+\printbibliography[heading=bibintoc]
+
+\end{document}

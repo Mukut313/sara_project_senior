@@ -1,0 +1,1022 @@
+\clearpage
+\chapter{Result and Discussion}
+\label{chap:results}
+
+\section{Performance Evaluation Overview}
+
+The evaluation of SARA covers Taka detection, counterfeit authentication on known and on unseen prints, the watermark check, the safety of the spoken verdict, emotion recognition, text recognition, object detection, speed on the Raspberry Pi~5, and a first field test. Each module was evaluated on held-out data that was not used for training or model selection, using the protocol of Section~\ref{sec:protocol}. Evaluations were run on an NVIDIA RTX~3050 Laptop GPU; device figures were measured on a Raspberry Pi~5 with 8~GB of memory. Every number in this chapter was copied from a saved result file of the project. When a measurement does not exist, it is written as \textit{not measured} rather than estimated. Several figures differ from an earlier draft of this thesis; Section~\ref{sec:corrections} lists the corrections.
+
+\section{Taka Detection Performance}
+
+\subsection{Training Behaviour}
+The YOLOv8s detector was fine-tuned from COCO weights for 80 epochs at 640$\times$640 pixels with batch size 16, SGD (initial learning rate 0.01, momentum 0.937, weight decay 0.0005, three warm-up epochs), mosaic 1.0 and mixup 0.15. Horizontal and vertical flips were disabled because a mirrored note is not a real note. Training converged quickly: mAP@0.5 was above 0.97 after 8 epochs and above 0.99 after 11 epochs, while mAP@0.5:0.95 kept improving slowly as the boxes became tighter (Figure~\ref{fig:traincurves}).
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{fig_training_curves.png}
+    \caption{Training curves of the YOLOv8s Taka detector: box, class and DFL losses (top) and mAP@0.5, mAP@0.5:0.95, precision and recall (bottom) against epoch}
+    \label{fig:traincurves}
+\end{figure}
+
+\subsection{Results on Held-Out Composites}
+Table~\ref{tab:det_overall} reports the performance on the 2,282 held-out test composites.
+
+\begin{table}[!htbp]
+\centering
+\caption{Taka detection performance on the synthetic test set (2,282 images)}
+\label{tab:det_overall}
+\small
+\begin{tabular}{|L{4.6cm}|C{2.3cm}|L{7.2cm}|}
+\hline
+\textbf{Measure} & \textbf{Value} & \textbf{What it means} \\ \hline
+Precision & 0.995 & Of the notes the detector reported, 99.5\% were really there and correctly named \\ \hline
+Recall & 0.996 & Of the notes in the pictures, the detector found 99.6\% \\ \hline
+mAP@0.5 & 0.995 & Overall finding-and-naming score, with a box counted as correct if it overlaps the note by at least half (1.0 = perfect) \\ \hline
+mAP@0.5:0.95 & 0.849 & The same score with stricter box overlaps; lower, because the boxes are not always tight around the note \\ \hline
+Time per picture (RTX 3050 laptop graphics card) & 13.9 ms & Time for the detector itself \\ \hline
+Time to prepare the picture / to sort the boxes & 3.2 ms / 2.2 ms & Extra time before and after the detector \\ \hline
+mAP@0.5 on 566 fresh synthetic pictures & 0.992 & Almost the same on notes pasted onto backgrounds never seen in training \\ \hline
+\end{tabular}
+\end{table}
+
+The gap between mAP@0.5 (0.995) and mAP@0.5:0.95 (0.849) shows that the detector almost always finds and correctly names the note, but that the box edges are less precise at strict IoU thresholds. One plausible reason is the slight anti-aliasing at the pasted, warped note borders, which does not correspond to a sharp physical edge.
+
+\begin{table}[!htbp]
+\centering
+\caption{Per-denomination mAP@0.5:0.95 on the synthetic test set}
+\label{tab:det_perclass}
+\begin{tabular}{|L{2.4cm}|c|c|c|c|c|c|c|c|c|}
+\hline
+\textbf{Taka} & 2 & 5 & 10 & 20 & 50 & 100 & 200 & 500 & 1000 \\ \hline
+\textbf{mAP@ 0.5:0.95 (1 = perfect)} & 0.856 & 0.843 & 0.847 & 0.861 & 0.848 & 0.836 & 0.854 & 0.853 & 0.842 \\ \hline
+\end{tabular}
+\end{table}
+
+Results are uniform across the nine classes (Table~\ref{tab:det_perclass}, 0.836--0.861), including the smallest source class (10 Taka, 419 source images), so the model does not simply favour the most frequent class (500 Taka, 1,243 source images). The normalised confusion matrix (Figure~\ref{fig:det_confusion}) is almost perfectly diagonal; the remaining errors are missed or spurious detections against the background, not confusions between two denominations. For a currency reader this is the safer failure mode: the glass may ask the user to hold the note again, but it rarely names the wrong value.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{fig_confusion_matrix.png}
+    \caption{Normalised confusion matrix of the Taka detector on the synthetic test set}
+    \label{fig:det_confusion}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{fig_qualitative.jpg}
+    \caption{Example predictions on held-out composites with predicted class and confidence. The note is localised across different scales, rotations and backgrounds.}
+    \label{fig:qualitative}
+\end{figure}
+
+\subsection{Results on Raw Phone Photographs (Source Domain, Not Held Out)}
+Table~\ref{tab:wild} shows the result of the same detector on the 450 raw phone photographs (50 per denomination). A note counts as \textit{detected} if any box is predicted, and as \textit{correct} if the top-scoring box has the true denomination.
+
+\begin{table}[!htbp]
+\centering
+\caption{Taka detection on 450 raw phone photographs (50 per denomination). Source-domain check: these photographs come from the detector's training source and are not held out. Independent results: Table~\ref{tab:external}.}
+\label{tab:wild}
+\begin{tabular}{|l|C{1.9cm}|C{2.1cm}|C{1.9cm}|L{4.6cm}|}
+\hline
+\textbf{Real note} & \textbf{Note found (of 50)} & \textbf{Named correctly (of 50)} & \textbf{Named correctly (\%)} & \textbf{Mistakes} \\ \hline
+2 Taka & 49 & 47 & 94.0 & 2 called 5 Taka; 1 not found \\ \hline
+5 Taka & 50 & 50 & 100.0 & -- \\ \hline
+10 Taka & 48 & 48 & 96.0 & 2 not found \\ \hline
+20 Taka & 50 & 50 & 100.0 & -- \\ \hline
+50 Taka & 48 & 46 & 92.0 & 1 called 5 Taka; 1 called 500 Taka; 2 not found \\ \hline
+100 Taka & 48 & 48 & 96.0 & 2 not found \\ \hline
+200 Taka & 50 & 50 & 100.0 & -- \\ \hline
+500 Taka & 50 & 50 & 100.0 & -- \\ \hline
+1000 Taka & 50 & 47 & 94.0 & 3 called 500 Taka \\ \hline
+\textbf{Overall} & \textbf{443 (98.4\%)} & \textbf{436} & \textbf{96.9} & \textbf{7 not found; 7 called the wrong value} \\ \hline
+\end{tabular}
+\end{table}
+
+On raw photographs the detector finds 98.4\% of the notes and names 96.9\% correctly. Because these photographs come from the same source as the training foregrounds, this number does not measure transfer to new notes; the independent collections in Table~\ref{tab:external} do (91.5\% on Bangla Money). The errors are informative: 2 and 5 Taka are both small, similar-coloured notes, and the 1000 and 500 Taka notes share a similar layout and portrait. As explained in Chapter~\ref{chap:dataset}, some physical notes in this set may also occur in the training foregrounds, so this is an optimistic estimate. The 450 images were drawn from the raw folder without excluding the photographs used as training foregrounds, so this table is a source-domain check, not a test; the independent results below replace it as the real-photograph result.
+
+\subsection{Results on Independent Photographs}
+Two public collections that were never used for training or selection were scored with the same detector at confidence 0.25 (Table~\ref{tab:external}). A third, ``A Diverse Image Dataset for Bangladeshi Currency Recognition'', was excluded because its files are byte-identical to the training source.
+
+\begin{table}[!htbp]
+\centering
+\caption{Taka detection on independent photograph collections}
+\label{tab:external}
+\begin{tabular}{|L{5.6cm}|c|L{7.0cm}|}
+\hline
+\textbf{Photo collection (taken by other people)} & \textbf{Photos} & \textbf{Result} \\ \hline
+Bangla Money (Kaggle): whole notes of 8 types & 1,536 & Named correctly in 91.5\% of photos; no note found in 3.9\%; when a note was found, it was named correctly 95.2\% of the time \\ \hline
+NSTU-BDTAKA: photos with boxes drawn around the notes & 186 & Finds notes with a box score (AP@0.5, ignoring the value) of 0.796; 83.2\% of reported notes were real (precision); 69.4\% of real notes were found (recall) \\ \hline
+NSTU-BDTAKA: close-ups of folded notes held in a hand & 1,144 & Named correctly in only 18.5\%; no note found in 66.9\% \\ \hline
+Bangla Money: 1 Taka notes, which the detector was never taught & 101 & 57 not found (the right outcome); 44 wrongly named as another note (37 of them as 5 Taka) \\ \hline
+\end{tabular}
+\end{table}
+
+The detector transfers to full-note photographs taken by other people, with 1000 Taka the weakest class (78.4\%, mostly read as 500 Taka). It does not transfer to close-ups in which fingers cover part of a folded note.
+
+\subsection{Hand-Held Notes: Fine-Tuning with Synthetic Close-Ups}
+\label{sec:handheld}
+A blind user holds the note close to the camera, often folded and partly under the fingers, and the training composites showed whole notes inside scenes. Six thousand hand-held close-ups were therefore generated from the note photographs of the training split only (Figure~\ref{fig:closeups}): the note warped, turned by any angle, folded in 40\% of the pictures, scaled to fill or overflow the frame, with one to three finger shapes in skin tones across it, motion blur, low resolution, and colour and compression changes. No NSTU photograph was used to make them. The deployed detector was fine-tuned for 12 epochs on the original training pictures plus the close-ups.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{fig58_handheld_closeups.png}
+    \caption{Synthetic hand-held close-ups used to fine-tune the Taka detector: notes overflowing the frame, folded, turned, blurred and crossed by finger shapes}
+    \label{fig:closeups}
+\end{figure}
+
+Three choices were fixed before any test photograph was read, and all were made on validation data: the epoch (most correct minus wrong answers on the 1,611 NSTU validation close-ups, among epochs that keep the synthetic validation mAP@0.5 within 0.005 of the deployed detector, chosen: epoch~8); the announce threshold, by the same open-set rule that gave 0.60 for the earlier detector (0.75); and, for the Pi, the 8-bit calibration and its threshold (0.80). Table~\ref{tab:handheld} gives the single test read.
+
+\begin{table}[!htbp]
+\centering
+\caption{The hand-held detector against the earlier one on test photographs (read once)}
+\label{tab:handheld}
+\small
+\begin{tabular}{|L{6.4cm}|C{2.0cm}|C{2.0cm}|C{2.0cm}|C{2.0cm}|}
+\hline
+ & \multicolumn{2}{c|}{\textbf{Laptop (full precision)}} & \multicolumn{2}{c|}{\textbf{Pi (8-bit)}} \\ \hline
+\textbf{Test} & \textbf{Earlier} & \textbf{Hand-held} & \textbf{Earlier} & \textbf{Hand-held} \\ \hline
+NSTU hand-held close-ups (1,127): right value & 11.8\% & \textbf{47.5\%} & 8.7\% & \textbf{33.5\%} \\ \hline
+NSTU hand-held close-ups: wrong values & 68 & 141 & 23 & 59 \\ \hline
+Bangla Money (1,536): right value & 89.6\% & \textbf{94.1\%} & 88.7\% & 87.6\% \\ \hline
+Bangla Money: wrong values & 50 & 17 & 8 & 10 \\ \hline
+One-Taka notes (101) announced as a value & 22.8\% & 36.6\% & 5.0\% & 8.9\% \\ \hline
+\end{tabular}
+\end{table}
+
+Hand-held notes go from about one in eight to about one in two right on the laptop, and to one in three on the Pi; a note is now found in almost every close-up. Whole notes in other people's photographs also improve on the laptop (and are level on the Pi), and the synthetic test mAP@0.5 is unchanged (0.995). Two things get worse. Unknown one-Taka notes are named as a value more often, and with three notes in one picture the stricter threshold more often misses one (spoken total right in 97.0\% of 900 pictures, against 99.2\%; it never counts too many). The 8-bit copy keeps only part of the gain, because quantisation lowers the confidence of close-ups. The new detector is the default; the earlier one remains selectable.
+
+\subsection{Unknown Notes}
+The detector has no ``unknown note'' output, and it named 44 of the 101 one-Taka photographs as a known denomination (43.6\%). A simple rule reduces this: a denomination is announced only when the confidence is at least 0.60, a value chosen on validation data. On the Bangla Money test photographs the share of 1 Taka notes named as another value falls from 43.6\% to 22.8\%. The rule is used in the glass; about one unknown note in five is still named wrongly.
+
+\subsection{Live Check with a Laptop Webcam}
+The detector was also run live on a laptop webcam with real notes held in the hand (Figure~\ref{fig:live_webcam}). The application draws a box with the denomination and the confidence on the camera image and speaks the note when the space bar is pressed. In these sessions 10, 50, 100, 200, 500 and 1,000 Taka notes were named correctly at confidences between 0.63 and 0.89, including worn and folded notes, notes held at an angle, and two or three notes in one picture. The pictures also show the detector's weak points. The boxes are loose: they include the hand and part of the background. When notes are close together the boxes overlap, and in the last picture the 500 Taka box also covers the 200 Taka note. These pictures are illustrations from informal sessions. No error rate was counted, so they add no number to the results above.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[height=4.4cm]{live_50.jpg}
+    \includegraphics[height=4.4cm]{live_200.jpg}
+    \includegraphics[height=4.4cm]{live_100.jpg}\\[3pt]
+    \includegraphics[height=4.4cm]{live_10.jpg}
+    \includegraphics[height=4.4cm]{live_1000_500.jpg}
+    \includegraphics[height=4.4cm]{live_three.jpg}
+    \caption{Live detection of real notes with a laptop webcam (photographs of the screen). Top: 50, 200 and 100 Taka. Bottom: a worn 10 Taka note, 1,000 and 500 Taka together, and three notes in one frame.}
+    \label{fig:live_webcam}
+\end{figure}
+
+\subsection{Several Notes in One Picture}
+The count and the spoken total were measured on 900 pictures built for this test: one, two or three notes of the detector's test split on backgrounds that were not used in training, with the training generator's tilt, rotation, colour, blur and compression, and notes that overlap by at most 5\%. The counting rule has no tuned number. The count was right in 99.7\% of the pictures and every note, and so the total, in 99.2\% (one note: 299 of 300; two notes: 298 of 300; three notes: 296 of 300). No note was counted twice. These are synthetic pictures on the laptop; a hand holding a fan of overlapping notes will be harder.
+
+\subsection{Fall-Back Classifier}
+The MobileNetV3-Small classifier used as a fall-back reached a best validation accuracy of 99.2\% on the nine-class BanglaTaka crops. This is a whole-note classification score on clean crops, not a detection score in a scene.
+
+\subsection{Comparison with Related Work}
+Compared with published detectors (Table~\ref{tab:currency_compare}), our mAP@0.5:0.95 of 0.849 on composites is higher than the 0.804 reported for a custom-head YOLOv8n multi-currency model \cite{yolov8nse}, and our precision and recall (0.995/0.996) are higher than the 0.95/0.93 of the YOLOv5 baseline trained on 3,111 manually annotated images \cite{nstubdtaka2024}. Our labelled dataset is about seven times larger and required no manual annotation. However, the test sets are different and our headline scores are on synthetic images, so the comparison indicates competitiveness, not superiority on a common benchmark.
+
+\section{Taka Authentication Performance}
+\label{sec:auth_results}
+
+\subsection{Accuracy for One to Six Views}
+All authentication models were evaluated on the same 208 test notes with the first $k$ views, for $k = 1,\dots,6$. Table~\ref{tab:auth_views} compares the CNN+ViT baseline, which was trained with all six views, with the prefix-robust model (PRMVT).
+
+\begin{table}[!htbp]
+\centering
+\caption{Authentication accuracy on 208 test notes with the first $k$ views (seed 42)}
+\label{tab:auth_views}
+\begin{tabular}{|C{2.6cm}|C{3.6cm}|C{3.6cm}|C{3.0cm}|}
+\hline
+\textbf{Photos (views) of the note given} & \textbf{Earlier model (CNN+ViT), trained with all 6 views} & \textbf{Our model (PRMVT), trained with 1 to 6 views} & \textbf{Improvement (percentage points)} \\ \hline
+1 & 73.56\% & \textbf{97.12\%} & +23.6 \\ \hline
+2 & 87.02\% & \textbf{98.08\%} & +11.1 \\ \hline
+3 & 91.35\% & \textbf{98.08\%} & +6.7 \\ \hline
+4 & 91.83\% & \textbf{98.08\%} & +6.3 \\ \hline
+5 & 89.90\% & \textbf{98.56\%} & +8.7 \\ \hline
+6 & 91.83\% & \textbf{98.08\%} & +6.3 \\ \hline
+\end{tabular}
+\end{table}
+
+The baseline is much weaker with one view (73.6\%) than with six (91.8\%). An earlier version of our fusion model trained only on six views showed the same problem even more strongly: 96.6\% with six views but only 68.8\% with one view. This is the view-count distribution shift described in Section~\ref{sec:method}. The prefix-robust protocol removes it: PRMVT stays between 97.1\% and 98.6\% for every number of views. The difference to the baseline is statistically significant under McNemar's test at one view ($p = 4.3\times10^{-11}$) and at six views ($p = 0.0020$). After a Bonferroni correction over 36 algorithm-by-view comparisons, the one-, two-, three- and five-view gains remain significant, while the four- and six-view gains do not; this correction is reported so that the six-view improvement is not overstated. The PRMVT numbers in this chapter were re-evaluated after a numerical fault was fixed: the entropy of a fully confident prediction was computed as $0 \cdot \log 0$, which is undefined, and the model then reported a probability of 0.5 for that note. The fault affected 23 of the 208 test notes at six views and made the earlier figures slightly lower (six-view accuracy 97.6\% instead of 98.1\%).
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth]{fig_auth_views.png}
+    \caption{Authentication accuracy against the number of views for the CNN+ViT baseline, PRMVT and the other training variants tried in this project}
+    \label{fig:auth_views}
+\end{figure}
+
+\subsection{Controlled Comparison: What Causes the Gain}
+PRMVT differs from the baseline in several ways at once (fusion head, batch normalisation per view count, auxiliary losses, prefix sampling). To isolate the cause, the same network was trained four ways, with fixed six-view or prefix sampling and with shared or per-view-count batch normalisation, on three seeds each (Table~\ref{tab:same_arch}).
+
+\begin{table}[!htbp]
+\centering
+\caption{Same network, four ways of training it: test accuracy (\%) on 208 notes, average $\pm$ standard deviation over three training runs (seeds 42--44). ``Normalisation'' is batch normalisation (BN).}
+\label{tab:same_arch}
+\small
+\begin{tabular}{|L{5.6cm}|c|c|c|c|}
+\hline
+\textbf{How the network was trained} & \textbf{1 view} & \textbf{2 views} & \textbf{4 views} & \textbf{6 views} \\ \hline
+Always 6 views; one normalisation for all view counts & 71.2 $\pm$ 11.4 & 73.1 $\pm$ 17.1 & 90.5 $\pm$ 2.2 & 98.1 $\pm$ 0.5 \\ \hline
+\textbf{1 to 6 views; one normalisation for all view counts} & \textbf{98.2 $\pm$ 0.7} & \textbf{98.4 $\pm$ 0.3} & \textbf{98.6 $\pm$ 0.5} & \textbf{98.7 $\pm$ 0.3} \\ \hline
+Always 6 views; separate normalisation for each view count & 87.2 $\pm$ 9.7 & 92.8 $\pm$ 6.3 & 95.7 $\pm$ 4.6 & 99.0 $\pm$ 0.0 \\ \hline
+1 to 6 views; separate normalisation for each view count (PRMVT) & 96.5 $\pm$ 1.5 & 98.4 $\pm$ 0.6 & 97.6 $\pm$ 0.8 & 98.1 $\pm$ 1.0 \\ \hline
+\end{tabular}
+\end{table}
+
+Prefix sampling alone is the cause. With shared batch normalisation it beats fixed-view training at one view on every seed (exact McNemar $p = 5.4\times10^{-20}$, $2.1\times10^{-22}$ and $9.3\times10^{-10}$), and there is no difference at six views ($p \geq 0.22$). Fixed-view training is also unstable: its number of correct notes at one view ranges from 131 to 194 across seeds, while prefix training stays between 197 and 206. The reason is that six-view training never constrains what the network does with one view, so the result depends on the random initialisation. The simplest variant, prefix sampling with shared batch normalisation, is the most accurate and was chosen on the validation split as the recommended model.
+
+The effect was also tested outside currency. On MVP-N \cite{mvpn} with an attention-fusion head, prefix training raises one-view accuracy from 40.7\% to 48.0\% and six-view accuracy from 75.8\% to 82.2\%; with a concatenation head it does not help at one view (48.7\% against 49.7\%) and costs 8.6 points at six views. On ten rendered ModelNet classes \cite{modelnet} both trainings give 64\% at one view and 77\% at six. The benefit therefore depends on the fusion head and is not universal.
+
+\subsection{Comparison with Standard Backbones}
+Eighteen training variants were run with three seeds each; none beats the shared-BN prefix network. More importantly, frozen ImageNet backbones with a linear classifier per view reach the same level on this split: ResNet-50 \cite{resnet} 98.1\% at one view and 99.0\% at six, DenseNet-121 97.6\% and 99.0\%, MobileNetV2 96.6\% and 98.6\%. In 60 paired McNemar tests between these probes and our networks, no difference was significant. \textbf{No state-of-the-art claim is made on JaalTaka.} The contribution on this split is the explanation and removal of the view-count collapse of jointly trained fusion networks, not a higher number. That a frozen general-purpose backbone reaches 98--99\% is itself a sign that the split is easy, which the next section explains.
+
+\subsection{Repeatability over Seeds}
+PRMVT was trained with three random seeds (42, 43, 44). The mean accuracy was 96.5\% (standard deviation 1.6 points) with one view and 98.1\% (standard deviation 1.0 point) with six views; the lowest mean over the six view counts was 96.5\% (Table~\ref{tab:multiseed}). The result is therefore not a lucky seed, although three seeds is a small sample.
+
+\begin{table}[!htbp]
+\centering
+\caption{PRMVT accuracy over three seeds (mean $\pm$ standard deviation)}
+\label{tab:multiseed}
+\begin{tabular}{|L{4.4cm}|c|c|c|c|c|c|}
+\hline
+\textbf{Photos (views) given} & 1 & 2 & 3 & 4 & 5 & 6 \\ \hline
+\textbf{Average accuracy (\%)} & 96.47 & 98.40 & 98.08 & 97.60 & 98.56 & 98.08 \\ \hline
+\textbf{Spread between runs (standard deviation, points)} & 1.55 & 0.56 & 0.48 & 0.83 & 0.48 & 0.96 \\ \hline
+\end{tabular}
+\end{table}
+
+\subsection{Other Metrics and Calibration}
+For the six-view operating point of the fixed-count fusion model, the improvement over the baseline is consistent across metrics: accuracy 0.966 vs.\ 0.918, macro-F1 0.966 vs.\ 0.914, balanced accuracy 0.965 vs.\ 0.906, ROC-AUC 0.989 vs.\ 0.971, and expected calibration error (ECE) 0.030 vs.\ 0.079. A lower ECE means that the confidence reported by the model matches its real accuracy better, which is important if the glass tells the user ``probably counterfeit''. For PRMVT, the six-view ECE without any calibration is 0.015, so its confidence is already well matched to its accuracy; calibration maps fitted on the validation set (temperature scaling and a quality-aware map) do not improve on it (0.017--0.018). An earlier uncalibrated value of 0.061 was caused by the numerical fault described above, which reported a probability of 0.5 for notes the model was certain about. The confusion matrices (Figure~\ref{fig:auth_confusion}) show that PRMVT mainly removes the baseline's errors on counterfeit notes that were accepted as genuine (a fraction of 0.07 of all test notes for the baseline, 0.01 for PRMVT).
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{fig_auth_confusion.png}
+    \caption{Normalised confusion matrices of the baseline and PRMVT at six views (0 = counterfeit, 1 = genuine)}
+    \label{fig:auth_confusion}
+\end{figure}
+
+\subsection{Robustness to Image Corruptions}
+The models were tested under 13 image corruptions at several strengths (Figure~\ref{fig:auth_robust}). PRMVT is almost unaffected by Gaussian and motion blur, JPEG compression, scale change and sensor noise. It is clearly sensitive to low light, strong brightness, rotation, perspective and especially occlusion: at an occlusion of 55\% of the image, six-view accuracy fell to 51.9\%, which is worse than the baseline (81.3\%). Fine-tuning with low-light augmentation raised accuracy at the darkest setting (brightness factor 0.2) to 93.75\% while keeping 98.6\% on clean images, but a first, short occlusion fine-tune did not fix occlusion (68.3\%, with clean accuracy falling to 90.9\%). An analysis on the validation set showed why: under occlusion PRMVT called most genuine notes counterfeit, because a covered region looks like a missing security feature, and the earlier fine-tunes had kept the CNN frozen and trained only briefly. A longer fine-tune in which every view is randomly covered and the last CNN blocks can adapt, with the epoch chosen on the validation set, raised accuracy at 55\% occlusion to 88.5\% (87.0\% $\pm$ 2.2 over three seeds, 88.9\% for their average) while clean accuracy stayed at 98--99\%. This is still below 90\%. If the model is allowed to answer only when it is at least 99\% confident and otherwise asks the user to reposition the note, it answers about half of the occluded notes with 99.0\% accuracy, and wrong verdicts fall from 11.1\% to 0.5\% of occluded notes. These tests use a black rectangle; a real finger is neither black nor rectangular, so occlusion by fingers remains the main open failure mode.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{fig_auth_robustness.png}
+    \caption{Accuracy drop (clean minus corrupted accuracy) at six views under 12 corruptions for PRMVT, the NDAL variant and the baseline}
+    \label{fig:auth_robust}
+\end{figure}
+
+\section{Counterfeit Detection on Unseen Prints}
+\label{sec:unseen}
+The serial-number audit (Section~\ref{sec:serial_audit}) showed that most test counterfeits of the note-disjoint split are copies of prints that are also in the training data. Three checks measure how much this matters.
+
+\textbf{Seen and unseen serials.} On the note-disjoint test split, PRMVT with one view catches 67 of the 68 counterfeits whose serial occurs in training (98.5\%) and 17 of the 19 whose serial does not (89.5\%). With 19 notes this is suggestive, not proof.
+
+\textbf{Masking the serial.} When the two serial boxes are covered at test time, accuracy falls by 3 to 5 points (one view: 97.1\% to 92.3\%), and genuine notes lose about as much as counterfeits. Counterfeits with a seen serial are still caught (65 to 68 of 69). The model is therefore not simply reading a memorised serial; it has learned the look of the known prints.
+
+\textbf{Print-disjoint split.} The decisive test trains and tests on the split of Section~\ref{sec:serial_split}, in which every test counterfeit comes from a print never seen in training (Table~\ref{tab:unseen}).
+
+\begin{table}[!htbp]
+\centering
+\caption{Accuracy on unseen counterfeit prints: 222 test notes, 101 counterfeit, mean $\pm$ standard deviation over three seeds}
+\label{tab:unseen}
+\begin{tabular}{|L{8.6cm}|C{2.6cm}|C{2.6cm}|}
+\hline
+\textbf{Counterfeit checker} & \textbf{Accuracy with 1 view} & \textbf{Accuracy with 6 views} \\ \hline
+ResNet-50, ready-made and not retrained, with a simple classifier on top (linear probe) & 85.1\% & 83.8\% \\ \hline
+Our network trained with 1 to 6 views (prefix training, this work) & 89.9 $\pm$ 0.7\% & 89.3 $\pm$ 1.3\% \\ \hline
+ResNet-50 retrained on our data, from photos at a quarter of their resolution (a fault) & 92.0 $\pm$ 2.3\% & 89.9 $\pm$ 4.4\% \\ \hline
+ResNet-50 retrained on our data, from full-resolution photos & 94.9 $\pm$ 1.8\% & 94.4 $\pm$ 2.6\% \\ \hline
+Watermark check alone (MobileNetV2; the 197 notes where the watermark was found by template matching) & \multicolumn{2}{c|}{92.9\% (AUC 0.976)} \\ \hline
+Watermark check, with a learned model that finds the watermark (all 222 notes) & \multicolumn{2}{c|}{92.6 $\pm$ 0.5\%} \\ \hline
+\textbf{Combined: our network + watermark check} & \textbf{94.4 $\pm$ 0.5\%} & \textbf{95.0 $\pm$ 0.0\%} \\ \hline
+\end{tabular}
+\end{table}
+
+Four findings follow.
+\begin{enumerate}[noitemsep]
+    \item \textbf{Accuracy falls by about 8 points.} The prefix network scores 98.2--98.7\% on the note-disjoint split and 89.3--89.9\% on unseen prints. The frozen ResNet-50 falls from 98--99\% to 84--85\%.
+    \item \textbf{The watermark recovers about 5 points.} Combining the network score with the watermark score, with a combiner fitted on validation data, gives 94.4\% at one view and 95.0\% at six, with almost no variation across seeds. The watermark is a physical property of a genuine note and does not depend on which print a counterfeit comes from.
+    \item \textbf{A properly fine-tuned ResNet-50 is as good.} A first fine-tuned ResNet-50 baseline scored 89.9\% at six views, and the hybrid beat it. That baseline had been trained on views decoded at a quarter of their resolution because of a fault in an image cache. Trained on full-resolution views it reaches 94.4--94.9\%, level with the hybrid. Per seed, the exact McNemar test between the hybrid and the quarter-resolution baseline at six views gives $p = 2.7\times10^{-5}$, 0.035 and 0.51; against the full-resolution baseline the hybrid is not better, and adding that baseline to the hybrid does not help (94.6\%). We therefore claim a tie, not a win. The two differ in their errors: at six views the hybrid misses 7 of 101 counterfeits on every seed and calls 4 of 121 genuine notes counterfeit, while the fine-tuned ResNet-50 misses 7, 9 and 18 and calls 1 genuine note counterfeit. The hybrid is the more stable of the two.
+    \item \textbf{A serial blacklist is useless against new prints.} It catches none of the unseen-serial counterfeits, by construction.
+\end{enumerate}
+The test split contains about 24 distinct counterfeit prints. At the level of prints, the uncertainty of every figure in Table~\ref{tab:unseen} is roughly $\pm$12 points, so differences of a few points between methods cannot be established with this dataset.
+
+\subsection{Learned Watermark Localizer}
+The watermark window was first found by registering the photograph to a template. Registration fails on 25 of the 222 test photographs (11\%). The learned localizer replaces it (Table~\ref{tab:localizer}).
+
+\begin{table}[!htbp]
+\centering
+\caption{Learned watermark localizer on the print-disjoint test split, three seeds}
+\label{tab:localizer}
+\begin{tabular}{|L{10.4cm}|C{3.0cm}|}
+\hline
+\textbf{Measure} & \textbf{Average of 3 runs} \\ \hline
+How far the found watermark corners are from the true corners (as a share of the photo size) & 0.025 \\ \hline
+Overlap with the window found by template matching (median IoU; 1 = identical) & 0.927 \\ \hline
+Accuracy with the learned window, on the 197 notes template matching could handle & 92.6\% \\ \hline
+Accuracy with the template-matching window, same 197 notes & 92.9\% \\ \hline
+Accuracy on the 25 notes template matching could not handle & 93.3\% \\ \hline
+\textbf{Accuracy on all 222 test notes} & \textbf{92.6 $\pm$ 0.5\%} \\ \hline
+Genuine notes called counterfeit (of 121) / counterfeit notes passed as genuine (of 101) & 5.0 / 11.3 \\ \hline
+\end{tabular}
+\end{table}
+
+On the notes both methods can read, the localizer and registration do not differ (McNemar $p = 1.0$ on every seed). The localizer adds the 25 notes on which registration fails, so coverage rises from 197 to 222 of 222 at the same accuracy. It is also faster: 15.9~ms against 97.9~ms on the laptop CPU, and 50~ms against 372~ms on the Raspberry Pi~5. The application path (localizer in ONNX and the INT8 classifier) found a window on all 222 test photographs, scored 93.2\%, and made the same decision as the research path on 99.1\% of them. The localizer was trained on one currency, with labels derived from registration; that it transfers to another currency has not been shown.
+
+
+\subsection{Watermark Classifiers Compared, Including DMWR}
+\label{sec:dmwr_results}
+Several watermark classifiers were trained on the same back-lit windows and scored on the same 197 print-disjoint test notes on which the window was registered (Table~\ref{tab:wm_models}). Every model was chosen on validation data and the test was read once; trained models were repeated with seeds 42, 43 and 44.
+
+\begin{table}[!htbp]
+\centering
+\caption{Watermark classifiers on the 197 registered test notes with unseen counterfeit prints}
+\label{tab:wm_models}
+\small
+\begin{tabular}{|L{5.8cm}|C{2.0cm}|C{1.7cm}|C{2.2cm}|C{1.5cm}|}
+\hline
+\textbf{Watermark classifier} & \textbf{Parameters} & \textbf{File size} & \textbf{Accuracy} & \textbf{AUC} \\ \hline
+MobileNetV2, fine-tuned (used in the glass, 2.6~MB as INT8) & 2.23 M & 9.15 MB & 92.9\% & 0.976 \\ \hline
+Four MobileNetV2 models averaged, threshold 0.924 chosen on validation & 4 $\times$ 2.23 M & -- & 93.4\% & 0.978 \\ \hline
+EfficientNet-B0 (best of ten architectures by validation AUC) & 4.01 M & -- & 91.2 $\pm$ 1.6\% & 0.964 \\ \hline
+\textbf{DMWR (this work, Section~\ref{sec:dmwr})} & \textbf{47,818} & \textbf{0.21 MB} & \textbf{91.5 $\pm$ 0.3\%} & \textbf{0.950} \\ \hline
+DMWR, quotient-image stream + four numbers only & -- & -- & 88.0 $\pm$ 3.3\% & 0.938 \\ \hline
+DMWR, residual stream + four numbers only & -- & -- & 85.8 $\pm$ 5.3\% & 0.935 \\ \hline
+DMWR's four numbers + four simple image features, logistic regression & 9 & -- & 87.3\% & 0.906 \\ \hline
+Small CNN + transformer, trained from scratch & 0.11 M & -- & 86.3 $\pm$ 0.9\% & 0.931 \\ \hline
+\end{tabular}
+\end{table}
+
+\textbf{DMWR matches a network 46 times its size.} DMWR reaches 91.5\% (AUC 0.950) with 47,818 parameters, 1.4 points from the fine-tuned MobileNetV2 with 2.23 million. On the same notes the difference is not statistically significant (exact McNemar $p = 0.375$, 0.688 and 0.375 for the three seeds), while the model file is about 44 times smaller (0.21~MB against 9.15~MB). It is also very stable: the three seeds give 91.4\%, 91.9\% and 91.4\%, and it calls only 1, 5 and 2 of the 98 genuine notes ``not clear''.
+
+\textbf{Both the portrait and the residual are needed.} Each stream on its own reaches 85.8--88.0\% and varies by 3--5 points between seeds; together they reach 91.5\% with a spread of 0.3 points. The genuine portrait and what is left over after subtracting it therefore carry complementary information, which supports the physical idea behind Equations~\eqref{eq:quotient}--\eqref{eq:residual}. Even the four summary numbers alone, in a logistic regression with nine weights, reach 87.3\%. Figure~\ref{fig:dmwr_steps} shows the steps on two test notes.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{fig_dmwr_steps.png}
+    \caption{DMWR on two 500 Taka test notes with unseen prints (seed 42). Left to right: the back-lit watermark window; the quotient image $Q$ with the lamp removed; the genuine portrait $T_{500}$ built from training notes only; the residual $R$ (red above, blue below the portrait). On the counterfeit note the printed portrait stands out in the residual.}
+    \label{fig:dmwr_steps}
+\end{figure}
+
+\textbf{Larger models and ensembles.} A search over ten architectures, ranked by validation AUC, chose EfficientNet-B0 (91.2 $\pm$ 1.6\%), and an average of four MobileNetV2 models with a validation-chosen threshold reached 93.4\%, the highest watermark result in the table; its difference to one MobileNetV2 is one note. Used in the hybrid of Equation~\eqref{eq:hybrid} instead of MobileNetV2, the EfficientNet-B0 watermark gives 94.6\%, 95.5\% and 94.6\% at six views. The MobileNetV2 stays in the glass because it is fast on the Pi and is already exported to INT8 with the same decisions as the full-precision model; DMWR is the light, explainable alternative for even smaller hardware.
+
+\subsection{UV Security-Fibre Check}
+\label{sec:uv_results}
+The check of Section~\ref{sec:uv_method} was measured on 118 phone photographs of genuine 200, 500 and 1,000 Taka notes under a UV lamp, taken for this project. The Taka detector found the note box on 111 of them. No counterfeit note was available, so the fibre-free side is a patch of the plain surface beside the note in the same photograph.
+
+A first test set the threshold on the first 60\% of each value's photographs and tested on the last 40\%: 29 of 43 genuine notes were accepted. The last photographs of the 500 and 1,000 Taka notes show the back of the note from further away, which the first part did not contain, so the threshold had been set for a different kind of photograph. The check was therefore evaluated again by blocked five-fold cross-validation over capture order: each block of consecutive photographs is judged with a threshold set on the other four blocks, by the same rule (the largest threshold that accepts at least 95\% of the training notes). The fibre finder itself was not changed. Table~\ref{tab:uv} gives both.
+
+\begin{table}[!htbp]
+\centering
+\caption{UV fibre check on photographs of genuine notes (no counterfeit note was tested)}
+\label{tab:uv}
+\small
+\begin{tabular}{|L{4.5cm}|C{2.2cm}|C{1.5cm}|C{1.5cm}|C{1.6cm}|C{1.9cm}|}
+\hline
+\textbf{Test} & \textbf{Genuine notes accepted} & \textbf{200 Taka} & \textbf{500 Taka} & \textbf{1,000 Taka} & \textbf{Plain-surface patches rejected} \\ \hline
+First test: one split by capture order & 29 of 43 (67\%) & 19 of 19 & 7 of 16 & 3 of 8 & 21 of 21 \\ \hline
+\textbf{Blocked 5-fold, threshold from the other blocks} & \textbf{103 of 111 (92.8\%)} & 45 of 45 & 36 of 40 & 22 of 26 & 71 of 71 \\ \hline
+\end{tabular}
+\end{table}
+
+With the blocked protocol the check recognises 92.8\% of the photographs of genuine notes (95\% Wilson interval 86.4--96.3\%). In the first test, halving the brightness of the photographs left the result unchanged (29 of 43), while a slight defocus lowered it to 13 of 43: the fibres are thin, and the UV picture has to be close and sharp. The thresholds are low (4 to 10 fibres), and the only fibre-free examples so far are smooth surfaces.
+
+\textbf{A simulated printed copy, and a repair.} To see what the check does with print, fibre-free printed sheets were simulated: normal-light photographs of genuine notes (security fibres are invisible in normal light), given the lamp's measured colour and brightness, the camera noise measured on the UV photographs, and JPEG compression. Noise alone made the check accept none of 120 sheets. JPEG compression at quality 90 made it accept 112 of them (93\%): compression stores colour more coarsely than brightness, and the colour smear at the edges of print was counted as fibres. The 92.8\% above therefore measured that thin coloured structures are found on a note, which a printed copy has as well. A brightness condition did not help (balanced accuracy 0.50). The colour condition of Equation~\eqref{eq:uv_colour} does. With a colour threshold of 0.2, a genuine note shows a median of 5 strongly coloured fibres instead of 41 counted structures. Table~\ref{tab:uv_colour} gives the nested measurement: for each fold, the colour threshold and the fibre count were chosen on four blocks of genuine photographs and on development sheets, and applied to the fifth block and to held-out sheets.
+
+\begin{table}[!htbp]
+\centering
+\caption{UV fibre check before and after the colour condition. Genuine side: real photographs. Fibre-free side: simulated printed sheets; no counterfeit note was photographed.}
+\label{tab:uv_colour}
+\small
+\begin{tabular}{|L{6.6cm}|C{3.6cm}|C{3.9cm}|}
+\hline
+\textbf{Measure} & \textbf{First check} & \textbf{With the colour condition} \\ \hline
+Genuine photographs accepted (blocked 5-fold) & 103 of 111 (92.8\%) & 95 of 111 (85.6\%; 77.9--90.9) \\ \hline
+200 / 500 / 1,000 Taka & 45 of 45, 36 of 40, 22 of 26 & 44 of 45, 31 of 40, 20 of 26 \\ \hline
+Held-out simulated fibre-free sheets rejected & 4 of 240 (1.7\%) & 88.6\% (mean of five folds) \\ \hline
+With the setting now in the glass: held-out sheets rejected & -- & 223 of 240; with JPEG quality 50: 48 of 60 \\ \hline
+\end{tabular}
+\end{table}
+
+The repaired check gives up seven points of genuine acceptance and, in the simulation, rejects about nine in ten fibre-free sheets. A single strongly coloured fibre decides, which is fragile; it is what these hand-held, already compressed phone photographs support. This is still not evidence about counterfeit notes: a real counterfeit's ink and paper may behave differently under the lamp, and none has been photographed.
+
+\textbf{Counterfeit prints under a simulated lamp (18 November 2026).} The same simulation was repeated with normal-light photographs of 120 real counterfeit notes from the counterfeit set of Section~\ref{sec:bd_auth} instead of genuine notes, with the lamp model measured on the 111 genuine UV photographs (\texttt{savior\_glass/results/uv\_check/uv\_fake\_print\_sim.json}). With the setting used in the glass (one coloured fibre is enough), 81 of the 120 counterfeit prints were passed as genuine (32.5\% rejected); with added glow 89 (25.8\% rejected), and with stronger noise or harsh JPEG compression nearly all of them (1.7\% and 0\% rejected), because noise and compression create false fibres. A stricter rule that needs at least 6 coloured fibres rejected 113 of 120 (94.2\%) without glow and 90.0\% with glow, but still only 32.5\% with noise and 7.5\% with harsh compression. The genuine acceptance of 85.6\% (95 of 111) belongs to the glass setting; the genuine acceptance of the stricter rule was not measured, and on these photographs a genuine note shows a median of only 5 strongly coloured fibres, so the stricter rule would reject many genuine notes. The result therefore shows that the check in the glass does not separate counterfeit prints from genuine notes, and that a simulated lamp is not a photograph of a counterfeit under a real lamp.
+
+\subsection{Capture Guide}
+The brightness and sharpness limits of the capture guide were set on validation photographs and checked on the 222 back-lit test photographs (Table~\ref{tab:guide}). Dark and defocused frames are rejected completely, and 96\% of the clean photographs pass. The limits come from JaalTaka photographs, not from the glass camera, and have to be set again for it.
+
+\begin{table}[!htbp]
+\centering
+\caption{Capture guide on 222 back-lit test photographs}
+\label{tab:guide}
+\begin{tabular}{|L{5.2cm}|C{2.4cm}|C{2.4cm}|C{2.4cm}|}
+\hline
+\textbf{Photo condition} & \textbf{Accepted} & \textbf{Rejected as too dark} & \textbf{Rejected as blurry} \\ \hline
+Good photo, unchanged & 213 (95.9\%) & 4 & 5 \\ \hline
+Made darker (25\% of the brightness) & 0 & 222 & 0 \\ \hline
+Out of focus (blur $\sigma = 4$) & 0 & 4 & 218 \\ \hline
+Shaken (motion blur over 21 pixels) & 11 (5.0\%) & 4 & 207 \\ \hline
+\end{tabular}
+\end{table}
+
+\section{The Verdict on the Glass}
+\subsection{Authentication on Whole-Note Photographs}
+\label{sec:jaal_deployed}
+The glass applies the authenticator to one crop of the note found by the detector, not to the close-up views it was trained on. This deployed path was scored on photographs that were not used for training or selection (Table~\ref{tab:jaal_deployed}).
+
+\begin{table}[!htbp]
+\centering
+\caption{Deployed genuine/counterfeit verdict on whole-note photographs (one crop, threshold 0.5)}
+\label{tab:jaal_deployed}
+\begin{tabular}{|L{6.2cm}|C{2.4cm}|C{5.0cm}|}
+\hline
+\textbf{Photos} & \textbf{Notes checked} & \textbf{Wrong answer (with 95\% range of uncertainty)} \\ \hline
+Bangla Money, genuine notes & 1,464 & 47.7\% (45.2--50.3) \\ \hline
+BanglaTaka raw photos, genuine notes & 441 & 59.2\% (54.5--63.7) \\ \hline
+Counterfeit-currency set, genuine notes & 1,187 & 20.4\% (18.2--22.8) \\ \hline
+Counterfeit-currency set, counterfeit notes & 75 & 40.0\% (29.7--51.3) \\ \hline
+\end{tabular}
+\end{table}
+
+A genuine note called counterfeit, or a counterfeit called genuine, is the most harmful error for a blind user. The high close-up accuracy in Table~\ref{tab:auth_views} does not carry over to whole-note crops, so this verdict was switched off.
+
+Five ways to repair it were tried (Table~\ref{tab:jaal_approaches}). Cutting the whole note into windows shaped like the training views improves the ranking of genuine and counterfeit notes (AUC 0.64 to 0.83), and a frozen ResNet-50 on such windows ranks best (0.966), but at a threshold of 0.5 every one of them still calls too many genuine notes counterfeit or passes too many counterfeits. Fine-tuning the authenticator on synthetic whole notes looked better on synthetic test data (accuracy 87.3\% against 79.0\%) but worse on real photographs (AUC 0.689), and at its own validation threshold it passed 14 of 20 real counterfeit photographs as genuine. Under the rule fixed beforehand it was not deployed.
+
+\begin{table}[!htbp]
+\centering
+\caption{Genuine whole-note photographs called counterfeit at $p = 0.5$, and ranking quality (AUC) on the counterfeit set}
+\label{tab:jaal_approaches}
+\small
+\begin{tabular}{|L{5.0cm}|C{2.2cm}|C{1.9cm}|C{2.1cm}|C{2.4cm}|}
+\hline
+\textbf{Counterfeit checker} & \multicolumn{3}{c|}{\textbf{Genuine notes wrongly called counterfeit}} & \textbf{How well it separates genuine from counterfeit (AUC, 1 = perfect)} \\ \cline{2-4}
+ & \textbf{Counterfeit-currency set} & \textbf{Bangla Money} & \textbf{BanglaTaka} & \\ \hline
+PRMVT, the whole note given as one view (first version) & 27.1\% & 45.1\% & 61.5\% & 0.640 \\ \hline
+PRMVT, the note cut into four views like the training photos & 5.6\% & 43.4\% & 60.2\% & 0.829 \\ \hline
+Ready-made ResNet-50 with a simple classifier, on the cut views & 1.6\% & 12.5\% & 16.5\% & 0.966 \\ \hline
+A classifier trained on the counterfeit-currency set itself & 0.1\% & 26.4\% & 86.7\% & 0.886 \\ \hline
+PRMVT retrained on computer-made whole notes & 3.5\% & 34.2\% & 45.0\% & 0.689 \\ \hline
+\textbf{Safe policy used in the glass (never says ``counterfeit'')} & \textbf{0\%} & \textbf{0\%} & \textbf{0\%} & -- \\ \hline
+\end{tabular}
+\end{table}
+
+\subsection{Safety of the Deployed Policy}
+The policy of Section~\ref{sec:safe_policy} was fixed on validation data (0 of 88 validation counterfeits passed, 66 of 120 validation genuine notes confirmed) and then scored once (Table~\ref{tab:safe}).
+
+\begin{table}[!htbp]
+\centering
+\caption{Deployed verdict policy: ``likely genuine'' above $\tau$, otherwise ``check by hand''}
+\label{tab:safe}
+\begin{tabular}{|L{7.0cm}|C{3.6cm}|C{2.6cm}|}
+\hline
+\textbf{What was checked} & \textbf{Result} & \textbf{95\% range of uncertainty} \\ \hline
+Genuine notes wrongly called ``counterfeit'' & 0 (the glass never says it) & -- \\ \hline
+Counterfeit notes wrongly called ``likely genuine'': JaalTaka test, 1 to 4 views & 0 of 88 & 0--4.2\% \\ \hline
+Counterfeit notes wrongly called ``likely genuine'': photos of whole notes, through the glass program & 0 of 20 & 0--16.1\% \\ \hline
+Genuine notes confirmed as ``likely genuine'': JaalTaka test & 69 of 120 (57.5\%) & \\ \hline
+Genuine notes confirmed: whole notes, counterfeit-currency set & 192 of 1,138 (16.9\%) & \\ \hline
+Genuine notes confirmed: whole notes, Bangla Money & 1 of 277 (0.4\%) & \\ \hline
+Genuine notes confirmed: whole notes, BanglaTaka & 6 of 296 (2.0\%) & \\ \hline
+Wrong answers in bad light, when too-dark or blurry photos are rejected first & 0 of 208 in each condition & 0--1.8\% \\ \hline
+\end{tabular}
+\end{table}
+
+The policy is safe on everything that was measured: no counterfeit was passed, and in 1,889 runs of the application the word ``counterfeit'' was never spoken. The price is usefulness. On close-up views it confirms 57.5\% of genuine notes, but on whole-note photographs taken by other people it confirms almost none (0.4--2.0\%) and sends nearly every note to a check by hand. The safety evidence on whole notes is also narrow: it rests on about four physical counterfeit notes, and the highest counterfeit score (0.99567) lies close to the threshold (0.99959). The glass is therefore safe but, for whole notes, seldom decisive. Without the quality gate, confidence alone is not enough under bad light: at a brightness factor of 0.35, 59 of 208 one-view verdicts were wrong; with the gate, none.
+
+\subsection{A Second Counterfeit Checker for 200, 500 and 1,000 Taka (November 2026)}
+\label{sec:bd_auth}
+Because the JaalTaka checker seldom confirmed whole notes, a second checker was trained on whole-note photographs: an ImageNet-pretrained EfficientNet-B0 with two classes, counterfeit and genuine. Counterfeits are 240 photographs of counterfeit 200, 500 and 1,000 Taka notes collected for this project (80 per value); genuine notes are 240 photographs from the raw BanglaTaka photographs (80 per value). Each photograph gives five images (unchanged and turned by $\pm15^\circ$ and $\pm30^\circ$), 2,400 in all, split by note into 1,710 training, 310 validation and 380 test images (76 test notes: 48 counterfeit, 28 genuine). The epoch was chosen on validation (\texttt{results/bd\_counterfeit\_auth\_metrics.json}). The model was then fine-tuned with strong light changes, and in the glass the score is averaged with that of the mirrored image. The glass says ``likely genuine'' only when the genuine score is at least 0.95; otherwise it says ``check by hand''. It never says ``counterfeit''.
+
+\begin{table}[!htbp]
+\centering
+\caption{Second counterfeit checker on 380 test images (76 notes). Accuracy per image; the last column counts counterfeit images called ``likely genuine'' at $\tau = 0.90$ for the first model and $\tau = 0.95$ for the model in the glass. Each run of the darker and brighter test draws its own random changes, so the two models are not compared on identical images.}
+\label{tab:bd_auth}
+\small
+\begin{tabular}{|L{4.9cm}|C{1.9cm}|C{2.1cm}|C{2.1cm}|C{2.6cm}|}
+\hline
+\textbf{Test images} & \textbf{Accuracy} & \textbf{Counterfeits caught} & \textbf{Genuine notes accepted} & \textbf{Counterfeits called ``likely genuine''} \\ \hline
+Unchanged & 100\% & 100\% & 100\% & 0 of 240 \\ \hline
+Blur, JPEG, noise, crop or rotation & 100\% & 100\% & 100\% & 0 of 240 \\ \hline
+Darker, first model & 98.7\% & 100\% & 96.4\% & 0 of 240 \\ \hline
+Brighter, first model & 96.6\% & 99.2\% & 92.1\% & 0 of 240 \\ \hline
+Brighter, glass model with mirrored copy & 98.4\% & 100\% & 95.7\% & 0 of 240 \\ \hline
+Darker, glass model with mirrored copy & 99.2\% & 100\% & 97.9\% & 0 of 240 \\ \hline
+\end{tabular}
+\end{table}
+
+Table~\ref{tab:bd_auth} comes from \texttt{results/bd\_auth\_strength.json} (first model) and \texttt{results/bd\_auth\_jump.json} (the model in the glass). At every threshold from 0.80 to 0.99, the glass policy called none of the 240 counterfeit test images ``likely genuine'' and confirmed all 140 genuine ones (\texttt{results/glass\_auth\_bench.json}); one image took a median of 58--66~ms on the laptop GPU (88~ms with the policy). Its speed on the Pi was not measured.
+
+\textbf{These figures overstate how good the checker is.} An audit of the split for this thesis found three problems:
+\begin{itemize}[noitemsep]
+    \item \textbf{Repeated photographs.} 16 of the 48 counterfeit test notes are byte-for-byte the same photograph as a training image, and 29 photographs occur in more than one split. The counterfeit set contains repeated files.
+    \item \textbf{Seen prints.} Six of the seven counterfeit print groups in the test split also occur in training, so the test does not measure unseen prints (compare Section~\ref{sec:serial_split}).
+    \item \textbf{Two sources.} Every counterfeit comes from one collection and every genuine note from another, taken with other cameras, backgrounds and light. A model can reach 100\% by recognising the collection instead of the note.
+\end{itemize}
+The test also contains only 76 notes; 0 of 240 counterfeit images corresponds to 0 of 48 counterfeit notes, an upper bound of about 7.4\% (95\%, Wilson). The checker has not been tested on whole-note photographs from the other collections of Table~\ref{tab:jaal_deployed}, nor through the glass camera. Until it is tested on genuine and counterfeit notes photographed the same way, its 100\% is not evidence that it detects counterfeits. Its policy is the same as before, so a wrong answer costs a check by hand, not a false ``counterfeit''; the risk that remains is a counterfeit called ``likely genuine''.
+
+\textbf{SARA Trust Index.} On top of this checker the glass combines the detector's confidence, the genuine score and the image quality into a score from 0 to 100, and says ``likely genuine'' only at a score of at least 80; otherwise it speaks a reason and the next step in Bangla, such as more light, hold the note straight, or check by hand. On the same 380 test images (\texttt{results/sara\_trust\_eval.json}) it called 0 of 240 counterfeit images ``likely genuine'' and confirmed 80 of 140 genuine ones (57.1\%); the reasons given were: checker unsure 116, bad position 100, too dark 48, too blurred 36, and high trust 80. No spoken sentence contained the word ``counterfeit''. All 40 darkened test images were either flagged or answered safely. The limits of the split above apply here too.
+
+\subsection{Other Training Variants and Negative Results}
+Many other training variants were tried on the same split (Figure~\ref{fig:auth_views}); eighteen methods have all three seeds. Several of them reach 95--98\% at one view, for example a focal-style loss variant (NDAL) \cite{focalloss} with 98.1\% at one view, so the accuracy alone does not single out one algorithm; the common factor is that all of them see varying numbers of views during training. Some variants failed: a simulated federated version stayed at 74.0\% with one view and below the baseline from two views on, and one retrained variant became worse than its first version. We also tried learned policies that choose which view to capture next and when to stop (rules based on image quality, confidence, diversity and uncertainty, and a cost-aware rule). On PRMVT, averaged over three seeds, none of them beat simply taking the views in their fixed order (96.5\% with one view and 97.6--98.6\% with two to six): the learned rules picked a weaker first view and reached 89.3--90.2\% with one view, and the cost-aware rule with early stopping stopped after one view at 89.3\%. A prefix stopping rule on the fixed order reached 97.1\% with an average of 1.01 views, which is simply because PRMVT is already accurate with one view. Earlier, much lower figures for these policies (down to 42\%) were caused by evaluation faults that have since been fixed, not by the policies themselves. Values from a single seed also shrank when more seeds were added (one variant fell from 98.1\% to 96.8\% at one view), and about 110 training runs have read this test split, which is a further reason not to rank methods by small differences on it. These negative results are reported so that the method is not presented as better than it is.
+
+\subsection{Speed}
+On the RTX~3050 laptop GPU, one six-view authentication takes a median of 42.6~ms (95th percentile 69.5~ms). On the Raspberry Pi~5 it takes 37~ms with one view and 90~ms with six (Section~\ref{sec:pi5}).
+
+\section{Emotion Recognition Performance}
+
+Several models were trained and compared on the official RAF-DB test set (Table~\ref{tab:emotion_runs}). The EfficientNet-V2-S model with flip test-time augmentation gave the best accuracy, 86.5\%, and is used in the system.
+
+\begin{table}[!htbp]
+\centering
+\caption{Emotion recognition models compared during development}
+\label{tab:emotion_runs}
+\small
+\begin{tabular}{|L{4.9cm}|L{3.8cm}|C{2.3cm}|L{3.2cm}|}
+\hline
+\textbf{Model} & \textbf{Tested on} & \textbf{Accuracy} & \textbf{Used in the glass?} \\ \hline
+FER+ (ready-made ONNX model) & FER-2013 held-out photos (5,741) & 57.9\% & Only as a back-up \\ \hline
+MobileNetV3-Large & RAF-DB official test (3,068) & 81.0\% & No (replaced) \\ \hline
+ViT face-expression model, retrained & RAF-DB official test & 84.3\% (best point) & No \\ \hline
+EfficientNet-B2 (pre-trained on AffectNet), retrained & RAF-DB official test & 85.2\% (then got worse: over-fitting) & No \\ \hline
+\textbf{EfficientNet-V2-S, also checking the mirror image of each face (flip test-time augmentation)} & \textbf{RAF-DB official test} & \textbf{86.5\%} & \textbf{Yes} \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[!htbp]
+\centering
+\caption{Results for each expression of the EfficientNet-V2-S emotion model on RAF-DB (3,068 test faces). Precision: of the faces given this label, the share that were right. Recall: of the faces with this expression, the share recognised. F1: a balance of the two.}
+\label{tab:emotion_perclass}
+\begin{tabular}{|l|c|c|c|c|}
+\hline
+\textbf{Expression} & \textbf{Test faces} & \textbf{Precision} & \textbf{Recall} & \textbf{F1} \\ \hline
+Happy & 1,185 & 0.946 & 0.925 & 0.936 \\ \hline
+Sad & 478 & 0.839 & 0.839 & 0.839 \\ \hline
+Angry & 162 & 0.789 & 0.809 & 0.799 \\ \hline
+Surprise & 329 & 0.867 & 0.872 & 0.870 \\ \hline
+Fear & 74 & 0.774 & 0.554 & 0.646 \\ \hline
+Disgust & 160 & 0.671 & 0.588 & 0.627 \\ \hline
+Neutral & 680 & 0.815 & 0.890 & 0.851 \\ \hline
+\textbf{Average over the 7 expressions} & \textbf{3,068} & \textbf{0.815} & \textbf{0.782} & \textbf{0.795} \\ \hline
+\end{tabular}
+\end{table}
+
+The accuracy is 86.5\% and the macro-F1 is 0.795 (Table~\ref{tab:emotion_perclass}). Happy, surprise, neutral and sad are recognised well; fear and disgust are the weakest classes because they have the fewest training images and are often confused with sad and neutral (Table~\ref{tab:emotion_cm}). The published state of the art on this split is about 92\% (POSTER~V2 \cite{posterv2}), so our model is a reasonable but not state-of-the-art recogniser. For adaptive speech, the most important decision is whether a person looks stressed (sad, fear, anger, disgust) or not, which is less demanding than the full seven-class task.
+
+\begin{table}[!htbp]
+\centering
+\caption{Confusion matrix of the EfficientNet-V2-S emotion model on the RAF-DB official test set. Each row is the real expression and each column the model's answer; the bold diagonal counts the correct answers.}
+\label{tab:emotion_cm}
+\begin{tabular}{|l|c|c|c|c|c|c|c|}
+\hline
+\textbf{Real $\downarrow$ / Predicted $\rightarrow$} & \textbf{Happy} & \textbf{Sad} & \textbf{Angry} & \textbf{Surprise} & \textbf{Fear} & \textbf{Disgust} & \textbf{Neutral} \\ \hline
+\textbf{Happy} & \textbf{1096} & 11 & 8 & 12 & 1 & 11 & 46 \\ \hline
+\textbf{Sad} & 14 & \textbf{401} & 5 & 4 & 1 & 14 & 39 \\ \hline
+\textbf{Angry} & 7 & 2 & \textbf{131} & 4 & 4 & 4 & 10 \\ \hline
+\textbf{Surprise} & 6 & 8 & 3 & \textbf{287} & 5 & 5 & 15 \\ \hline
+\textbf{Fear} & 3 & 8 & 5 & 11 & \textbf{41} & 2 & 4 \\ \hline
+\textbf{Disgust} & 11 & 15 & 13 & 4 & 0 & \textbf{94} & 23 \\ \hline
+\textbf{Neutral} & 21 & 33 & 1 & 9 & 1 & 10 & \textbf{605} \\ \hline
+\end{tabular}
+\end{table}
+
+\section{Text Recognition Performance}
+\label{sec:ocr_results}
+
+All results in this section are character error rates (CER) on the benchmark of Section~\ref{sec:ocr_bench_data}. Every choice was made on the validation set; test figures were read once. Earlier OCR figures of this project (3.2\% for English and 27.8\% for Bangla) were measured on images in which Bangla was drawn without text shaping and are withdrawn.
+
+\subsection{The Seven Steps}
+The pipeline was built in seven steps, each tested on validation data (Table~\ref{tab:ocr_steps}).
+
+\begin{table}[!htbp]
+\centering
+\caption{How the text-reading pipeline was built, step by step, on the validation set. Error is the character error rate (CER): the share of letters read wrongly, lower is better. ``Kept'' marks what went into the glass.}
+\label{tab:ocr_steps}
+\small
+\begin{tabular}{|L{3.4cm}|L{7.2cm}|C{2.3cm}|C{1.2cm}|}
+\hline
+\textbf{Step} & \textbf{What was tried} & \textbf{Error (CER)} & \textbf{Kept} \\ \hline
+\multirow{4}{3.4cm}{\raggedright 1. Which text to read} & EasyOCR alone, words in the order it returns them & 17.8\% & \\ \cline{2-4}
+ & + words put into lines, top to bottom & 15.1\% & \\ \cline{2-4}
+ & + words the reader is unsure about removed & 5.2--6.3\% & \\ \cline{2-4}
+ & + only the main block of text kept (background text ignored) & 3.4\% & yes \\ \hline
+\multirow{3}{3.4cm}{\raggedright 2. Cleaning the picture first} & Contrast boost only (CLAHE) & 3.4\% & yes \\ \cline{2-4}
+ & Turning the picture black-and-white (Sauvola / Niblack) & 5.2\% / 12.5\% & \\ \cline{2-4}
+ & Straightening a tilted page & 8.3\% & \\ \hline
+\multirow{3}{3.4cm}{\raggedright 3. Other text readers} & Tesseract 5 on the main text block & 23.4\% & \\ \cline{2-4}
+ & TrOCR on the main text block & 78.0\% & \\ \cline{2-4}
+ & PaddleOCR (English only; it has no Bangla model) & 43.4\% & \\ \hline
+4. Reader settings & Best of 31 EasyOCR settings & 2.8\% & yes \\ \hline
+\multirow{4}{3.4cm}{\raggedright 5. Correcting the text afterwards} & Simple clean-up rules (stray symbols, spacing) & 2.3\% & yes \\ \cline{2-4}
+ & Spelling dictionary & 3.3\% & \\ \cline{2-4}
+ & Letter-sequence language model (KenLM) & 2.7\% & \\ \cline{2-4}
+ & ByT5 AI correction model (it rewrote and added text) & 105.4\% & \\ \hline
+6. Several picture sizes & Read at three sizes and vote & 2.9\% & \\ \hline
+7. Retraining the reader & Reader retrained on computer-made words & 2.5--2.7\% & \\ \hline
+\end{tabular}
+\end{table}
+
+\textbf{Where the errors were.} On photographs of signs the first pipeline had a CER of 45.0\%. Inspection showed that the sign itself was usually read correctly; the errors were text read from the background and words in the wrong order. Selecting the main text block removes both, and photo-scene CER falls to 6.4\%. This single step gives most of the total gain.
+
+\textbf{What did not help.} Binarisation and perspective correction hurt. Tesseract \cite{tesseract} was the best other engine but had about seven times the error; the available TrOCR models \cite{trocr} returned unrelated words for Bangla; PaddleOCR has no Bangla model. A spelling dictionary \cite{symspell} and a character language model \cite{kenlm} both replace correct but uncommon Bangla words by common ones. The ByT5 corrector \cite{byt5} rewrote and extended the text and took several seconds per line. Reading at three scales costs three OCR passes and is not better than one. Replacing the CRAFT detector by DBNet \cite{dbnet} (3.4\%), EAST \cite{east} (18.3\%) or a public YOLO text model (50.6\%) inside the same pipeline was also worse than CRAFT (2.3\%); the YOLO model was trained on handwriting in another script, so its result says nothing about a detector trained for this task.
+
+\subsection{Results on the Test Set}
+Table~\ref{tab:ocr} gives the test results.
+
+\begin{table}[!htbp]
+\centering
+\caption{Text reading on the held-out test set (432 images, three seeds), measured once per method. All numbers are error rates: lower is better.}
+\label{tab:ocr}
+\small
+\begin{tabular}{|L{4.3cm}|C{1.7cm}|C{1.7cm}|C{1.7cm}|C{1.9cm}|C{1.7cm}|}
+\hline
+\textbf{Text reader} & \textbf{Letter error (CER), all} & \textbf{Letter error, Bangla} & \textbf{Letter error, English} & \textbf{Letter error, signs in photos} & \textbf{Word error (WER)} \\ \hline
+Glass program before this work & 9.3\% & 11.9\% & 6.6\% & 10.7\% & 15.8\% \\ \hline
+\textbf{New pipeline v2 (now in the glass)} & \textbf{2.4\%} & \textbf{3.2\%} & \textbf{1.6\%} & \textbf{2.2\%} & \textbf{7.9\%} \\ \hline
+Tesseract 5 on the text block & 16.6\% & 18.5\% & 14.7\% & 32.5\% & 34.4\% \\ \hline
+PaddleOCR (English items only) & 11.0\% & -- & 11.0\% & 33.1\% & 9.5\% \\ \hline
+Pipeline v2 with the DBNet text finder instead of CRAFT & 2.7\% & 3.5\% & 1.8\% & 3.4\% & -- \\ \hline
+Retrained reader (3 training runs; not adopted) & 1.8--2.1\% & 2.5--2.9\% & 1.0--1.2\% & 1.4--2.8\% & 3.9--5.3\% \\ \hline
+\end{tabular}
+\end{table}
+
+The pipeline reduces the test CER from 9.3\% to 2.4\%, and for Bangla from 11.9\% to 3.2\%, at no extra cost in time (median 1,851~ms against 1,923~ms per image on the laptop CPU).
+
+Two results show why choices must not be made on the test set. The CLAHE-only pre-processing was the best on validation by 0.08 points, which is within seed noise, and on test it was worse than the earlier pre-processing (3.3\% against 2.4\%) until the tuned parameters were added. And the fine-tuned recogniser was worse than the original on validation (2.5--2.7\% against 2.3\%, because English got worse) but better on test in every seed (1.8--2.1\% against 2.4\%). It was not adopted: switching to it because of its test result would be choosing on the test set. Fine-tuning remains the most promising next step, with English kept in the training text and with a fresh test set.
+
+These figures describe rendered text. They do not describe the glass camera (Section~\ref{sec:field_test}).
+
+\subsection{Text Reading on Real Photographs}
+\label{sec:ocr_real}
+To see how far the benchmark figures carry, the pipeline was run once on real photographs: word images from the ICDAR 2019 MLT scene-text collection \cite{mlt2019} (street signs, shop fronts and notices, each with its text typed out). 500 Bangla and 500 Latin-script words were drawn at random; words that the collection's own annotators marked as unreadable were left out. Each word was scaled to 400 pixels on its longer side and placed in a 640$\times$480 frame, as the glass would see a sign. Nothing was tuned on these images (Table~\ref{tab:ocr_real}).
+
+\begin{table}[!htbp]
+\centering
+\caption{Text reading on real photographs: word images of the ICDAR 2019 MLT collection, read once with the pipeline of the glass}
+\label{tab:ocr_real}
+\small
+\begin{tabular}{|L{5.0cm}|C{1.5cm}|C{2.6cm}|C{2.3cm}|C{2.1cm}|}
+\hline
+\textbf{Words} & \textbf{Number} & \textbf{Letter error (CER), 95\% range} & \textbf{Word exactly right} & \textbf{Nothing read} \\ \hline
+Bangla, all & 500 & 41.7\% (38.0--45.5) & 36.8\% & 24.6\% \\ \hline
+Bangla, upright & 458 & 37.8\% (34.0--41.9) & 39.7\% & 21.6\% \\ \hline
+\textbf{Bangla, all, confidence filter 0.1 (now)} & 500 & \textbf{39.2\%} & 37.4\% & 17.0\% \\ \hline
+Latin script, all & 500 & 64.9\% (60.9--68.8) & 20.4\% & 48.4\% \\ \hline
+Latin script, upright and at least 32 pixels high & 282 & 46.8\% (41.4--52.4) & 32.6\% & 27.7\% \\ \hline
+\textbf{Latin script, all, confidence filter 0.1} & 500 & \textbf{62.5\%} & 20.4\% & 38.0\% \\ \hline
+\textbf{Bangla, all, recogniser trained on real words (now)} & 500 & \textbf{28.7\%} & 47.8\% & 12.4\% \\ \hline
+\textbf{Latin script, all, recogniser trained on real words (now)} & 500 & \textbf{50.6\%} & 30.6\% & 32.6\% \\ \hline
+Rendered benchmark, test set (Table~\ref{tab:ocr}); now & 432 & 2.4\%; 2.3\% & -- & -- \\ \hline
+\end{tabular}
+\end{table}
+
+The benchmark figures do not carry over to real street photographs: the error is more than ten times higher. Much of it is silence. On a quarter of the Bangla words and on half of the Latin-script words nothing was read at all, which points to the text-finding thresholds and the confidence filter, both chosen on rendered text. Words rotated by 90$^\circ$ are not read (84\% and 99\% error), and many Latin-script words are small or are French, German or Italian, for which the recogniser has no model. For orientation, the BanglaWild benchmark reports 48.4\% CER for plain EasyOCR on real Bangla scene photographs \cite{banglawild}; the data differ, so only the order of magnitude can be compared. Reading real signs is therefore the main open problem of the text mode, next to the glass camera.
+
+\textbf{Settings chosen on real words.} Because so many words were left unread, four settings of the text finder and of the confidence filter were compared on a separate real validation sample (150 Bangla and 150 Latin-script words that are not among the 1,000 test words). The rule was fixed beforehand: the lowest error on the real validation words wins, among settings whose error on the rendered validation set stays within 0.5 points. Lowering the confidence filter from 0.2 to 0.1 won (real validation 47.8\% against 51.1\%; rendered validation 2.58\% against 2.14\%). EasyOCR's own detector defaults were worse on both kinds of data. Read once on the 1,000 test words, the new setting lowers the error from 41.7\% to 39.2\% for Bangla and from 64.9\% to 62.5\% for Latin script, and the share of unread words from 24.6\% to 17.0\% and from 48.4\% to 38.0\% (bold rows of Table~\ref{tab:ocr_real}). The gain is real but small: the words that are now read are often read wrongly. On the rendered test set the pipeline as it now is in the glass (greedy decoder, confidence filter 0.1) scores 2.5\% CER (Bangla 3.3\%, English 1.7\%), practically unchanged. Thresholds are now exhausted; the remaining error lies in the recogniser.
+
+\textbf{A recogniser trained on real words.} EasyOCR's Bangla and English recogniser was therefore fine-tuned on real training words from the same collection (none of them among the validation or test words), mixed with rendered words, three times with different seeds. Each model was read through the glass's own pipeline. The fully fine-tuned models lowered the real-validation error from 47.8\% to 34--35\%, but raised the rendered-validation error from 2.58\% to 3.3--3.8\% (printed English to 4.9--5.8\%): they learned the street words and forgot part of the clean printed text, and so failed the 0.5-point rule. Blending the weights half and half with the released ones, $\theta = \tfrac12\theta_{\text{released}} + \tfrac12\theta_{\text{fine-tuned}}$ (a rule added after the first model failed and before any other was scored), kept most of the gain without the loss: real validation 36.7--37.2\%, rendered validation 2.33--2.63\%, all three within the rule. The one with the lowest real-validation error (seed~44) was chosen. A retry with the picture turned by 90$^\circ$ when nothing is read left fewer Latin words unread but did not lower the error, and was not adopted. Read once on the 1,000 test words, the chosen recogniser lowers the error from 39.2\% to \textbf{28.7\%} for Bangla and from 62.5\% to \textbf{50.6\%} for Latin script, and on the rendered test set from 2.46\% to 2.27\% (bold rows of Table~\ref{tab:ocr_real}). It has the same network as the released recogniser, so it costs no time, and it is now the glass's default.
+
+\textbf{How much the picture is enlarged.} The glass enlarges a 640-pixel camera picture to 1,200 pixels before the text detector, whose time grows with the number of pixels. Widths of 1,040, 960 and 880 pixels were scored with the full-precision and the 8-bit detector. The validation rule chose 880 for both, but the single test read did not confirm it (rendered test error 3.15\% and 3.12\% against 2.46\% at 1,200, printed Bangla 4.9\%), and the validation error went up and down with the width in no order. The width therefore stays at 1,200; 880 remains a faster option whose speed on the Pi is still to be measured. This is the one place where a rule fixed beforehand was not followed, and the departure is towards the more accurate setting.
+
+\subsection{Handwritten Bangla Character Recognition}
+The CNN trained on Ekush reached 90.0\% test accuracy on 38,608 characters from 305 unseen writers (best validation accuracy 91.1\%). Accuracy was 94.3\% for digits, 94.2\% for modifiers, 93.1\% for vowels, 89.9\% for consonants and 87.7\% for conjuncts. The lower accuracy for conjuncts confirms that compound characters are the hardest part of Bangla recognition, which is also the main source of the OCR errors above.
+
+\section{Object Detection Performance}
+\label{sec:object_results}
+An earlier evaluation on a random subset of 250 COCO val2017 photographs gave mAP@0.5 = 0.604 for the COCO-pretrained YOLOv8s. On all 5,000 photographs the same model and code give 0.551, so the subset figure was optimistic (Table~\ref{tab:objects}). The 30 object types that matter most to a blind user (people, vehicles, furniture, bottles, cups, phones and so on, fixed before the run) score the same as all 80.
+
+\begin{table}[!htbp]
+\centering
+\caption{Object detection on all 5,000 COCO val2017 photographs (mAP@0.5, predictions with confidence of at least 0.15)}
+\label{tab:objects}
+\small
+\begin{tabular}{|L{5.4cm}|C{2.6cm}|C{2.6cm}|C{3.2cm}|}
+\hline
+\textbf{Model} & \textbf{Picture size 640} & \textbf{Picture size 320} & \textbf{30 blind-user object types, size 640} \\ \hline
+YOLOv8n (timed on the Pi~5) & 0.453 & 0.342 & 0.463 \\ \hline
+YOLOv8s (first choice in the glass) & 0.551 & 0.441 & 0.553 \\ \hline
+YOLOv8m & 0.607 & 0.513 & 0.604 \\ \hline
+\end{tabular}
+\end{table}
+
+The measurement also exposed a mistake in the object mode. It shrank every camera frame to 320$\times$240 before detection, although the detector enlarges every picture to its 640-pixel input, so the shrink cost detail and saved no time. Through the glass's own path, on the same 5,000 photographs brought to the camera's size, mAP@0.5 was 0.493 with the shrink and 0.521 without it, with 10\% more detections above the announce confidence. The frame is now passed on unshrunk. Buses, dogs, cats and people are detected best (AP@0.5 of 0.73 to 0.86 for YOLOv8s), books, backpacks and handbags worst (0.17 to 0.23). The object mode reduces the effect of false alarms by using a confidence threshold of 0.50 and by announcing at most three objects per scan. Precision of the spoken announcements in real indoor use has not yet been measured.
+
+\section{Processing Speed}
+\subsection{Laptop}
+Table~\ref{tab:speed} summarises the speed on the development laptop. On the laptop CPU (AMD Ryzen~7 5800H, all three formats measured in the same run), the Taka detector takes a median of 109~ms per 640$\times$640 image with PyTorch weights, 139~ms with FP32 ONNX Runtime and 101~ms with the INT8 ONNX model, which is also the smallest file.
+
+\begin{table}[!htbp]
+\centering
+\caption{Measured processing speed on the development laptop}
+\label{tab:speed}
+\begin{tabular}{|L{5.6cm}|L{4.2cm}|C{2.0cm}|C{2.0cm}|}
+\hline
+\textbf{Model} & \textbf{Runs on} & \textbf{Time per picture} & \textbf{File size} \\ \hline
+Taka detector YOLOv8s (PyTorch) & RTX 3050 laptop graphics card & 13.9 ms & 22.5 MB \\ \hline
+Taka detector YOLOv8s (PyTorch) & Laptop processor (Ryzen 7 5800H) & 109 ms & 22.5 MB \\ \hline
+Taka detector, ONNX format (full precision) & Laptop processor & 139 ms & 44.8 MB \\ \hline
+Taka detector, ONNX format, compressed (INT8) & Laptop processor & 101 ms & 18.0 MB \\ \hline
+Counterfeit checker PRMVT, 6 views & RTX 3050 laptop graphics card & 42.6 ms & 16.6 MB \\ \hline
+Watermark check, with the learned watermark finder & Laptop processor & 15.9 ms & 4.3 + 2.6 MB \\ \hline
+Watermark check, with template matching (SIFT) & Laptop processor & 97.9 ms & 2.6 MB \\ \hline
+Text reading, pipeline v2 & Laptop processor & 1,851 ms & -- \\ \hline
+\end{tabular}
+\end{table}
+
+\subsection{Raspberry Pi 5}
+\label{sec:pi5}
+Every mode was timed on a Raspberry Pi~5 Model~B (8~GB, Debian~13) on 1~October 2026, with 100 calls per module after warm-up, followed by a 30-minute run in which all modules were called in turn (Table~\ref{tab:pi5}). The benchmark script marks its output with the device model, so a laptop run cannot be mistaken for a Pi result.
+
+\begin{table}[!htbp]
+\centering
+\caption{Latency on the Raspberry Pi~5 (100 calls per module)}
+\label{tab:pi5}
+\begin{tabular}{|L{8.4cm}|C{2.6cm}|C{3.0cm}|}
+\hline
+\textbf{Part of the glass} & \textbf{Typical time (median)} & \textbf{Slow case (95 of 100 calls are faster)} \\ \hline
+Currency mode, whole job (find the note + safe counterfeit check) & 327 ms & 560 ms \\ \hline
+Taka detector, compressed INT8 ONNX (used on the Pi) & 254 ms & 339 ms \\ \hline
+Taka detector, PyTorch / full-precision ONNX (for comparison) & 507 / 485 ms & 603 / 575 ms \\ \hline
+Watermark check, learned watermark finder (used on the Pi) & 50 ms & 62 ms \\ \hline
+Watermark check, template matching with SIFT (for comparison) & 372 ms & 854 ms \\ \hline
+Counterfeit checker, 1 view / 6 views & 37 / 90 ms & 57 / 106 ms \\ \hline
+Object mode (YOLOv8n) & 207 ms & 217 ms \\ \hline
+Emotion recognition & 48 ms & 52 ms \\ \hline
+Text reading of one picture (EasyOCR, canvas 2,560) & 18.7 s & 20.4 s \\ \hline
+\end{tabular}
+\end{table}
+
+\textbf{System behaviour.} Memory use was 1.19~GB after the first models loaded and peaked at 1.48~GB with everything loaded, with no growth over the 30 minutes (1,229 calls). The CPU temperature was 57.9~$^\circ$C idle and peaked at 77.1~$^\circ$C; the throttling flag stayed at zero throughout. Under the mixed load, the worst single call took up to about four times the isolated median (currency mode: 1,206~ms against 327~ms).
+
+\textbf{Currency.} INT8 quantisation halves the detector time on the Pi (254~ms against 507~ms). From button press to the end of the spoken sentence the currency mode takes about 2.3 to 2.9~seconds, of which 2.0 to 2.6~seconds is the speech itself. An earlier write-up gave 6.5~seconds; it had used the duration of a longer sentence from the text mode and was corrected.
+
+\textbf{Text reading is slow.} One capture takes about 19~seconds. The time is spent in the text detector, not in decoding: a greedy decoder was not faster (20.6~s). A smaller detector canvas of 640 pixels was about three times faster (20.2~s to 6.9~s on one frame), at about one point more Bangla error (25.6\% against 24.5\% on the selection set, raw CER before the pipeline). The faster setting did not meet the margin fixed beforehand, so it is offered as an option and is not the default. The Pi figure was measured before pipeline v2 was added; v2 costs no extra time on the laptop but has not been timed again on the Pi.
+
+\textbf{Faster reading of whole pages.} For pages, the recogniser's share of the time grows with the number of lines. On 12-line pages photographed at 640$\times$480 and 1,280$\times$720, read on the laptop CPU limited to four threads like the Pi~5, a greedy decoder reads a page in 6.5~s against 8.9~s with beam search (27\% faster), with the same validation error (2.14\% against 2.18\%), and was adopted. Reading at the camera's own size was faster still (5.3~s) but added 0.74 points of validation error and was rejected. In addition, pages are now spoken line by line (Section~\ref{sec:ocr_method}): the first line is ready after about 5.5~s, while speaking the page takes much longer than reading it, and the validation error stays at 2.14\%. These page timings are from the laptop and still have to be repeated on the Pi.
+
+\textbf{A faster text detector.} Because the time of a capture is in the text detector, the detector (CRAFT) was exported to ONNX and run with ONNX Runtime, as was done for the Taka detector. On the laptop CPU limited to four threads, the detector then takes 2.6~s instead of 5.6~s on a 1,200$\times$900 picture, a 12-line page 5.6~s instead of 10.0~s, and one benchmark picture 1.2~s instead of 2.3~s, with the same validation error (2.14\%); its outputs differ from PyTorch's by about $10^{-7}$. It is now used whenever its file is present. A version quantised to 8-bit integers is faster again (detector 1.3~s, page 4.3~s) but raises the validation error to 2.79\%, 0.65 points more, which is over the 0.5-point rule; a larger calibration set (128 images) brought this to 0.57 points, still over the rule. It is offered as an option and is not the default. The laptop was slower in this run than in the one above, so these figures compare with each other only. None of them is a Pi measurement.
+
+\textbf{Speech.} In the first Pi run, English with Piper took 3.3~seconds for the test sentence against 4.9~seconds with espeak-ng, and Bangla could not use Piper. After the speech engine was rebuilt on 14 October (Section~\ref{sec:voice_results}), Bangla is spoken with a Piper voice as well; that engine has been timed on the laptop only.
+
+\subsection{Heat on the Pi and a Thermal Governor}
+\label{sec:thermal}
+The board's own log of the second run (one sample every 2~s, 651 samples) explains the throttling. While idle before the run the board was already at 71~$^\circ$C with the fan at 7,800~rpm; during object scans it averaged 84~$^\circ$C and during text reading 85~$^\circ$C (CPU 95--99\% busy, peak 88.7~$^\circ$C). A first-order fit of the log, $\mathrm{d}T/\mathrm{d}t = (T_\infty - T)/\tau$, gives $\tau \approx 7$~s and $T_\infty \approx 74.8 + 0.105\,u$ for a CPU load of $u$\%: with this cooling, an average load above about 50\% keeps the board above 80~$^\circ$C, where the firmware lowers the clock. The idle temperature points first to the cooling (room temperature, the seating of the cooler or a closed case), which software cannot change.
+
+Software can lower the load that nobody asked for at that moment. A thermal governor reads the temperature once a second and the firmware's throttle flags every 5~s, and slows the automatic object scan from every 1.5~s to every 3~s above 72~$^\circ$C and every 6~s above 77~$^\circ$C (or when the firmware's soft limit is active), and pauses it above 81~$^\circ$C; the live preview boxes stop above 77~$^\circ$C. A button press or a voice command is never delayed. The states have hysteresis, single hot samples are smoothed, and every change is written to the field log. Whether this keeps the board below 80~$^\circ$C in use has not been measured; a power logger that sums the Pi~5's own supply rails (\texttt{vcgencmd pmic\_read\_adc}) every 2~s and estimates battery life was added for that run.
+
+\subsection{Voice Output and Voice Commands (14 October 2026)}
+\label{sec:voice_results}
+\textbf{Voice output.} After the second Pi run the voice was reported as broken up. Two causes were found in the code. First, speech was synthesised and played at the same time, so the player ran out of samples whenever text reading held all four cores. Second, the English voice produces 16~kHz audio and was played at 22.05~kHz, that is 38\% too fast and too high. Each sentence is now rendered completely and then played at the sample rate of its voice, with 150~ms of silence before it so that the sound device does not swallow the first syllable. Bangla is spoken with a Piper voice through Piper's Python package, which does not have the fault of the stand-alone program. On the laptop, a Bangla sentence of 1.5 to 4.3~s is rendered in 0.2 to 0.5~s once the voice is loaded (loading takes about 3~s and is done in the background at start-up). As a rough check of intelligibility, six Bangla sentences spoken by this voice were given to an online Bangla speech recogniser: two came back exactly, two with small differences (a numeral, a spelling), and two with wrong words. The new engine has not been heard or timed on the Pi yet; if rendering proves too slow there, one setting returns the glass to espeak-ng.
+
+\textbf{Voice commands.} The commands were tested with 20 synthetic neural voices. Eight design voices were used to choose the settings; twelve held-out voices, four of them Bangla voices (Bangladesh and India) reading the English commands, were used once. Every voice spoke the 39 command phrases and 30 ordinary sentences, several containing command words. The conditions were clean speech, soft voice ($-20$~dB), simulated whispering (the voice's spectral envelope excited by noise), whispering with people talking nearby, real street and home sounds from ESC-50, and the babble of three other speakers, each noise at 10 to $-10$~dB signal-to-noise ratio. Front ends (a Wiener noise filter and an automatic level control), early decisions on partial results, voice-activity end-of-speech detection (Silero), the confidence threshold, a wake word and a rule for unknown words at the edges of an utterance were compared on the design voices (138 combinations). Round one showed that other people's speech is the hard case: without a wake word the command grammar turned their talk into commands. The chosen setting uses the wake word ``glass'', drops unknown words at the edges, and uses neither front end (Table~\ref{tab:voice_results}, Figure~\ref{fig:voice_noise}).
+
+\begin{table}[!htbp]
+\centering
+\caption{Voice commands on 12 held-out synthetic voices, measured once (468 commands and 360 ordinary sentences per condition)}
+\label{tab:voice_results}
+\small
+\begin{tabular}{|L{6.0cm}|C{2.8cm}|C{2.8cm}|C{2.6cm}|}
+\hline
+\textbf{Condition} & \textbf{Before (no wake word)} & \textbf{Chosen (``glass'')} & \textbf{Bangla voices, chosen} \\ \hline
+Clean & 99.2\% & \textbf{100\%} & 100\% \\ \hline
+Soft voice ($-20$~dB) & 99.4\% & \textbf{99.8\%} & 99.4\% \\ \hline
+Whisper (simulated) & 92.9\% & \textbf{98.9\%} & 99.4\% \\ \hline
+Street and home sounds, 10 / 5 / 0 dB & 97.9 / 92.5 / 80.1\% & \textbf{98.5 / 93.8 / 82.5\%} & 98.7 / 91.7 / 80.8\% \\ \hline
+Street and home sounds, $-5$ / $-10$ dB & 59.8 / 41.7\% & 57.7 / 39.5\% & 50.6 / 30.1\% \\ \hline
+Other people talking, 10 / 5 dB & 3.2 / 0.4\% & \textbf{54.3 / 26.1\%} & 54.5 / 28.2\% \\ \hline
+False commands, all conditions & 212 of 5,040 & \textbf{13 of 5,040} & 7 of 1,680 \\ \hline
+Median response after the speech ends & 0.86~s & 0.86~s & 0.86~s \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{fig56_voice_commands_noise.png}
+    \caption{Voice commands in noise on 12 held-out voices: street and home sounds (left) and other people talking (right)}
+    \label{fig:voice_noise}
+\end{figure}
+
+Quiet and whispered commands work, and background sound is handled until it is as loud as the voice. Other people talking nearby remains the weakest case: with the wake word half of the commands get through at 10~dB, and almost none when the talk is as loud as the user. False commands fall from 212 to 13 in 5,040 sentences. A command is decided 0.86~s after the speaker stops (median), the time the recogniser waits to be sure the speech has ended; a voice-activity detector answered in 0.37--0.48~s but cut commands short at the pause after ``glass'' and lost more of them, so it is an option, not the default. Offline Bangla command words were tried with Whisper: with transcripts matched in Bangla and Latin spelling, 45\% (clean) and 62\% (with noise) of the commands of four unseen Bangla voices were carried out, with no wrong command, at 1.7~s per command on the laptop; too unreliable and too slow to deploy. All voices here are synthetic: people, the glass's microphone and a real street are not measured.
+
+\textbf{Not measured on the Pi.} The emotion entry was timed before the emotion mode was added to the application, and the mode has not been timed again. The mode-switch improvement was measured on the laptop only. Battery life was not measured.
+
+\subsection{Raspberry Pi 5, Second Run (13 October 2026)}
+\label{sec:pi5_second}
+The glass was benchmarked again on its own board after the changes of 11 to 13 October, with 30 calls per row after 3 warm-up calls, and the text reader was timed through the call the application makes when ACTION is pressed (Table~\ref{tab:pi5_second}). The full report, its raw files and its scripts are in \texttt{benchmark\_report/}.
+
+\textbf{The board was at its temperature limit.} The Pi was at 73~$^\circ$C before the first timed call, after two sessions with the application. It reached 88.7~$^\circ$C, and the firmware reported throttling or clock capping in 76\% of the samples during the text-reading test, with the CPU clock down to 1.5~GHz instead of 2.4~GHz. The power supply was not the cause (no under-voltage) and the fan was running. Every figure in the table is therefore the speed of a hot, throttled board; the first run ended at 77.1~$^\circ$C without throttling. How much of the slowdown is heat cannot be said from this run.
+
+\begin{table}[!htbp]
+\centering
+\caption{Second run on the Raspberry Pi~5 (13 October 2026), on a hot and throttled board}
+\label{tab:pi5_second}
+\small
+\begin{tabular}{|L{7.6cm}|C{2.2cm}|C{2.2cm}|C{2.1cm}|}
+\hline
+\textbf{Part of the glass} & \textbf{Typical time (median)} & \textbf{Slow case (95th percentile)} & \textbf{First run, 1 October} \\ \hline
+Currency mode, whole job & 399 ms & 524 ms & 327 ms \\ \hline
+Taka detector, compressed INT8 ONNX (used) & 306 ms & 446 ms & 254 ms \\ \hline
+Watermark check, learned watermark finder (used) & 64 ms & 109 ms & 50 ms \\ \hline
+Counterfeit checker, 1 view / 6 views & 43 / 98 ms & 146 / 121 ms & 37 / 90 ms \\ \hline
+Object scan as the application runs it (YOLOv8s) & 562 ms & 610 ms & -- \\ \hline
+Object detector YOLOv8n alone & 227 ms & 342 ms & 207 ms \\ \hline
+Emotion, with a face in view & 680 ms & 926 ms & -- \\ \hline
+Emotion, no face in view (face search only) & 48 ms & 50 ms & 48 ms \\ \hline
+Text reading, 3-line English sign, as the application ran it & 34.0 s & 34.7 s (slowest of 3) & -- \\ \hline
+The same sign with the text found once & 18.3 s & 18.5 s (slowest of 4) & 18.7 s \\ \hline
+Text reading, 12-line page: first line spoken / whole page & 16.4 s / 36.5 s & -- / 39.9 s & -- \\ \hline
+Text reading, no text in view & 27.5 s & 28.6 s (slowest of 3) & -- \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.92\textwidth]{pi5_ocr_response.png}
+    \caption{Text reading on the Raspberry Pi~5 on 13 October 2026: response time of each capture and where it goes (from the benchmark report)}
+    \label{fig:pi5_ocr}
+\end{figure}
+
+Four things in this run are findings about the software, not about the heat.
+\begin{enumerate}[noitemsep]
+    \item \textbf{A short sign paid for the text detector twice.} The line-by-line path ran the detector to count the lines, and for fewer than four lines the normal path ran it again: 34.0~s instead of 18.3~s. The detector now runs once per capture and both paths use its boxes; the text read is identical to before on the benchmark images.
+    \item \textbf{A picture with no text was not answered with ``no text found''.} After 27.5~s the fall-back reader for handwritten letters returned 48 letters that were not there. A picture in which the detector finds nothing is now answered at once, and the handwritten-letter reader is not tried on it.
+    \item \textbf{The emotion figure of the first run was a frame without a face.} With a face to classify, one answer takes 680~ms, not 48~ms.
+    \item \textbf{One pass of the text detector takes 11 to 18~s on this board}, with the full-precision ONNX detector and whatever is in the picture. The 8-bit detector, which costs 0.57 points of error on the rendered validation set and so does not meet the 0.5-point rule, was made the default on the Pi as a stated exception, for speed. Its speed on the Pi was measured on 29 October: 2.5--3.0~s per pass (Section~\ref{sec:pi5_third}). With the recogniser trained on real words (Table~\ref{tab:ocr_real}) the Pi's configuration scores 2.86\% on the rendered validation set, 0.28 points above the reference, so it is now inside the rule.
+\end{enumerate}
+The application's own log of the two sessions before the benchmark agrees with the table: currency check 406~ms (8 checks), object scan and announcement 777~ms (10), one text capture 39.9~s, three UV fibre checks at 0.8 to 1.4~s. Speech adds almost nothing to the response time (under 30~ms to synthesise a sentence). Not repeated in this run: the 30-minute sustained test, and a run on a cool board.
+
+\section{First Field Test with the Glass}
+\label{sec:field_test}
+On 3~October 2026 the glass was tried by hand for the first time with its own camera, after the deployment problems of Section~\ref{sec:deploy_problems} had been solved and the application started correctly. This was an informal test by the developers, not a measurement, and no error rates were recorded. Three problems were observed:
+\begin{enumerate}[noitemsep]
+    \item \textbf{Emotion detection did not work.} It was not in the glass application at all; it had existed only in the desktop harness. The mode was added the same day.
+    \item \textbf{Currency recognition was unreliable.}
+    \item \textbf{Bangla text was not read.}
+\end{enumerate}
+The cause of the second and third problem has not been established. The suspected causes are the 640$\times$480 frame and the fixed-focus lens of the camera, with which a note or a printed line held at reading distance may be neither large nor sharp enough; the training photographs and the benchmark images are sharp. A diagnosis script that compares the live 640$\times$480 frame with a high-resolution capture of the same scene is ready for the device; tuning the camera settings is the next step of the project.
+
+On the laptop with a webcam at 1,280$\times$720, the same application was then run through all modes, with the live algorithm panel showing every model's output. Sound was at first missing on Windows and was fixed by a separate speech back-end. With the laptop webcam, notes held in the hand were recognised (Figure~\ref{fig:live_webcam}), which supports the suspicion that the problem on the glass lies in the picture from its camera and not in the detector.
+
+The second prototype was then tried in a staged shop exchange by two team members (Figure~\ref{fig:v2_use}): one hands over notes, and the wearer holds them up to the camera and under the UV light, as a blind user would. These photographs show how the glass is meant to be used; no recognition result was recorded in these sessions, so they add no number to the results above.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.92\textwidth]{v2_use_collage.jpg}
+    \caption{Staged use of the second prototype by team members: (a) receiving a note; (b) a note held up to the glass's camera; (c) notes held under the UV light; (d) a close view of the UV check. Illustration of use only; no error rate was counted.}
+    \label{fig:v2_use}
+\end{figure}
+
+\subsection{Voice Questionnaire after Using the Glass}
+\label{sec:voice_survey}
+After the first field test, trial sessions with the worn prototype were held (Figure~\ref{fig:worn}). After using the glass, each person answered the six yes/no questions of the voice study tool (Section~\ref{sec:impl_voice_study}) by voice or, when speech was not understood, with keys pressed by the experimenter. Table~\ref{tab:voice_survey} gives all 106 answer sets on file (file \texttt{voice\_responses\_anonymized.csv} in \texttt{savior\_glass/results/user\_study}, names removed).
+
+\begin{table}[!htbp]
+\centering
+\caption{Voice questionnaire: number of ``yes'' answers (no / unclear in brackets)}
+\label{tab:voice_survey}
+\small
+\begin{tabular}{|L{4.6cm}|C{3.0cm}|C{3.0cm}|C{3.0cm}|}
+\hline
+\textbf{Question} & \textbf{Recorded by the app (41)} & \textbf{Imported from a text file (65)} & \textbf{All (106)} \\ \hline
+Easy to use & 36 (1 / 4) & 26 (14 / 25) & 62 (58\%) \\ \hline
+Speech was clear & 38 (1 / 2) & 44 (10 / 11) & 82 (77\%) \\ \hline
+Helped with currency & 38 (1 / 2) & 40 (15 / 10) & 78 (74\%) \\ \hline
+Helped with reading & 36 (2 / 3) & 34 (16 / 15) & 70 (66\%) \\ \hline
+Would trust it & 39 (0 / 2) & 40 (15 / 10) & 79 (75\%) \\ \hline
+Would use it daily & 38 (1 / 2) & 32 (19 / 14) & 70 (66\%) \\ \hline
+All six answered ``yes'' & 28 & 2 & 30 (28\%) \\ \hline
+\end{tabular}
+\end{table}
+
+\textbf{Where the answers come from.} 38 sessions were recorded by the application on the Raspberry Pi~5 on 18~November 2026 and 3 on the laptop on 3~October 2026; for these 41, the recordings, the recognised text and the field log are kept. 117 of the 228 answers of the Pi sessions were recognised from speech; the others were entered with keys. Two further Pi sessions were not finished and are not counted. The other 65 answer sets (6--9~October 2026) were collected on the laptop and later added from a text file; they have no recordings or logs and could not be checked.
+
+\textbf{What this does and does not show.} The two groups differ strongly: in the recorded sessions almost every answer is ``yes'' (28 of 41 said yes to all six), in the imported ones only 2 of 65 did. Whether the participants could see, how long they had used the glass and which tasks they did were not recorded, and the Pi sessions lasted a median of 1.1~minutes, including the questions. There was no comparison condition, and people tend to answer ``yes'' to the developers of a device they have just tried. These answers are first impressions, not the controlled study with visually impaired participants described in Section~\ref{sec:future_user_study}, and no conclusion of this thesis rests on them.
+
+\section{Third Run on the Raspberry Pi~5 and Fixes from the Field Log (29 October 2026)}
+\label{sec:pi5_third}
+On 29 October 2026 the glass was benchmarked a third time on its own board, now with a fan and a heat sink and the Logitech C270 USB webcam, and the application was used twice with the real camera. Its field log (Section~\ref{sec:field_test}) showed why currency recognition on the glass was worse than on the laptop, and four changes followed the same day.
+
+\begin{table}[!htbp]
+\centering
+\caption{Third run on the Raspberry Pi~5 (29 October 2026, code as on the morning of that day)}
+\label{tab:pi5_third}
+\small
+\begin{tabular}{|L{7.6cm}|C{2.2cm}|C{2.2cm}|C{2.1cm}|}
+\hline
+\textbf{Part of the glass} & \textbf{Typical time (median)} & \textbf{Slow case (95th percentile)} & \textbf{Second run, 13 October} \\ \hline
+Currency mode, whole job & 422 ms & 519 ms & 399 ms \\ \hline
+Taka detector, hand-held, INT8 (Pi default when measured) & 339 ms & 551 ms & -- \\ \hline
+Taka detector, earlier model, PyTorch / INT8 & 607 / 279 ms & 798 / 457 ms & -- / 306 ms \\ \hline
+Watermark check, learned watermark finder & 51 ms & 63 ms & 64 ms \\ \hline
+Counterfeit safe-check, one crop & 37 ms & 51 ms & 43 ms \\ \hline
+Object scan as the application runs it (YOLOv8s) & 462 ms & 635 ms & 562 ms \\ \hline
+Emotion, with a face in view & 536 ms & 844 ms & 680 ms \\ \hline
+Text reading, 3-line sign, as the application runs it & 5.4 s & 5.7 s (slowest of 5) & 34.0 s \\ \hline
+Text reading, 12-line page: first line spoken / whole page & 4.4 s / 15.4 s & -- / 15.4 s & 16.4 s / 36.5 s \\ \hline
+\end{tabular}
+\end{table}
+
+\textbf{Speed and heat.} Text reading is now about three times faster than on 1 October (Table~\ref{tab:pi5_third}): one pass of the 8-bit text detector takes 2.5--3.0~s on the Pi against 9.9--11.2~s in full precision, and it made no character error on the test pictures. In the 30-minute sustained run the processor's own sensor averaged 82.8~$^\circ$C and peaked at 87.0~$^\circ$C; the soft temperature limit was active in 55\% of the samples, with the fan at full speed (on 1 October the same protocol peaked at 77.1~$^\circ$C). Room temperature and the position of the board were not logged on either day. A thermometer on the board surface, used by the team during normal use, read 57.8--62.3~$^\circ$C; the surface is cooler than the processor's sensor. The board drew 3.7~W at idle and 7.8~W under the sustained load.
+
+\textbf{What the field log showed.} In the two sessions with the application and the real camera, the 8-bit hand-held detector named a note in only 2 of 10 currency presses: in 7 its confidence stayed below its threshold of 0.80 (0.41--0.79) and the glass asked the user to hold the note closer, and in 1 it found no note. Quantisation lowers the confidence on close-ups; on hand-held validation photographs at 0.75 the 8-bit copy was right for 38.4\% against 49.7\% in full precision (Section~\ref{sec:handheld}; \texttt{results/closeup\_ft/handheld\_int8.json}). In addition, all 6 guided watermark checks timed out after 10~s (65 of 111 frames rejected as blurry, 46 with no note), and a button press during that time was ignored.
+
+\textbf{Four changes.}
+\begin{enumerate}[noitemsep]
+    \item \textbf{The same Taka detector on the Pi as on the laptop.} The Pi now loads the full-precision hand-held detector with its validation-chosen threshold of 0.75. Timed on the Pi after the change (100 calls, cool board): 532~ms for the whole currency job against 422~ms with the 8-bit copy, the detector alone 483~ms against 339~ms. In a 6-minute session with the application afterwards a note was named in 5 of 8 presses (2 of 10 in the afternoon sessions), 0.81~s from press to speech.
+    \item \textbf{Guided watermark step off by default.} Its frame-quality thresholds were set on JaalTaka photographs, not on the C270, so it is off on the Pi as it already was on the laptop until it can be calibrated on photographs from that camera.
+    \item \textbf{A spoken answer under the UV lamp.} The UV fibre check (Section~\ref{sec:uv_results}) had been switched off, so nothing was said under the lamp. Currency mode now recognises a picture taken under the lamp from its colour: its mean blue is more than 2.136 times its mean green. The threshold lies midway between the bluest of 2,212 ordinary validation photographs (2.101) and the least blue UV calibration photograph, whole or cut to a webcam frame (2.170). Read once on held-out data, the rule recognised all 47 UV test photographs and took none of 2,282 ordinary test photographs for a UV picture. The glass then counts the fibres in the note box and says ``UV marks found, likely genuine'' or ``check by hand''; it never says ``counterfeit''. On webcam-style frames of genuine notes it said ``likely genuine'' for 37 of 47 test photographs (83 of 118 in all). The note's value is not spoken under the lamp, because the detector named a wrong value for 6 of its 50 sure answers there.
+    \item \textbf{Steadier text reading.} After a press the glass looks at the camera for one second and reads the sharpest frame (variance of the Laplacian). On the 144 validation images with simulated hand shake, the character error rate fell from 50.4\% to 3.5\% when the press frame was the most shaken, and from 28.0\% to 3.8\% when every frame was shaken alike; always taking the least blurred frame would give 3.4\% and 3.6\%. With the laptop webcam the picked frame was sharper than the press frame in each logged press (for example 199.7 against 110.0).
+\end{enumerate}
+Apart from that currency timing and session, none of these changes has yet been measured on the glass itself: the UV rule and the fibre check on phone photographs, not through the C270; the shake by simulation; and no counterfeit note has been photographed under UV.
+
+\section{Corrections to Earlier Figures}
+\label{sec:corrections}
+Checking every claim against its result file changed several figures that appeared in an earlier draft of this thesis:
+\begin{itemize}[noitemsep]
+    \item \textbf{Detector test set.} ``2,238 images, precision 0.998, recall 0.997, 7.3~ms on an RTX~4060'' had no result file. The re-run on the 2,282 test images on disk gives the figures of Table~\ref{tab:det_overall}.
+    \item \textbf{Raw photographs.} The 96.9\% on 450 raw photographs is a source-domain check, not a test; the independent result is 91.5\%.
+    \item \textbf{Authenticator.} A numerical fault ($0\cdot\log 0$) changed 23 of 208 six-view predictions; all figures are after the fix.
+    \item \textbf{Spoken verdict.} The glass first spoke ``genuine'' or ``counterfeit'', then nothing, and now follows the safe policy.
+    \item \textbf{Bangla OCR.} The 27.8\% Bangla CER came from wrongly drawn test images and a lexicon that contained the test phrases; it is replaced by the benchmark results.
+    \item \textbf{ResNet-50 baseline.} The first fine-tuned baseline was trained on quarter-resolution views; the fair baseline removes the hybrid's apparent advantage.
+    \item \textbf{Emotion on the glass.} A project report called the emotion feature working on the glass before it had been added to the glass application.
+\end{itemize}
+
+\section*{Calculation Methods and Full Working}
+
+This section presents the formulas used in this chapter and a worked example for each main table.
+
+\subsection*{1) Detection Precision, Recall and mAP (Table~\ref{tab:det_overall})}
+With $TP$, $FP$ and $FN$ the numbers of true positives, false positives and false negatives at a given IoU threshold,
+\[
+\text{Precision} = \frac{TP}{TP+FP}, \qquad \text{Recall} = \frac{TP}{TP+FN}, \qquad
+\text{IoU}(A,B) = \frac{|A\cap B|}{|A\cup B|}.
+\]
+The average precision (AP) of one class is the area under its precision--recall curve; mAP@0.5 is the mean AP over the 9 classes at IoU $\geq 0.5$, and mAP@0.5:0.95 is the mean over the ten IoU thresholds $0.50, 0.55, \dots, 0.95$.
+
+\subsection*{2) Raw-Photograph Detection Rate and Top-1 Accuracy (Table~\ref{tab:wild})}
+\[
+\text{Detection rate} = \frac{\text{notes with at least one box}}{\text{all notes}} = \frac{450-7}{450} = \frac{443}{450} = 98.4\%,
+\]
+\[
+\text{Top-1 accuracy} = \frac{\text{notes with correct top box}}{\text{all notes}} = \frac{436}{450} = 96.9\%,
+\]
+where $436 = 48+48+47+47+50+50+50+46+50$ is the sum of the correct notes over the nine denominations.
+
+\subsection*{3) Authentication Accuracy and McNemar's Test (Table~\ref{tab:auth_views})}
+With 208 test notes, one-view PRMVT accuracy $= 202/208 = 97.12\%$ and baseline accuracy $= 153/208 = 73.56\%$. McNemar's test uses only the discordant notes: $n_{01}$ (baseline correct, PRMVT wrong) and $n_{10}$ (baseline wrong, PRMVT correct):
+\[
+\chi^2 = \frac{(|n_{01}-n_{10}|-1)^2}{n_{01}+n_{10}},
+\]
+with one degree of freedom. For example, for the fixed-count fusion model at six views $n_{01}=3$ and $n_{10}=13$, giving $\chi^2 = 81/16 = 5.06$ and $p = 0.024$.
+
+\subsection*{4) Expected Calibration Error}
+Predictions are grouped into $M = 10$ confidence bins $B_m$:
+\[
+\text{ECE} = \sum_{m=1}^{M} \frac{|B_m|}{n}\,\bigl|\text{acc}(B_m) - \text{conf}(B_m)\bigr|.
+\]
+
+\subsection*{5) Emotion Macro-F1 (Table~\ref{tab:emotion_perclass})}
+For each class $c$, $F1_c = 2P_cR_c/(P_c+R_c)$. For fear, $F1 = 2\times0.774\times0.554/(0.774+0.554) = 0.646$. Macro-F1 is the unweighted mean of the seven class F1 scores: $(0.936+0.839+0.799+0.870+0.646+0.627+0.851)/7 = 0.795$.
+
+\subsection*{6) OCR Error Rates (Table~\ref{tab:ocr})}
+\[
+\text{CER} = \frac{S+D+I}{N},
+\]
+where $S$, $D$ and $I$ are the character substitutions, deletions and insertions needed to turn the recognised text into the ground truth, and $N$ is the number of ground-truth characters. WER is computed in the same way on words. Because insertions are counted, the rate can exceed 100\% when an engine returns much more text than the image contains, as for the ByT5 corrector in Table~\ref{tab:ocr_steps}.
+
+\subsection*{7) Wilson Interval and the Safe Threshold (Table~\ref{tab:safe})}
+For $x$ events in $n$ trials with $\hat{p} = x/n$ and $z = 1.96$, the Wilson interval is
+\[
+\frac{\hat{p} + \frac{z^2}{2n} \pm z\sqrt{\frac{\hat{p}(1-\hat{p})}{n} + \frac{z^2}{4n^2}}}{1 + \frac{z^2}{n}}.
+\]
+For 0 counterfeits passed out of 88, the upper limit is $\frac{z^2/n}{1+z^2/n} = \frac{3.84/88}{1+3.84/88} = 4.2\%$. The threshold $\tau$ is the highest of the $n = 88$ validation counterfeit scores, so a new exchangeable counterfeit exceeds it with probability $1/(n+1) = 1/89 = 1.1\%$.
+
+
+\section{Discussion}
+The results answer the research questions of Section~\ref{sec:Research Question}.
+
+\textbf{System (RQ1).} A five-mode assistive glass runs on a Raspberry Pi~5 within 1.5~GB of memory; in a second run after two sessions of use the board reached its temperature limit and was throttled (Section~\ref{sec:pi5_second}). Currency, objects, the watermark check and emotion respond in 50 to 330~ms; with speech, a currency answer takes under three seconds. Text reading is the slowest mode (about 19~seconds per capture, mostly in the text detector); for pages, a faster decoder and line-by-line reading are now in place.
+
+\textbf{Synthetic data for currency (RQ2).} Training only on automatically labelled composites gave near-perfect scores on held-out composites and 91.5\% correct denominations on 1,536 independently collected photographs, though only 18.5\% on hand-held close-ups. Realistic backgrounds and physically motivated augmentation mattered more than the network architecture. 
+
+\textbf{Number of views (RQ3).} A model trained with a fixed number of views fails when fewer are available, and unpredictably so across seeds; training on random view prefixes fixes this and keeps accuracy at about 98\% from one to six views. The controlled comparison shows that prefix sampling alone is responsible. The benefit depends on the fusion head and did not appear on every other dataset.
+
+\textbf{Unseen prints (RQ4).} The usual JaalTaka split is a test of known reprints: a serial lookup scores 90.2\% on it, and frozen general-purpose backbones reach 98--99\%. On unseen prints accuracy falls by about 8 points. The watermark recovers about 5 of them and makes the result stable across seeds, but a properly fine-tuned ResNet-50 does as well. With about 24 test prints, the dataset cannot separate the two.
+
+\textbf{Safety (RQ5).} A policy that never says ``counterfeit'' and confirms a note only above the highest validation counterfeit score passed none of 88 test counterfeits. It confirms 57.5\% of genuine notes from close-up views; on whole notes it mostly asks for a check by hand, so raising that confirmation rate is the next goal.
+
+\textbf{Bangla OCR (RQ6).} Region selection matters most: choosing the main text block removed three quarters of the error. Parameter tuning and clean-up rules added small gains; pre-processing beyond contrast enhancement, other engines, other detectors, dictionaries, language models and multi-scale reading did not help. Fine-tuning the recogniser is a promising next step.
+
+\textbf{Interaction (RQ7).} Separating capture from reading, cooldowns, queue clearing on mode change, mixed-script speech, immediate mode names and spoken capture guidance were designed for users without sight. Trial sessions with a visually impaired participant have started to measure how much they help.
+
+\textbf{A general lesson.} The largest corrections in this project came from looking at the data and the test protocol and not from new models: the serial numbers on the counterfeit notes, the shape of the rendered Bangla text, the resolution of a cached image, the source of a ``wild'' test set. Each of these had produced a good-looking number that was wrong or meant something else.
+
+\section{Scope of the Results}
+The results above should be read with the following scope in mind; each point is also a direction for the next version (Chapter~\ref{chap:conclusion}):
+\begin{enumerate}[noitemsep]
+    \item \textbf{Glass camera.} The accuracy figures come from datasets and a laptop webcam; the camera settings of the worn glass are being tuned, and a test set taken through it is planned.
+    \item \textbf{User study.} Trial sessions with a visually impaired participant have started; their results will be added when the survey is complete.
+    \item \textbf{Counterfeit data.} The unseen-print results rest on about 24 distinct counterfeit prints of one currency; a larger print-disjoint collection would sharpen the comparison between methods.
+    \item \textbf{Whole-note verdict.} On whole notes the safe policy mostly asks for a check by hand; the guided watermark check and a larger set of whole-note photographs are the way to confirm more genuine notes. With the C270 webcam all six guided watermark checks timed out, so that step is off until it is calibrated on photographs from this camera (Section~\ref{sec:pi5_third}).
+    \item \textbf{Text reading.} On real street photographs the letter error is about 39\% for Bangla and 62\% for Latin script, against 2.5\% on the rendered benchmark (Section~\ref{sec:ocr_real}), and reading is the slowest mode on the Pi.
+    \item \textbf{UV check.} It accepts 85.6\% of the photographs of genuine notes and rejects about nine in ten simulated fibre-free sheets, but has not been tested on a real counterfeit note, on real printed paper under the lamp, or through the glass camera. Currency mode now answers with it when the picture is taken under the lamp (Section~\ref{sec:pi5_third}).
+    \item \textbf{Objects.} With the model timed on the Pi (YOLOv8n) and small pictures, mAP@0.5 is 0.34 to 0.45; the classes are the 80 of COCO.
+    \item \textbf{Other items.} Close-ups covered by fingers, objects outside the 80 COCO classes, a neural Bangla voice on the Pi, and battery life are left for future versions.
+\end{enumerate}

@@ -1,0 +1,93 @@
+{
+ "rule": "keep the candidate with the lowest mean of (val pages, val_close pages, rendered val);\na candidate must not be worse than the baseline by more than 0.3 points on any of the three.",
+ "results": {
+  "A baseline (no text warp, no filter)": {
+   "val": 1.269,
+   "val_close": 6.419,
+   "rendered": 3.676,
+   "rendered_scene": 7.537,
+   "mean": 3.788,
+   "minutes": 1.7
+  },
+  "B text warp": {
+   "val": 1.269,
+   "val_close": 5.759,
+   "rendered": 3.676,
+   "rendered_scene": 7.537,
+   "mean": 3.568,
+   "minutes": 1.8
+  },
+  "C warp + even light": {
+   "val": 1.353,
+   "val_close": 5.838,
+   "rendered": 3.717,
+   "rendered_scene": 7.674,
+   "mean": 3.636,
+   "minutes": 2.1
+  },
+  "D warp + soft even light": {
+   "val": 1.364,
+   "val_close": 5.823,
+   "rendered": 4.549,
+   "rendered_scene": 8.248,
+   "mean": 3.912,
+   "minutes": 2.2
+  },
+  "E warp + CLAHE": {
+   "val": 1.321,
+   "val_close": 5.772,
+   "rendered": 3.73,
+   "rendered_scene": 8.18,
+   "mean": 3.608,
+   "minutes": 1.8
+  },
+  "F warp + sharpen": {
+   "val": 1.315,
+   "val_close": 5.813,
+   "rendered": 3.516,
+   "rendered_scene": 7.512,
+   "mean": 3.548,
+   "minutes": 1.9
+  },
+  "G warp + denoise + sharpen": {
+   "val": 1.298,
+   "val_close": 5.77,
+   "rendered": 3.537,
+   "rendered_scene": 7.364,
+   "mean": 3.535,
+   "minutes": 1.9
+  },
+  "H warp + even light + sharpen": {
+   "val": 1.354,
+   "val_close": 5.832,
+   "rendered": 3.968,
+   "rendered_scene": 7.969,
+   "mean": 3.718,
+   "minutes": 2.2
+  },
+  "I warp + finder sees even light": {
+   "val": 1.259,
+   "val_close": 5.42,
+   "rendered": 3.46,
+   "rendered_scene": 6.754,
+   "mean": 3.38,
+   "minutes": 2.0
+  }
+ },
+ "admissible": [
+  "A baseline (no text warp, no filter)",
+  "B text warp",
+  "C warp + even light",
+  "E warp + CLAHE",
+  "F warp + sharpen",
+  "G warp + denoise + sharpen",
+  "H warp + even light + sharpen",
+  "I warp + finder sees even light"
+ ],
+ "chosen": "I warp + finder sees even light",
+ "chosen_settings": {
+  "OCR5_TEXT_WARP": true,
+  "OCR5_ENHANCE": "none",
+  "OCR5_ENHANCE_FIND": "even"
+ }
+}

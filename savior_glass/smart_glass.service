@@ -1,0 +1,20 @@
+# SARA smart glass, systemd USER service. Do not copy this file by hand: scripts/install_service.sh fills in
+# @ROOT@ (this folder) and @PYTHON@ (the environment's python) and installs it for the current user.
+[Unit]
+Description=SARA assistive smart glass
+After=sound.target pipewire.service
+Wants=sound.target
+
+[Service]
+Type=simple
+WorkingDirectory=@ROOT@
+ExecStart="@PYTHON@" "@ROOT@/main.py"
+# Restart on a crash, not on a clean exit
+Restart=on-failure
+RestartSec=5
+Environment=PYTHONUNBUFFERED=1
+# No preview window when started at boot
+Environment=SHOW_PREVIEW=0
+
+[Install]
+WantedBy=default.target

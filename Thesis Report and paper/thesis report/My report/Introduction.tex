@@ -1,0 +1,184 @@
+\clearpage
+% Introduction.tex
+\chapter{Introduction}
+\label{chap:introduction}
+
+\section{Background}
+\label{sec:background}
+Vision is the sense through which people obtain most of the information about their surroundings. According to the World Health Organization, at least 2.2 billion people worldwide live with some form of near or distance vision impairment, and a large share of them live in low- and middle-income countries \cite{who2023vision, gbd2021vision}. For a person who is blind or has low vision, everyday actions that sighted people perform without thinking become difficult or impossible: reading a medicine label, a shop sign or a bus number, knowing what object is on the table, or checking which banknote is in the hand and whether it is genuine. Each of these tasks usually requires help from another person, which reduces independence, privacy and dignity.
+
+Bangladesh faces this problem in a particular form. Most printed information in public places is written in Bangla, often mixed with English. Cash is still the main payment method in daily life, and the country has nine circulating denominations of Taka notes (2, 5, 10, 20, 50, 100, 200, 500 and 1000). Counterfeit notes are a recurring problem in markets. At the same time, internet connectivity and the purchasing power of many visually impaired users are limited. A visually impaired person in Bangladesh therefore needs an assistive device that (i) speaks Bangla, (ii) recognises Bangladeshi currency, (iii) works without the internet, and (iv) is affordable and simple to operate.
+
+Commercial assistive products such as OrCam MyEye \cite{orcam}, Envision Glasses \cite{envision} and Microsoft Seeing AI \cite{seeingai} show that camera-based assistance is technically possible. However, these products are expensive, are designed mostly for English and other major languages, rely in many functions on a smartphone or a cloud service, and do not support Bangladeshi Taka. Research prototypes built on Raspberry Pi boards \cite{readingaid_rpi2023, visionvoice2024, cameraocr2023} are cheaper, but most of them read only English text with Tesseract and send speech through online services such as Google Text-to-Speech.
+
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width=0.45\textwidth]{sample_note_10_taka.jpg}
+    \hspace{0.3cm}
+    \includegraphics[width=0.45\textwidth]{sample_detection_100_taka.jpg}
+    \caption{Left: a 10 Taka note from the local currency dataset. Right: a 100 Taka note placed on a real street background, the kind of cluttered scene the currency detector of SARA is trained to handle.}
+    \label{fig:intro_samples}
+\end{figure}
+
+This thesis presents \textbf{SARA (Smart Assistive Reading Aid)}, a wearable, offline smart glass that speaks Bangla and reads Bangla and English, for visually impaired users. SARA is designed around a Raspberry Pi~5 \cite{raspberrypi5}, a camera module mounted near the eyes, five physical push-buttons and an earphone or speaker. It offers five modes that a user cycles with a single button: \textit{text reading} (Bangla and English OCR), \textit{object detection} (spoken names of everyday objects in Bangla), \textit{currency detection} (denomination of Bangladeshi Taka notes, with a safe counterfeit check for 500 and 1,000 Taka notes), an optional \textit{online scene description}, and \textit{emotion} (the facial expression of the person in front of the user). All modes except the online one run on the device itself without internet access once the models are installed.
+
+The work is also a data-engineering study. Public Bangladeshi currency datasets consist mainly of clean, close-up scans of notes. A model trained only on them learns that ``the whole frame is the note'' and fails on a live camera. We therefore built a copy-paste compositing pipeline that places notes on real photographs and generates exact bounding boxes automatically. For counterfeit detection we worked with a six-view genuine/counterfeit note dataset and found that a model trained only on six views collapses when it sees one view, which led to a prefix-robust training protocol. We then found that the dataset's usual split is easier than it looks: most counterfeit notes are copies of a few prints, and the same print appears in training and test. This led to a second split with unseen prints, to a check of the banknote watermark, and to a deliberately cautious spoken verdict.
+
+For the watermark we also designed a new, very small classifier from the physics of a back-lit note: it removes the lamp from the photograph, compares the watermark with a genuine ``portrait'' of each note value, and classifies what is left over. Throughout the thesis, every choice is made on validation data and every number is taken from a saved evaluation file.
+
+
+\section{Problem Statement}
+\label{sec:Problem Statement}
+Think of an ordinary errand. A blind person in Dhaka buys medicine, hands over a note and receives change. To know what the label on the packet says, which note came back, and whether that note is real, this person has to ask someone: a family member, the shopkeeper, a stranger. Most of the time the answer is honest. But the person has no way to check it, and has to ask again for the next label and the next note.
+
+This dependence creates three concrete risks: loss of independence in daily activities, exposure to fraud when receiving change or counterfeit notes, and loss of privacy when others must read personal documents. Existing assistive technologies do not solve these problems for Bangladeshi users.
+
+Common limitations in current solutions include:
+
+\begin{itemize}[noitemsep]
+    \item High cost of commercial smart glasses and dependence on a smartphone or subscription;
+    \item Dependence on cloud services for OCR, recognition or speech, which fails without internet;
+    \item English-centric design, with little or no support for Bangla text and Bangla speech;
+    \item No support for recognising Bangladeshi Taka, and almost no support for detecting counterfeit notes;
+    \item Touch-screen or app-based interfaces that are hard to use without sight.
+\end{itemize}
+
+On the technical side, five specific problems had to be addressed:
+
+\begin{enumerate}[noitemsep]
+    \item \textbf{Domain gap in currency recognition.} Models trained on clean note images do not transfer to real camera frames in which the note is small, rotated, partly lit and surrounded by clutter.
+    \item \textbf{Unreliable number of views.} Counterfeit authentication needs several close views of a note, but a blind user cannot guarantee that all views are captured; a model that is accurate only with all six views is not usable.
+    \item \textbf{Misleading evaluation.} Counterfeits printed from the same plate share one serial number. If such notes appear in both training and test data, a high score measures recognition of known reprints, not detection of new counterfeits.
+    \item \textbf{The cost of a wrong verdict.} A wrong ``genuine'' costs the user money; a wrong ``counterfeit'' can lead to a public accusation. The device has to be safe before it is decisive.
+    \item \textbf{Fragile Bangla reading on small hardware.} Bangla has conjuncts and vowel signs that move around the consonant, open OCR engines are weaker on it than on English, and everything has to run on a Raspberry Pi~5 without overheating.
+\end{enumerate}
+
+\subsection*{The problem in one statement}
+Put together, the problem this thesis works on is the following.
+
+\begin{quote}
+\textit{A blind or low-vision person in Bangladesh has no affordable wearable device that reads Bangla text aloud, tells which Taka note is in the hand, and gives trustworthy advice on whether that note may be counterfeit, without a phone, a screen or an internet connection. The public data and test protocols on which such functions are built also make them look more reliable than they are in real use.}
+\end{quote}
+
+The statement has two halves on purpose. The first is an engineering problem: build the device. The second is a measurement problem: find out how good the device really is. A sighted user notices when a device is wrong and stops trusting it. A blind user often cannot notice, so an error that goes unmeasured in the laboratory becomes an error that goes unnoticed in the street. For this user group, honest evaluation is part of the product, not an afterthought.
+
+\subsection*{Who is affected and what success would look like}
+The people affected are blind and low-vision adults who handle cash and printed Bangla every day, and, indirectly, the family members they now depend on. For them the work would count as successful if a user wearing the glass can, alone and with buttons only, (i) hear a short Bangla sign or label read correctly, (ii) hear the right denomination of a note, (iii) be told honestly when the device is not sure, and (iv) never be told that a genuine note is counterfeit. Chapter~\ref{chap:results} reports how far the present prototype is from each of these four points.
+
+This project addresses these gaps and develops SARA, an assistive smart glass that brings together:
+
+\begin{itemize}[noitemsep]
+    \item Bangla and English text reading with a capture-then-read interaction;
+    \item Everyday object announcement with Bangla labels and repetition control;
+    \item Detection of all nine Bangladeshi Taka denominations in cluttered scenes;
+    \item Multi-view genuine/counterfeit authentication that stays accurate with fewer views;
+    \item A watermark check with spoken capture guidance, and a verdict policy that never says ``counterfeit'';
+    \item Offline Bangla/English speech, haptic feedback and physical buttons for control.
+\end{itemize}
+
+
+\section{Objectives}
+\label{sec:Objective}
+
+The primary objective of this project is to design, implement and evaluate SARA, an affordable, offline assistive smart glass for visually impaired people. The specific goals are:
+
+\begin{enumerate}[noitemsep]
+    \item To build a wearable prototype on Raspberry Pi~5 that is operated entirely through physical buttons and audio feedback.
+    \item To provide Bangla and English text reading using on-device OCR and offline text-to-speech.
+    \item To announce everyday objects in front of the user in Bangla using a real-time object detector.
+    \item To detect and name all nine denominations of Bangladeshi Taka in real-world scenes, by creating a large synthetic detection dataset without manual annotation.
+    \item To develop a counterfeit-note authenticator that remains reliable when only one or a few views of the note are available.
+    \item To measure counterfeit detection on prints never seen in training, and to design spoken feedback that is safe for a blind user.
+    \item To improve Bangla text reading with a benchmark in which all choices are made on validation data.
+    \item To add supporting features such as emotion announcement, haptic confirmation, field logging and a desktop test harness.
+    \item To measure latency, memory and temperature of every mode on the Raspberry Pi~5.
+    \item To evaluate every module with standard metrics on held-out data and to report the results and gaps honestly.
+\end{enumerate}
+
+Ultimately, the objective is to create a human-centred, low-cost and privacy-preserving assistive device that increases the independence of visually impaired people in Bangladesh.
+
+\section{Scope of the Study}
+\label{sec:Scope of the Study}
+
+This research is concerned with the design, development and technical evaluation of a camera-based wearable assistant. The main functions of the system are the following:
+
+\begin{itemize}
+    \item \textbf{Text Reading (OCR):} Recognition of printed Bangla and English text from the camera image and reading it aloud on request.
+
+    \item \textbf{Object Detection:} Periodic detection of the 80 COCO object classes (person, chair, bottle, bus and so on) and announcement of the most relevant ones in Bangla.
+
+    \item \textbf{Currency Detection:} Localisation and classification of the nine Bangladeshi Taka denominations, spoken in Bangla, with vibration confirmation.
+
+    \item \textbf{Currency Authentication:} Classification of a 500 or 1,000 Taka note as genuine or counterfeit from one to six close-up views, a watermark check of a back-lit note, and a cautious spoken verdict on the glass.
+
+    \item \textbf{Emotion:} Recognition of the facial expression of the person in front of the user, announced on request.
+
+    \item \textbf{Online Scene Description:} An optional mode that sends one image to a cloud vision--language model; it needs the internet and an API key.
+\end{itemize}
+
+The study does not cover navigation, obstacle distance measurement, GPS, or voice-command control, although parts of these exist as experimental code. Model accuracy is evaluated on public datasets and on test sets built for this project; latency, memory and temperature are measured on the Raspberry Pi~5. A formal study with visually impaired participants, battery life and accuracy on photographs taken through the glass camera have not been measured and are presented as future work. The glass is an aid; it does not replace a white cane, a guide or a bank's counterfeit-detection equipment.
+
+
+\section{Research Questions}
+\label{sec:Research Question}
+
+This research addresses the following questions:
+
+\begin{enumerate}
+    \item \textbf{RQ1 (system).} How can a multi-function assistive smart glass with Bangla support be designed and run on a Raspberry Pi~5, and what latency, memory and temperature does it reach?
+
+    \item \textbf{RQ2 (synthetic data).} Can a detector trained on synthetically composited images, generated without manual annotation, recognise Bangladeshi Taka notes in independent real photographs?
+
+    \item \textbf{RQ3 (number of views).} Why does a multi-view counterfeit authenticator trained on a fixed number of views fail when fewer views are available, and can a training protocol fix this?
+
+    \item \textbf{RQ4 (unseen prints).} How much does counterfeit-detection accuracy fall when every test counterfeit comes from a print never seen in training, and can a physical security feature, the watermark, recover the loss?
+
+    \item \textbf{RQ5 (safety).} Can the glass give counterfeit feedback that never accuses a genuine note and has a bounded chance of passing a counterfeit, and what does this safety cost in usefulness?
+
+    \item \textbf{RQ6 (Bangla OCR).} Which parts of a Bangla OCR pipeline matter most for text read by a wearable camera: region selection, pre-processing, the engine, its parameters, post-processing or fine-tuning?
+
+    \item \textbf{RQ7 (interaction).} How can the interaction (buttons, capture/read separation, spoken capture guidance, Bangla speech) be made suitable for users without sight? This question is answered only at the level of design; the controlled user study that would test it has not been carried out; a short voice questionnaire gives first, uncontrolled impressions (Section~\ref{sec:voice_survey}).
+\end{enumerate}
+
+\section{Contributions}
+\label{sec:contributions}
+The main contributions of this thesis are:
+\begin{enumerate}[noitemsep]
+    \item A complete five-mode assistive smart-glass system (SARA) with Bangla speech and physical button control, measured on a Raspberry Pi~5: a median of 327~ms for the currency check, 1.48~GB peak memory and no thermal throttling in a 30-minute run.
+    \item A copy-paste compositing pipeline that turns 5,073 clean note images into a 22,333-image detection dataset with automatic bounding boxes, and a YOLOv8s Taka detector trained on it that names 91.5\% of 1,536 independent photographs correctly.
+    \item A prefix-robust multi-view training protocol that removes the train/test mismatch in the number of views: one-view accuracy 98.2\% against 71.2\% for fixed six-view training, over three seeds on a note-disjoint test set.
+    \item An audit showing that most JaalTaka counterfeits share a few printed serial numbers, a print-disjoint split built from it, and the finding that accuracy drops from about 98\% to about 90\% on unseen prints.
+    \item A denomination-matched watermark residual (DMWR), derived from a model of back-lit paper, that reaches 91.5\% on unseen prints with 47,818 parameters, statistically level with a 46 times larger MobileNetV2;
+    \item A watermark check with a learned localizer and spoken capture guidance that raises unseen-print accuracy to 95.0\%, and a verdict policy that never says ``counterfeit'' and passed 0 of 88 test counterfeits.
+    \item A Bangla and English OCR benchmark with correctly shaped text and separate validation and test phrases and fonts, and an OCR pipeline that lowers the character error rate from 9.3\% to 2.4\%.
+    \item Tools for the work that remains: a field logger, a print-locked data-collection tool, a pre-registered study protocol, a voice-driven questionnaire in Bangla, and an append-only database of all experiments.
+    \item A file-backed evaluation of every module, including negative results, corrections of earlier figures and a list of measurements that are still missing.
+\end{enumerate}
+
+
+\section{Thesis Structure}
+
+This thesis is organized into seven chapters, each addressing a specific aspect of the project. The chapters are outlined as follows:
+
+\begin{itemize}
+    \item \textbf{Chapter 1: Introduction} \\
+    This chapter provides the background, problem statement, objectives, scope, research questions, contributions and thesis structure.
+
+    \item \textbf{Chapter 2: Literature Review} \\
+    This chapter reviews assistive technologies for visually impaired people, existing reading devices, smart glasses, OCR and text-to-speech systems, object detection, Bangladeshi currency recognition, multi-view learning, evaluation leakage and safe prediction.
+
+    \item \textbf{Chapter 3: System Design and Methodology} \\
+    This chapter describes the framework, hardware components, software design and the methodology of SARA.
+
+    \item \textbf{Chapter 4: Implementation Process} \\
+    This chapter explains how each module was implemented, integrated and deployed.
+
+    \item \textbf{Chapter 5: Dataset and Data Engineering} \\
+    This chapter presents the datasets used, the synthetic compositing pipeline, the serial-number audit, the data splits and the OCR benchmark.
+
+    \item \textbf{Chapter 6: Results and Discussion} \\
+    This chapter reports the measured performance of each module on laptops and on the Raspberry Pi~5, the first field test, the negative results, and the limitations.
+
+    \item \textbf{Chapter 7: Conclusion and Future Work} \\
+    This chapter summarises the work, its social impact and the directions for future research.
+\end{itemize}

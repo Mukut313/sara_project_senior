@@ -1,0 +1,6558 @@
+{
+"rendered": [
+{
+"seed": 0,
+"lang": "bn",
+"cond": "clean",
+"gt": "ধূমপান নিষেধ",
+"hyp": "ধূমপান নিষেধ",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 5681.2814000295475
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "wild",
+"gt": "ধূমপান নিষেধ",
+"hyp": "ধূমপান নিষেধ",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 1049.8227000352927
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "scene",
+"gt": "ধূমপান নিষেধ",
+"hyp": "ciMlink ধূমপান নিষেধ",
+"cer": 0.6666666666666666,
+"wer": 0.5,
+"exact": false,
+"ms": 4711.682999972254
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "clean",
+"gt": "রান্নাঘর",
+"hyp": "রান্নাঘর",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 620.5608999589458
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "wild",
+"gt": "রান্নাঘর",
+"hyp": "রান্নাঘর",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 5210.77340003103
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "scene",
+"gt": "রান্নাঘর",
+"hyp": "30273M 10 THE MOHS রান্নাঘর",
+"cer": 2.375,
+"wer": 4.0,
+"exact": false,
+"ms": 9506.674500007648
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "clean",
+"gt": "মেয়াদ উত্তীর্ণের তারিখ",
+"hyp": "মেয়াদ উত্তীর্ণের তারিখ",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 3310.0617000018246
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "wild",
+"gt": "মেয়াদ উত্তীর্ণের তারিখ",
+"hyp": "মেয়াদ উত্তীর্ণের তারিখ",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 2288.7562999967486
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "scene",
+"gt": "মেয়াদ উত্তীর্ণের তারিখ",
+"hyp": "",
+"cer": 1.0,
+"wer": 1.0,
+"exact": false,
+"ms": 156.6856999997981
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "clean",
+"gt": "দাম ৮৫ টাকা",
+"hyp": "দাম ৮৫ টাকা",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 3807.4291000375524
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "wild",
+"gt": "দাম ৮৫ টাকা",
+"hyp": "দাম ৮৫ টাকা",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 1478.2000000122935
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "scene",
+"gt": "দাম ৮৫ টাকা",
+"hyp": "দাম ৮৫ টাকা",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 1015.5933999922127
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "clean",
+"gt": "সরকারি প্রাথমিক বিদ্যালয়",
+"hyp": "সরকারি প্রাথমিক বিদ্যালয়",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 874.1267999866977
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "wild",
+"gt": "সরকারি প্রাথমিক বিদ্যালয়",
+"hyp": "সরকারি প্রাথমিক বিদ্যালয়",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 2443.2347000110894
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "scene",
+"gt": "সরকারি প্রাথমিক বিদ্যালয়",
+"hyp": "৭৩ সরকারি প্রাথমিক বিদ্যালয় 1B",
+"cer": 0.24,
+"wer": 0.6666666666666666,
+"exact": false,
+"ms": 18930.736000009347
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "clean",
+"gt": "ডাকঘর",
+"hyp": "ডাকঘর",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 730.5176999652758
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "wild",
+"gt": "ডাকঘর",
+"hyp": "ডাকঘর",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 820.3591000055894
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "scene",
+"gt": "ডাকঘর",
+"hyp": "ডাকঘর",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 1355.9768999693915
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "clean",
+"gt": "ভিতরে আসুন",
+"hyp": "ভিতরে আসুন",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 790.8030999824405
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "wild",
+"gt": "ভিতরে আসুন",
+"hyp": "ভিতরে আসুন",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 888.207699987106
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "scene",
+"gt": "ভিতরে আসুন",
+"hyp": "তরে আসুন",
+"cer": 0.2,
+"wer": 0.5,
+"exact": false,
+"ms": 1441.2935000145808
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "clean",
+"gt": "জুতা খুলে প্রবেশ করুন",
+"hyp": "জুতা খুলে প্রবেশ করুন",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 941.5467000217177
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "wild",
+"gt": "জুতা খুলে প্রবেশ করুন",
+"hyp": "জুতা খুলে প্রবেশ করুন",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 939.932500012219
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "scene",
+"gt": "জুতা খুলে প্রবেশ করুন",
+"hyp": "জুতা খুলে প্রবেশ করুন",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 913.9169999980368
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "clean",
+"gt": "চিনি এক কেজি",
+"hyp": "চিনি এক কেজি",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 761.3707999698818
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "wild",
+"gt": "চিনি এক কেজি",
+"hyp": "চিনি এক কেজি",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 416.3098999997601
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "scene",
+"gt": "চিনি এক কেজি",
+"hyp": "চিনি এক কেজি",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 2374.077800021041
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "clean",
+"gt": "পরীক্ষার হল",
+"hyp": "পরীক্ষার হল",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 3877.7778999647126
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "wild",
+"gt": "পরীক্ষার হল",
+"hyp": "পরীক্ষার হল",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 1170.5390000133775
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "scene",
+"gt": "পরীক্ষার হল",
+"hyp": "পরীক্ষার হল",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 690.6762999715284
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "clean",
+"gt": "ব্যবস্থাপক",
+"hyp": "ব্যবস্থাপক",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 428.74209996080026
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "wild",
+"gt": "ব্যবস্থাপক",
+"hyp": "ব্যবস্থাপক",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 546.4697999996133
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "scene",
+"gt": "ব্যবস্থাপক",
+"hyp": "ব্যবস্থাপক",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 4505.324399971869
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "clean",
+"gt": "ঢাকা মেডিকেল কলেজ",
+"hyp": "ঢাকা মেডিকেল কলেজ",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 929.2018000269309
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "wild",
+"gt": "ঢাকা মেডিকেল কলেজ",
+"hyp": "ঢাকা মেডিকেল কলেজ",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 1943.4026000089943
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "scene",
+"gt": "ঢাকা মেডিকেল কলেজ",
+"hyp": "ঢাকা মেডিকেল কলেজ",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 5440.529600018635
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "clean",
+"gt": "নিরাপদ পানীয় জল",
+"hyp": "নিরাপদ পানীয় জল",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 784.0873999521136
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "wild",
+"gt": "নিরাপদ পানীয় জল",
+"hyp": "নিরাপদ পানীয় জল",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 1535.5590000399388
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "scene",
+"gt": "নিরাপদ পানীয় জল",
+"hyp": "",
+"cer": 1.0,
+"wer": 1.0,
+"exact": false,
+"ms": 4299.527600000147
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "clean",
+"gt": "সোমবার বন্ধ",
+"hyp": "সোমবার বন্ধ",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 2986.757500038948
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "wild",
+"gt": "সোমবার বন্ধ",
+"hyp": "সোমবার বন্ধ",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 1610.854400030803
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "scene",
+"gt": "সোমবার বন্ধ",
+"hyp": "",
+"cer": 1.0,
+"wer": 1.0,
+"exact": false,
+"ms": 4314.908899948932
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "clean",
+"gt": "রক্ত পরীক্ষা কেন্দ্র",
+"hyp": "রক্ত পরীক্ষা কেন্দ্র",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 748.8423000322655
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "wild",
+"gt": "রক্ত পরীক্ষা কেন্দ্র",
+"hyp": "রক্ত পরীক্ষা কেন্দ্র",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 738.2218000129797
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "scene",
+"gt": "রক্ত পরীক্ষা কেন্দ্র",
+"hyp": "রক্ত পরীক্ষা কেন্দ্র",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 1787.1739999973215
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "clean",
+"gt": "আলু",
+"hyp": "আলু",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 488.1954000447877
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "wild",
+"gt": "আলু",
+"hyp": "আলু",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 1209.058099950198
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "scene",
+"gt": "আলু",
+"hyp": "",
+"cer": 1.0,
+"wer": 1.0,
+"exact": false,
+"ms": 117.60769999818876
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "clean",
+"gt": "বিদ্যুৎ বিল",
+"hyp": "বিদ্যুৎ বিল",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 914.558999997098
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "wild",
+"gt": "বিদ্যুৎ বিল",
+"hyp": "বিদ্যুৎ বিল",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 1202.3468000115827
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "scene",
+"gt": "বিদ্যুৎ বিল",
+"hyp": "বিল",
+"cer": 0.7272727272727273,
+"wer": 0.5,
+"exact": false,
+"ms": 2125.33579999581
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "clean",
+"gt": "শিশুদের খেলার মাঠ",
+"hyp": "শিশুদের খেলার মাঠ",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 1783.4166000247933
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "wild",
+"gt": "শিশুদের খেলার মাঠ",
+"hyp": "শিশুদের খেলার মাঠ",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 1605.9822000097483
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "scene",
+"gt": "শিশুদের খেলার মাঠ",
+"hyp": "শিশুদের খেলার মাঠ",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 3214.567899995018
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "clean",
+"gt": "ক্যাশ কাউন্টার",
+"hyp": "ক্যাশ কাউন্টার",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 2116.320100030862
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "wild",
+"gt": "ক্যাশ কাউন্টার",
+"hyp": "ক্যাশ কাউন্টার",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 739.273699990008
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "scene",
+"gt": "ক্যাশ কাউন্টার",
+"hyp": "ক্যাশ কাউন্টার",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 3541.2868999992497
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "clean",
+"gt": "সাবান",
+"hyp": "সাবান",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 1395.7517999806441
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "wild",
+"gt": "সাবান",
+"hyp": "সাবান",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 2747.216199990362
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "scene",
+"gt": "সাবান",
+"hyp": "",
+"cer": 1.0,
+"wer": 1.0,
+"exact": false,
+"ms": 3249.317299982067
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "clean",
+"gt": "ভাড়া দেওয়া হবে",
+"hyp": "ভাডা দেওয়া হবে",
+"cer": 0.0625,
+"wer": 0.3333333333333333,
+"exact": false,
+"ms": 960.0425999960862
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "wild",
+"gt": "ভাড়া দেওয়া হবে",
+"hyp": "ভাড়়া দেওয়া হবে",
+"cer": 0.0625,
+"wer": 0.3333333333333333,
+"exact": false,
+"ms": 1191.034600022249
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "scene",
+"gt": "ভাড়া দেওয়া হবে",
+"hyp": "ভাডা দেওয়া হবে",
+"cer": 0.0625,
+"wer": 0.3333333333333333,
+"exact": false,
+"ms": 6205.286899989005
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "clean",
+"gt": "চক্ষু বিভাগ",
+"hyp": "চক্ষু বিভাগ",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 513.1328999996185
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "wild",
+"gt": "চক্ষু বিভাগ",
+"hyp": "চক্ষু বিভাগ",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 606.728499988094
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "scene",
+"gt": "চক্ষু বিভাগ",
+"hyp": "SHIP চক্ষু বিভাগ",
+"cer": 0.45454545454545453,
+"wer": 0.5,
+"exact": false,
+"ms": 1352.6470999931917
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "clean",
+"gt": "লবণ",
+"hyp": "লবণ",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 887.3751000501215
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "wild",
+"gt": "লবণ",
+"hyp": "লবণ",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 769.2680000327528
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "scene",
+"gt": "লবণ",
+"hyp": "লবণ",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 633.8694000151008
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "clean",
+"gt": "ট্রেনের সময়সূচি",
+"hyp": "ট্রেনের সময়সূচি",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 773.5821999958716
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "wild",
+"gt": "ট্রেনের সময়সূচি",
+"hyp": "ট্রেনের সময়সূচি",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 1300.02169997897
+},
+{
+"seed": 0,
+"lang": "bn",
+"cond": "scene",
+"gt": "ট্রেনের সময়সূচি",
+"hyp": "ট্রেনের সময়সূচি",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 1385.1667999988422
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "clean",
+"gt": "Emergency Room",
+"hyp": "Emergency Room",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 2090.8051999867894
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "wild",
+"gt": "Emergency Room",
+"hyp": "Emergency Room",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 2676.0336000006646
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "scene",
+"gt": "Emergency Room",
+"hyp": "Emergency Room",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 847.6989999762736
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "clean",
+"gt": "Do Not Disturb",
+"hyp": "Do Not Disturb",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 1723.5463000251912
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "wild",
+"gt": "Do Not Disturb",
+"hyp": "Do Not Disturb",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 1213.7430000002496
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "scene",
+"gt": "Do Not Disturb",
+"hyp": "BODACIOUS DR Do Not Disturb",
+"cer": 0.9285714285714286,
+"wer": 0.6666666666666666,
+"exact": false,
+"ms": 4185.8797000022605
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "clean",
+"gt": "Best Before 2027",
+"hyp": "Best Before 2027",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 1864.8220999748446
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "wild",
+"gt": "Best Before 2027",
+"hyp": "Best Before 2027",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 1328.1232999870554
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "scene",
+"gt": "Best Before 2027",
+"hyp": "Best Before 2027",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 1315.6300999689847
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "clean",
+"gt": "Price 120 Taka",
+"hyp": "Price 120 Taka",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 1955.8620000025257
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "wild",
+"gt": "Price 120 Taka",
+"hyp": "Price 120 Taka",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 759.2507000081241
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "scene",
+"gt": "Price 120 Taka",
+"hyp": "Price 120 Taka",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 1546.8927000183612
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "clean",
+"gt": "Library",
+"hyp": "Library",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 508.6083000060171
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "wild",
+"gt": "Library",
+"hyp": "Library",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 578.0897000222467
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "scene",
+"gt": "Library",
+"hyp": "Library",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 752.0727000082843
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "clean",
+"gt": "Reception",
+"hyp": "Reception",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 562.6567000290379
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "wild",
+"gt": "Reception",
+"hyp": "Reception",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 661.0875999904238
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "scene",
+"gt": "Reception",
+"hyp": "Reception",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 404.15069996379316
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "clean",
+"gt": "Wet Floor",
+"hyp": "Wet Floor",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 1011.6630999837071
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "wild",
+"gt": "Wet Floor",
+"hyp": "Wet Floor",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 2658.831899985671
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "scene",
+"gt": "Wet Floor",
+"hyp": "Wet Floor",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 2320.3130000038072
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "clean",
+"gt": "Parking",
+"hyp": "Parking",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 1145.654599997215
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "wild",
+"gt": "Parking",
+"hyp": "Parking",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 574.7724000248127
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "scene",
+"gt": "Parking",
+"hyp": "Parking",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 1208.0233999877237
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "clean",
+"gt": "Post Office",
+"hyp": "Post Office",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 1025.6330000120215
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "wild",
+"gt": "Post Office",
+"hyp": "Post Office",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 1239.6121000056155
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "scene",
+"gt": "Post Office",
+"hyp": "",
+"cer": 1.0,
+"wer": 1.0,
+"exact": false,
+"ms": 19.910299975890666
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "clean",
+"gt": "Exam Hall",
+"hyp": "Exam Hall",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 1204.7361999866553
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "wild",
+"gt": "Exam Hall",
+"hyp": "Exam Hall",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 881.2086000107229
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "scene",
+"gt": "Exam Hall",
+"hyp": "Exam Hall 7626",
+"cer": 0.5555555555555556,
+"wer": 0.5,
+"exact": false,
+"ms": 3930.060799990315
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "clean",
+"gt": "Manager",
+"hyp": "Manager",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 2647.3157000145875
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "wild",
+"gt": "Manager",
+"hyp": "Manager",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 809.0252999681979
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "scene",
+"gt": "Manager",
+"hyp": "Manager",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 1264.8839999455959
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "clean",
+"gt": "Drinking Water",
+"hyp": "Drinking Water",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 1140.9596999874339
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "wild",
+"gt": "Drinking Water",
+"hyp": "Drinking Water",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 709.4995999941602
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "scene",
+"gt": "Drinking Water",
+"hyp": "",
+"cer": 1.0,
+"wer": 1.0,
+"exact": false,
+"ms": 1790.9857999766245
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "clean",
+"gt": "Closed on Monday",
+"hyp": "Closed on Monday",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 1009.4323999946937
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "wild",
+"gt": "Closed on Monday",
+"hyp": "Closed on Monday",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 1226.75839997828
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "scene",
+"gt": "Closed on Monday",
+"hyp": "",
+"cer": 1.0,
+"wer": 1.0,
+"exact": false,
+"ms": 65.93029998475686
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "clean",
+"gt": "Blood Bank",
+"hyp": "Blood Bank",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 1040.7767000142485
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "wild",
+"gt": "Blood Bank",
+"hyp": "Blood Bank",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 1665.3278999729082
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "scene",
+"gt": "Blood Bank",
+"hyp": "Blood Bank",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 1718.9747999655083
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "clean",
+"gt": "Potato",
+"hyp": "Potato",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 729.2715000221506
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "wild",
+"gt": "Potato",
+"hyp": "Potato",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 740.0203000288457
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "scene",
+"gt": "Potato",
+"hyp": "Potata",
+"cer": 0.16666666666666666,
+"wer": 1.0,
+"exact": false,
+"ms": 1235.8312999713235
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "clean",
+"gt": "Electricity Bill",
+"hyp": "Electricity Bill",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 2598.1157000060193
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "wild",
+"gt": "Electricity Bill",
+"hyp": "Electricity Bill",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 847.9640000150539
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "scene",
+"gt": "Electricity Bill",
+"hyp": "Electricity Bill",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 1522.735200007446
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "clean",
+"gt": "Playground",
+"hyp": "Playground",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 585.0815000012517
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "wild",
+"gt": "Playground",
+"hyp": "Playground",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 753.5973999765702
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "scene",
+"gt": "Playground",
+"hyp": "Playground",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 902.4309000233188
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "clean",
+"gt": "Cash Counter",
+"hyp": "Cash Counter",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 3148.236499982886
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "wild",
+"gt": "Cash Counter",
+"hyp": "Cash Counter",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 895.9045000374317
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "scene",
+"gt": "Cash Counter",
+"hyp": "Cash Counter",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 1276.1215000064112
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "clean",
+"gt": "Soap",
+"hyp": "Soap",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 2250.7160999812186
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "wild",
+"gt": "Soap",
+"hyp": "Soap",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 649.5818999828771
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "scene",
+"gt": "Soap",
+"hyp": "Soap",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 623.824100010097
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "clean",
+"gt": "To Let",
+"hyp": "ToLet",
+"cer": 0.16666666666666666,
+"wer": 1.0,
+"exact": false,
+"ms": 679.5649999985471
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "wild",
+"gt": "To Let",
+"hyp": "ToLet",
+"cer": 0.16666666666666666,
+"wer": 1.0,
+"exact": false,
+"ms": 736.4925000001676
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "scene",
+"gt": "To Let",
+"hyp": "ToLet",
+"cer": 0.16666666666666666,
+"wer": 1.0,
+"exact": false,
+"ms": 1120.7985000219196
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "clean",
+"gt": "Eye Clinic",
+"hyp": "Eye Clinic",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 846.467399969697
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "wild",
+"gt": "Eye Clinic",
+"hyp": "Eye Clinic",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 1045.070799998939
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "scene",
+"gt": "Eye Clinic",
+"hyp": "Eye Clinic",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 3103.31929998938
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "clean",
+"gt": "Salt",
+"hyp": "Salt",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 682.6148999971338
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "wild",
+"gt": "Salt",
+"hyp": "Salt",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 383.01479996880516
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "scene",
+"gt": "Salt",
+"hyp": "STOP Salt",
+"cer": 1.25,
+"wer": 1.0,
+"exact": false,
+"ms": 3281.8918999983
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "clean",
+"gt": "Train Schedule",
+"hyp": "Train Schedule",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 1470.9642000379972
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "wild",
+"gt": "Train Schedule",
+"hyp": "Train Schedule",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 2072.6063000038266
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "scene",
+"gt": "Train Schedule",
+"hyp": "Train Schedule",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 1049.9313000473194
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "clean",
+"gt": "Paracetamol 500 mg",
+"hyp": "Paracetamol 500 mg",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 1179.875899979379
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "wild",
+"gt": "Paracetamol 500 mg",
+"hyp": "Paracetamol 500 mg",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 993.3200000086799
+},
+{
+"seed": 0,
+"lang": "en",
+"cond": "scene",
+"gt": "Paracetamol 500 mg",
+"hyp": "",
+"cer": 1.0,
+"wer": 1.0,
+"exact": false,
+"ms": 5051.942999998573
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "clean",
+"gt": "ধূমপান নিষেধ",
+"hyp": "",
+"cer": 1.0,
+"wer": 1.0,
+"exact": false,
+"ms": 3321.876899979543
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "wild",
+"gt": "ধূমপান নিষেধ",
+"hyp": "ধূমপান নিষেধ",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 890.1432999991812
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "scene",
+"gt": "ধূমপান নিষেধ",
+"hyp": "ধূমপান নিষেধ OARRINA",
+"cer": 0.6666666666666666,
+"wer": 0.5,
+"exact": false,
+"ms": 12835.12940001674
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "clean",
+"gt": "রান্নাঘর",
+"hyp": "রান্নাঘর",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 537.2325999778695
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "wild",
+"gt": "রান্নাঘর",
+"hyp": "রান্নাঘর",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 972.9633000097238
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "scene",
+"gt": "রান্নাঘর",
+"hyp": "রান্নাঘর",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 7116.420199978165
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "clean",
+"gt": "মেয়াদ উত্তীর্ণের তারিখ",
+"hyp": "মেয়াদ উত্তীর্ণের তারিখ",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 1085.4108999483287
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "wild",
+"gt": "মেয়াদ উত্তীর্ণের তারিখ",
+"hyp": "মেয়াদ উত্তীর্ণের তারিখ",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 2230.883400014136
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "scene",
+"gt": "মেয়াদ উত্তীর্ণের তারিখ",
+"hyp": "মেয়াদ উত্তীর্ণের তারিখ",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 1487.5045000226237
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "clean",
+"gt": "দাম ৮৫ টাকা",
+"hyp": "দাম ৮৫ টাকা",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 504.79899998754263
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "wild",
+"gt": "দাম ৮৫ টাকা",
+"hyp": "দাম ৮৫ টাকা",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 758.3197000203654
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "scene",
+"gt": "দাম ৮৫ টাকা",
+"hyp": "দাম টাকা",
+"cer": 0.2727272727272727,
+"wer": 0.3333333333333333,
+"exact": false,
+"ms": 2414.3038999754936
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "clean",
+"gt": "সরকারি প্রাথমিক বিদ্যালয়",
+"hyp": "সরকারি প্রাথমিক বিদ্যালয়",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 4017.0821999781765
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "wild",
+"gt": "সরকারি প্রাথমিক বিদ্যালয়",
+"hyp": "সরকারি প্রাথমিক বিদ্যালয়",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 3673.9159999997355
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "scene",
+"gt": "সরকারি প্রাথমিক বিদ্যালয়",
+"hyp": "সরকারি প্রাথমিক বিদ্যালয়",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 4811.253199994098
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "clean",
+"gt": "ডাকঘর",
+"hyp": "ডকঘর",
+"cer": 0.2,
+"wer": 1.0,
+"exact": false,
+"ms": 1452.3234000080265
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "wild",
+"gt": "ডাকঘর",
+"hyp": "ডাকঘর",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 434.5796999987215
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "scene",
+"gt": "ডাকঘর",
+"hyp": "ডকঘর",
+"cer": 0.2,
+"wer": 1.0,
+"exact": false,
+"ms": 3073.748600028921
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "clean",
+"gt": "ভিতরে আসুন",
+"hyp": "ভিতরে আসুন",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 571.4888999937102
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "wild",
+"gt": "ভিতরে আসুন",
+"hyp": "ভিতরে আসুন",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 647.6941999862902
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "scene",
+"gt": "ভিতরে আসুন",
+"hyp": "ভিতরে আসুন",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 1185.472999990452
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "clean",
+"gt": "জুতা খুলে প্রবেশ করুন",
+"hyp": "জুতা খুলে প্রবেশ করুন",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 4562.9995000199415
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "wild",
+"gt": "জুতা খুলে প্রবেশ করুন",
+"hyp": "জুতা খুলে প্রবেশ করুন",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 1184.8079999908805
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "scene",
+"gt": "জুতা খুলে প্রবেশ করুন",
+"hyp": "",
+"cer": 1.0,
+"wer": 1.0,
+"exact": false,
+"ms": 17.640700039919466
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "clean",
+"gt": "চিনি এক কেজি",
+"hyp": "চিনি এক কেজি",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 2306.4593999879435
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "wild",
+"gt": "চিনি এক কেজি",
+"hyp": "চিনি এক কেজি",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 1196.412399993278
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "scene",
+"gt": "চিনি এক কেজি",
+"hyp": "চিনি এক কেজি",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 1811.531700019259
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "clean",
+"gt": "পরীক্ষার হল",
+"hyp": "পরীক্ষার হল",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 782.697599963285
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "wild",
+"gt": "পরীক্ষার হল",
+"hyp": "পরীক্ষার হল",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 592.4557000398636
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "scene",
+"gt": "পরীক্ষার হল",
+"hyp": "পরীক্ষার হল",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 1770.924499956891
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "clean",
+"gt": "ব্যবস্থাপক",
+"hyp": "ব্যবস্থাপক",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 670.6061000004411
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "wild",
+"gt": "ব্যবস্থাপক",
+"hyp": "ব্যবস্থাপক",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 845.2168000512756
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "scene",
+"gt": "ব্যবস্থাপক",
+"hyp": "3",
+"cer": 1.0,
+"wer": 1.0,
+"exact": false,
+"ms": 4535.945100011304
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "clean",
+"gt": "ঢাকা মেডিকেল কলেজ",
+"hyp": "ঢাকা মেডিকেল কলেজ",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 3568.587400019169
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "wild",
+"gt": "ঢাকা মেডিকেল কলেজ",
+"hyp": "ঢাকা মেডিকেল কলেজ",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 3250.3722000401467
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "scene",
+"gt": "ঢাকা মেডিকেল কলেজ",
+"hyp": "ঢাকা মেডিকেল কলেজ",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 2392.4270000425167
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "clean",
+"gt": "নিরাপদ পানীয় জল",
+"hyp": "",
+"cer": 1.0,
+"wer": 1.0,
+"exact": false,
+"ms": 3280.818199971691
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "wild",
+"gt": "নিরাপদ পানীয় জল",
+"hyp": "নিরাপদ পানীয় জল",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 2674.574600008782
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "scene",
+"gt": "নিরাপদ পানীয় জল",
+"hyp": "নিরাপদ পানীয় জল",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 945.8544999943115
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "clean",
+"gt": "সোমবার বন্ধ",
+"hyp": "সোমবার বন্ধ",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 591.2765000248328
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "wild",
+"gt": "সোমবার বন্ধ",
+"hyp": "সোমবার বন্ধ",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 607.9324000165798
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "scene",
+"gt": "সোমবার বন্ধ",
+"hyp": "সোমবার বন্ধ",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 953.4984999918379
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "clean",
+"gt": "রক্ত পরীক্ষা কেন্দ্র",
+"hyp": "রক্ত পরীক্ষা কেন্দ্র",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 2304.754899989348
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "wild",
+"gt": "রক্ত পরীক্ষা কেন্দ্র",
+"hyp": "রক্ত পরীক্ষা কেন্দ্র",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 1012.8704000380822
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "scene",
+"gt": "রক্ত পরীক্ষা কেন্দ্র",
+"hyp": "৬",
+"cer": 1.0,
+"wer": 1.0,
+"exact": false,
+"ms": 1206.5075000282377
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "clean",
+"gt": "আলু",
+"hyp": "আলু",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 3942.2946000122465
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "wild",
+"gt": "আলু",
+"hyp": "আলু",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 1237.9942000261508
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "scene",
+"gt": "আলু",
+"hyp": "",
+"cer": 1.0,
+"wer": 1.0,
+"exact": false,
+"ms": 206.81589999003336
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "clean",
+"gt": "বিদ্যুৎ বিল",
+"hyp": "বিদ্যুৎ বিল",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 1313.0540000274777
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "wild",
+"gt": "বিদ্যুৎ বিল",
+"hyp": "বিদ্যুৎ বিল",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 3546.023399976548
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "scene",
+"gt": "বিদ্যুৎ বিল",
+"hyp": "বিদ্যু যৎ বিল",
+"cer": 0.18181818181818182,
+"wer": 1.0,
+"exact": false,
+"ms": 1831.0739999869838
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "clean",
+"gt": "শিশুদের খেলার মাঠ",
+"hyp": "শিশুদের খেলার মাঠ",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 782.347199972719
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "wild",
+"gt": "শিশুদের খেলার মাঠ",
+"hyp": "শিশুদের খেলার মাঠ",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 2081.599599972833
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "scene",
+"gt": "শিশুদের খেলার মাঠ",
+"hyp": "শিশুদের খেলার মাঠ",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 18778.59589998843
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "clean",
+"gt": "ক্যাশ কাউন্টার",
+"hyp": "ক্যাশ কাউন্টার",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 717.5757000222802
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "wild",
+"gt": "ক্যাশ কাউন্টার",
+"hyp": "ক্যাশ কাউন্টার",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 1128.1806999468245
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "scene",
+"gt": "ক্যাশ কাউন্টার",
+"hyp": "ক্যাশ কাউন্টার",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 10142.215100000612
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "clean",
+"gt": "সাবান",
+"hyp": "সাবান",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 604.3720999732614
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "wild",
+"gt": "সাবান",
+"hyp": "সাবান",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 1446.4617999619804
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "scene",
+"gt": "সাবান",
+"hyp": "L",
+"cer": 1.0,
+"wer": 1.0,
+"exact": false,
+"ms": 1022.6748999557458
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "clean",
+"gt": "ভাড়া দেওয়া হবে",
+"hyp": "ভাড়়া দেওয়া হবে",
+"cer": 0.0625,
+"wer": 0.3333333333333333,
+"exact": false,
+"ms": 914.6763000171632
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "wild",
+"gt": "ভাড়া দেওয়া হবে",
+"hyp": "ভাড়়া দেওয়া হবে",
+"cer": 0.0625,
+"wer": 0.3333333333333333,
+"exact": false,
+"ms": 1127.9625000315718
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "scene",
+"gt": "ভাড়া দেওয়া হবে",
+"hyp": "ভাড়া দেওয়া হবে",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 3651.6675000311807
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "clean",
+"gt": "চক্ষু বিভাগ",
+"hyp": "চক্ষু বিভাগ",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 1010.7034999527968
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "wild",
+"gt": "চক্ষু বিভাগ",
+"hyp": "চক্ষু বিভাগ",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 1613.0727999843657
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "scene",
+"gt": "চক্ষু বিভাগ",
+"hyp": "চক্ষু বিভাগ",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 3540.389900037553
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "clean",
+"gt": "লবণ",
+"hyp": "লবণ",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 2389.5663000294007
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "wild",
+"gt": "লবণ",
+"hyp": "লবণ",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 1255.7992999791168
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "scene",
+"gt": "লবণ",
+"hyp": "লবণ",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 2152.1549000171944
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "clean",
+"gt": "ট্রেনের সময়সূচি",
+"hyp": "ট্রেনের glsikks",
+"cer": 0.5,
+"wer": 0.5,
+"exact": false,
+"ms": 3089.1979999723844
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "wild",
+"gt": "ট্রেনের সময়সূচি",
+"hyp": "ট্রেনের সময়সূচি",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 2832.8890999546275
+},
+{
+"seed": 1,
+"lang": "bn",
+"cond": "scene",
+"gt": "ট্রেনের সময়সূচি",
+"hyp": "ট্রনের সময়সূচি",
+"cer": 0.0625,
+"wer": 0.5,
+"exact": false,
+"ms": 1181.6616000141948
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "clean",
+"gt": "Emergency Room",
+"hyp": "Emergency Room",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 1917.3805000027642
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "wild",
+"gt": "Emergency Room",
+"hyp": "Emergency Room",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 1852.973600034602
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "scene",
+"gt": "Emergency Room",
+"hyp": "Emergency Room",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 1941.3737999857403
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "clean",
+"gt": "Do Not Disturb",
+"hyp": "Do Not Disturb",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 1071.5264999889769
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "wild",
+"gt": "Do Not Disturb",
+"hyp": "Do Not Disturb",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 2048.2501999940723
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "scene",
+"gt": "Do Not Disturb",
+"hyp": "Do Not Disturb",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 794.6437999489717
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "clean",
+"gt": "Best Before 2027",
+"hyp": "Best Before 2027",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 1510.8012999990024
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "wild",
+"gt": "Best Before 2027",
+"hyp": "Best Before 2027",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 4131.164700025693
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "scene",
+"gt": "Best Before 2027",
+"hyp": "Best Before 2027",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 2923.001100018155
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "clean",
+"gt": "Price 120 Taka",
+"hyp": "Price 120 Taka",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 2687.4281000345945
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "wild",
+"gt": "Price 120 Taka",
+"hyp": "Price 120 Taka",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 1300.154600001406
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "scene",
+"gt": "Price 120 Taka",
+"hyp": "",
+"cer": 1.0,
+"wer": 1.0,
+"exact": false,
+"ms": 83.53649999480695
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "clean",
+"gt": "Library",
+"hyp": "Library",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 585.2321999846026
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "wild",
+"gt": "Library",
+"hyp": "Library",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 910.0527000264265
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "scene",
+"gt": "Library",
+"hyp": "Library",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 5196.48819998838
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "clean",
+"gt": "Reception",
+"hyp": "Reception",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 685.1800000295043
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "wild",
+"gt": "Reception",
+"hyp": "Reception",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 512.8791999886744
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "scene",
+"gt": "Reception",
+"hyp": "Reception",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 1136.3684000098146
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "clean",
+"gt": "Wet Floor",
+"hyp": "Wet Floor",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 844.8774000280537
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "wild",
+"gt": "Wet Floor",
+"hyp": "Wet Floor",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 632.0778999943286
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "scene",
+"gt": "Wet Floor",
+"hyp": "Wet Floor",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 2372.370500001125
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "clean",
+"gt": "Parking",
+"hyp": "Parking",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 1482.258899952285
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "wild",
+"gt": "Parking",
+"hyp": "Parking",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 583.655100024771
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "scene",
+"gt": "Parking",
+"hyp": "Parking",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 2567.5896999891847
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "clean",
+"gt": "Post Office",
+"hyp": "Post Office",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 661.190600018017
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "wild",
+"gt": "Post Office",
+"hyp": "Post Office",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 647.7092999848537
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "scene",
+"gt": "Post Office",
+"hyp": "1SC Office",
+"cer": 0.36363636363636365,
+"wer": 0.5,
+"exact": false,
+"ms": 1731.578399951104
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "clean",
+"gt": "Exam Hall",
+"hyp": "Exam Hall",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 1321.2456000037491
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "wild",
+"gt": "Exam Hall",
+"hyp": "Exam Hall",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 2304.181299987249
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "scene",
+"gt": "Exam Hall",
+"hyp": "Hall",
+"cer": 0.5555555555555556,
+"wer": 0.5,
+"exact": false,
+"ms": 9322.903499996755
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "clean",
+"gt": "Manager",
+"hyp": "Manager",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 1237.0536999660544
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "wild",
+"gt": "Manager",
+"hyp": "Manager",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 1145.6944000092335
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "scene",
+"gt": "Manager",
+"hyp": "Manager",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 872.9701000265777
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "clean",
+"gt": "Drinking Water",
+"hyp": "Drinking Water",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 1963.8187999953516
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "wild",
+"gt": "Drinking Water",
+"hyp": "Drinking Water",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 826.7419000039808
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "scene",
+"gt": "Drinking Water",
+"hyp": "Drinking Water",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 1381.3908000010997
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "clean",
+"gt": "Closed on Monday",
+"hyp": "Closed on Monday",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 1069.4457000354305
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "wild",
+"gt": "Closed on Monday",
+"hyp": "Closed on Monday",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 670.8251999807544
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "scene",
+"gt": "Closed on Monday",
+"hyp": "Closed on Monday",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 964.2462999909185
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "clean",
+"gt": "Blood Bank",
+"hyp": "Blood Bank",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 528.0357000301592
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "wild",
+"gt": "Blood Bank",
+"hyp": "Blood Bank",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 453.94460001261905
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "scene",
+"gt": "Blood Bank",
+"hyp": "Blood Bank",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 1249.6931999921799
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "clean",
+"gt": "Potato",
+"hyp": "Potato",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 1186.9523999630474
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "wild",
+"gt": "Potato",
+"hyp": "",
+"cer": 1.0,
+"wer": 1.0,
+"exact": false,
+"ms": 5912.339400034398
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "scene",
+"gt": "Potato",
+"hyp": "Potato",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 2299.7429000097327
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "clean",
+"gt": "Electricity Bill",
+"hyp": "Electricity Bill",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 844.7992999572307
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "wild",
+"gt": "Electricity Bill",
+"hyp": "Electricity Bill",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 670.9941999870352
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "scene",
+"gt": "Electricity Bill",
+"hyp": "Electricity Bill",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 3166.8479000218213
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "clean",
+"gt": "Playground",
+"hyp": "Playground",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 580.7874000165612
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "wild",
+"gt": "Playground",
+"hyp": "Playground",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 1187.16970004607
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "scene",
+"gt": "Playground",
+"hyp": "Playground",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 1412.8095000050962
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "clean",
+"gt": "Cash Counter",
+"hyp": "Cash Counter",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 2420.387300022412
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "wild",
+"gt": "Cash Counter",
+"hyp": "Cash Counter",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 1344.5744999917224
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "scene",
+"gt": "Cash Counter",
+"hyp": "WIDSON cotbra Counter Cash",
+"cer": 1.5,
+"wer": 1.5,
+"exact": false,
+"ms": 6917.468900035601
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "clean",
+"gt": "Soap",
+"hyp": "Soap",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 859.6684000222012
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "wild",
+"gt": "Soap",
+"hyp": "Soap",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 879.5945000019856
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "scene",
+"gt": "Soap",
+"hyp": "Soap",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 846.092099964153
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "clean",
+"gt": "To Let",
+"hyp": "",
+"cer": 1.0,
+"wer": 1.0,
+"exact": false,
+"ms": 1788.1586999865249
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "wild",
+"gt": "To Let",
+"hyp": "",
+"cer": 1.0,
+"wer": 1.0,
+"exact": false,
+"ms": 1167.923000000883
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "scene",
+"gt": "To Let",
+"hyp": "",
+"cer": 1.0,
+"wer": 1.0,
+"exact": false,
+"ms": 4977.553199976683
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "clean",
+"gt": "Eye Clinic",
+"hyp": "Eye Clinic",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 806.4137999899685
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "wild",
+"gt": "Eye Clinic",
+"hyp": "Eye Clinic",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 976.1040000012144
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "scene",
+"gt": "Eye Clinic",
+"hyp": "Eye Clinic",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 3028.558599995449
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "clean",
+"gt": "Salt",
+"hyp": "Salt",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 3066.5854000253603
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "wild",
+"gt": "Salt",
+"hyp": "Salt",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 1072.3703000112437
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "scene",
+"gt": "Salt",
+"hyp": "Salt",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 671.9529000110924
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "clean",
+"gt": "Train Schedule",
+"hyp": "Train Schedule",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 786.2778999842703
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "wild",
+"gt": "Train Schedule",
+"hyp": "Train Schedule",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 952.5700000231154
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "scene",
+"gt": "Train Schedule",
+"hyp": "Train Schedule",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 2683.4777000476606
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "clean",
+"gt": "Paracetamol 500 mg",
+"hyp": "Paracetamol 500 mg",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 1499.928200035356
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "wild",
+"gt": "Paracetamol 500 mg",
+"hyp": "Paracetamol 500 mg",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 1408.8795999996364
+},
+{
+"seed": 1,
+"lang": "en",
+"cond": "scene",
+"gt": "Paracetamol 500 mg",
+"hyp": "Paracetamol 500 mg",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 1080.934099969454
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "clean",
+"gt": "ধূমপান নিষেধ",
+"hyp": "ধূমপান নিষেধ",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 1173.468699969817
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "wild",
+"gt": "ধূমপান নিষেধ",
+"hyp": "ধূমপান নিষেধ",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 744.4498999975622
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "scene",
+"gt": "ধূমপান নিষেধ",
+"hyp": "ধূমপা",
+"cer": 0.5833333333333334,
+"wer": 1.0,
+"exact": false,
+"ms": 477.7301999856718
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "clean",
+"gt": "রান্নাঘর",
+"hyp": "রান্নাঘর",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 445.9204000304453
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "wild",
+"gt": "রান্নাঘর",
+"hyp": "রান্নাঘর",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 1744.4674000144005
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "scene",
+"gt": "রান্নাঘর",
+"hyp": "রান্নাঘর",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 1281.4792999997735
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "clean",
+"gt": "মেয়াদ উত্তীর্ণের তারিখ",
+"hyp": "মেয়াদ উত্তীর্ণের তারিখ",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 2751.2338000233285
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "wild",
+"gt": "মেয়াদ উত্তীর্ণের তারিখ",
+"hyp": "মেয়াদ উত্তীর্ণের তারিখ",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 1975.0223999726586
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "scene",
+"gt": "মেয়াদ উত্তীর্ণের তারিখ",
+"hyp": "মেয়াদ উত্তীর্ণের তারিখ",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 5365.961700037587
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "clean",
+"gt": "দাম ৮৫ টাকা",
+"hyp": "দাম ৮৫ টাকা",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 2058.994800026994
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "wild",
+"gt": "দাম ৮৫ টাকা",
+"hyp": "দাম ৮৫ টাকা",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 1834.3952999566682
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "scene",
+"gt": "দাম ৮৫ টাকা",
+"hyp": "",
+"cer": 1.0,
+"wer": 1.0,
+"exact": false,
+"ms": 51.3918999931775
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "clean",
+"gt": "সরকারি প্রাথমিক বিদ্যালয়",
+"hyp": "সরকারি প্রাথমিক বিদ্যালয়",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 1856.268799980171
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "wild",
+"gt": "সরকারি প্রাথমিক বিদ্যালয়",
+"hyp": "সরকারি প্রাথমিক বিদ্যালয়",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 2701.3216000050306
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "scene",
+"gt": "সরকারি প্রাথমিক বিদ্যালয়",
+"hyp": "সরকারি প্রাথমিক বিদ্যালয়",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 2353.112599987071
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "clean",
+"gt": "ডাকঘর",
+"hyp": "ডাকঘর",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 729.0872000157833
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "wild",
+"gt": "ডাকঘর",
+"hyp": "ডকঘরা",
+"cer": 0.4,
+"wer": 1.0,
+"exact": false,
+"ms": 597.3752000136301
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "scene",
+"gt": "ডাকঘর",
+"hyp": "ডাকঘর",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 598.0933000100777
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "clean",
+"gt": "ভিতরে আসুন",
+"hyp": "ভিতরে আসুন",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 564.6080999867991
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "wild",
+"gt": "ভিতরে আসুন",
+"hyp": "ভিতরে আসুন",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 543.8296000356786
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "scene",
+"gt": "ভিতরে আসুন",
+"hyp": "ভিতরে আসুন",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 5164.316899958067
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "clean",
+"gt": "জুতা খুলে প্রবেশ করুন",
+"hyp": "জুতা খুলে প্রবেশ করুন",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 2398.629900009837
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "wild",
+"gt": "জুতা খুলে প্রবেশ করুন",
+"hyp": "জুতা খুলে প্রবেশ করুন",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 3196.103199967183
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "scene",
+"gt": "জুতা খুলে প্রবেশ করুন",
+"hyp": "জুতা খুলে প্রবেশ করুন",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 3098.0780000099912
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "clean",
+"gt": "চিনি এক কেজি",
+"hyp": "চিনি এক কেজি",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 1231.7340000299737
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "wild",
+"gt": "চিনি এক কেজি",
+"hyp": "চিনি এক কেজি",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 897.6715000462718
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "scene",
+"gt": "চিনি এক কেজি",
+"hyp": "চিনি এক কেজি",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 1962.976000038907
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "clean",
+"gt": "পরীক্ষার হল",
+"hyp": "পরীক্ষার হল",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 863.3159999735653
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "wild",
+"gt": "পরীক্ষার হল",
+"hyp": "পরীক্ষার হল",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 4777.394199976698
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "scene",
+"gt": "পরীক্ষার হল",
+"hyp": "পরীক্ষার হল",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 1152.7755000279285
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "clean",
+"gt": "ব্যবস্থাপক",
+"hyp": "ব্যবস্থাপক",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 478.2254000310786
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "wild",
+"gt": "ব্যবস্থাপক",
+"hyp": "ব্যবস্থাপক",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 379.39159997040406
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "scene",
+"gt": "ব্যবস্থাপক",
+"hyp": "",
+"cer": 1.0,
+"wer": 1.0,
+"exact": false,
+"ms": 16.27110003028065
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "clean",
+"gt": "ঢাকা মেডিকেল কলেজ",
+"hyp": "ঢাকা মেডিকেল কলেজ",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 1179.708199982997
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "wild",
+"gt": "ঢাকা মেডিকেল কলেজ",
+"hyp": "ঢাকা মেডিকেল কলেজ",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 2195.8293999778107
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "scene",
+"gt": "ঢাকা মেডিকেল কলেজ",
+"hyp": "ঢাকা মেডিকেল কলেজ",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 2746.705400000792
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "clean",
+"gt": "নিরাপদ পানীয় জল",
+"hyp": "নিরাপদ পানীয় জল",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 2395.7765999948606
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "wild",
+"gt": "নিরাপদ পানীয় জল",
+"hyp": "নিরাপদ পানীয জল",
+"cer": 0.0625,
+"wer": 0.3333333333333333,
+"exact": false,
+"ms": 1212.2514999937266
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "scene",
+"gt": "নিরাপদ পানীয় জল",
+"hyp": "নিরাপদ পানীয় জল",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 1344.556299969554
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "clean",
+"gt": "সোমবার বন্ধ",
+"hyp": "সোমবার বন্ধ",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 899.7384999529459
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "wild",
+"gt": "সোমবার বন্ধ",
+"hyp": "সোমবার বন্ধ",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 1313.7781000114046
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "scene",
+"gt": "সোমবার বন্ধ",
+"hyp": "সোমবার বন্ধ",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 7565.97039999906
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "clean",
+"gt": "রক্ত পরীক্ষা কেন্দ্র",
+"hyp": "রক্ত পরীক্ষা কেন্দ্র",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 1001.0104000102729
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "wild",
+"gt": "রক্ত পরীক্ষা কেন্দ্র",
+"hyp": "রক্ত পরীক্ষা কেন্দ্র",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 2131.4043999882415
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "scene",
+"gt": "রক্ত পরীক্ষা কেন্দ্র",
+"hyp": "",
+"cer": 1.0,
+"wer": 1.0,
+"exact": false,
+"ms": 2286.5808999631554
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "clean",
+"gt": "আলু",
+"hyp": "আলু",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 446.15349994273856
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "wild",
+"gt": "আলু",
+"hyp": "আলু",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 327.4528000038117
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "scene",
+"gt": "আলু",
+"hyp": "আলু",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 562.4204999767244
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "clean",
+"gt": "বিদ্যুৎ বিল",
+"hyp": "বিদ্যুৎ বিল",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 630.7906999718398
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "wild",
+"gt": "বিদ্যুৎ বিল",
+"hyp": "বিদ্যুৎ বিল",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 1839.4133999827318
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "scene",
+"gt": "বিদ্যুৎ বিল",
+"hyp": "",
+"cer": 1.0,
+"wer": 1.0,
+"exact": false,
+"ms": 66.26859999960288
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "clean",
+"gt": "শিশুদের খেলার মাঠ",
+"hyp": "শিশুদের খেলার মাঠ",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 1350.6907999981195
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "wild",
+"gt": "শিশুদের খেলার মাঠ",
+"hyp": "শিশুদের খেলার মাঠ",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 2154.0420000092126
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "scene",
+"gt": "শিশুদের খেলার মাঠ",
+"hyp": "শিশুদের খেলার মাঠ",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 2216.477300040424
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "clean",
+"gt": "ক্যাশ কাউন্টার",
+"hyp": "ক্যাশ কাউন্টার",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 2528.1360000371933
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "wild",
+"gt": "ক্যাশ কাউন্টার",
+"hyp": "ক্যাশ কাউন্টার",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 917.6113999565132
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "scene",
+"gt": "ক্যাশ কাউন্টার",
+"hyp": "Zone ক্যাশ কাউন্টার",
+"cer": 0.35714285714285715,
+"wer": 0.5,
+"exact": false,
+"ms": 2306.0049999621697
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "clean",
+"gt": "সাবান",
+"hyp": "সাবান",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 437.4505000305362
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "wild",
+"gt": "সাবান",
+"hyp": "সাবান",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 316.8589999550022
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "scene",
+"gt": "সাবান",
+"hyp": "সাবান",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 748.7260999623686
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "clean",
+"gt": "ভাড়া দেওয়া হবে",
+"hyp": "",
+"cer": 1.0,
+"wer": 1.0,
+"exact": false,
+"ms": 3579.333800007589
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "wild",
+"gt": "ভাড়া দেওয়া হবে",
+"hyp": "ভাড়়া দেওয়া হবে",
+"cer": 0.0625,
+"wer": 0.3333333333333333,
+"exact": false,
+"ms": 3859.1132000437938
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "scene",
+"gt": "ভাড়া দেওয়া হবে",
+"hyp": "ভাড়া দেওয়া হবে",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 1076.0843000025488
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "clean",
+"gt": "চক্ষু বিভাগ",
+"hyp": "চক্ষু বিভাগ",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 560.2717000292614
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "wild",
+"gt": "চক্ষু বিভাগ",
+"hyp": "চক্ষু বিভাগ",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 2228.9026000071317
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "scene",
+"gt": "চক্ষু বিভাগ",
+"hyp": "",
+"cer": 1.0,
+"wer": 1.0,
+"exact": false,
+"ms": 187.62199999764562
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "clean",
+"gt": "লবণ",
+"hyp": "লবণ",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 503.4443000331521
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "wild",
+"gt": "লবণ",
+"hyp": "লবণ",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 586.1915999557823
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "scene",
+"gt": "লবণ",
+"hyp": "লবণ",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 614.7776999860071
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "clean",
+"gt": "ট্রেনের সময়সূচি",
+"hyp": "ট্রেনের সময়সূচি",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 952.5644999812357
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "wild",
+"gt": "ট্রেনের সময়সূচি",
+"hyp": "ট্রেনের সময়সূচি",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 924.4228000170551
+},
+{
+"seed": 2,
+"lang": "bn",
+"cond": "scene",
+"gt": "ট্রেনের সময়সূচি",
+"hyp": "ট্রেনের সময়সূচি",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 2744.8279000236653
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "clean",
+"gt": "Emergency Room",
+"hyp": "Emergency Room",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 1251.443199987989
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "wild",
+"gt": "Emergency Room",
+"hyp": "Emergency Room",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 2141.673699952662
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "scene",
+"gt": "Emergency Room",
+"hyp": "Room",
+"cer": 0.7142857142857143,
+"wer": 0.5,
+"exact": false,
+"ms": 6150.538999994751
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "clean",
+"gt": "Do Not Disturb",
+"hyp": "Do Not Disturb",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 1506.353200005833
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "wild",
+"gt": "Do Not Disturb",
+"hyp": "Do Not Disturb",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 912.5838000327349
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "scene",
+"gt": "Do Not Disturb",
+"hyp": "Fidelity Do Not Disturb",
+"cer": 0.6428571428571429,
+"wer": 0.3333333333333333,
+"exact": false,
+"ms": 3011.359900003299
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "clean",
+"gt": "Best Before 2027",
+"hyp": "Best Before 2027",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 715.1869999943301
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "wild",
+"gt": "Best Before 2027",
+"hyp": "Best Before 2027",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 908.231099951081
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "scene",
+"gt": "Best Before 2027",
+"hyp": "Best Before 2027",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 1241.7070999508724
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "clean",
+"gt": "Price 120 Taka",
+"hyp": "",
+"cer": 1.0,
+"wer": 1.0,
+"exact": false,
+"ms": 2392.5748000037856
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "wild",
+"gt": "Price 120 Taka",
+"hyp": "Price 120 Taka",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 1876.33790000109
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "scene",
+"gt": "Price 120 Taka",
+"hyp": "Price 120 Ta",
+"cer": 0.14285714285714285,
+"wer": 0.3333333333333333,
+"exact": false,
+"ms": 1568.0191999999806
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "clean",
+"gt": "Library",
+"hyp": "Library",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 429.3754000100307
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "wild",
+"gt": "Library",
+"hyp": "Library",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 502.12949997512624
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "scene",
+"gt": "Library",
+"hyp": "",
+"cer": 1.0,
+"wer": 1.0,
+"exact": false,
+"ms": 2403.0978999799117
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "clean",
+"gt": "Reception",
+"hyp": "Reception",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 1125.0720000243746
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "wild",
+"gt": "Reception",
+"hyp": "Reception",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 954.0520000155084
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "scene",
+"gt": "Reception",
+"hyp": "Reception",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 1069.7753999847919
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "clean",
+"gt": "Wet Floor",
+"hyp": "Wet Floor",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 569.7925999993458
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "wild",
+"gt": "Wet Floor",
+"hyp": "Wet Floor",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 875.5293999565765
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "scene",
+"gt": "Wet Floor",
+"hyp": "Wet Floor",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 801.7381000099704
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "clean",
+"gt": "Parking",
+"hyp": "Parking",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 409.9015000392683
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "wild",
+"gt": "Parking",
+"hyp": "Parking",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 411.3712999969721
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "scene",
+"gt": "Parking",
+"hyp": "Parking",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 1559.4442000146955
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "clean",
+"gt": "Post Office",
+"hyp": "Post Office",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 2191.2812999798916
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "wild",
+"gt": "Post Office",
+"hyp": "Post Office",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 845.9159000194632
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "scene",
+"gt": "Post Office",
+"hyp": "Post Office",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 4248.101100034546
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "clean",
+"gt": "Exam Hall",
+"hyp": "Exam Hall",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 2468.290999997407
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "wild",
+"gt": "Exam Hall",
+"hyp": "Exam Hall",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 799.1500999778509
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "scene",
+"gt": "Exam Hall",
+"hyp": "Exam Hall",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 943.876100005582
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "clean",
+"gt": "Manager",
+"hyp": "Manager",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 702.9456000309438
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "wild",
+"gt": "Manager",
+"hyp": "Manager",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 699.4654999580234
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "scene",
+"gt": "Manager",
+"hyp": "Manager",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 3536.161899974104
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "clean",
+"gt": "Drinking Water",
+"hyp": "Drinking Water",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 1952.4461000110023
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "wild",
+"gt": "Drinking Water",
+"hyp": "Drinking Water",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 757.6396000222303
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "scene",
+"gt": "Drinking Water",
+"hyp": "Drinking Water",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 2900.0058000092395
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "clean",
+"gt": "Closed on Monday",
+"hyp": "Closed on Monday",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 1193.3219999773428
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "wild",
+"gt": "Closed on Monday",
+"hyp": "Closed on Monday",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 1283.7120000040159
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "scene",
+"gt": "Closed on Monday",
+"hyp": "PUBLIC TOILET 150m Closed on Monday",
+"cer": 1.1875,
+"wer": 1.0,
+"exact": false,
+"ms": 4265.153700020164
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "clean",
+"gt": "Blood Bank",
+"hyp": "Blood Bank",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 821.461699961219
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "wild",
+"gt": "Blood Bank",
+"hyp": "Blood Bank",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 1414.5026999758556
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "scene",
+"gt": "Blood Bank",
+"hyp": "Blood সueg",
+"cer": 0.4,
+"wer": 0.5,
+"exact": false,
+"ms": 2569.7478999500163
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "clean",
+"gt": "Potato",
+"hyp": "Potato",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 1032.0644999737851
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "wild",
+"gt": "Potato",
+"hyp": "Potato",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 796.1889000143856
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "scene",
+"gt": "Potato",
+"hyp": "Potato",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 2412.1549000265077
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "clean",
+"gt": "Electricity Bill",
+"hyp": "Electricity Bill",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 981.5647999639623
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "wild",
+"gt": "Electricity Bill",
+"hyp": "Electricity Bill",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 758.9054999989457
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "scene",
+"gt": "Electricity Bill",
+"hyp": "",
+"cer": 1.0,
+"wer": 1.0,
+"exact": false,
+"ms": 16.553300025407225
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "clean",
+"gt": "Playground",
+"hyp": "Playground",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 788.0589999840595
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "wild",
+"gt": "Playground",
+"hyp": "Playground",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 496.8790999846533
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "scene",
+"gt": "Playground",
+"hyp": "Playground",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 673.6405999981798
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "clean",
+"gt": "Cash Counter",
+"hyp": "Cash Counter",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 1071.887500002049
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "wild",
+"gt": "Cash Counter",
+"hyp": "Cash Counter",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 1200.0356999924406
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "scene",
+"gt": "Cash Counter",
+"hyp": "Cash Counter",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 1715.0686999666505
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "clean",
+"gt": "Soap",
+"hyp": "Soap",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 1540.215800050646
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "wild",
+"gt": "Soap",
+"hyp": "Soap",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 625.6974999560043
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "scene",
+"gt": "Soap",
+"hyp": "Soap",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 1401.843599975109
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "clean",
+"gt": "To Let",
+"hyp": "",
+"cer": 1.0,
+"wer": 1.0,
+"exact": false,
+"ms": 1596.2150999694131
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "wild",
+"gt": "To Let",
+"hyp": "ToLet",
+"cer": 0.16666666666666666,
+"wer": 1.0,
+"exact": false,
+"ms": 1080.4379000328481
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "scene",
+"gt": "To Let",
+"hyp": "Let",
+"cer": 0.5,
+"wer": 0.5,
+"exact": false,
+"ms": 1027.427399996668
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "clean",
+"gt": "Eye Clinic",
+"hyp": "Eye Clinic",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 844.3427000311203
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "wild",
+"gt": "Eye Clinic",
+"hyp": "Eye Clinic",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 685.247800021898
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "scene",
+"gt": "Eye Clinic",
+"hyp": "Eye Clinic",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 1007.3620000039227
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "clean",
+"gt": "Salt",
+"hyp": "Salt",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 432.3530000401661
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "wild",
+"gt": "Salt",
+"hyp": "Salt",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 700.2446000115015
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "scene",
+"gt": "Salt",
+"hyp": "",
+"cer": 1.0,
+"wer": 1.0,
+"exact": false,
+"ms": 92.27140003349632
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "clean",
+"gt": "Train Schedule",
+"hyp": "Train Schedule",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 2054.7050000168383
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "wild",
+"gt": "Train Schedule",
+"hyp": "Train Schedule",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 2332.032900012564
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "scene",
+"gt": "Train Schedule",
+"hyp": "",
+"cer": 1.0,
+"wer": 1.0,
+"exact": false,
+"ms": 210.07149998331442
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "clean",
+"gt": "Paracetamol 500 mg",
+"hyp": "Paracetamol 500 mg",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 2266.498999961186
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "wild",
+"gt": "Paracetamol 500 mg",
+"hyp": "Paracetamol 500 mg",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 1244.3874000455253
+},
+{
+"seed": 2,
+"lang": "en",
+"cond": "scene",
+"gt": "Paracetamol 500 mg",
+"hyp": "Paracetamol 500 mg",
+"cer": 0.0,
+"wer": 0.0,
+"exact": true,
+"ms": 1176.8797999829985
+}
+],
+"real": [
+{
+"lang": "bn",
+"gt": "জয়",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "যুব",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "করিবেন",
+"hyp": "করিবেন",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "ব্যবসায়ী",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "শিশু",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "নিমতা,",
+"hyp": "নিমতা",
+"cer": 0.167
+},
+{
+"lang": "bn",
+"gt": "আই",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "ইলেকট্রনিক্স",
+"hyp": "ইলেকটনিক্স",
+"cer": 0.167
+},
+{
+"lang": "bn",
+"gt": "বুনিয়াদ",
+"hyp": "0",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "বিক্রয়",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "বলি",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "সেন্টার",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "শিবাজী",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "অনিতা",
+"hyp": "অনিতা",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "১৯বি.কে.তাং-২০/২/৮১",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "সুন্দরম্",
+"hyp": "সুন্দরম",
+"cer": 0.125
+},
+{
+"lang": "bn",
+"gt": "ইলেকট্রিক",
+"hyp": "ইলেকট্রিক",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "বেলঘরিয়া,",
+"hyp": "বেলঘরিয়া",
+"cer": 0.1
+},
+{
+"lang": "bn",
+"gt": "ইলেকট্রনিক্স",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "ট্রলিতে",
+"hyp": "ট্রলিতে",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "সবুজ",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "লেখার",
+"hyp": "লেখার",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "ইংরেজিতে",
+"hyp": "0",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "পরিস্কার",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "বাড়ী",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "চুনি",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "উপলক্ষে",
+"hyp": "উপলও",
+"cer": 0.571
+},
+{
+"lang": "bn",
+"gt": "শিক্ষার",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "গুঁড়ো",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "শাখা",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "শনিগুরু",
+"hyp": "শনিগুরু",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "মিনিটের",
+"hyp": "মিনিটের",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "বেঙ্গল",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "পাড়া",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "৪৯",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "এই",
+"hyp": "এই",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "প্রাইজ",
+"hyp": "9",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "এণ্ড",
+"hyp": "এণ্ড",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "হয়",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "এই",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "হয়",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "মোড়,",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "ফ্যান্সী",
+"hyp": "ফ্যা",
+"cer": 0.5
+},
+{
+"lang": "bn",
+"gt": "নমনীয়",
+"hyp": "নমনীয়",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "দোকান",
+"hyp": "দোকান",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "মাধ্যামিক",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "রোড,",
+"hyp": "ড",
+"cer": 0.75
+},
+{
+"lang": "bn",
+"gt": "২১৩",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "গহনা",
+"hyp": "গহনা",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "দিবেন",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "বিষ্ণুপুর",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "বিক্রির",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "সরকার",
+"hyp": "সরকার",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "মহাপ্রভু",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "জুয়ালার্স",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "সুস্বাগতম",
+"hyp": "সুস্বাগতম",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "জুয়েলার্স",
+"hyp": "জুয়েলার্স",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "কলকাতা",
+"hyp": "কলিকাতা",
+"cer": 0.167
+},
+{
+"lang": "bn",
+"gt": "সেন্টার",
+"hyp": "সেন্টার",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "বনিক",
+"hyp": "৩",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "গোপাল",
+"hyp": "চপল",
+"cer": 0.6
+},
+{
+"lang": "bn",
+"gt": "দোকান",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "এম.",
+"hyp": "এম.",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "টেলিকম",
+"hyp": "ফম",
+"cer": 0.833
+},
+{
+"lang": "bn",
+"gt": "৮৩",
+"hyp": "9",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "সুকুমার",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "মোরগ্রাম",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "প্রতিষ্ঠান",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "এক্সচেণ্জ",
+"hyp": "এক্সচেন্জ",
+"cer": 0.111
+},
+{
+"lang": "bn",
+"gt": "মায়া",
+"hyp": "মাযা",
+"cer": 0.2
+},
+{
+"lang": "bn",
+"gt": "-র",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "শ্রী",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "জঙ্গল",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "অরিজিৎ",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "লাল",
+"hyp": "লাল",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "নাইটি,",
+"hyp": "4",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "রেডিমেড",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "মনসা",
+"hyp": "মনস",
+"cer": 0.25
+},
+{
+"lang": "bn",
+"gt": "টিম্বার",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "ব্যাঙ্ক",
+"hyp": "ব্যাঙ্ক",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "রি",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "মিট",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "উপহার",
+"hyp": "উপহার",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "কেনে",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "শয্যাশ্রী",
+"hyp": "নিদর্শন য়্যাশ্র",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "মুখার্জী",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "কৃষি",
+"hyp": "3",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "এই",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "অজন্তা",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "কলকাতা-",
+"hyp": "কলকাতা",
+"cer": 0.143
+},
+{
+"lang": "bn",
+"gt": "ভরত",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "কানু",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "সেগুন",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "গল্প",
+"hyp": "গল্প",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "ঠাকুর",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "জেতার",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "জোট",
+"hyp": "4",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "রকমের",
+"hyp": "রকমের",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "ও",
+"hyp": "ও",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "ঘি",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "পাইকারী",
+"hyp": "১",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "ভারত",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "রবীন্দ্রনাথ",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "এখানে",
+"hyp": "এখনে",
+"cer": 0.2
+},
+{
+"lang": "bn",
+"gt": "মা",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "৭০০০৮৩",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "রিপেয়ারিং",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "এই",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "নিতাই",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "ফাইন্যান্স",
+"hyp": "ফাইন্যান্স",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "রঙিন",
+"hyp": "রঙিন",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "আদি",
+"hyp": "আদি",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "ও",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "জোয়ার",
+"hyp": "জোয়ার",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "মহম্মদ",
+"hyp": "মহম্মদ",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "বিবেকানন্দ",
+"hyp": "বিবেকানন্দ",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "পৌরসভা",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "দিন",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "ন্যায্যমূল্যের",
+"hyp": "ন্যায্যমূল্যের",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "ষ্টোর্স",
+"hyp": "ষ্টোর্স",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "গুঁড়ো",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "ও",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "শারদোৎসবে",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "সাবমার্সিবল-",
+"hyp": "সাবমার্সিবন",
+"cer": 0.167
+},
+{
+"lang": "bn",
+"gt": "বিবাহ",
+"hyp": "বিবাহ",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "প্রধান",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "টেলার্স",
+"hyp": "টেলার্স",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "ক্যান্টিন",
+"hyp": "ক্যান্টিন ১",
+"cer": 0.222
+},
+{
+"lang": "bn",
+"gt": "রবি",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "লোন",
+"hyp": "লা",
+"cer": 0.667
+},
+{
+"lang": "bn",
+"gt": "হোম",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "বি.",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "হার্ডওয়্যার",
+"hyp": "হার্ডওয়্যার",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "জীবে",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "হাওড়া",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "পাওয়া",
+"hyp": "পওয়া",
+"cer": 0.167
+},
+{
+"lang": "bn",
+"gt": "ফার্মেসী",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "শয্যাশ্রী",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "(পঃবঃসারকার)",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "এন্ড",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "বাজার",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "সেইলার",
+"hyp": "সেইলার",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "মহাগায়ক।",
+"hyp": "মহাগায়ক",
+"cer": 0.111
+},
+{
+"lang": "bn",
+"gt": "আফ্রিকান",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "পরিষেবা",
+"hyp": "পরিষেবা",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "৭৮৬",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "টুরিষ্ট",
+"hyp": "টুরিষ্ট",
+"cer": 0.0
+},
+{
+"lang": "bn",
+"gt": "মধ্য",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "bn",
+"gt": "নিমতা,",
+"hyp": "নিমতা",
+"cer": 0.167
+},
+{
+"lang": "bn",
+"gt": "(পূর্ব)",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "20154",
+"hyp": "20154",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "VINCI",
+"hyp": "INCI",
+"cer": 0.2
+},
+{
+"lang": "en",
+"gt": "ge",
+"hyp": "E",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "rtolana",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "ür",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "5,00",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "FORUM",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "Restaurant",
+"hyp": "Restaurant",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "An",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "FITNESS",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "DE",
+"hyp": "4",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "bambino",
+"hyp": "bambino",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "LET'S",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "Metano,",
+"hyp": "Metanal",
+"cer": 0.286
+},
+{
+"lang": "en",
+"gt": "rossi",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "APERTI",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "q",
+"hyp": "৭",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "frei",
+"hyp": "0",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "some",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "Jacobsen",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "SCONTI",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "alle",
+"hyp": "alle",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "BANK",
+"hyp": "BANK",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "Kölner",
+"hyp": "U",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "PER",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "u",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "tie",
+"hyp": "0",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "GUANCIALI",
+"hyp": "GUANCIALI",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "UN",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "IATA",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "NON",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "TIME",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "preliminare",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "ELETTRICO",
+"hyp": "ELETTRICO",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "N.I.C.HOTEL",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "e",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "POMERIGGIO:",
+"hyp": "POMERIGGIO",
+"cer": 0.091
+},
+{
+"lang": "en",
+"gt": "2.5€",
+"hyp": "5",
+"cer": 0.75
+},
+{
+"lang": "en",
+"gt": "L'Orange",
+"hyp": "Lorange",
+"cer": 0.25
+},
+{
+"lang": "en",
+"gt": "SUCRES",
+"hyp": "SUCRES",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "1",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "SERVICE",
+"hyp": "SERVICE",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "DI",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "METAL",
+"hyp": "MBIAL",
+"cer": 0.4
+},
+{
+"lang": "en",
+"gt": "mushrooms",
+"hyp": "mushrooms",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "sehr",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "J.F.B",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "Amministrato",
+"hyp": "Amministrato",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "H",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "in",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "STARS",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "conoscenza,",
+"hyp": "Iconosconza",
+"cer": 0.273
+},
+{
+"lang": "en",
+"gt": "Santa",
+"hyp": "Santa",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "3",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "NON",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "a",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "CENTER",
+"hyp": "CENTER",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "RIVER",
+"hyp": "RIVER",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "with",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "in",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "OULITA",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "punto",
+"hyp": "punto",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "rosa",
+"hyp": "rosa",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "PIZZERIA",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "TICKET",
+"hyp": "TICKET",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "san",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "Kraft",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "SPECIAL",
+"hyp": "SPECIAL",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "Pedy",
+"hyp": "Pedy",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "Gong",
+"hyp": "Gong",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "SALA",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "Trade",
+"hyp": "Trade",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "9-19h",
+"hyp": "9",
+"cer": 0.8
+},
+{
+"lang": "en",
+"gt": "la",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "29",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "0.2",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "Assorbenti",
+"hyp": "Assorbenti",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "IL",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "CAN",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "Station",
+"hyp": "tation",
+"cer": 0.143
+},
+{
+"lang": "en",
+"gt": "WIA",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "il",
+"hyp": "il",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "BUS",
+"hyp": "D",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "4-2",
+"hyp": "4-2",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "Lorenzo",
+"hyp": "Lorenza",
+"cer": 0.143
+},
+{
+"lang": "en",
+"gt": "bank",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "SOMMITA`/STAIRS",
+"hyp": "SOMMITASTAIRS",
+"cer": 0.133
+},
+{
+"lang": "en",
+"gt": "le",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "AUTO",
+"hyp": "AUTO",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "SINON,",
+"hyp": "NONIS",
+"cer": 0.667
+},
+{
+"lang": "en",
+"gt": "patrono",
+"hyp": "Pauono",
+"cer": 0.429
+},
+{
+"lang": "en",
+"gt": "ENNASR",
+"hyp": "ENNASR",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "214",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "E",
+"hyp": "E",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "Veste",
+"hyp": "Veste",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "prix",
+"hyp": "prix",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "dance",
+"hyp": "dance",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "500,00",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "ROAD",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "for",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "Di",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "fresh",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "domanica",
+"hyp": "domanica",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "Cafe",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "eitrigen",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "Building",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "105",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "HOTEL",
+"hyp": "HOTEL",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "65",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "JOH",
+"hyp": "JOH",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "70%",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "RASSEMBLEMENT",
+"hyp": "RASSEMBLEMENT",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "in",
+"hyp": "in",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "5",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "030.249",
+"hyp": "030.249",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "LA",
+"hyp": "LA",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "eV.",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "Village",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "CAPMUS",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "Dans",
+"hyp": "Dans",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "Nihonbashi",
+"hyp": "Nihonbashi",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "1H",
+"hyp": "1H",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "LTD.",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "km",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "dall'",
+"hyp": "0",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "Wertpapierberatung",
+"hyp": "Wertpapierberatung",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "PABLO",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "CANTIANO",
+"hyp": "CANIIANO",
+"cer": 0.125
+},
+{
+"lang": "en",
+"gt": "außer",
+"hyp": "aufer",
+"cer": 0.2
+},
+{
+"lang": "en",
+"gt": "PASSAGGIO",
+"hyp": "PASSAGGIO",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "Rotbäckcben",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "providers",
+"hyp": "provid lers",
+"cer": 0.222
+},
+{
+"lang": "en",
+"gt": "La",
+"hyp": "La",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "Stadtkern",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "02-2151979",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "Bin",
+"hyp": "9",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "d'orientation",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "Bakery",
+"hyp": "Baliu 0",
+"cer": 0.833
+},
+{
+"lang": "en",
+"gt": "C.",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "PROMO",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "13.00",
+"hyp": "13.00",
+"cer": 0.0
+},
+{
+"lang": "en",
+"gt": "A",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "ROOM",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "N",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "5KM",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "I",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "of",
+"hyp": "0 T",
+"cer": 1.5
+},
+{
+"lang": "en",
+"gt": "W6.500",
+"hyp": "",
+"cer": 1.0
+},
+{
+"lang": "en",
+"gt": "08.",
+"hyp": "0 0",
+"cer": 0.667
+},
+{
+"lang": "en",
+"gt": "\\1130-",
+"hyp": "",
+"cer": 1.0
+}
+]
+}

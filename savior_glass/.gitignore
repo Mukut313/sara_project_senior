@@ -1,0 +1,68 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg-info/
+dist/
+build/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Secrets
+.env
+.env.*
+!.env.example
+
+# Models (large binary files — download via install.sh)
+models/*.pt
+# 0.45 MB handwritten-letter fallback (writer-disjoint test 90.0 %, results/ekush_letters.json); tracked so the Pi gets it with git pull
+!models/ekush_cnn.pt
+# 82 MB RAF-DB emotion classifier (EfficientNetV2-S, 86.5 % on the RAF-DB test set); without it the Pi falls back to the weak FER+ model
+!models/emotion_faces.pt
+models/*.onnx
+!models/craft_fp32.onnx
+!models/craft_int8.onnx
+!models/craft_int8_minmax128.onnx
+models/piper/*.onnx
+models/piper/*.json
+models/piper/engine/
+models/yolov8n_ncnn_model/
+
+# Logs
+logs/*.log
+logs/*.log.*
+
+# Eval downloads
+results/fer2013.csv
+
+# Temp audio files
+*.mp3
+*.wav
+!study_data/**/*.wav
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE
+.vscode/
+.idea/
+*.code-workspace
+
+# Keep empty model/log folders
+!models/.gitkeep
+!models/piper/.gitkeep
+!logs/.gitkeep
+yolov8m.pt
+results/uv_snapshots/
+# speech models are downloaded by scripts/get_speech_models.py
+models/vosk/
+
+# OCR v5 recogniser training: checkpoints, caches, logs (the shipped model is models/ocr5_rec/)
+ocr_bench/rec5_runs/
+logs/ocr5_try/

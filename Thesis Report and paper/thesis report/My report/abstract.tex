@@ -1,0 +1,20 @@
+\clearpage
+\begin{center}
+    {\headingfont\LARGE Abstract}
+
+\end{center}
+\vspace{1.5cm}
+\par
+A blind person in Bangladesh who wants to read a label, or to know which banknote is in the hand and whether it is real, usually has to ask someone. The assistive devices that could help are expensive, built for English, and often need a phone or the internet. This thesis presents \textit{SARA (Smart Assistive Reading Aid)}, an assistive smart glass that speaks Bangla and reads Bangla and English, built on a Raspberry Pi~5 with a camera, five push-buttons and audio output. It has five modes: Bangla and English text reading, object announcement, Bangladeshi Taka recognition with a cautious counterfeit check, facial-expression announcement, and an optional online scene description. Everything except the last runs on the device.
+
+To recognise notes, we pasted 5,073 background-free note images onto real photographs and let the program write the labels, which gave 22,333 training images without any manual annotation. A YOLOv8s detector trained on them reaches 0.995 mAP@0.5 and 0.849 mAP@0.5:0.95 on 2,282 held-out composites. On 1,536 photographs taken by other people it names the right denomination 91.5\% of the time.
+
+For counterfeit notes we worked with the JaalTaka dataset (1,390 notes, six views each). A model trained on all six views breaks down when a user captures fewer; training on random prefixes of the views fixes this and raises one-view accuracy from 71.2\% to 98.2\% over three seeds. We also found that the usual split of this dataset lets the same counterfeit print appear in both training and test data, and built a stricter split with prints the model has never seen. On it, checking the banknote watermark, found by a learned 4.3~MB localizer, raises accuracy from about 90\% to 95.0\%. We further propose a denomination-matched watermark residual (DMWR): it removes the lamp from the back-lit photograph, compares the watermark with a ``genuine portrait'' of the note value built from genuine notes only, and classifies what is left over. With 47,818 parameters (0.21~MB) it reaches 91.5\% on unseen prints, statistically level with a fine-tuned MobileNetV2 that is 46 times larger. Because a wrong verdict can hurt a blind user, the glass never says ``counterfeit''. It says ``likely genuine'' only above a threshold fixed on validation data and otherwise asks for a check by hand; none of 88 test counterfeits was passed as genuine.
+
+For text reading we built a benchmark with correctly shaped Bangla and with separate phrases and fonts for validation and test. Keeping only the main block of text, tuning the detector and cleaning the output lowers the character error rate from 9.3\% to 2.4\% overall and from 11.9\% to 3.2\% for Bangla. On real street photographs of single words the error was 39\% for Bangla; a recogniser fine-tuned on real words and blended with the released weights lowers it to 29\% (Latin script 62\% to 51\%) without losing accuracy on printed text, but reading real signs remains the hardest part.
+
+On the Raspberry Pi~5 the currency check takes a median of 327~ms, and the system ran for 30~minutes within 1.5~GB of memory and without thermal throttling; in a third run text reading took 5.4~s for a 3-line sign, three times faster, while continuous load drove the processor to its soft temperature limit. After trial sessions, 106 short voice questionnaires were answered (75\% said they would trust the glass); they are first impressions, not a controlled study. A second counterfeit checker scored 100\% on its own test split, but an audit found repeated photographs and different sources for genuine and counterfeit notes, so that figure is not evidence of counterfeit detection. Every number in this thesis comes from a saved result file.
+
+\vspace{0.5cm}
+\noindent\textbf{Keywords:} Assistive Technology, Smart Glass, Visually Impaired, Raspberry Pi, Bangla OCR, YOLOv8, Bangladeshi Currency, Counterfeit Detection, Multi-View Learning, Watermark, Quotient Image, Selective Prediction, Edge AI
+\clearpage

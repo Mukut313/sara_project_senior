@@ -1,0 +1,312 @@
+<!doctype html><html lang="en" data-theme="light"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>SARA Project Report</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+Bengali:wght@400;600&display=swap">
+<style>
+/* Layout: one reading column (technical report), wide figures may break out to 1040px; tables scroll inside themselves */
+:root {
+  --bg: #f7f8fa; --surface: #ffffff; --ink: #14171c; --ink-2: #4a505b; --ink-3: #6d7380; --rule: #dde1e8; --tint: #eef2f8;
+  --accent: #2a78d6;
+  --s1: #2a78d6; --s2: #eb6834; --s3: #1baf7a;
+  --good: #0a7d0a; --bad: #c0392b;
+  --q0: #f0f4fa; --q1: #cde2fb; --q2: #9ec5f4; --q3: #6da7ec; --q4: #3987e5; --q5: #256abf; --q6: #184f95; --q7: #0d366b;
+  --font-body: "IBM Plex Sans", "Noto Sans Bengali", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, Consolas, monospace;
+  --font-bn: "Noto Sans Bengali", "Nirmala UI", sans-serif;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #121417; --surface: #1a1d22; --ink: #eceef2; --ink-2: #b6bcc7; --ink-3: #8e95a2; --rule: #2e333b; --tint: #1f2630;
+  --accent: #5598e7; --s1: #3987e5; --s2: #d95926; --s3: #199e70; --good: #3fbf5a; --bad: #e66767;
+  --q0: #1c2129; --q1: #13294a; --q2: #183d6e; --q3: #1c5cab; --q4: #2a78d6; --q5: #5598e7; --q6: #86b6ef; --q7: #cde2fb;
+  color-scheme: dark; } }
+:root[data-theme="dark"] {
+  --bg: #121417; --surface: #1a1d22; --ink: #eceef2; --ink-2: #b6bcc7; --ink-3: #8e95a2; --rule: #2e333b; --tint: #1f2630;
+  --accent: #5598e7; --s1: #3987e5; --s2: #d95926; --s3: #199e70; --good: #3fbf5a; --bad: #e66767;
+  --q0: #1c2129; --q1: #13294a; --q2: #183d6e; --q3: #1c5cab; --q4: #2a78d6; --q5: #5598e7; --q6: #86b6ef; --q7: #cde2fb;
+  color-scheme: dark; }
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font-family: var(--font-body); font-size: 15px; line-height: 1.6;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-block: 0 64px; }
+.wrap { max-width: 860px; margin: 0 auto; }
+.wide { max-width: 1040px; margin: 0 auto; }
+header.doc { padding-block: 40px 24px; border-bottom: 1px solid var(--rule); margin-bottom: 8px; }
+.eyebrow { font: 500 12px/1.4 var(--font-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); }
+h1 { font-size: clamp(28px, 4.5vw, 40px); line-height: 1.15; margin: 8px 0 12px; text-wrap: balance; font-weight: 700; letter-spacing: -.01em; }
+h2 { font-size: 22px; margin: 48px 0 8px; padding-top: 8px; text-wrap: balance; display: flex; gap: 10px; align-items: baseline; }
+h2 .num { font: 500 14px var(--font-mono); color: var(--accent); }
+h3 { font-size: 16px; margin: 28px 0 6px; }
+p, li { max-width: 70ch; }
+.lede { font-size: 17px; color: var(--ink-2); max-width: 66ch; }
+.meta { display: flex; flex-wrap: wrap; gap: 6px 20px; font: 13px var(--font-mono); color: var(--ink-3); margin-top: 16px; }
+code, .mono { font-family: var(--font-mono); font-size: .88em; }
+code { background: var(--tint); padding: 1px 5px; border-radius: 4px; }
+.bn { font-family: var(--font-bn); }
+nav.toc { margin: 20px 0 8px; padding: 14px 18px; background: var(--surface); border: 1px solid var(--rule); border-radius: 8px; }
+nav.toc ol { margin: 6px 0 0; padding-left: 20px; columns: 2 220px; column-gap: 28px; }
+nav.toc a { color: var(--ink); text-decoration: none; }
+nav.toc a:hover { color: var(--accent); text-decoration: underline; }
+a { color: var(--accent); }
+.tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 12px; margin: 20px 0 8px; }
+.tile { background: var(--surface); border: 1px solid var(--rule); border-radius: 8px; padding: 14px 16px; display: flex; flex-direction: column; gap: 2px; }
+.tile .k { font: 500 12px var(--font-mono); color: var(--ink-3); text-transform: uppercase; letter-spacing: .05em; }
+.tile .v { font-size: 28px; font-weight: 700; font-variant-numeric: tabular-nums; line-height: 1.2; }
+.tile .s { font-size: 13px; color: var(--ink-2); }
+.chip { display: inline-block; font: 600 11px var(--font-mono); padding: 1px 7px; border-radius: 99px; vertical-align: 1px; }
+.chip.win { color: var(--good); border: 1px solid currentColor; }
+.chip.loss { color: var(--bad); border: 1px solid currentColor; }
+.tablebox { overflow-x: auto; margin: 12px 0; border: 1px solid var(--rule); border-radius: 8px; background: var(--surface); }
+table { border-collapse: collapse; width: 100%; font-size: 14px; font-variant-numeric: tabular-nums; }
+th, td { padding: 7px 12px; text-align: left; border-bottom: 1px solid var(--rule); vertical-align: top; }
+th { font-weight: 600; color: var(--ink-2); background: var(--tint); white-space: nowrap; }
+td.n, th.n { text-align: right; white-space: nowrap; }
+tr:last-child td { border-bottom: none; }
+td .best { font-weight: 700; }
+.note { font-size: 13px; color: var(--ink-3); max-width: 80ch; }
+.callout { border-left: 3px solid var(--accent); background: var(--surface); padding: 12px 16px; margin: 16px 0; border-radius: 0 8px 8px 0; }
+.callout.warn { border-left-color: var(--s2); }
+figure { margin: 18px 0; background: var(--surface); border: 1px solid var(--rule); border-radius: 8px; padding: 16px; }
+figcaption { font-size: 13px; color: var(--ink-2); margin-top: 8px; max-width: 80ch; }
+figcaption b { color: var(--ink); }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 13px; color: var(--ink-2); margin-bottom: 8px; }
+.legend span { display: inline-flex; align-items: center; gap: 6px; }
+.legend i { width: 12px; height: 12px; border-radius: 3px; display: inline-block; }
+.chart { width: 100%; overflow-x: auto; }
+.chart svg { display: block; max-width: 100%; height: auto; }
+svg text { fill: var(--ink-2); font-family: var(--font-body); }
+svg .lbl { fill: var(--ink); font-weight: 600; font-variant-numeric: tabular-nums; }
+.tip { position: fixed; pointer-events: none; z-index: 20; background: var(--ink); color: var(--bg); font-size: 12.5px; line-height: 1.4;
+  padding: 7px 10px; border-radius: 6px; max-width: 260px; opacity: 0; transition: opacity .08s; }
+.flow { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; margin: 16px 0; counter-reset: st; }
+.step { background: var(--surface); border: 1px solid var(--rule); border-radius: 8px; padding: 12px; font-size: 13.5px; }
+.step b { display: block; font-size: 14px; margin-bottom: 4px; }
+.step b::before { counter-increment: st; content: counter(st) ". "; color: var(--accent); font-family: var(--font-mono); }
+.step .where { font: 11.5px var(--font-mono); color: var(--ink-3); margin-top: 6px; }
+.tabs { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; }
+.tabs button { font: 500 13px var(--font-body); padding: 5px 12px; border-radius: 99px; border: 1px solid var(--rule); background: var(--bg); color: var(--ink-2); cursor: pointer; }
+.tabs button[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: #fff; }
+.tabs button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.heat td, .heat th { padding: 0; border: none; text-align: center; font-size: 12px; }
+.heat th { background: none; color: var(--ink-2); font-weight: 500; padding: 3px 4px; }
+.heat th.row { text-align: right; padding-right: 8px; }
+.heat td div { width: 40px; height: 30px; display: flex; align-items: center; justify-content: center; margin: 1px; border-radius: 3px; font-variant-numeric: tabular-nums; }
+.heat .ax { font-size: 12px; color: var(--ink-3); }
+ul.tight li { margin: 3px 0; }
+@media (max-width: 520px) { h2 { font-size: 19px; } .tile .v { font-size: 24px; } }
+@media (prefers-reduced-motion: reduce) { .tip { transition: none; } }
+</style>
+<style>
+@page { size: A4; margin: 14mm 13mm 16mm; }
+body { background: #fff !important; font-size: 10.5pt; padding: 0 !important; }
+.wrap, .wide { max-width: none; }
+header.doc { padding-block: 0 12px; }
+h1 { font-size: 24pt; }
+h2 { break-after: avoid; margin-top: 26px; }
+h3 { break-after: avoid; }
+figure, .tile, .step, .callout, tr { break-inside: avoid; }
+.tablebox { overflow: visible; }
+.tip, .tabs { display: none !important; }
+nav.toc ol { columns: 2; }
+.chart svg { width: 100% !important; }
+.heat td div { width: 34px; height: 24px; font-size: 10px; }
+figure.conf { margin-top: 10px; }
+a { color: inherit; text-decoration: none; }
+</style></head><body><div class="wrap">
+<header class="doc">
+  <div class="eyebrow">SARA · Smart Assistive Reading Aid · Project report A–Z</div>
+  <h1>SARA: an offline Bangla smart glass for blind and low-vision people</h1>
+  <p class="lede">A wearable glass on a Raspberry Pi 5 (8 GB) with a Hailo-8 AI HAT that reads Bangla and English text, names objects, recognises and counts Bangladeshi Taka notes and screens them for counterfeits without ever accusing a note, describes facial expressions, and speaks everything offline in Bangla. This report summarises every part: hardware, algorithms, models, data, results and limits.</p>
+  <div class="meta"><span>CSE Senior Project, Independent University, Bangladesh</span><span>Team: MD Abdun Fattah Lam · Mukut Protim Memo · Tanjila Hossain Tapti</span><span>Supervisor: Mohammad Shidujaman, PhD</span><span>November 2026</span></div>
+</header>
+
+<nav class="toc" aria-label="Contents"><div class="eyebrow">Contents</div><ol>
+<li><a href="#a">Problem and goal</a></li><li><a href="#b">Hardware</a></li><li><a href="#c">Software and modes</a></li>
+<li><a href="#d">Text reading (OCR v5)</a></li><li><a href="#e">Taka notes and counterfeit screening</a></li>
+<li><a href="#f">Objects, emotion, voice</a></li><li><a href="#g">Models</a></li><li><a href="#h">Datasets</a></li>
+<li><a href="#i">Evaluation method</a></li><li><a href="#j">Results</a></li><li><a href="#k">Raspberry Pi 5 performance</a></li>
+<li><a href="#l">What did not work</a></li><li><a href="#m">Limitations and next steps</a></li><li><a href="#n">How to run</a></li>
+</ol></nav>
+
+<div class="tiles">
+<div class="tile"><span class="k">Text, photographed pages</span><span class="v">0.99 %</span><span class="s">character error (v4: 17.2 %), 0.96 s per page on a laptop CPU</span></div>
+<div class="tile"><span class="k">Taka, independent photos</span><span class="v">94.1 %</span><span class="s">correct value (Bangla Money, 1,536 photos)</span></div>
+<div class="tile"><span class="k">Counterfeits passed as genuine</span><span class="v">0 / 88</span><span class="s">safe verdict; "fake" is never spoken</span></div>
+<div class="tile"><span class="k">Objects on the AI HAT</span><span class="v">12.4 ms</span><span class="s">YOLOv8s on Hailo-8 (CPU: 472 ms)</span></div>
+</div>
+<p class="note">All figures are character error rate (CER, lower is better) or accuracy, each from a saved result file in the repository. Laptop times are not Pi times. Every choice was made on validation data; test sets were read after the choice.</p>
+
+<h2 id="a"><span class="num">1</span>Problem and goal</h2>
+<p>In Bangladesh a blind person usually has to ask someone which note they were given and whether it is real, what a medicine label or sign says, and what or who is in front of them. Commercial reading glasses (e.g. OrCam) do not support Bangla or Taka and are expensive; research glasses send pictures to a server. <b>Goal:</b> one wearable that does these jobs <b>offline, in Bangla, fast enough to use, on a Raspberry Pi 5</b>, and that never accuses a genuine note of being fake.</p>
+
+<h2 id="b"><span class="num">2</span>Hardware</h2>
+<div class="tablebox"><table>
+<tr><th>Part</th><th>Details</th><th>Role</th></tr>
+<tr><td>Raspberry Pi 5</td><td>4-core 2.4 GHz, 8 GB, active cooler</td><td>runs the program and CPU models</td></tr>
+<tr><td>Raspberry Pi AI HAT</td><td>Hailo-8, 26 TOPS (opt-in, <code>AI_HAT=1</code>)</td><td>object detector, text finder</td></tr>
+<tr><td>Camera</td><td>Logitech C270 USB (fixed focus); 640×480 for most modes, 1280×720 in text mode</td><td>pictures of text, notes, scenes</td></tr>
+<tr><td>5 buttons + vibration motor</td><td>GPIO 17/27/24/22/23 (MODE, ACTION, READ, VOL+, VOL−), motor GPIO 13</td><td>control without a screen</td></tr>
+<tr><td>Bone-conduction headphone</td><td>open-ear</td><td>speech while ears stay free</td></tr>
+<tr><td>UV-A lamp</td><td>360–395 nm, at the camera</td><td>security-fibre check on notes</td></tr>
+<tr><td>Frame and enclosure</td><td>3D-printed glasses frame, Pi in a ventilated rear box, power bank</td><td>prototype version 2</td></tr>
+</table></div>
+
+<h2 id="c"><span class="num">3</span>Software and modes</h2>
+<p>Python on Raspberry Pi OS, started as a systemd service (<code>savior_glass/main.py</code>). A laptop harness (<code>test_windows.py</code>) runs the same modes with a webcam and keyboard. Models run in ONNX Runtime, PyTorch, or on the Hailo-8. Speech: Piper neural voices (Bangla <i>bn_BD-google-medium</i>, English <i>en_US-amy-low</i>), fully offline. Voice commands: Vosk, wake word "glass". A thermal governor slows background scans when the Pi is hot.</p>
+<div class="tablebox"><table>
+<tr><th>Mode</th><th>What it does</th><th>Main models</th><th>Offline</th></tr>
+<tr><td>Text reading</td><td>reads pages, labels, signs; reads by itself when text is steady in view</td><td>PP-OCRv5 detector + SARA line recogniser (OCR v5)</td><td>yes</td></tr>
+<tr><td>Objects</td><td>names up to 3 objects every 1.5 s</td><td>YOLOv8s (COCO, 80 classes)</td><td>yes</td></tr>
+<tr><td>Taka</td><td>names each note, counts several notes and says the total, safe genuine check, UV check</td><td>Taka YOLOv8s, counterfeit checkers, DMWR, ENFR</td><td>yes</td></tr>
+<tr><td>Emotion</td><td>says the expression of the face in front</td><td>YuNet + EfficientNet-V2-S</td><td>yes</td></tr>
+<tr><td>Online description</td><td>scene description</td><td>cloud vision model (API key)</td><td>no (only online mode)</td></tr>
+</table></div>
+
+<h2 id="d"><span class="num">4</span>Text reading (OCR v5)</h2>
+<p>The earlier reader (v4: CRAFT detector + fine-tuned EasyOCR) was accurate on rendered text but poor on real camera pictures (17–40 % CER) and slow (13 s per page). OCR v5 replaces it with a scanner-style pipeline:</p>
+<div class="flow">
+<div class="step"><b>Auto capture</b>Fires when text is in view, the picture has been steady 0.5 s (thumbnail difference &lt; 4 levels) and sharp (Laplacian variance ≥ 70 % of the recent best); hints "bring it closer" / "hold still".</div>
+<div class="step"><b>Find lines</b>PP-OCRv5 mobile DBNet (Hailo HEF or ONNX CPU) → probability map → DB post-process (thresh 0.3, box 0.5, unclip 1.6). Document-like pictures also searched shadow-free.</div>
+<div class="step"><b>Four-point warp</b>Page outline → homography to a rectangle. No outline → corners estimated from the text lines (top, bottom, Huber-fitted margins), warp when tilt or keystone &gt; 1.5°.</div>
+<div class="step"><b>Cut lines</b>Each line warped out along its own tilt, scaled to 48 px height.</div>
+<div class="step"><b>Read lines</b>SARA recogniser (conv + CTC, greedy decoding); each line also read sharpened and contrast-boosted, most confident reading kept; 180° retry for upside-down lines.</div>
+<div class="step"><b>Order and speak</b>Main text block (scenes), rows top-to-bottom; first page line spoken while the rest is read.</div>
+</div>
+<h3>SARA line recogniser</h3>
+<ul class="tight">
+<li><b>Network:</b> 2.26 M parameters, convolution only (MobileNetV2-style inverted residuals reduce 48 → 1 rows at ¼ width, 4 depthwise 1×7 context blocks, 1×1 CTC head); 236 characters + blank (Bangla letters, signs, digits, ৳, ASCII, Latin-1). ONNX 9.0 MB (8-bit 2.5 MB).</li>
+<li><b>Training data:</b> ~6 M rendered lines drawn on the fly (1.5 M Bangla Wikipedia sentences, 50 k-word lists, numbers/prices/medicine labels, mixed scripts), shaped with HarfBuzz in 15 Bangla and 224 English training fonts, passed through a C270 camera model (9–42 px text, defocus, motion blur, noise, JPEG, shadows, tilt, perspective); plus 52,867 real ICDAR-2019-MLT training words drawn half Bangla, half Latin.</li>
+<li><b>Training:</b> CTC loss, AdamW, one-cycle lr 2e-3, mixed precision, batches of fixed width buckets; 9 k + 80 k steps (~3.5 h on an RTX 4060); checkpoint chosen on validation.</li>
+</ul>
+<h3>Scanner settings (chosen on validation)</h3>
+<p>Filters on the picture the <i>reader</i> sees (whitening, CLAHE, sharpening) did not help as plain pre-processing; shadow removal helped only the <i>text finder</i> and only on documents (it hid light-on-dark sign text). Reading each line three ways and keeping the most confident reading helped real words. A colour "scan" (denoised, white-balanced, sharpened) is made only for display.</p>
+
+<h2 id="e"><span class="num">5</span>Taka notes and counterfeit screening</h2>
+<ul class="tight">
+<li><b>Zero-annotation detector:</b> 5,073 BanglaTaka note photos pasted onto COCO backgrounds (perspective, rotation, scale 25–90 %, colour, blur, noise, JPEG; 10 % note-free) → 22,333 composites with automatic YOLO labels; YOLOv8s, 80 epochs.</li>
+<li><b>Hand-held fine-tune:</b> 6,000 synthetic close-ups (warped, folded, fingers, blur); epoch and threshold chosen on NSTU validation photos. Announce threshold 0.75 (open-set rule, rejects unknown notes such as 1 Taka). A second detector looks again when the first is unsure (cascade).</li>
+<li><b>Several notes:</b> sure boxes, one per physical note (overlap &gt; 0.5 = same note), spoken with count and total. Live mode follows each note over the scans: a note is named once it reaches 0.75, or when the same value leads in 4 of its last 5 scans at mean confidence ≥ 0.5 with no close rival; a swapped note loses its old name.</li>
+<li><b>Multi-view counterfeit check (JaalTaka):</b> prefix training (random 1–6 views during training) fixes the collapse of fusion networks when fewer views are captured (1 view: 71.2 % → 98.2 %).</li>
+<li><b>Serial-number audit:</b> 68 of 87 test counterfeits on the standard split share a serial with training counterfeits; a print-disjoint split (no shared prints) is used for honest results.</li>
+<li><b>DMWR watermark check:</b> lamp removed by a quotient image I / (G<sub>σ</sub>∗I), compared with a per-value genuine template; two tiny CNN streams + 4 statistics (47,818 parameters).</li>
+<li><b>Safe verdict:</b> "সম্ভবত আসল" (likely genuine) only if p &gt; τ = 0.99959 (highest validation counterfeit score; conformal bound 1/(n+1) = 1.1 %), otherwise "আসল কিনা হাতে যাচাই করুন" (check by hand). "জাল" (fake) is never spoken. The SARA Trust Index adds image quality and pose to the message.</li>
+<li><b>UV fibre check (ENFR):</b> fluorescence = light the lamp colour does not explain, E = max(G − aB, R − bB), top-hat filtered and normalised; thin fibres 5–70 px counted.</li>
+</ul>
+
+<h2 id="f"><span class="num">6</span>Objects, emotion and voice</h2>
+<ul class="tight">
+<li><b>Objects:</b> YOLOv8s on COCO (80 classes), confidence 0.5, at most 3 objects per scan; on the AI HAT with Hailo's compile.</li>
+<li><b>Emotion:</b> YuNet face detector + EfficientNet-V2-S trained on RAF-DB (7 expressions); also adapts speech ("ঠিক আছে। ধীরে শুনুন।").</li>
+<li><b>Speech:</b> Piper Bangla and English voices; mixed lines are split by script and spoken with each voice; queue clearing on mode change; first page line spoken early.</li>
+<li><b>Voice commands:</b> Vosk small English, closed grammar, wake word "glass", deaf while speaking; chosen among 138 designs on 8 synthetic voices, tested on 12 held-out voices.</li>
+</ul>
+
+<h2 id="g"><span class="num">7</span>Models</h2>
+<div class="tablebox"><table>
+<tr><th>Model</th><th>Architecture</th><th>Size</th><th>Runs on</th></tr>
+<tr><td>Text finder</td><td>PP-OCRv5 mobile DBNet (Apache-2.0)</td><td class="n">4.8 MB</td><td>Hailo-8 or CPU (ONNX)</td></tr>
+<tr><td>SARA line recogniser</td><td>conv + CTC, 2.26 M params, 48×W grey</td><td class="n">9.0 MB</td><td>CPU (ONNX)</td></tr>
+<tr><td>Taka detector</td><td>YOLOv8s, 9 classes, synthetic + hand-held fine-tune</td><td class="n">≈ 22 MB</td><td>CPU (ONNX / PyTorch)</td></tr>
+<tr><td>Counterfeit checkers</td><td>prefix-trained multi-view network; EfficientNet-B0 (200/500/1000)</td><td class="n">—</td><td>CPU</td></tr>
+<tr><td>Watermark checker (DMWR)</td><td>two-stream CNN + 4 statistics, 47,818 params</td><td class="n">0.21 MB</td><td>CPU</td></tr>
+<tr><td>Object detector</td><td>YOLOv8s, COCO</td><td class="n">≈ 22 MB</td><td>Hailo-8 or CPU</td></tr>
+<tr><td>Emotion</td><td>YuNet + EfficientNet-V2-S (RAF-DB)</td><td class="n">≈ 78 MB</td><td>CPU</td></tr>
+<tr><td>Speech</td><td>Piper VITS voices (Bangla, English)</td><td class="n">77 + 63 MB</td><td>CPU</td></tr>
+<tr><td>Voice commands</td><td>Vosk small English</td><td class="n">68 MB</td><td>CPU</td></tr>
+</table></div>
+
+<h2 id="h"><span class="num">8</span>Datasets</h2>
+<div class="tablebox"><table>
+<tr><th>Data</th><th>Size</th><th>Use</th></tr>
+<tr><td>BanglaTaka (Mendeley)</td><td class="n">5,073 note photos</td><td>foregrounds for synthetic Taka data (split by physical note)</td></tr>
+<tr><td>Synthetic Taka composites (this work)</td><td class="n">22,333 + 6,000 close-ups</td><td>detector training / test</td></tr>
+<tr><td>Bangla Money (Kaggle), NSTU-BDTAKA</td><td class="n">1,536 photos; 1,127–1,611 close-ups</td><td>independent Taka tests</td></tr>
+<tr><td>JaalTaka</td><td class="n">1,390 notes × 6 views</td><td>counterfeit research (note- and print-disjoint splits)</td></tr>
+<tr><td>COCO val2017</td><td class="n">5,000 photos</td><td>object test; backgrounds</td></tr>
+<tr><td>RAF-DB</td><td class="n">15,339 faces</td><td>emotion</td></tr>
+<tr><td>ICDAR 2019 MLT words</td><td class="n">52,867 train; 300 val; 1,000 test</td><td>real-word text recognition</td></tr>
+<tr><td>Rendered OCR benchmark (this work)</td><td class="n">432 + 432 images</td><td>text validation / test (fonts disjoint from training)</td></tr>
+<tr><td>Camera-page sets (this work)</td><td class="n">40 test + 80 validation pages</td><td>photographed pages at 1280×720: flat, angle, shadow, blur, close-up</td></tr>
+<tr><td>Bangla Wikipedia (CC BY-SA)</td><td class="n">1.5 M sentences</td><td>text for rendered training lines</td></tr>
+<tr><td>Ekush; UV photos; ESC-50; synthetic voices</td><td class="n">—</td><td>handwriting, UV check, voice tests</td></tr>
+</table></div>
+
+<h2 id="i"><span class="num">9</span>Evaluation method</h2>
+<ul class="tight">
+<li>Splits disjoint by physical unit (note, print, writer, font, phrase).</li>
+<li>Every setting chosen on validation data; test sets read after the choice. Trained models repeated with seeds 42/43/44 where reported.</li>
+<li>Paired comparisons with McNemar tests; proportions with Wilson 95 % intervals.</li>
+<li>Text: character error rate (edit distance / reference length, Unicode NFC). Taka: correct value; objects: COCO mAP; emotion: accuracy and macro-F1.</li>
+<li>All claims traced to result files (claim registry); 107 of 136 claims value-checked, corrections logged.</li>
+</ul>
+
+<h2 id="j"><span class="num">10</span>Results</h2>
+<h3>Text reading (test sets)</h3>
+<div class="tablebox"><table>
+<tr><th>Test</th><th class="n">v4 (previous)</th><th class="n">OCR v5</th></tr>
+<tr><td>Photographed pages (40), CER</td><td class="n">17.2 %</td><td class="n"><b>0.99 %</b></td></tr>
+<tr><td>— pages at an angle</td><td class="n">38.6 %</td><td class="n"><b>1.4 %</b></td></tr>
+<tr><td>— Bangla / English / mixed</td><td class="n">18.8 / 8.4 / 23.0 %</td><td class="n"><b>1.1 / 0.7 / 1.0 %</b></td></tr>
+<tr><td>Rendered short phrases (432)</td><td class="n"><b>1.4 %</b></td><td class="n">3.3 %</td></tr>
+<tr><td>Real scene words, Bangla (500)</td><td class="n"><b>21.1 %</b></td><td class="n">30.9 %</td></tr>
+<tr><td>Real scene words, Latin (500)</td><td class="n">38.1 %</td><td class="n"><b>30.2 %</b></td></tr>
+<tr><td>Time per page / per word (laptop CPU, 4 threads)</td><td class="n">13.1 s / 3.7 s</td><td class="n"><b>0.96 s / 0.35 s</b></td></tr>
+</table></div>
+<p class="note">Test sets were read four times during the OCR v5 work (first settings, two scanner settings, read-again setting); every choice was made on validation.</p>
+<h3>Other modes</h3>
+<div class="tablebox"><table>
+<tr><th>Module</th><th>Result</th></tr>
+<tr><td>Taka detector, synthetic test (2,282)</td><td>mAP@0.5 0.995, mAP@0.5:0.95 0.849</td></tr>
+<tr><td>Taka, independent photos (Bangla Money, 1,536)</td><td>91.5 % → 94.1 % correct (hand-held detector)</td></tr>
+<tr><td>Taka, hand-held close-ups (NSTU, 1,127)</td><td>11.8 % → 47.5 % (laptop); 8.7 % → 33.5 % (Pi, 8-bit)</td></tr>
+<tr><td>Several notes (300 pictures each)</td><td>count and total right: 1 note 98.7 %, 2 notes 97.3 %, 3 notes 95.0 %</td></tr>
+<tr><td>Counterfeit, note-disjoint, 1 view</td><td>71.2 % → 98.2 % with prefix training</td></tr>
+<tr><td>Counterfeit, unseen prints (222 notes)</td><td>94.4 % (network + watermark hybrid); tie with a full-res ResNet-50</td></tr>
+<tr><td>DMWR watermark</td><td>91.5 % (AUC 0.950) with 47,818 parameters</td></tr>
+<tr><td>Safe verdict</td><td>0 of 88 test counterfeits passed; "fake" never spoken in 1,889 runs</td></tr>
+<tr><td>UV fibre check</td><td>85.6 % of genuine notes accepted; 81 of 120 simulated counterfeit prints rejected</td></tr>
+<tr><td>Objects (COCO val2017, 5,000)</td><td>YOLOv8s mAP@0.5 0.551</td></tr>
+<tr><td>Emotion (RAF-DB)</td><td>86.5 % accuracy, macro-F1 0.795</td></tr>
+<tr><td>Voice commands (synthetic voices)</td><td>clean 100 %, whisper 98.9 %, street 0 dB 82.5 %; false commands 13 of 5,040</td></tr>
+<tr><td>Handwritten letters (Ekush)</td><td>90.0 %</td></tr>
+<tr><td>Voice study</td><td>106 questionnaires (41 recorded by the app, 65 imported)</td></tr>
+</table></div>
+
+<h2 id="k"><span class="num">11</span>Raspberry Pi 5 performance</h2>
+<div class="tablebox"><table>
+<tr><th>Task (Pi 5, 24 Nov 2026)</th><th class="n">CPU</th><th class="n">With AI HAT</th></tr>
+<tr><td>Object detection (YOLOv8s)</td><td class="n">472 ms</td><td class="n"><b>12.4 ms</b></td></tr>
+<tr><td>Finding text in a capture</td><td class="n">2.7 s</td><td class="n"><b>0.37 s</b></td></tr>
+<tr><td>Currency answer (live loop)</td><td class="n">770 ms</td><td class="n">—</td></tr>
+<tr><td>Emotion with a face</td><td class="n">586 ms</td><td class="n">—</td></tr>
+<tr><td>Board temperature / power (text setting)</td><td class="n">74.2 °C, 8.75 W</td><td class="n">71.9 °C, 7.95 W</td></tr>
+</table></div>
+<p class="note">OCR v5 (new recogniser and scanner) has not yet been timed on the Pi; on the laptop CPU it reads a page in under 1 s.</p>
+
+<h2 id="l"><span class="num">12</span>What did not work</h2>
+<ul class="tight">
+<li>A direct genuine/counterfeit verdict on whole notes (wrong on 20–59 % of genuine notes): switched off and replaced by the safe verdict.</li>
+<li>Learned view-selection policies, simulated federated training, occlusion (55 % covered → 51.9 %).</li>
+<li>OCR: binarisation, Tesseract, TrOCR, PaddleOCR (no Bangla), dictionaries / KenLM / ByT5 correction, multi-scale; plain clean-up filters before the recogniser; shadow removal on sign photos.</li>
+<li>Voice: VAD end-of-speech cut commands; Bangla offline commands only 45–62 %.</li>
+<li>UV v1 was fooled by JPEG colour smear (fixed: 92.8 % → honest 85.6 %).</li>
+</ul>
+
+<h2 id="m"><span class="num">13</span>Limitations and next steps</h2>
+<ul class="tight">
+<li><b>Glass camera:</b> most figures come from datasets or a laptop webcam; the C270 is fixed-focus. A camera with autofocus (Pi Camera Module 3) would help text and notes most.</li>
+<li><b>Taka on webcam:</b> live confidence drops for some notes (5, 50, 100, 1,000 Taka); fine-tuning the detector on webcam-style pictures is the next step.</li>
+<li><b>Text:</b> isolated stylised Bangla shop-sign words remain weaker than v4; more real Bangla photos and Bangladeshi fonts are needed. OCR v5 timing on the Pi still to be measured; the recogniser can be compiled for the Hailo-8.</li>
+<li><b>Counterfeit evidence:</b> about 24 unseen prints and about 4 physical counterfeit notes; the UV check is untested on real counterfeits.</li>
+<li><b>Users:</b> no completed user study with blind participants yet (protocol ready).</li>
+</ul>
+
+<h2 id="n"><span class="num">14</span>How to run</h2>
+<div class="tablebox"><table>
+<tr><th>Where</th><th>Command (from <code>savior_glass/</code>)</th></tr>
+<tr><td>Raspberry Pi</td><td><code>bash install.sh</code>, then <code>AI_HAT=1 python main.py</code> (or the <code>smart_glass</code> service)</td></tr>
+<tr><td>Laptop (all modes)</td><td><code>python test_windows.py</code> — M mode, A capture, R repeat, ± volume, Q quit</td></tr>
+<tr><td>Laptop (text reader only)</td><td><code>python scripts/ocr5_try.py --cam</code></td></tr>
+<tr><td>Speech voices (once)</td><td><code>python scripts/get_speech_models.py</code></td></tr>
+<tr><td>OCR v5 training / tests</td><td><code>python -m ocr_bench.rec5.train</code> · <code>.export</code> · <code>.eval_pipeline val|test</code> · <code>.page_eval</code> · <code>scripts/test_doc_scanner.py</code></td></tr>
+</table></div>
+<p class="note">Detailed reports: docs/reports/SARA_OCR_v5_Report.pdf (text reading) and the 131-page thesis in "Thesis Report and paper/". Result files: savior_glass/results/, realtime_bangla_taka_detection/results/, benchmark_report/.</p>
+</div>
+</body></html>

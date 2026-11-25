@@ -1,0 +1,513 @@
+<!doctype html><html lang="en" data-theme="light"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>SARA OCR v5 Report</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+Bengali:wght@400;600&display=swap">
+<style>
+/* Layout: one reading column (technical report), wide figures may break out to 1040px; tables scroll inside themselves */
+:root {
+  --bg: #f7f8fa; --surface: #ffffff; --ink: #14171c; --ink-2: #4a505b; --ink-3: #6d7380; --rule: #dde1e8; --tint: #eef2f8;
+  --accent: #2a78d6;
+  --s1: #2a78d6; --s2: #eb6834; --s3: #1baf7a;
+  --good: #0a7d0a; --bad: #c0392b;
+  --q0: #f0f4fa; --q1: #cde2fb; --q2: #9ec5f4; --q3: #6da7ec; --q4: #3987e5; --q5: #256abf; --q6: #184f95; --q7: #0d366b;
+  --font-body: "IBM Plex Sans", "Noto Sans Bengali", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, Consolas, monospace;
+  --font-bn: "Noto Sans Bengali", "Nirmala UI", sans-serif;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #121417; --surface: #1a1d22; --ink: #eceef2; --ink-2: #b6bcc7; --ink-3: #8e95a2; --rule: #2e333b; --tint: #1f2630;
+  --accent: #5598e7; --s1: #3987e5; --s2: #d95926; --s3: #199e70; --good: #3fbf5a; --bad: #e66767;
+  --q0: #1c2129; --q1: #13294a; --q2: #183d6e; --q3: #1c5cab; --q4: #2a78d6; --q5: #5598e7; --q6: #86b6ef; --q7: #cde2fb;
+  color-scheme: dark; } }
+:root[data-theme="dark"] {
+  --bg: #121417; --surface: #1a1d22; --ink: #eceef2; --ink-2: #b6bcc7; --ink-3: #8e95a2; --rule: #2e333b; --tint: #1f2630;
+  --accent: #5598e7; --s1: #3987e5; --s2: #d95926; --s3: #199e70; --good: #3fbf5a; --bad: #e66767;
+  --q0: #1c2129; --q1: #13294a; --q2: #183d6e; --q3: #1c5cab; --q4: #2a78d6; --q5: #5598e7; --q6: #86b6ef; --q7: #cde2fb;
+  color-scheme: dark; }
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font-family: var(--font-body); font-size: 15px; line-height: 1.6;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-block: 0 64px; }
+.wrap { max-width: 860px; margin: 0 auto; }
+.wide { max-width: 1040px; margin: 0 auto; }
+header.doc { padding-block: 40px 24px; border-bottom: 1px solid var(--rule); margin-bottom: 8px; }
+.eyebrow { font: 500 12px/1.4 var(--font-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); }
+h1 { font-size: clamp(28px, 4.5vw, 40px); line-height: 1.15; margin: 8px 0 12px; text-wrap: balance; font-weight: 700; letter-spacing: -.01em; }
+h2 { font-size: 22px; margin: 48px 0 8px; padding-top: 8px; text-wrap: balance; display: flex; gap: 10px; align-items: baseline; }
+h2 .num { font: 500 14px var(--font-mono); color: var(--accent); }
+h3 { font-size: 16px; margin: 28px 0 6px; }
+p, li { max-width: 70ch; }
+.lede { font-size: 17px; color: var(--ink-2); max-width: 66ch; }
+.meta { display: flex; flex-wrap: wrap; gap: 6px 20px; font: 13px var(--font-mono); color: var(--ink-3); margin-top: 16px; }
+code, .mono { font-family: var(--font-mono); font-size: .88em; }
+code { background: var(--tint); padding: 1px 5px; border-radius: 4px; }
+.bn { font-family: var(--font-bn); }
+nav.toc { margin: 20px 0 8px; padding: 14px 18px; background: var(--surface); border: 1px solid var(--rule); border-radius: 8px; }
+nav.toc ol { margin: 6px 0 0; padding-left: 20px; columns: 2 220px; column-gap: 28px; }
+nav.toc a { color: var(--ink); text-decoration: none; }
+nav.toc a:hover { color: var(--accent); text-decoration: underline; }
+a { color: var(--accent); }
+.tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 12px; margin: 20px 0 8px; }
+.tile { background: var(--surface); border: 1px solid var(--rule); border-radius: 8px; padding: 14px 16px; display: flex; flex-direction: column; gap: 2px; }
+.tile .k { font: 500 12px var(--font-mono); color: var(--ink-3); text-transform: uppercase; letter-spacing: .05em; }
+.tile .v { font-size: 28px; font-weight: 700; font-variant-numeric: tabular-nums; line-height: 1.2; }
+.tile .s { font-size: 13px; color: var(--ink-2); }
+.chip { display: inline-block; font: 600 11px var(--font-mono); padding: 1px 7px; border-radius: 99px; vertical-align: 1px; }
+.chip.win { color: var(--good); border: 1px solid currentColor; }
+.chip.loss { color: var(--bad); border: 1px solid currentColor; }
+.tablebox { overflow-x: auto; margin: 12px 0; border: 1px solid var(--rule); border-radius: 8px; background: var(--surface); }
+table { border-collapse: collapse; width: 100%; font-size: 14px; font-variant-numeric: tabular-nums; }
+th, td { padding: 7px 12px; text-align: left; border-bottom: 1px solid var(--rule); vertical-align: top; }
+th { font-weight: 600; color: var(--ink-2); background: var(--tint); white-space: nowrap; }
+td.n, th.n { text-align: right; white-space: nowrap; }
+tr:last-child td { border-bottom: none; }
+td .best { font-weight: 700; }
+.note { font-size: 13px; color: var(--ink-3); max-width: 80ch; }
+.callout { border-left: 3px solid var(--accent); background: var(--surface); padding: 12px 16px; margin: 16px 0; border-radius: 0 8px 8px 0; }
+.callout.warn { border-left-color: var(--s2); }
+figure { margin: 18px 0; background: var(--surface); border: 1px solid var(--rule); border-radius: 8px; padding: 16px; }
+figcaption { font-size: 13px; color: var(--ink-2); margin-top: 8px; max-width: 80ch; }
+figcaption b { color: var(--ink); }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 13px; color: var(--ink-2); margin-bottom: 8px; }
+.legend span { display: inline-flex; align-items: center; gap: 6px; }
+.legend i { width: 12px; height: 12px; border-radius: 3px; display: inline-block; }
+.chart { width: 100%; overflow-x: auto; }
+.chart svg { display: block; max-width: 100%; height: auto; }
+svg text { fill: var(--ink-2); font-family: var(--font-body); }
+svg .lbl { fill: var(--ink); font-weight: 600; font-variant-numeric: tabular-nums; }
+.tip { position: fixed; pointer-events: none; z-index: 20; background: var(--ink); color: var(--bg); font-size: 12.5px; line-height: 1.4;
+  padding: 7px 10px; border-radius: 6px; max-width: 260px; opacity: 0; transition: opacity .08s; }
+.flow { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; margin: 16px 0; counter-reset: st; }
+.step { background: var(--surface); border: 1px solid var(--rule); border-radius: 8px; padding: 12px; font-size: 13.5px; }
+.step b { display: block; font-size: 14px; margin-bottom: 4px; }
+.step b::before { counter-increment: st; content: counter(st) ". "; color: var(--accent); font-family: var(--font-mono); }
+.step .where { font: 11.5px var(--font-mono); color: var(--ink-3); margin-top: 6px; }
+.tabs { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; }
+.tabs button { font: 500 13px var(--font-body); padding: 5px 12px; border-radius: 99px; border: 1px solid var(--rule); background: var(--bg); color: var(--ink-2); cursor: pointer; }
+.tabs button[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: #fff; }
+.tabs button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.heat td, .heat th { padding: 0; border: none; text-align: center; font-size: 12px; }
+.heat th { background: none; color: var(--ink-2); font-weight: 500; padding: 3px 4px; }
+.heat th.row { text-align: right; padding-right: 8px; }
+.heat td div { width: 40px; height: 30px; display: flex; align-items: center; justify-content: center; margin: 1px; border-radius: 3px; font-variant-numeric: tabular-nums; }
+.heat .ax { font-size: 12px; color: var(--ink-3); }
+ul.tight li { margin: 3px 0; }
+@media (max-width: 520px) { h2 { font-size: 19px; } .tile .v { font-size: 24px; } }
+@media (prefers-reduced-motion: reduce) { .tip { transition: none; } }
+</style>
+
+<style>
+@page { size: A4; margin: 14mm 13mm 16mm; }
+body { background: #fff !important; font-size: 10.5pt; padding: 0 !important; }
+.wrap, .wide { max-width: none; }
+header.doc { padding-block: 0 12px; }
+h1 { font-size: 24pt; }
+h2 { break-after: avoid; margin-top: 26px; }
+h3 { break-after: avoid; }
+figure, .tile, .step, .callout, tr { break-inside: avoid; }
+.tablebox { overflow: visible; }
+.tip, .tabs { display: none !important; }
+nav.toc ol { columns: 2; }
+.chart svg { width: 100% !important; }
+.heat td div { width: 34px; height: 24px; font-size: 10px; }
+figure.conf { margin-top: 10px; }
+a { color: inherit; text-decoration: none; }
+</style></head><body><div class="wrap">
+<header class="doc">
+  <div class="eyebrow">SARA · Smart Assistive Reading Aid · Technical report</div>
+  <h1>OCR v5: scanner-style Bangla + English text reading for the SARA glass</h1>
+  <p class="lede">A rebuilt text-reading mode for a Raspberry Pi 5 smart glass: it finds and flattens the page, finds every text line with PP-OCRv5, and reads each line with a new 2.3 M-parameter Bangla + English line recogniser trained for the glass camera. It runs fully offline. On photographed pages it makes about 17 times fewer errors than the previous reader (0.99 % vs 17.2 % character error) and is 8 to 15 times faster; on isolated scene words, Bangla got worse. Both results are reported below.</p>
+  <div class="meta"><span>25 Nov 2026</span><span>branch <code>ocr-scanner-v5</code></span><span>base commit 9fe4ea2</span><span>all times: laptop CPU, 4 threads (not Pi times)</span></div>
+</header>
+
+<nav class="toc" aria-label="Contents"><div class="eyebrow">Contents</div><ol>
+<li><a href="#summary">Summary of results</a></li><li><a href="#problem">Problem and goal</a></li>
+<li><a href="#algorithm">Algorithm (pipeline)</a></li><li><a href="#model">Recogniser model</a></li>
+<li><a href="#data">Datasets</a></li><li><a href="#training">Training</a></li>
+<li><a href="#results">Test results</a></li><li><a href="#confusion">Confusion analysis</a></li>
+<li><a href="#speed">Speed and size</a></li><li><a href="#fixes">Problems found and fixed</a></li>
+<li><a href="#limits">Limitations and next steps</a></li><li><a href="#repro">Reproduce</a></li>
+</ol></nav>
+
+<h2 id="summary"><span class="num">1</span>Summary of results</h2>
+<p>All numbers are <b>character error rate (CER)</b>: the share of reference characters that would have to be changed, inserted or deleted to turn the reading into the reference text. Lower is better; 2 % CER means about 98 % of characters are right. "v4" is the glass's reader before this work (EasyOCR with a fine-tuned recogniser, CRAFT detector); "v5" is this work.</p>
+<div class="tiles" id="tiles"></div>
+<div class="callout warn"><b>Mixed result, stated plainly.</b> v5 is far better on its target task (photographed pages and labels) and on English scene words, and 8–15× faster everywhere. It is worse than v4 on isolated Bangla scene words (32.9 % vs 21.1 % CER) and on the short rendered test phrases (3.5 % vs 1.4 %; Bangla 5.6 % vs 1.5 %). Section <a href="#limits">11</a> lists what causes this and what would fix it.</div>
+
+<h2 id="problem"><span class="num">2</span>Problem and goal</h2>
+<p>Text reading was the weakest mode of the glass. On rendered text v4 was accurate (1.4 % test CER), but on real camera input it was not: 20–34 % CER on a real glass-camera book page (benchmark of 24 Nov 2026), 29.6 % on real photographed words, 17.2 % on the camera-page set of this report, and 3.7–13 s per capture on the CPU. The goal set for this work:</p>
+<ul class="tight">
+<li><b>Accurate</b> on what the glass camera actually sees: pages and labels at an angle, shadows, blur, low resolution.</li>
+<li><b>Fast</b>: a page read in about a second, the first line spoken while the rest is still being read.</li>
+<li><b>Lite and offline</b>: Raspberry Pi 5 (8 GB) with the Hailo-8 AI HAT (26 TOPS), no internet, no new heavy dependency.</li>
+<li><b>Like a scanner app</b>: read by itself when text is steady in view, with spoken hints ("bring it closer", "hold still").</li>
+</ul>
+
+<h2 id="algorithm"><span class="num">3</span>Algorithm (pipeline)</h2>
+<p>Every step runs on the device. The text finder runs on the Hailo-8 when the AI HAT is present (<code>AI_HAT=1</code>) and as ONNX on the CPU otherwise. It is the same PP-OCRv5 network both ways, so laptop tests behave like the glass.</p>
+<div class="flow">
+<div class="step"><b>Auto capture</b>Watch frames (8/s). Fire when text is in view, the picture is steady for 0.5 s and sharp; keep the sharpest recent frame.<div class="where">doc_scanner.AutoCapture</div></div>
+<div class="step"><b>Find text lines</b>PP-OCRv5 mobile detector (DBNet) → probability map → DB post-process (thresh 0.3, box 0.5, unclip 1.6) → line quadrilaterals.<div class="where">ppocr_det.TextFinder</div></div>
+<div class="step"><b>Page outline → four-point warp</b>A page outline is flattened by homography (margin added) only if ≥ 3 lines and ≥ 70 % of all text lie inside it and it is lighter than its surroundings.<div class="where">doc_scanner.find_page / flatten</div></div>
+<div class="step"><b>No outline → warp from the text</b>Page fills or leaves the view: four corners estimated from the text lines (top, bottom, left margin, right ends), homography to a rectangle when tilt or keystone &gt; 1.5°.<div class="where">doc_scanner.text_quad / warp_quad</div></div>
+<div class="step"><b>Shadow-free second look</b>Pictures with ≥ 3 lines are also searched with shadows removed (paper evened to white); the view finding more lines wins. Single words and signs are not filtered.<div class="where">doc_scanner.enhance, ocr_v5.find_best</div></div>
+<div class="step"><b>Cut lines</b>Each line is warped out along its own quadrilateral (a tilted line becomes level), turned if it stands on its side, scaled to 48 px height.<div class="where">doc_scanner.crop_line</div></div>
+<div class="step"><b>Read lines</b>SARA line recogniser (ONNX) in batches; CTC greedy decoding; a line read with confidence &lt; 0.6 is also read turned 180°.<div class="where">sara_rec.SaraRecognizer</div></div>
+<div class="step"><b>Main block, order</b>Scenes: keep the block of similar-height lines around the most confident large text. Pages: keep all. Rows top to bottom, left to right.<div class="where">ocr_text_region, doc_scanner.reading_order</div></div>
+<div class="step"><b>Speak</b>Lines with confidence ≥ 0.45 are spoken with the offline Piper voices; a page's first line is spoken while the rest is read.<div class="where">modes/ocr_mode.py</div></div>
+</div>
+<h3>Four-point warp (homography) without a visible page edge</h3>
+<p>When a page is held close it fills or leaves the picture, so no page outline exists. The page's four corners are then estimated from the main text block itself: the <b>top edge</b> is the line through the top corners of the first text line, the <b>bottom edge</b> the line through the bottom corners of the last, the <b>left edge</b> a robust (Huber) line fitted through the left ends of all lines, and the <b>right edge</b> one fitted through the right ends of the full-length lines (ragged short lines left out). Each edge is then moved outwards until every line end lies inside, and the corners are pushed out by 0.6 line heights. The four intersections give the quadrilateral; a homography (cv2.getPerspectiveTransform) maps it to an upright rectangle. It is applied when the larger of the top-edge tilt and the keystone angle between opposite edges exceeds 1.5°, and the quadrilateral must be convex with corner angles of 55–125°. In the tests, lines come out level to within 0.01°.</p>
+<h3>Enhancement filters</h3>
+<p>Scanner-style filters were tried both on the picture the text finder looks at and on the picture the lines are read from: shadow removal (divide by a morphological estimate of the paper, then stretch), CLAHE, unsharp masking and bilateral denoising, alone and combined. Only shadow removal for the <i>finder</i> helped, and only on document-like pictures. Filters on the reader's picture did not help, because the recogniser was trained on natural camera pictures. See section <a href="#scan">7</a>.</p>
+<h3>Auto-capture rules</h3>
+<div class="tablebox"><table>
+<tr><th>Signal</th><th>How it is measured</th><th>Rule</th></tr>
+<tr><td>Steady</td><td>mean absolute difference of a 160-px grey thumbnail between frames</td><td>&lt; 4 grey levels for 0.5 s</td></tr>
+<tr><td>Sharp</td><td>variance of the Laplacian on a 480-px grey copy</td><td>≥ 25 and ≥ 70 % of the best of the last 3 s, else hint "স্থির রাখুন" (hold still)</td></tr>
+<tr><td>Text present</td><td>quick text-line check on a 640-px copy every 0.35 s</td><td>≥ 1 line taller than 2.2 % of the frame height, else hint "লেখাটি ক্যামেরার আরও কাছে আনুন" (bring it closer)</td></tr>
+<tr><td>Once per page</td><td>after reading, the view must change (difference &gt; 10) before the next automatic read</td><td>ACTION button always reads at once</td></tr>
+<tr><td>Cut-off text</td><td>lines touching a picture edge</td><td>spoken hint, e.g. "লেখা ডান দিকে কেটে যাচ্ছে" (text cut off on the right)</td></tr>
+</table></div>
+<h3>CTC decoding</h3>
+<p>The recogniser outputs, for every 4 input columns, a probability over 236 characters plus a blank. Greedy CTC decoding takes the most likely class at each step, merges repeats and drops blanks. A line's confidence is the mean probability of its kept characters. Bangla is encoded as Unicode code points (NFC), so a pre-base vowel sign such as <span class="bn">ি</span> is emitted after its consonant even though it is drawn before it. The 1×7 context convolutions give each step enough view of its neighbours for that.</p>
+
+<h2 id="model"><span class="num">4</span>Recogniser model</h2>
+<div class="tiles" id="modeltiles"></div>
+<p>A convolution-only text-line recogniser, built for this project. Its blocks are inverted residuals (MobileNetV2 style) that shrink the height 48 → 1 while keeping a quarter of the width, then four context blocks (depthwise 1×7 + feed-forward) along the line, and a 1×1 CTC head. It has no LSTM and no attention, so it exports cleanly to ONNX, quantises to 8 bits, and is the kind of network Hailo's Dataflow Compiler accepts at a fixed width (for example 48×320) for a later move onto the AI HAT.</p>
+<div class="tablebox"><table id="archtable"><tr><th>Layer</th><th>Output (C×H×W, input 1×48×320)</th><th class="n">Parameters</th></tr></table></div>
+<p class="note">Character set: 236 characters (Bangla letters, vowel signs, hasanta, nukta, khanda ta, Bangla digits, ৳, । ॥; printable ASCII; Latin-1 accented letters; ° • € £) plus the CTC blank. Labels are NFC-normalised; typographic quotes and dashes become ASCII.</p>
+
+<h2 id="data"><span class="num">5</span>Datasets</h2>
+<div class="tablebox"><table>
+<tr><th>Set</th><th>Use</th><th>Size</th><th>Content</th></tr>
+<tr><td>Rendered training lines</td><td>training</td><td class="n">≈ 6 M lines, drawn on the fly (never repeated)</td><td>Text from 1.5 M Bangla Wikipedia sentences (CC BY-SA), 50 k-word Bangla and English frequency lists, numbers / prices / phone numbers / dates / medicine labels, mixed Bangla + English, random strings. Shaped with HarfBuzz (correct conjuncts and vowel signs). 15 Bangla font files and 224 English fonts, <b>training fonts only</b>.</td></tr>
+<tr><td>ICDAR 2019 MLT words, train split</td><td>training</td><td class="n" id="mltn"></td><td>Real word crops from street photographs. Drawn half Bangla, half Latin script (see section <a href="#fixes">10</a>); 30 % of each batch.</td></tr>
+<tr><td>MLT validation words</td><td>model choice</td><td class="n">300</td><td>150 Bangla + 150 Latin-script words (same split as v4's evaluations).</td></tr>
+<tr><td>MLT test words</td><td>final test, read once</td><td class="n">1,000</td><td>500 Bangla + 500 Latin-script, placed in a 640×480 grey frame as the glass would see a sign.</td></tr>
+<tr><td>Rendered benchmark</td><td>validation / test</td><td class="n">432 + 432 images</td><td>48 phrases × 3 seeds × {clean, wild, scene} per split; validation fonts (Nirmala, Noto Serif Bengali, Georgia, Verdana) and test fonts (Nirmala, Noto Sans Bengali, Tiro Bangla, Arial, Times, Calibri) are never training fonts.</td></tr>
+<tr><td>Camera-page set (new)</td><td>test</td><td class="n">40 pages</td><td>4–10 lines of Bangla, English or mixed text in test fonts, photographed at 1280×720 under four conditions: flat, angle (perspective), shadow, blur. Bangla text from Wikipedia articles not in the training corpus.</td></tr>
+</table></div>
+<h3>Camera simulation used for the training lines</h3>
+<ul class="tight">
+<li>Text-line height on the sensor 9–42 px (log-uniform), the C270 at reading distance</li>
+<li>Defocus blur up to σ 1.4 px (less for small text), motion blur 2–5 px, sensor noise, JPEG quality 25–92</li>
+<li>Uneven light and shadow gradients, gamma, low-contrast print; paper, dark signs, coloured labels, COCO photo backgrounds</li>
+<li>Tilt ±2.5°, perspective, page curl; loose or tight crops with bits of neighbouring lines, as a text detector cuts them</li>
+</ul>
+
+<h2 id="training"><span class="num">6</span>Training</h2>
+<div class="tablebox"><table>
+<tr><th>Setting</th><th>Value</th></tr>
+<tr><td>Loss / decoding</td><td>CTC (blank 0), greedy decoding</td></tr>
+<tr><td>Optimiser</td><td>AdamW, weight decay 1e-4, one-cycle cosine schedule, peak lr 2e-3, gradient clip 5</td></tr>
+<tr><td>Batch</td><td>up to 128 lines and 128×320 padded columns; widths padded to multiples of 64 (fixed shapes)</td></tr>
+<tr><td>Precision / hardware</td><td>mixed precision, RTX 4060 Laptop GPU (8 GB), 13–14 CPU workers rendering lines</td></tr>
+<tr><td>Runs</td><td>r1: 9,000 steps (20 % real words, unbalanced) → r2: 80,000 steps from r1's best (30 % real words, half Bangla); about 3.5 h in total</td></tr>
+<tr><td>Checkpoint rule (fixed beforehand)</td><td>lowest mean of (real Bangla CER, real Latin CER, rendered CER) on the validation sets; chosen: <b>r2, step 72,000</b></td></tr>
+<tr><td>Export</td><td>ONNX opset 17, dynamic width; 8-bit static QDQ copy calibrated on 256 training lines</td></tr>
+</table></div>
+<figure class="wide">
+<div class="legend"><span><i style="background:var(--s1)"></i>Real words, Bangla</span><span><i style="background:var(--s2)"></i>Real words, Latin script</span><span><i style="background:var(--s3)"></i>Rendered text</span></div>
+<div class="chart" id="trainchart"></div>
+<figcaption><b>Validation CER during training.</b> Recognition only, on the 300 cut-out validation words and 144 rendered crops. The dashed line marks the switch from r1 to r2 (real Bangla words balanced): Bangla fell from 39 % to 23 % within 3,000 steps. For reference, v4's fine-tuned EasyOCR recogniser scores 12.3 % on the same cut-out words (both scripts together).</figcaption>
+</figure>
+<div class="tablebox"><table id="exporttable"><tr><th>Exported copy</th><th class="n">Size</th><th class="n">Real Bangla</th><th class="n">Real Latin</th><th class="n">Rendered</th><th>Used</th></tr></table></div>
+<p class="note">The 8-bit copy passes the overall 0.5-point rule but reads Bangla 1.8 points worse, so full precision is the default (<code>OCR5_REC_INT8=1</code> selects the 8-bit copy).</p>
+
+<h2 id="results"><span class="num">7</span>Test results</h2>
+<h3>Camera pages (40 pages, test fonts, read once per option)</h3>
+<figure class="wide">
+<div class="legend"><span><i style="background:var(--s1)"></i>v4 (previous reader)</span><span><i style="background:var(--s2)"></i>v5 front end + EasyOCR reader</span><span><i style="background:var(--s3)"></i>v5 front end + SARA reader (shipped)</span></div>
+<div class="chart" id="pagechart"></div>
+<figcaption><b>Character error on photographed pages, by language and condition.</b> The v5 front end alone (orange, before the four-point text warp) removes most of v4's errors, above all on pages at an angle (38.6 % → 5.9 %). The shipped v5 (green: four-point warp, shadow-free second look, SARA recogniser) brings pages to 0.99 % and is 15× faster than v4.</figcaption>
+</figure>
+<div class="tablebox"><table id="pagetable"></table></div>
+<h3 id="scan">Scanner settings: four-point warp and filters (chosen on validation)</h3>
+<p>Rule fixed before the run (ocr_bench/rec5/tune_scan.py): lowest mean CER over the validation pages, a second validation set of 40 close-up pages held at an angle and running off the view, and the rendered validation set; no candidate may be worse than the baseline by more than 0.3 points on any of them.</p>
+<div class="tablebox"><table>
+<tr><th>Candidate (validation CER)</th><th class="n">Pages</th><th class="n">Close-up pages</th><th class="n">Rendered</th><th class="n">Mean</th></tr>
+<tr><td>A · no warp, no filter</td><td class="n">1.27 %</td><td class="n">6.42 %</td><td class="n">3.68 %</td><td class="n">3.79 %</td></tr>
+<tr><td>B · four-point text warp</td><td class="n">1.27 %</td><td class="n">5.76 %</td><td class="n">3.68 %</td><td class="n">3.57 %</td></tr>
+<tr><td>C · warp + shadow removal (reader)</td><td class="n">1.35 %</td><td class="n">5.84 %</td><td class="n">3.72 %</td><td class="n">3.64 %</td></tr>
+<tr><td>D · warp + soft shadow removal (reader)</td><td class="n">1.36 %</td><td class="n">5.82 %</td><td class="n">4.55 %</td><td class="n">3.91 %</td></tr>
+<tr><td>E · warp + CLAHE (reader)</td><td class="n">1.32 %</td><td class="n">5.77 %</td><td class="n">3.73 %</td><td class="n">3.61 %</td></tr>
+<tr><td>F · warp + sharpen (reader)</td><td class="n">1.32 %</td><td class="n">5.81 %</td><td class="n">3.52 %</td><td class="n">3.55 %</td></tr>
+<tr><td>G · warp + denoise + sharpen (reader)</td><td class="n">1.30 %</td><td class="n">5.77 %</td><td class="n">3.54 %</td><td class="n">3.54 %</td></tr>
+<tr><td>H · warp + shadow removal + sharpen (reader)</td><td class="n">1.35 %</td><td class="n">5.83 %</td><td class="n">3.97 %</td><td class="n">3.72 %</td></tr>
+<tr><td>I · warp + shadow removal (finder, always)</td><td class="n">1.26 %</td><td class="n">5.42 %</td><td class="n">3.46 %</td><td class="n">3.38 %</td></tr>
+<tr><td>J · I + denoise + sharpen (reader)</td><td class="n">1.33 %</td><td class="n">5.46 %</td><td class="n">3.43 %</td><td class="n">3.41 %</td></tr>
+<tr><td><b>K · warp + shadow removal (finder, documents only), shipped</b></td><td class="n">1.26 %</td><td class="n">5.95 %</td><td class="n">3.69 %</td><td class="n">3.63 %</td></tr>
+</table></div>
+<p class="note">I won the rule, but the first test read showed real photographed words at 55.8 % CER (from 31.5 %): shadow removal assumes dark text on light paper and hid light-on-dark sign text. The rule had not included real words. On the real <i>validation</i> words, I left 47 % of Bangla words unread against 11 % for A. K applies the filter only when the plain picture already shows ≥ 3 lines; on validation it keeps real words at 31.8 % (A: 31.4 %) and most of the gain on close-up pages. K is shipped; the test sets were read again for it, so the test figures below come from the third test read.</p>
+<div class="tablebox"><table>
+<tr><th>Test (read after the choice)</th><th class="n">Before the scanner update</th><th class="n">Shipped (K)</th></tr>
+<tr><td>Camera pages, all</td><td class="n">2.10 %</td><td class="n"><b>0.99 %</b></td></tr>
+<tr><td>Camera pages at an angle</td><td class="n">5.08 %</td><td class="n"><b>1.40 %</b></td></tr>
+<tr><td>Camera pages, English</td><td class="n">4.82 %</td><td class="n"><b>0.65 %</b></td></tr>
+<tr><td>Rendered phrases</td><td class="n">4.04 %</td><td class="n"><b>3.45 %</b></td></tr>
+<tr><td>Real words (mean of scripts)</td><td class="n">31.46 %</td><td class="n">31.62 %</td></tr>
+<tr><td>Time per page (laptop)</td><td class="n">0.41 s</td><td class="n">0.87 s (second look + warp)</td></tr>
+</table></div>
+<h3>Benchmarks shared with v4 (held-out test sets)</h3>
+<div class="tablebox"><table id="testtable"></table></div>
+<h3>Validation (where settings were chosen)</h3>
+<div class="tablebox"><table id="valtable"></table></div>
+<p class="note">The validation and test sets are the ones v4 was chosen and tested on (ocr_bench/ocr_v4_eval.py). Every v5 setting was chosen on validation; the test sets were read once, after the settings were frozen. One test run was stopped before it finished when validation showed the scene problem described in section <a href="#fixes">10</a>; its partial results were not looked at. The test sets were read three times in all (first model settings, scanner candidate I, shipped K), as reported above.</p>
+
+<h2 id="confusion"><span class="num">8</span>Confusion analysis</h2>
+<p>For OCR, the confusion matrix is built per character: each reading is aligned to its reference with the edit-distance alignment. Each reference character (row) is then read as some character (column), or missed (column ∅). The diagonal holds correct reads. The 14 most frequent characters of each script are shown; "other" collects reads as any character outside them.</p>
+<div class="tabs" role="group" aria-label="Confusion matrix" id="conftabs"></div>
+<figure class="wide">
+<div class="chart" id="heat"></div>
+<figcaption id="heatcap"></figcaption>
+</figure>
+<h3>Error types</h3>
+<figure class="wide">
+<div class="legend"><span><i style="background:var(--s1)"></i>Wrong character</span><span><i style="background:var(--s2)"></i>Missed character</span><span><i style="background:var(--s3)"></i>Extra character</span></div>
+<div class="chart" id="kindchart"></div>
+<figcaption><b>Errors per 1,000 reference characters</b>, by type. On pages v5 makes far fewer errors of every type. On isolated Bangla scene words most of v5's errors are <i>missed</i> characters, mainly the hasanta <span class="bn">্</span> inside conjuncts and the vowel signs <span class="bn">া ি</span>, plus whole words not found (12 % of words gave no reading at all, against 4 % for v4).</figcaption>
+</figure>
+<h3>Most frequent confusions</h3>
+<div class="tablebox"><table id="toptable"></table></div>
+
+<h2 id="speed"><span class="num">9</span>Speed and size</h2>
+<div class="tablebox"><table>
+<tr><th>Measure (laptop CPU, 4 threads, median)</th><th class="n">v4</th><th class="n">v5</th><th class="n">Speed-up</th></tr>
+<tr><td>Photographed page, 4–10 lines</td><td class="n" id="sp_v4"></td><td class="n" id="sp_v5"></td><td class="n" id="sp_x"></td></tr>
+<tr><td>One word in a 640×480 frame</td><td class="n" id="sw_v4"></td><td class="n" id="sw_v5"></td><td class="n" id="sw_x"></td></tr>
+<tr><td>Recogniser per word crop</td><td class="n">—</td><td class="n">3.4 ms (8-bit 1.9 ms)</td><td class="n"></td></tr>
+<tr><td>Recogniser weights</td><td class="n">215 MB (fp32), PyTorch</td><td class="n">9.0 MB (fp32), 2.5 MB (8-bit), ONNX</td><td class="n">24× smaller</td></tr>
+<tr><td>Text finder weights</td><td class="n">CRAFT, 83 MB</td><td class="n">PP-OCRv5 mobile, 4.8 MB</td><td class="n"></td></tr>
+<tr><td>Libraries for text mode</td><td class="n">PyTorch + EasyOCR</td><td class="n">ONNX Runtime + OpenCV</td><td class="n"></td></tr>
+</table></div>
+<p class="note">These are laptop times, not Raspberry Pi times. On the Pi the text finder runs on the Hailo-8 (0.37 s measured for the same detector on 24 Nov 2026) and the recogniser on the Pi's CPU. The Pi timing has not been measured yet.</p>
+
+<h2 id="fixes"><span class="num">10</span>Problems found and fixed during the work</h2>
+<div class="tablebox"><table>
+<tr><th>Found</th><th>Effect</th><th>Fix</th></tr>
+<tr><td>Only 2,989 of the 52,867 real training words are Bangla</td><td>real Bangla stuck at 39 % CER</td><td>draw real words half Bangla, half Latin; 30 % real per batch → 23 % within 3,000 steps</td></tr>
+<tr><td>Word photos and scene windows taken for "pages" and flattened</td><td>flattened scenes 75 % CER vs 4.8 % for the rest; validation real words 64 %</td><td>flatten only with ≥ 3 lines, ≥ 70 % of all text inside, paper lighter than surroundings; margin around a flattened page</td></tr>
+<tr><td>Main-block rule chose on geometry before reading</td><td>background signs and number plates spoken in scenes</td><td>choose after reading with each line's confidence (as v4); geometry only for pages spoken line by line</td></tr>
+<tr><td>Very large letters gave one box around the picture</td><td>words close to the camera unread</td><td>second look at 0.35× scale</td></tr>
+<tr><td>EasyOCR's confidence scale differs from SARA's</td><td>correct EasyOCR readings dropped</td><td>a per-reader confidence cut-off</td></tr>
+<tr><td>Lines joined with "।" for speech</td><td>full stop spoken in the middle of wrapped sentences</td><td>join with a space; the voice pauses at the page's own punctuation</td></tr>
+<tr><td>Main-block rule compared upright box heights</td><td>on tilted pages the level lines looked smaller and were dropped (an angled page lost its last two lines)</td><td>heights measured along each line's own tilt</td></tr>
+<tr><td>Shadow removal in front of the finder hid light-on-dark sign text</td><td>real words 31.5 % → 55.8 % CER</td><td>applied only to document-like pictures (≥ 3 lines)</td></tr>
+<tr><td>Camera at 640×480 in every mode</td><td>printed text only ~6 px tall</td><td>1280×720 while text mode is on; other modes unchanged</td></tr>
+</table></div>
+
+<h2 id="limits"><span class="num">11</span>Limitations and next steps</h2>
+<ul>
+<li><b>Not yet measured on the glass.</b> The camera-page set is rendered and realistic, but not real photographs. Next: run <code>scripts/ocr5_try.py</code> on the laptop webcam, then on the Pi with the glass-camera page set (<code>~/Desktop/glass_ocr/glass_set</code>, 50 shots of 14 pages) and time it with the AI HAT.</li>
+<li><b>Isolated Bangla scene words</b> (32.9 % vs 21.1 %): mostly words not found or conjuncts missed on stylised shop-sign lettering. More real Bangla word photos are the main lever; there are only 2,989 in training. Bangladeshi sign and label photos from the glass itself would help most.</li>
+<li><b>Short rendered phrases</b> (3.5 % vs 1.4 %; Bangla 5.6 %): partly Tiro Bangla and Noto Sans Bengali, test fonts unlike any training font. Adding more Bangla font families to training (Kalpurush, SolaimanLipi, Nikosh, where licences allow) is the cheap fix.</li>
+<li><b>Recogniser on the AI HAT.</b> The network is convolution-only so it can be compiled with Hailo's Dataflow Compiler (needs an x86 Linux PC, not available here). That would leave the Pi's CPU almost free during reading.</li>
+<li><b>8-bit model</b> loses 1.8 points on Bangla; a quantisation-aware fine-tune would likely close that.</li>
+<li>Handwriting is not covered by v5 (the Ekush letter reader of v4 remains in the code).</li>
+</ul>
+
+<h2 id="repro"><span class="num">12</span>Reproduce</h2>
+<div class="tablebox"><table>
+<tr><th>Step</th><th>Command (from <code>savior_glass/</code>)</th></tr>
+<tr><td>Text corpus</td><td><code>python -m ocr_bench.rec5.corpus</code></td></tr>
+<tr><td>Train</td><td><code>python -m ocr_bench.rec5.train --name r2 --init &lt;r1 best&gt; --real 0.3 --steps 80000</code></td></tr>
+<tr><td>Export</td><td><code>python -m ocr_bench.rec5.export r2</code></td></tr>
+<tr><td>Benchmarks</td><td><code>python -m ocr_bench.rec5.eval_pipeline val|test</code> · <code>python -m ocr_bench.rec5.page_eval v4|v5_easyocr|v5_sara</code></td></tr>
+<tr><td>This report's numbers</td><td><code>python -m ocr_bench.rec5.report_data</code> → results/ocr_bench/ocr_v5_report_data.json</td></tr>
+<tr><td>Scanner settings</td><td><code>python -m ocr_bench.rec5.tune_scan</code> → results/ocr_bench/scan_tune.json</td></tr>
+<tr><td>Scanner tests</td><td><code>python scripts/test_doc_scanner.py</code> (19 checks, all pass)</td></tr>
+<tr><td>Try it</td><td><code>python scripts/ocr5_try.py --cam</code> (webcam, auto capture, offline speech)</td></tr>
+</table></div>
+<p class="note">Result files: results/ocr_bench/ocr_v5_val_final.json, ocr_v5_test_final.json (+ _rows), page_eval_*.json, ocr_v5_report_data.json. Model: models/ocr5_rec/ (rec.onnx, rec_int8.onnx, charset.txt, model.json). Text finder: models/ppocr/ppocrv5_mobile_det.onnx (Apache-2.0).</p>
+</div>
+
+<div class="tip" id="tip" role="tooltip"></div>
+
+<script>
+const D = {"pages":{"v4":{"cer":17.23,"bn":18.75,"en":8.42,"mixed":23.01,"flat":3.89,"angle":38.55,"shadow":6.85,"blur":15.65,"ms":13149},"v5_easyocr":{"cer":3.07,"bn":2.24,"en":4.78,"mixed":3.01,"flat":1.62,"angle":5.92,"shadow":0.55,"blur":3.48,"ms":11347},"v5_sara":{"cer":0.99,"bn":1.14,"en":0.65,"mixed":1.04,"flat":1.13,"angle":1.4,"shadow":0.38,"blur":0.79,"ms":873}},"val":{"v5":{"rend":3.88,"rend_bn":2.05,"rend_en":5.72,"clean":1.56,"wild":1.94,"scene":8.16,"real_bn":34.07,"real_en":30.15,"real_mean":32.11,"exact_bn":40.67,"exact_en":56.67,"empty_bn":11.33,"empty_en":11.33,"ms_word":406.2,"ms_rend":167},"v4":{"rend":2.61,"real_bn":17.46,"real_en":34.36,"real_mean":25.91,"ms_word":3674.2}},"test":{"v5":{"rend":3.45,"rend_bn":5.6,"rend_en":1.31,"clean":2.7,"wild":2.56,"scene":5.1,"real_bn":32.9,"real_en":30.34,"real_mean":31.62,"exact_bn":46.0,"exact_en":52.6,"empty_bn":11.8,"empty_en":12.2,"ms_word":371.1,"ms_rend":149},"v4":{"rend":1.42,"rend_bn":1.5,"rend_en":1.35,"real_bn":21.06,"real_en":38.08,"real_mean":29.57,"exact_bn":57.2,"exact_en":40.6,"empty_bn":4.2,"empty_en":17.2,"ms_word":3697.6}},"conf":{"pages_v5_bn":{"kinds":{"correct":5376,"substituted":27,"missed":31,"extra":5},"m":{"rows":["া","্","র","ে","য","ি","ক","ন","ব","স","়","ত","ম","প"],"cols":["া","্","র","ে","য","ি","ক","ন","ব","স","়","ত","ম","প","other","∅"],"counts":[[486,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1],[0,456,0,0,0,0,0,0,0,0,0,0,0,0,0,4],[0,0,448,0,0,1,0,0,0,0,0,0,0,0,0,2],[0,0,0,399,0,1,0,0,0,0,0,0,0,0,0,4],[0,0,0,0,325,0,0,0,0,0,0,0,0,0,0,0],[0,0,1,2,0,289,2,0,0,0,0,0,0,0,0,5],[0,0,0,0,0,2,232,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,227,1,0,0,0,1,0,0,1],[0,0,0,0,0,0,0,0,212,0,0,0,0,0,0,1],[0,0,0,0,0,0,0,0,0,194,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,179,0,0,0,0,2],[0,0,0,0,0,0,0,0,0,0,0,175,0,0,0,1],[0,0,0,0,0,0,0,0,0,0,0,0,167,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,153,0,1]],"support":[488,460,451,404,325,299,234,230,213,194,181,176,167,154]},"top":[{"ref":"ভ","read":"ত","count":8},{"ref":"ি","read":"∅","count":5},{"ref":"্","read":"∅","count":4},{"ref":"ে","read":"∅","count":4},{"ref":"ু","read":"∅","count":3},{"ref":"ি","read":"ক","count":2},{"ref":"ক","read":"ি","count":2},{"ref":"ি","read":"ে","count":2},{"ref":"ষ","read":"স","count":2},{"ref":"র","read":"∅","count":2}]},"pages_v5_en":{"kinds":{"correct":3859,"substituted":2,"missed":22,"extra":0},"m":{"rows":["e","s","r","i","a","t","n","o","l","c","d","h","u","p"],"cols":["e","s","r","i","a","t","n","o","l","c","d","h","u","p","other","∅"],"counts":[[473,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2],[0,308,0,0,0,0,0,0,0,0,0,0,0,0,0,2],[0,0,300,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,279,0,0,0,0,0,0,0,0,0,0,0,3],[0,0,0,0,271,0,0,0,0,0,0,0,0,0,0,1],[0,0,0,0,0,259,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,257,0,0,0,0,0,0,0,0,1],[0,0,0,0,0,0,0,241,0,0,0,0,0,0,1,0],[0,0,0,0,0,0,0,0,191,0,0,0,0,0,0,4],[0,0,0,0,0,0,0,0,0,144,0,0,0,0,0,3],[0,0,0,0,0,0,0,0,0,0,136,0,0,0,0,1],[0,0,0,0,0,0,0,0,0,0,0,130,0,0,0,1],[0,0,0,0,0,0,0,0,0,0,0,0,115,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,105,0,2]],"support":[475,310,300,282,272,259,258,242,195,147,137,131,115,107]},"top":[{"ref":"l","read":"∅","count":4},{"ref":"i","read":"∅","count":3},{"ref":"c","read":"∅","count":3},{"ref":"s","read":"∅","count":2},{"ref":"e","read":"∅","count":2},{"ref":"p","read":"∅","count":2},{"ref":"M","read":"∅","count":1},{"ref":"a","read":"∅","count":1},{"ref":"k","read":"∅","count":1},{"ref":"v","read":"r","count":1}]},"pages_v4_bn":{"kinds":{"correct":4571,"substituted":342,"missed":521,"extra":196},"m":{"rows":["া","্","র","ে","য","ি","ক","ন","ব","স","়","ত","ম","প"],"cols":["া","্","র","ে","য","ি","ক","ন","ব","স","়","ত","ম","প","other","∅"],"counts":[[413,3,0,3,2,2,2,0,1,0,0,2,0,2,14,44],[0,387,1,2,1,2,1,0,0,1,2,1,0,1,8,53],[1,1,373,3,1,3,1,1,0,0,4,2,2,0,9,50],[3,1,2,346,1,3,0,2,0,1,1,2,0,0,6,36],[1,0,1,0,266,3,1,1,1,1,1,1,0,0,8,40],[3,0,2,2,0,251,2,0,1,0,1,0,0,2,4,31],[1,0,0,2,2,4,194,0,3,0,0,1,0,0,8,19],[0,2,3,0,2,1,1,194,0,0,0,0,0,0,5,22],[0,1,0,1,1,0,1,0,186,1,0,0,0,0,4,18],[0,0,1,1,1,1,1,0,0,169,0,1,0,0,1,18],[1,1,1,2,0,1,2,1,1,1,147,1,0,0,6,16],[2,0,2,0,0,0,0,0,1,0,0,152,1,0,7,11],[0,1,0,1,0,0,0,1,0,1,1,0,142,0,4,16],[1,1,0,1,1,0,0,2,1,0,0,1,0,132,2,12]],"support":[488,460,451,404,325,299,234,230,213,194,181,176,167,154]},"top":[{"ref":"্","read":"∅","count":53},{"ref":"র","read":"∅","count":50},{"ref":"া","read":"∅","count":44},{"ref":"য","read":"∅","count":40},{"ref":"ে","read":"∅","count":36},{"ref":"ি","read":"∅","count":31},{"ref":"ন","read":"∅","count":22},{"ref":"ক","read":"∅","count":19},{"ref":"স","read":"∅","count":18},{"ref":"ব","read":"∅","count":18}]},"pages_v4_en":{"kinds":{"correct":3551,"substituted":146,"missed":186,"extra":89},"m":{"rows":["e","s","r","i","a","t","n","o","l","c","d","h","u","p"],"cols":["e","s","r","i","a","t","n","o","l","c","d","h","u","p","other","∅"],"counts":[[442,1,0,4,1,2,0,1,1,2,0,0,0,1,4,16],[0,288,1,0,0,0,0,0,1,0,0,0,0,1,2,17],[1,0,279,0,0,0,1,0,2,0,1,2,0,0,1,13],[1,0,1,258,0,0,2,0,0,0,0,0,0,0,2,18],[1,1,2,0,254,0,1,0,0,0,1,0,0,0,3,9],[0,0,0,2,0,238,1,1,0,0,2,0,0,0,2,13],[2,1,1,1,0,2,235,1,1,0,0,0,1,0,1,12],[2,0,2,0,0,0,0,227,0,0,1,1,1,0,0,8],[0,0,0,0,1,1,1,0,180,0,0,0,0,0,2,10],[0,0,1,0,0,1,1,0,0,134,1,1,1,0,1,6],[0,0,0,0,0,0,1,0,0,0,122,0,0,1,3,10],[0,0,0,1,1,0,0,0,0,0,0,125,0,0,1,3],[0,0,0,0,0,0,0,1,0,0,0,0,105,0,0,9],[0,0,0,0,0,0,0,0,0,0,0,0,0,98,2,7]],"support":[475,310,300,282,272,259,258,242,195,147,137,131,115,107]},"top":[{"ref":"i","read":"∅","count":18},{"ref":"s","read":"∅","count":17},{"ref":"e","read":"∅","count":16},{"ref":"t","read":"∅","count":13},{"ref":"r","read":"∅","count":13},{"ref":"2","read":"২","count":12},{"ref":"n","read":"∅","count":12},{"ref":"l","read":"∅","count":10},{"ref":"d","read":"∅","count":10},{"ref":"u","read":"∅","count":9}]},"real_test_words_v5_bn":{"kinds":{"correct":1935,"substituted":253,"missed":474,"extra":44},"m":{"rows":["া","্","র","ন","ে","ি","ক","য","ম","ল","স","ব","ট","প"],"cols":["া","্","র","ন","ে","ি","ক","য","ম","ল","স","ব","ট","প","other","∅"],"counts":[[235,1,2,0,0,1,0,0,0,0,3,2,1,0,16,44],[0,145,0,1,1,0,0,0,0,0,0,1,0,1,9,59],[0,0,159,0,0,0,0,0,2,2,0,1,2,0,6,34],[0,1,1,116,0,0,0,0,0,3,1,1,2,0,8,16],[1,1,0,1,97,1,0,0,0,0,0,0,1,0,6,21],[0,1,2,0,0,90,0,1,0,1,0,0,1,0,5,28],[0,1,1,1,0,2,88,0,1,0,0,3,0,1,4,18],[0,0,1,0,0,0,0,72,2,0,0,0,0,0,3,16],[0,2,0,1,0,0,0,0,67,0,0,0,0,0,5,18],[0,0,4,2,0,0,0,0,0,72,0,1,0,0,4,8],[0,1,2,0,0,0,0,0,1,0,59,1,0,0,6,21],[0,0,1,1,0,0,0,0,0,0,0,62,0,0,2,21],[1,0,2,0,1,0,0,0,0,0,0,0,56,0,2,8],[1,0,0,0,0,1,0,0,0,1,3,0,0,47,3,12]],"support":[305,217,206,149,129,129,120,94,93,91,91,87,70,68]},"top":[{"ref":"্","read":"∅","count":59},{"ref":"া","read":"∅","count":44},{"ref":"র","read":"∅","count":34},{"ref":"ি","read":"∅","count":28},{"ref":"ব","read":"∅","count":21},{"ref":"স","read":"∅","count":21},{"ref":"ে","read":"∅","count":21},{"ref":"ক","read":"∅","count":18},{"ref":"ম","read":"∅","count":18},{"ref":"য","read":"∅","count":16}]},"real_test_words_v5_en":{"kinds":{"correct":1994,"substituted":186,"missed":296,"extra":18},"m":{"rows":["e","A","i","E","I","O","o","T","r","t","a","R","N","n"],"cols":["e","A","i","E","I","O","o","T","r","t","a","R","N","n","other","∅"],"counts":[[137,0,0,0,0,0,0,0,0,0,2,0,0,0,4,9],[0,99,0,0,0,0,0,0,0,1,0,1,1,0,2,20],[0,0,91,1,2,1,0,0,0,0,1,0,0,0,9,13],[1,0,0,95,1,0,0,0,0,1,0,0,0,0,3,14],[0,0,2,0,70,1,0,0,0,0,0,0,0,0,3,28],[1,0,0,0,0,64,3,0,0,0,1,1,1,0,3,18],[1,0,0,0,0,0,77,0,0,0,1,0,0,0,2,6],[0,1,1,1,0,0,1,60,0,0,0,0,0,1,2,16],[0,0,0,1,0,0,0,0,73,1,1,0,0,0,1,5],[0,0,0,0,0,0,0,0,0,70,0,0,0,0,1,9],[0,0,0,0,0,0,2,0,0,0,64,0,0,0,4,9],[0,0,0,1,0,0,0,0,0,0,1,61,0,0,2,14],[0,1,0,1,0,0,0,0,0,0,0,0,67,0,2,6],[0,0,0,0,1,0,0,0,0,0,0,0,0,68,4,3]],"support":[152,124,118,115,104,92,87,83,82,80,79,79,77,76]},"top":[{"ref":"I","read":"∅","count":28},{"ref":"A","read":"∅","count":20},{"ref":"O","read":"∅","count":18},{"ref":"T","read":"∅","count":16},{"ref":"R","read":"∅","count":14},{"ref":"E","read":"∅","count":14},{"ref":"i","read":"∅","count":13},{"ref":"L","read":"∅","count":12},{"ref":"S","read":"∅","count":11},{"ref":"e","read":"∅","count":9}]}},"train":{"r1":[{"step":3000,"real_bn":0.44244015341383763,"real_en":0.2518702778702778,"rendered":0.045840026346873106,"minutes":10.5},{"step":6000,"real_bn":0.38496159590896434,"real_en":0.20515767565767565,"rendered":0.03696703215578429,"minutes":19.1},{"step":9000,"real_bn":0.3916063643958381,"real_en":0.18484269434269435,"rendered":0.023503398577993637,"minutes":27.6}],"r2":[{"step":3000,"real_bn":0.22980505556821346,"real_en":0.18271282421282423,"rendered":0.012100790167845795,"minutes":11.1},{"step":6000,"real_bn":0.2260475051264525,"real_en":0.17701417101417102,"rendered":0.012711744776962167,"minutes":19.3},{"step":9000,"real_bn":0.19019081795397588,"real_en":0.17450847300847297,"rendered":0.01399247935706269,"minutes":27.5},{"step":12000,"real_bn":0.18323631047315259,"real_en":0.15963386613386613,"rendered":0.003338819745069745,"minutes":35.8},{"step":15000,"real_bn":0.1577391711602238,"real_en":0.16129635179635177,"rendered":0.01104866056179462,"minutes":43.4},{"step":18000,"real_bn":0.16547796258322575,"real_en":0.15941380841380842,"rendered":0.005631839225589226,"minutes":50.4},{"step":21000,"real_bn":0.17041282499177238,"real_en":0.14586761386761388,"rendered":0.004646594263894989,"minutes":57.1},{"step":24000,"real_bn":0.15340657198551938,"real_en":0.13237717837717838,"rendered":0.002902324879227053,"minutes":63.9},{"step":27000,"real_bn":0.1565409989620516,"real_en":0.14745926295926295,"rendered":0.004221334724052115,"minutes":70.8},{"step":30000,"real_bn":0.1474633427001848,"real_en":0.14491885891885892,"rendered":0.002959906605739939,"minutes":77.7},{"step":33000,"real_bn":0.1587567150198729,"real_en":0.15742944092944092,"rendered":0.004550143646611039,"minutes":84.9},{"step":36000,"real_bn":0.15035199108883318,"real_en":0.13567299367299368,"rendered":0.006501850255180391,"minutes":92.7},{"step":39000,"real_bn":0.15108646616541355,"real_en":0.13626318126318127,"rendered":0.006808536756453423,"minutes":100.1},{"step":42000,"real_bn":0.16643782435887697,"real_en":0.15764108114108114,"rendered":0.004766218081435473,"minutes":106.9},{"step":45000,"real_bn":0.15203017645122907,"real_en":0.140011211011211,"rendered":0.005090626546695388,"minutes":113.6},{"step":48000,"real_bn":0.14437290195184935,"real_en":0.14862232212232213,"rendered":0.0037133487654320988,"minutes":120.2},{"step":51000,"real_bn":0.1644527606896028,"real_en":0.13340009990009988,"rendered":0.004590210681696188,"minutes":126.9},{"step":54000,"real_bn":0.15064180653654338,"real_en":0.12937429237429238,"rendered":0.0022917505367686525,"minutes":133.5},{"step":57000,"real_bn":0.14266416040100252,"real_en":0.12863290413290415,"rendered":0.0041204999878007124,"minutes":140.1},{"step":60000,"real_bn":0.1425840611630085,"real_en":0.13128105228105227,"rendered":0.003545608561460011,"minutes":146.8},{"step":63000,"real_bn":0.1525645679856206,"real_en":0.13205666555666556,"rendered":0.003545608561460011,"minutes":153.5},{"step":66000,"real_bn":0.15691210349105084,"real_en":0.1286042846042846,"rendered":0.0022917505367686525,"minutes":160.2},{"step":69000,"real_bn":0.15169976709450392,"real_en":0.1327709512709513,"rendered":0.006098614465915191,"minutes":167.2},{"step":72000,"real_bn":0.1475638718007139,"real_en":0.11827600177600177,"rendered":0.002774003623188406,"minutes":173.8},{"step":75000,"real_bn":0.14803839143312827,"real_en":0.1349931734931735,"rendered":0.003159806092324208,"minutes":180.4},{"step":78000,"real_bn":0.1463601680970102,"real_en":0.12277095127095128,"rendered":0.003159806092324208,"minutes":187.0},{"step":80000,"real_bn":0.14666802106275792,"real_en":0.1349931734931735,"rendered":0.003159806092324208,"minutes":191.3}]},"best":{"real_bn":0.1475638718007139,"real_en":0.11827600177600177,"rendered":0.002774003623188406,"real_mean":0.13291993678835784,"score":0.0895379590666347,"step":72000,"minutes":173.8},"arch":[{"layer":"stem conv 3x3 /2","out":"32x24x160","params":352},{"layer":"inverted residual 1","out":"48x24x160","params":6048},{"layer":"inverted residual 2","out":"64x12x160","params":18128},{"layer":"inverted residual 3","out":"96x6x80","params":33408},{"layer":"inverted residual 4","out":"96x6x80","params":59232},{"layer":"inverted residual 5","out":"96x6x80","params":59232},{"layer":"inverted residual 6","out":"160x3x80","params":77792},{"layer":"inverted residual 7","out":"160x3x80","params":160160},{"layer":"inverted residual 8","out":"160x3x80","params":160160},{"layer":"inverted residual 9","out":"160x3x80","params":160160},{"layer":"inverted residual 10","out":"256x3x80","params":206432},{"layer":"height squash conv 3x1","out":"256x1x80","params":197120},{"layer":"context block 1 (dw 1x7 + FFN)","out":"256x1x80","params":265984},{"layer":"context block 2 (dw 1x7 + FFN)","out":"256x1x80","params":265984},{"layer":"context block 3 (dw 1x7 + FFN)","out":"256x1x80","params":265984},{"layer":"context block 4 (dw 1x7 + FFN)","out":"256x1x80","params":265984},{"layer":"CTC head conv 1x1","out":"237x1x80","params":60909}],"params":2263069,"charset":236,"mj":{"run":"r2","step":72000,"params_M":2.263,"input":"1x48xW grey","validation_fp32":{"bn":0.14282577656261866,"en":0.12100327450327451,"rendered":0.002774003623188406,"score":0.08886768489636053},"validation_int8":{"bn":0.16054173312068049,"en":0.1178008658008658,"rendered":0.002144607843137255,"score":0.09349573558822784},"int8_kept":true,"training":{"name":"r2","steps":80000,"bs":128,"lr":0.002,"workers":13,"real":0.3,"width":1.0,"eval":3000,"seed":42,"init":"ocr_bench/rec5_runs/r1_step9000.pt"}},"data":{"mlt_train_words":52867,"mlt_train_bn":2989,"mlt_train_latin":49878,"bn_sentences":1500000}};
+const $ = (s) => document.querySelector(s);
+const fmt = (v, d = 1) => v == null ? "—" : (+v).toFixed(d) + " %";
+const tip = $("#tip");
+function showTip(e, html) { tip.innerHTML = html; tip.style.opacity = 1; const x = Math.min(e.clientX + 14, innerWidth - 270); tip.style.left = x + "px"; tip.style.top = (e.clientY + 14) + "px"; }
+function hideTip() { tip.style.opacity = 0; }
+const NS = "http://www.w3.org/2000/svg";
+function el(tag, attrs, parent, text) { const n = document.createElementNS(NS, tag); for (const k in attrs) n.setAttribute(k, attrs[k]); if (text != null) n.textContent = text; if (parent) parent.appendChild(n); return n; }
+
+/* tiles */
+const P = D.pages, T = D.test;
+const tiles = [
+  ["Camera pages, CER", fmt(P.v5_sara.cer), `v4: ${fmt(P.v4.cer)} · ${(P.v4.cer / P.v5_sara.cer).toFixed(1)}× fewer errors`, "win"],
+  ["Time per page", (P.v5_sara.ms / 1000).toFixed(2) + " s", `v4: ${(P.v4.ms / 1000).toFixed(1)} s · laptop CPU`, "win"],
+  ["Real words, English", fmt(T.v5.real_en), `v4: ${fmt(T.v4.real_en)}`, "win"],
+  ["Real words, Bangla", fmt(T.v5.real_bn), `v4: ${fmt(T.v4.real_bn)}`, "loss"],
+  ["Rendered phrases", fmt(T.v5.rend), `v4: ${fmt(T.v4.rend)}`, "loss"],
+];
+$("#tiles").innerHTML = tiles.map(([k, v, s, w]) => `<div class="tile"><span class="k">${k}</span><span class="v">${v}</span><span class="s">${s} <span class="chip ${w}">${w === "win" ? "better" : "worse"}</span></span></div>`).join("");
+$("#modeltiles").innerHTML = [["Parameters", (D.params / 1e6).toFixed(2) + " M", "convolution only"], ["Input", "48 × W", "grey line, any width"], ["Output", "W/4 × 237", "236 characters + blank"], ["File", "9.0 MB", "ONNX fp32 · 2.5 MB 8-bit"]]
+  .map(([k, v, s]) => `<div class="tile"><span class="k">${k}</span><span class="v">${v}</span><span class="s">${s}</span></div>`).join("");
+$("#archtable").insertAdjacentHTML("beforeend", D.arch.map(r => `<tr><td>${r.layer}</td><td class="mono">${r.out}</td><td class="n">${r.params.toLocaleString()}</td></tr>`).join("") + `<tr><td><b>Total</b></td><td></td><td class="n"><b>${D.params.toLocaleString()}</b></td></tr>`);
+$("#mltn").textContent = `${D.data.mlt_train_words.toLocaleString()} (${D.data.mlt_train_bn.toLocaleString()} Bangla)`;
+const mj = D.mj;
+$("#exporttable").insertAdjacentHTML("beforeend",
+  `<tr><td>rec.onnx (fp32)</td><td class="n">9.0 MB</td><td class="n">${fmt(mj.validation_fp32.bn * 100)}</td><td class="n">${fmt(mj.validation_fp32.en * 100)}</td><td class="n">${fmt(mj.validation_fp32.rendered * 100, 2)}</td><td>default</td></tr>` +
+  `<tr><td>rec_int8.onnx (8-bit)</td><td class="n">2.5 MB</td><td class="n">${fmt(mj.validation_int8.bn * 100)}</td><td class="n">${fmt(mj.validation_int8.en * 100)}</td><td class="n">${fmt(mj.validation_int8.rendered * 100, 2)}</td><td>option</td></tr>`);
+
+/* line chart: training */
+(function () {
+  const runs = [...(D.train.r1 || []).map(r => ({ ...r, run: "r1" })), ...(D.train.r2 || []).map(r => ({ ...r, step: r.step + 9000, run: "r2" }))];
+  const W = 900, H = 300, m = { l: 48, r: 110, t: 14, b: 38 };
+  const svg = el("svg", { viewBox: `0 0 ${W} ${H}`, width: W, role: "img", "aria-label": "Validation CER during training" }, $("#trainchart"));
+  const xs = runs.map(r => r.step), xmax = Math.max(...xs), ymax = 0.45;
+  const X = s => m.l + (s / xmax) * (W - m.l - m.r), Y = v => m.t + (1 - v / ymax) * (H - m.t - m.b);
+  for (let v = 0; v <= 0.4001; v += 0.1) { el("line", { x1: m.l, x2: W - m.r, y1: Y(v), y2: Y(v), stroke: "var(--rule)" }, svg); el("text", { x: m.l - 8, y: Y(v) + 4, "text-anchor": "end", "font-size": 12 }, svg, Math.round(v * 100) + " %"); }
+  for (let s = 0; s <= xmax; s += 20000) el("text", { x: X(s), y: H - 14, "text-anchor": "middle", "font-size": 12 }, svg, (s / 1000) + "k");
+  el("text", { x: (m.l + W - m.r) / 2, y: H - 1, "text-anchor": "middle", "font-size": 12 }, svg, "training step");
+  el("line", { x1: X(9000), x2: X(9000), y1: m.t, y2: H - m.b, stroke: "var(--ink-3)", "stroke-dasharray": "4 4" }, svg);
+  el("text", { x: X(9000) + 6, y: m.t + 12, "font-size": 11.5 }, svg, "r1 → r2");
+  const series = [["real_bn", "var(--s1)", "Bangla"], ["real_en", "var(--s2)", "Latin"], ["rendered", "var(--s3)", "Rendered"]];
+  for (const [k, c, name] of series) {
+    el("path", { d: runs.map((r, i) => (i ? "L" : "M") + X(r.step).toFixed(1) + "," + Y(r[k]).toFixed(1)).join(""), fill: "none", stroke: c, "stroke-width": 2, "stroke-linejoin": "round" }, svg);
+    const last = runs[runs.length - 1];
+    el("text", { x: X(last.step) + 8, y: Y(last[k]) + 4, "font-size": 12, class: "lbl" }, svg, `${name} ${(last[k] * 100).toFixed(1)} %`);
+  }
+  const best = D.best.step + 9000;
+  el("circle", { cx: X(best), cy: Y(D.best.real_en), r: 5, fill: "var(--s2)", stroke: "var(--surface)", "stroke-width": 2 }, svg);
+  const cross = el("line", { y1: m.t, y2: H - m.b, stroke: "var(--ink-3)", opacity: 0 }, svg);
+  const hit = el("rect", { x: m.l, y: m.t, width: W - m.l - m.r, height: H - m.t - m.b, fill: "transparent" }, svg);
+  hit.addEventListener("mousemove", e => {
+    const b = svg.getBoundingClientRect(), sx = (e.clientX - b.left) * W / b.width;
+    let best = runs[0]; for (const r of runs) if (Math.abs(X(r.step) - sx) < Math.abs(X(best.step) - sx)) best = r;
+    cross.setAttribute("x1", X(best.step)); cross.setAttribute("x2", X(best.step)); cross.setAttribute("opacity", .6);
+    showTip(e, `<b>${best.run}, step ${(best.run === "r2" ? best.step - 9000 : best.step).toLocaleString()}</b><br>Bangla ${(best.real_bn * 100).toFixed(1)} %<br>Latin ${(best.real_en * 100).toFixed(1)} %<br>Rendered ${(best.rendered * 100).toFixed(2)} %`);
+  });
+  hit.addEventListener("mouseleave", () => { hideTip(); cross.setAttribute("opacity", 0); });
+})();
+
+/* grouped bars: pages */
+(function () {
+  const groups = [["cer", "All pages"], ["bn", "Bangla"], ["en", "English"], ["mixed", "Mixed"], ["flat", "Flat"], ["angle", "Angle"], ["shadow", "Shadow"], ["blur", "Blur"]];
+  const sers = [["v4", "var(--s1)", "v4"], ["v5_easyocr", "var(--s2)", "v5 + EasyOCR"], ["v5_sara", "var(--s3)", "v5 + SARA"]];
+  const W = 900, H = 300, m = { l: 44, r: 10, t: 22, b: 40 }, ymax = 40;
+  const svg = el("svg", { viewBox: `0 0 ${W} ${H}`, width: W, role: "img", "aria-label": "Page CER by language and condition" }, $("#pagechart"));
+  const Y = v => m.t + (1 - v / ymax) * (H - m.t - m.b);
+  for (let v = 0; v <= 40; v += 10) { el("line", { x1: m.l, x2: W - m.r, y1: Y(v), y2: Y(v), stroke: "var(--rule)" }, svg); el("text", { x: m.l - 6, y: Y(v) + 4, "text-anchor": "end", "font-size": 12 }, svg, v + " %"); }
+  const gw = (W - m.l - m.r) / groups.length, bw = Math.min(26, (gw - 16) / 3);
+  groups.forEach(([k, name], gi) => {
+    const gx = m.l + gi * gw + (gw - 3 * bw - 4) / 2;
+    el("text", { x: m.l + gi * gw + gw / 2, y: H - 16, "text-anchor": "middle", "font-size": 12.5 }, svg, name);
+    sers.forEach(([s, c, sn], si) => {
+      const v = P[s][k], x = gx + si * (bw + 2), y = Y(Math.min(v, ymax)), h = Y(0) - y;
+      const r = Math.min(4, h / 2);
+      el("path", { d: `M${x},${Y(0)} V${y + r} Q${x},${y} ${x + r},${y} H${x + bw - r} Q${x + bw},${y} ${x + bw},${y + r} V${Y(0)} Z`, fill: c }, svg);
+      el("text", { x: x + bw / 2, y: y - 4, "text-anchor": "middle", "font-size": 10.5, class: "lbl" }, svg, v < 10 ? v.toFixed(1) : Math.round(v));
+      const hit = el("rect", { x: x - 1, y: m.t, width: bw + 2, height: Y(0) - m.t, fill: "transparent" }, svg);
+      hit.addEventListener("mousemove", e => showTip(e, `<b>${sn}</b> · ${name}<br>CER ${v.toFixed(2)} %`));
+      hit.addEventListener("mouseleave", hideTip);
+    });
+  });
+  el("line", { x1: m.l, x2: W - m.r, y1: Y(0), y2: Y(0), stroke: "var(--ink-3)" }, svg);
+  const rows = [["Option", ...groups.map(g => g[1]), "Time / page"]];
+  $("#pagetable").innerHTML = `<tr>${rows[0].map((h, i) => `<th class="${i ? "n" : ""}">${h}</th>`).join("")}</tr>` +
+    sers.map(([s, , sn]) => `<tr><td>${sn}</td>${groups.map(([k]) => { const best = Math.min(...sers.map(x => P[x[0]][k])); return `<td class="n">${P[s][k] === best ? "<span class='best'>" + fmt(P[s][k], 2) + "</span>" : fmt(P[s][k], 2)}</td>`; }).join("")}<td class="n">${(P[s].ms / 1000).toFixed(2)} s</td></tr>`).join("");
+})();
+
+/* tables: test and val */
+function cmp(a, b, d = 2) { if (a == null || b == null) return ""; return a < b ? "<span class='chip win'>v5 better</span>" : (a > b ? "<span class='chip loss'>v5 worse</span>" : ""); }
+function rowsFor(S, isTest) {
+  const r = [
+    ["Rendered phrases, all", S.v4.rend, S.v5.rend],
+    ["Rendered phrases, Bangla", S.v4.rend_bn, S.v5.rend_bn],
+    ["Rendered phrases, English", S.v4.rend_en, S.v5.rend_en],
+    ["Real words, Bangla", S.v4.real_bn, S.v5.real_bn],
+    ["Real words, Latin script", S.v4.real_en, S.v5.real_en],
+    ["Real words, mean of scripts", S.v4.real_mean, S.v5.real_mean],
+  ];
+  if (isTest) r.push(["Real words read exactly, Bangla (higher is better)", S.v4.exact_bn, S.v5.exact_bn, true], ["Real words read exactly, Latin (higher is better)", S.v4.exact_en, S.v5.exact_en, true],
+    ["Real words with nothing read, Bangla", S.v4.empty_bn, S.v5.empty_bn], ["Real words with nothing read, Latin", S.v4.empty_en, S.v5.empty_en]);
+  return `<tr><th>Measure (CER unless stated)</th><th class="n">v4</th><th class="n">v5</th><th></th></tr>` +
+    r.map(([n, a, b, hi]) => `<tr><td>${n}</td><td class="n">${fmt(a)}</td><td class="n">${fmt(b)}</td><td>${hi ? cmp(a, b) : cmp(b, a)}</td></tr>`).join("") +
+    `<tr><td>Time per real word frame (median)</td><td class="n">${(S.v4.ms_word / 1000).toFixed(2)} s</td><td class="n">${(S.v5.ms_word / 1000).toFixed(2)} s</td><td><span class="chip win">${(S.v4.ms_word / S.v5.ms_word).toFixed(0)}× faster</span></td></tr>`;
+}
+$("#testtable").innerHTML = rowsFor(T, true);
+$("#valtable").innerHTML = rowsFor(D.val, false);
+$("#sp_v4").textContent = (P.v4.ms / 1000).toFixed(1) + " s"; $("#sp_v5").textContent = (P.v5_sara.ms / 1000).toFixed(2) + " s"; $("#sp_x").textContent = Math.round(P.v4.ms / P.v5_sara.ms) + "×";
+$("#sw_v4").textContent = (T.v4.ms_word / 1000).toFixed(1) + " s"; $("#sw_v5").textContent = (T.v5.ms_word / 1000).toFixed(2) + " s"; $("#sw_x").textContent = Math.round(T.v4.ms_word / T.v5.ms_word) + "×";
+
+/* confusion heatmap */
+const CONF = [
+  ["pages_v5_bn", "Pages · v5 · Bangla"], ["pages_v4_bn", "Pages · v4 · Bangla"], ["real_test_words_v5_bn", "Real words · v5 · Bangla"],
+  ["pages_v5_en", "Pages · v5 · English"], ["pages_v4_en", "Pages · v4 · English"], ["real_test_words_v5_en", "Real words · v5 · Latin"],
+];
+function heat(key) {
+  const c = D.conf[key], M = c.m, isBn = key.endsWith("_bn");
+  const q = ["--q0", "--q1", "--q2", "--q3", "--q4", "--q5", "--q6", "--q7"];
+  let html = `<table class="heat"><tr><th></th><th colspan="${M.cols.length}" class="ax">read as →</th></tr><tr><th class="ax row">reference ↓</th>${M.cols.map(cc => `<th class="${isBn && cc.length === 1 && cc !== "∅" ? "bn" : ""}">${cc === " " ? "␠" : cc}</th>`).join("")}</tr>`;
+  M.rows.forEach((g, i) => {
+    const tot = M.support[i];
+    html += `<tr><th class="row ${isBn ? "bn" : ""}">${g}</th>` + M.counts[i].map((v, j) => {
+      const f = tot ? v / tot : 0, diag = M.cols[j] === g;
+      const lvl = v === 0 ? 0 : Math.min(7, 1 + Math.floor(f * 7));
+      const ink = lvl >= 5 ? "#fff" : "var(--ink)";
+      return `<td><div tabindex="0" data-t="${g}|${M.cols[j]}|${v}|${tot}" style="background:var(${q[lvl]});color:${v ? ink : "var(--ink-3)"};${diag ? "outline:1.5px solid var(--ink-3);outline-offset:-1.5px;" : ""}">${v ? (diag ? Math.round(f * 100) + "%" : v) : ""}</div></td>`;
+    }).join("") + `</tr>`;
+  });
+  html += "</table>";
+  $("#heat").innerHTML = html;
+  $("#heat").querySelectorAll("div[data-t]").forEach(n => {
+    const [g, h, v, tot] = n.dataset.t.split("|");
+    const f = e => showTip(e, `reference <b>${g}</b> read as <b>${h === "∅" ? "nothing (missed)" : h}</b><br>${v} of ${tot} (${(100 * v / tot).toFixed(1)} %)`);
+    n.addEventListener("mousemove", f); n.addEventListener("mouseleave", hideTip);
+  });
+  const k = c.kinds, tot = k.correct + k.substituted + k.missed;
+  $("#heatcap").innerHTML = `<b>${CONF.find(x => x[0] === key)[1]}.</b> Rows: reference character; diagonal cells show the share read correctly, other cells counts. Over all ${tot.toLocaleString()} reference characters of this script: ${(100 * k.correct / tot).toFixed(1)} % correct, ${k.substituted} wrong, ${k.missed} missed, ${k.extra} extra. Darker = larger share of the row.`;
+}
+$("#conftabs").innerHTML = CONF.map(([k, n], i) => `<button type="button" id="ct_${k}" aria-pressed="${i === 0}" data-k="${k}">${n}</button>`).join("");
+$("#conftabs").addEventListener("click", e => { const b = e.target.closest("button"); if (!b) return; $("#conftabs").querySelectorAll("button").forEach(x => x.setAttribute("aria-pressed", x === b)); heat(b.dataset.k); });
+heat(CONF[0][0]);
+
+/* error kinds per 1000 */
+(function () {
+  const sets = [["pages_v4_bn", "Pages, Bangla, v4"], ["pages_v5_bn", "Pages, Bangla, v5"], ["pages_v4_en", "Pages, English, v4"], ["pages_v5_en", "Pages, English, v5"], ["real_test_words_v5_bn", "Real words, Bangla, v5"], ["real_test_words_v5_en", "Real words, Latin, v5"]];
+  const W = 900, rowH = 34, m = { l: 170, r: 70, t: 6, b: 26 }, H = m.t + m.b + sets.length * rowH;
+  const vals = sets.map(([k]) => { const c = D.conf[k].kinds, n = c.correct + c.substituted + c.missed; return [1000 * c.substituted / n, 1000 * c.missed / n, 1000 * c.extra / n]; });
+  const xmax = Math.ceil(Math.max(...vals.map(v => v[0] + v[1] + v[2])) / 50) * 50;
+  const svg = el("svg", { viewBox: `0 0 ${W} ${H}`, width: W, role: "img", "aria-label": "Errors per 1000 characters by type" }, $("#kindchart"));
+  const X = v => m.l + (v / xmax) * (W - m.l - m.r);
+  for (let v = 0; v <= xmax; v += 50) { el("line", { x1: X(v), x2: X(v), y1: m.t, y2: H - m.b, stroke: "var(--rule)" }, svg); el("text", { x: X(v), y: H - 8, "text-anchor": "middle", "font-size": 12 }, svg, v); }
+  const cols = ["var(--s1)", "var(--s2)", "var(--s3)"], names = ["wrong", "missed", "extra"];
+  sets.forEach(([k, name], i) => {
+    const y = m.t + i * rowH + 7, h = rowH - 14; let x0 = 0;
+    el("text", { x: m.l - 10, y: y + h / 2 + 4, "text-anchor": "end", "font-size": 12.5 }, svg, name);
+    vals[i].forEach((v, j) => {
+      if (v <= 0) return;
+      const r = el("rect", { x: X(x0), y, width: Math.max(0, X(x0 + v) - X(x0) - 2), height: h, rx: 3, fill: cols[j] }, svg);
+      r.addEventListener("mousemove", e => showTip(e, `<b>${name}</b><br>${names[j]}: ${v.toFixed(1)} per 1,000 characters`)); r.addEventListener("mouseleave", hideTip);
+      x0 += v;
+    });
+    el("text", { x: X(x0) + 6, y: y + h / 2 + 4, "font-size": 12, class: "lbl" }, svg, Math.round(x0));
+  });
+})();
+
+/* top confusions */
+(function () {
+  const keys = [["pages_v5_bn", "Pages · v5 · Bangla"], ["real_test_words_v5_bn", "Real words · v5 · Bangla"], ["pages_v4_bn", "Pages · v4 · Bangla"]];
+  const n = 8;
+  let html = `<tr>${keys.map(([, t]) => `<th colspan="2">${t}</th>`).join("")}</tr><tr>${keys.map(() => `<th>reference → read</th><th class="n">count</th>`).join("")}</tr>`;
+  for (let i = 0; i < n; i++) {
+    html += "<tr>" + keys.map(([k]) => { const e = D.conf[k].top[i]; return e ? `<td class="bn">${e.ref} → ${e.read === "∅" ? "missed" : e.read}</td><td class="n">${e.count}</td>` : "<td></td><td></td>"; }).join("") + "</tr>";
+  }
+  $("#toptable").innerHTML = html;
+})();
+</script>
+<script>
+(function () {
+  const host = document.querySelector('#heat').closest('figure');
+  CONF.forEach(([k]) => {
+    heat(k);
+    const f = host.cloneNode(true);
+    f.classList.add('conf');
+    f.querySelectorAll('[id]').forEach(x => x.removeAttribute('id'));
+    host.parentNode.insertBefore(f, host);
+  });
+  host.remove();
+})();
+</script></body></html>

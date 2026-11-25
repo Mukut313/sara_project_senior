@@ -1,0 +1,88 @@
+{
+ "results": {
+  "off": {
+   "val": 1.259,
+   "val_close": 5.953,
+   "rendered": 3.691,
+   "real": 31.83,
+   "real_bn": 34.62,
+   "real_en": 29.04,
+   "mean": 10.683,
+   "minutes": 4.3
+  },
+  "sharp (unsure lines)": {
+   "val": 1.259,
+   "val_close": 5.953,
+   "rendered": 3.613,
+   "real": 31.77,
+   "real_bn": 34.51,
+   "real_en": 29.04,
+   "mean": 10.649,
+   "minutes": 5.1
+  },
+  "clahe (unsure lines)": {
+   "val": 1.259,
+   "val_close": 5.953,
+   "rendered": 3.451,
+   "real": 31.19,
+   "real_bn": 34.09,
+   "real_en": 28.3,
+   "mean": 10.463,
+   "minutes": 5.1
+  },
+  "sharp, clahe (unsure lines)": {
+   "val": 1.259,
+   "val_close": 5.953,
+   "rendered": 3.451,
+   "real": 31.14,
+   "real_bn": 33.98,
+   "real_en": 28.3,
+   "mean": 10.451,
+   "minutes": 4.7
+  },
+  "sharp, clahe, even (unsure lines)": {
+   "val": 1.259,
+   "val_close": 5.953,
+   "rendered": 3.374,
+   "real": 31.37,
+   "real_bn": 35.1,
+   "real_en": 27.64,
+   "mean": 10.489,
+   "minutes": 4.0
+  },
+  "denoise+sharp, clahe (unsure lines)": {
+   "val": 1.259,
+   "val_close": 5.953,
+   "rendered": 3.451,
+   "real": 31.19,
+   "real_bn": 34.09,
+   "real_en": 28.3,
+   "mean": 10.463,
+   "minutes": 4.0
+  },
+  "sharp, clahe (every line)": {
+   "val": 1.275,
+   "val_close": 5.934,
+   "rendered": 3.403,
+   "real": 30.82,
+   "real_bn": 33.34,
+   "real_en": 28.3,
+   "mean": 10.358,
+   "minutes": 4.3
+  }
+ },
+ "admissible": [
+  "off",
+  "sharp (unsure lines)",
+  "clahe (unsure lines)",
+  "sharp, clahe (unsure lines)",
+  "sharp, clahe, even (unsure lines)",
+  "denoise+sharp, clahe (unsure lines)",
+  "sharp, clahe (every line)"
+ ],
+ "chosen": "sharp, clahe (every line)",
+ "chosen_settings": [
+  "sharp,clahe",
+  1.01
+ ]
+}

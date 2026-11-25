@@ -1,0 +1,186 @@
+{
+ "split": "val",
+ "label": "final",
+ "minutes": 3.3,
+ "settings": {
+  "OCR5_BOX_THRESH": 0.5,
+  "OCR5_CROP_PAD": 0.0,
+  "OCR5_DB_THRESH": 0.3,
+  "OCR5_DESKEW_MIN_DEG": 4.0,
+  "OCR5_DET_BACKEND": "cpu",
+  "OCR5_DET_LIMIT": 960,
+  "OCR5_DET_ONNX": "D:\\SARA senior project - clean clone\\savior_glass\\models\\ppocr\\ppocrv5_mobile_det.onnx",
+  "OCR5_EVEN_LIGHT_FIND": false,
+  "OCR5_EVEN_LIGHT_READ": false,
+  "OCR5_FLATTEN_PAGE": true,
+  "OCR5_GROUP": 6,
+  "OCR5_MAIN_BLOCK": "auto",
+  "OCR5_MIN_CONF": 0.45,
+  "OCR5_MIN_LINE_PX": 7.0,
+  "OCR5_PAGE_MIN_LINES": 3,
+  "OCR5_RECOGNIZER": "sara",
+  "OCR5_REC_DIR": "D:\\SARA senior project - clean clone\\savior_glass\\models\\ocr5_rec",
+  "OCR5_REC_INT8": false,
+  "OCR5_THREADS": 4,
+  "OCR5_TRY_FLIP": true,
+  "OCR5_UNCLIP": 1.6
+ },
+ "rec_model": {
+  "run": "r2",
+  "step": 72000,
+  "params_M": 2.263,
+  "input": "1x48xW grey",
+  "validation_fp32": {
+   "bn": 0.14282577656261866,
+   "en": 0.12100327450327451,
+   "rendered": 0.002774003623188406,
+   "score": 0.08886768489636053
+  },
+  "validation_int8": {
+   "bn": 0.16054173312068049,
+   "en": 0.1178008658008658,
+   "rendered": 0.002144607843137255,
+   "score": 0.09349573558822784
+  },
+  "int8_kept": true,
+  "training": {
+   "name": "r2",
+   "steps": 80000,
+   "bs": 128,
+   "lr": 0.002,
+   "workers": 13,
+   "real": 0.3,
+   "width": 1.0,
+   "eval": 3000,
+   "seed": 42,
+   "init": "ocr_bench/rec5_runs/r1_step9000.pt"
+  }
+ },
+ "rendered": {
+  "overall": {
+   "n": 432,
+   "cer": 0.038828681774032016,
+   "wer": 0.07600308641975308,
+   "exact": 0.8958333333333334
+  },
+  "bn": {
+   "n": 216,
+   "cer": 0.020480519044830642,
+   "wer": 0.06095679012345679,
+   "exact": 0.9120370370370371
+  },
+  "en": {
+   "n": 216,
+   "cer": 0.05717684450323338,
+   "wer": 0.09104938271604937,
+   "exact": 0.8796296296296297
+  },
+  "by_cond": {
+   "clean": {
+    "all": {
+     "n": 144,
+     "cer": 0.015553350970017636,
+     "wer": 0.03587962962962962,
+     "exact": 0.9444444444444444
+    },
+    "bn": {
+     "n": 72,
+     "cer": 0.004100529100529101,
+     "wer": 0.020833333333333332,
+     "exact": 0.9583333333333334
+    }
+   },
+   "scene": {
+    "all": {
+     "n": 144,
+     "cer": 0.08157067134422208,
+     "wer": 0.12384259259259259,
+     "exact": 0.8194444444444444
+    },
+    "bn": {
+     "n": 72,
+     "cer": 0.04253673510466988,
+     "wer": 0.08564814814814814,
+     "exact": 0.8611111111111112
+    }
+   },
+   "wild": {
+    "all": {
+     "n": 144,
+     "cer": 0.019362023007856343,
+     "wer": 0.06828703703703703,
+     "exact": 0.9236111111111112
+    },
+    "bn": {
+     "n": 72,
+     "cer": 0.01480429292929293,
+     "wer": 0.0763888888888889,
+     "exact": 0.9166666666666666
+    }
+   }
+  },
+  "per_seed_cer": [
+   0.040234512786596115,
+   0.04121359928651595,
+   0.03503793324898398
+  ],
+  "per_seed_bn_cer": [
+   0.024307208994708993,
+   0.026609848484848486,
+   0.010524499654934438
+  ],
+  "cer_seed_sd": 0.0033191841435353834,
+  "latency_ms_median": 167.45680003077723
+ },
+ "real_words": {
+  "bn": {
+   "n_images": 150,
+   "n_words": 150,
+   "cer": 0.3407,
+   "wer": 0.6467,
+   "cer_without_zero_width": 0.3407,
+   "nothing_read": 0.1133,
+   "word_exact": 0.4067,
+   "latency_ms_median": 406.2
+  },
+  "en": {
+   "n_images": 150,
+   "n_words": 150,
+   "cer": 0.3015,
+   "wer": 0.46,
+   "cer_without_zero_width": 0.3015,
+   "nothing_read": 0.1133,
+   "word_exact": 0.5667,
+   "latency_ms_median": 454.3
+  },
+  "mean_cer": 0.3211
+ },
+ "ocr_v4_same_sets": {
+  "real_val": {
+   "bn": {
+    "n_images": 150,
+    "n_words": 150,
+    "cer": 0.1746,
+    "wer": 0.4533,
+    "cer_without_zero_width": 0.1746,
+    "nothing_read": 0.0267,
+    "word_exact": 0.58,
+    "latency_ms_median": 3674.2
+   },
+   "en": {
+    "n_images": 150,
+    "n_words": 150,
+    "cer": 0.3436,
+    "wer": 0.5533,
+    "cer_without_zero_width": 0.3436,
+    "nothing_read": 0.1333,
+    "word_exact": 0.4467,
+    "latency_ms_median": 3750.0
+   },
+   "mean_cer": 0.2591
+  },
+  "rendered_val_cer": 0.0261,
+  "rendered_val_wer": 0.0444,
+  "coco_scenes_with_spoken_text": 6
+ }
+}

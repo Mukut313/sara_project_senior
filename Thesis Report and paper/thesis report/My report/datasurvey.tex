@@ -1,0 +1,245 @@
+\clearpage
+\chapter{Dataset and Data Engineering}
+\label{chap:dataset}
+
+\section{Dataset}
+SARA combines several vision tasks, and each task needs its own data. Table~\ref{tab:datasets} lists every dataset used in this project, what it was used for, and how it was split. All training, validation and test splits are disjoint; where the same physical note or person could appear in more than one image, the split was made by the physical unit (note or writer), not by image. For counterfeit notes even that is not enough, as Section~\ref{sec:serial_audit} shows.
+
+\begin{table}[!htbp]
+\centering
+\caption{Datasets used in this project}
+\label{tab:datasets}
+\small
+\begin{tabular}{|L{3.0cm}|L{3.9cm}|L{3.1cm}|L{3.9cm}|}
+\hline
+\textbf{Dataset} & \textbf{What it contains} & \textbf{What we used it for} & \textbf{How it was divided (train / validation / test)} \\ \hline
+BanglaTaka \cite{banglataka} & 5,073 photos of Taka notes with the background cut away; all 9 note types & The notes that were pasted onto backgrounds to make training pictures & 80\% / 10\% / 10\%, by physical note \\ \hline
+COCO \cite{coco} & Everyday photographs (rooms, streets, desks, hands) & Backgrounds for the Taka pictures; scenes for the text-reading test & Random parts of photos used as backgrounds \\ \hline
+Synthetic Taka detection set (made in this work) & 22,333 pictures of notes pasted onto real backgrounds, labelled automatically & Training and testing the Taka detector & 17,839 / 2,212 / 2,282 pictures \\ \hline
+Fresh synthetic test & 566 pictures of test notes on backgrounds never used in training & A second test of the Taka detector & Test only \\ \hline
+Bangla Money (Kaggle) & 1,536 photos of 8 note types; 101 photos of the 1 Taka note & Testing the Taka detector on other people's photos & Test only (never used for training) \\ \hline
+NSTU-BDTAKA \cite{nstubdtaka2024} & 186 photos with boxes around notes; 1,144 close-ups of notes held in a hand & Testing the Taka detector on other people's photos & Test only (never used for training) \\ \hline
+JaalTaka \cite{jaaltaka} & 1,390 genuine and counterfeit 500 and 1,000 Taka notes, each photographed from 6 views (8,340 photos) & Training and testing the counterfeit check & By note: 974 / 208 / 208 notes; by print (no counterfeit print in two parts): 946 / 222 / 222 \\ \hline
+Bangladeshi Counterfeit Currency Image Dataset & Photos of whole notes: 1,199 genuine, 87 counterfeit (about 4 physical counterfeit notes) & Checking that the glass's counterfeit answer is safe & Test only \\ \hline
+MVP-N \cite{mvpn}, ModelNet40 \cite{modelnet} & Objects photographed or drawn from many views & Checking whether our finding about the number of views also holds outside currency & The datasets' own divisions \\ \hline
+RAF-DB \cite{rafdb} & 15,339 face photos, each labelled with one of 7 expressions & Training and testing emotion recognition & Official division: 12,271 train / 3,068 test \\ \hline
+OCR benchmark (made in this work) & Bangla and English phrases drawn with correct Bangla letter shapes; 432 pictures per phrase set & Choosing and testing the text-reading settings & Different phrases and fonts for validation and for test \\ \hline
+Ekush \cite{ekush} & 367,018 handwritten Bangla letters and signs, 122 kinds & A back-up reader for single handwritten letters & By writer: 2,429 / 303 / 305 writers \\ \hline
+COCO val2017 & 5,000 photos with 80 kinds of objects & Testing the object mode & Test only \\ \hline
+UV note photographs (made in this work) & 118 phone photos of genuine 200, 500 and 1,000 Taka notes under a UV lamp & Testing the UV fibre check & By capture order: blocked 5-fold \\ \hline
+\end{tabular}
+\end{table}
+\FloatBarrier
+
+\subsection{Implications of These Datasets on Our Research}
+The datasets define what each result means. The Taka detector is trained only on synthetic composites, so its test score on composites measures performance on data that is statistically similar to training; the raw photograph set is closer to real use. JaalTaka is split by physical note, so the authenticator is never tested on a note it has seen in training; but many of its counterfeit notes are copies of the same print, so the note-disjoint split measures the recognition of known prints, and a second, print-disjoint split is needed. All its notes come from one capture collection, so camera and session changes are not tested. RAF-DB is a standard benchmark with an official split, which allows comparison with published work. The OCR benchmark consists of rendered text, some of it placed in real photographs; it separates the effect of each pipeline step cleanly, but real signs, glare and curved packets will be harder. None of the datasets was photographed through the glass camera.
+
+\section{Currency Detection Data Engineering}
+
+\subsection{Source Currency Dataset (Foreground)}
+The banknote images come from the BanglaTaka dataset, ``A Diverse Image Dataset for Bangladeshi Currency Recognition'', on Mendeley Data \cite{banglataka}. It contains 5,073 background-free images of Taka notes of all nine circulating denominations, captured with different mobile phones and cropped to the note (Table~\ref{tab:banglataka}). Because each image is a tight crop of one note, it is ideal foreground material for compositing.
+
+\begin{table}[!htbp]
+\centering
+\caption{Per-denomination image counts in the BanglaTaka source dataset}
+\label{tab:banglataka}
+\begin{tabular}{|l|c|c|c|c|c|c|c|c|c|c|}
+\hline
+\textbf{Note (Taka)} & 2 & 5 & 10 & 20 & 50 & 100 & 200 & 500 & 1000 & \textbf{Total} \\ \hline
+\textbf{Images} & 445 & 660 & 419 & 480 & 416 & 565 & 423 & 1,243 & 422 & \textbf{5,073} \\ \hline
+\end{tabular}
+\end{table}
+
+\subsection{Background Dataset}
+Real backgrounds were taken from the COCO val2017 split \cite{coco}, which contains natural photographs of rooms, desks, streets, hands and outdoor scenes. We downloaded 1,500 images programmatically. Using real photographs instead of plain colours or noise, as in an earlier internal version of the pipeline, was the single most important change for generalising to real camera frames, because it forces the detector to separate the note from realistic clutter, texture and lighting.
+
+\subsection{The Domain-Gap Problem}
+A model trained only on background-free notes learns that the note fills the whole frame on a plain background. An early version of this project labelled every training image with a box covering the entire frame. It scored well on its own synthetic test set but failed to detect notes on a live webcam, where the note is small, rotated and surrounded by objects. This failure motivated the compositing redesign.
+
+\subsection{Copy-Paste Compositing Process}
+Each source note is pasted onto a randomly chosen and randomly cropped COCO background after a chain of random transformations (Figure~\ref{fig:compositing}). Because the position and size of each pasted note are known exactly, the YOLO label is computed directly from the paste geometry. For a note of pixel size $(w,h)$ pasted with its top-left corner at $(x,y)$ on a square canvas of size $S=640$:
+\begin{align}
+x_c &= \frac{x + w/2}{S}, \qquad y_c = \frac{y + h/2}{S}, \\
+b_w &= \frac{w}{S}, \qquad\qquad\;\; b_h = \frac{h}{S},
+\end{align}
+where $(x_c, y_c)$ is the normalised box centre and $(b_w, b_h)$ the normalised box size. This closed-form labelling produced a fully labelled dataset with zero manual annotation. Algorithm~\ref{alg:composite} gives the whole procedure.
+
+\begin{algorithm}[!htbp]
+\caption{Copy-paste compositing with automatic labels}
+\label{alg:composite}
+\begin{algorithmic}[1]
+\Require background-free note images with their value; COCO background photographs; canvas size $S = 640$
+\Ensure training pictures with YOLO labels
+\ForAll{source notes $N$ with value $d$}
+  \For{$j = 1$ \textbf{to} $4$} \Comment{four composites per note}
+    \State $B \gets$ random crop of a random COCO photograph, resized to $S \times S$
+    \State $N' \gets$ $N$ tilted (perspective, 70\% of the time), rotated ($\pm30^\circ$), scaled to fill 25--90\% of $B$
+    \State $N' \gets$ colour, brightness and contrast changed (Table~\ref{tab:aug})
+    \State choose a random position $(x, y)$ so that $N'$ (size $w \times h$) lies inside $B$; paste $N'$ onto $B$
+    \State apply motion blur (20\%), noise (50\%) and JPEG compression to the picture
+    \State write the label $\big(d,\; \tfrac{x + w/2}{S},\; \tfrac{y + h/2}{S},\; \tfrac{w}{S},\; \tfrac{h}{S}\big)$ \Comment{exact box, no hand labelling}
+  \EndFor
+\EndFor
+\State add background-only pictures (10\% of all) with empty labels
+\State split by source note: 80\% training, 10\% validation, 10\% test
+\end{algorithmic}
+\end{algorithm}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{fig_compositing.jpg}
+    \caption{Copy-paste compositing applied to a 100 Taka note: (a) background-free source note, (b) real COCO background, (c) note after perspective warp, rotation, scaling and colour jitter, (d) final composite with the automatically generated bounding box and label}
+    \label{fig:compositing}
+\end{figure}
+
+\subsection{Augmentation Operations}
+Table~\ref{tab:aug} lists the domain-randomisation operations. The ranges were chosen to cover, and in most cases slightly exceed, the variation expected from a camera held by a person.
+
+\begin{table}[!htbp]
+\centering
+\caption{Domain-randomisation operations used in compositing}
+\label{tab:aug}
+\small
+\begin{tabular}{|L{2.6cm}|L{3.8cm}|L{4.0cm}|L{3.5cm}|}
+\hline
+\textbf{What is imitated} & \textbf{Change made to the note} & \textbf{Setting} & \textbf{Real situation it imitates} \\ \hline
+\multirow{4}{2.6cm}{\raggedright How the note is held} & Tilted (perspective warp) & 70\% of pictures; corners moved by up to 8\% & Note not held flat to the camera \\ \cline{2-4}
+ & Rotated & Up to 30$^\circ$ either way & Note held at an angle \\ \cline{2-4}
+ & Resized & Note fills 25--90\% of the picture & Note held near or far \\ \cline{2-4}
+ & Moved & Random position in the picture & Note not in the centre \\ \hline
+\multirow{2}{2.6cm}{\raggedright Light and colour} & Colour shifted (HSV jitter) & Hue $\pm18^\circ$; saturation $\times$0.5--1.5; brightness $\times$0.4--1.6 & Different lamps, sunlight, old faded notes \\ \cline{2-4}
+ & Brightness and contrast & Brightness $\times$0.4--1.6; contrast $\times$0.7--1.3 & Dark rooms and bright light \\ \hline
+\multirow{3}{2.6cm}{\raggedright Camera faults} & Motion blur & 20\% of pictures; small, medium or strong, horizontal or vertical & Head or hand moving \\ \cline{2-4}
+ & Grain (Gaussian noise) & 50\% of pictures; strength about 12 & Cheap camera in low light \\ \cline{2-4}
+ & JPEG compression & Quality 55--92 & Compressed camera pictures \\ \hline
+No note & Background-only pictures & 10\% of all pictures, with no label & Teaches the detector not to see notes where there are none \\ \hline
+\end{tabular}
+\end{table}
+\FloatBarrier
+
+\subsection{Final Detection Dataset}
+Four composites were generated per source note, plus background-only negatives. The data was split 80/10/10 \textit{by source note}, so no physical note image appears in more than one split (Table~\ref{tab:split}). The counts are those of the dataset as it is stored on disk; an earlier version of this thesis gave 22,315 images, a figure taken from a generation log that no longer matches the files.
+
+\begin{table}[!htbp]
+\centering
+\caption{Composition of the synthetic Taka detection dataset}
+\label{tab:split}
+\begin{tabular}{|l|R{2.3cm}|R{2.5cm}|R{1.9cm}|R{2.3cm}|}
+\hline
+\textbf{Part} & \textbf{Pictures with a note} & \textbf{Background only (no note)} & \textbf{All pictures} & \textbf{Notes in the pictures} \\ \hline
+Train & 16,224 & 1,615 & 17,839 & 16,224 \\ \hline
+Validation & 2,016 & 196 & 2,212 & 2,016 \\ \hline
+Test & 2,052 & 230 & 2,282 & 2,052 \\ \hline
+\textbf{Total} & \textbf{20,292} & \textbf{2,041} & \textbf{22,333} & \textbf{20,292} \\ \hline
+\end{tabular}
+\end{table}
+
+\subsection{Raw Photograph Test Set}
+To test the detector on images that are not composites, 450 raw phone photographs of notes, 50 for each of the nine denominations, were taken from the raw BanglaTaka collection and labelled with their denomination. These images show real paper, real lighting and real camera noise, but they are not independent of the training data in the strict sense: the raw collection is the same source from which the training foregrounds were cropped, so some physical notes may overlap. This set is therefore a source-domain check, not a test.
+
+\subsection{Independent Photograph Collections}
+The real test of the detector uses photographs taken by other people and never used for training or selection. \textit{Bangla Money}, a public Kaggle collection, has 1,536 photographs of eight of the nine denominations (no 200 Taka) and 101 photographs of the 1 Taka note, a class the detector does not know. \textit{NSTU-BDTAKA} \cite{nstubdtaka2024} provides 186 annotated detection images and 1,144 close-ups in which a folded note is held in a hand. A third public collection was excluded because its files are byte-identical to the training source. A further set of 566 composites was built from the test-split notes on backgrounds from a different COCO subset, as a second synthetic test.
+
+\section{Currency Authentication Data}
+The authenticator is trained on the JaalTaka collection of genuine and counterfeit Bangladeshi notes \cite{jaaltaka}. Every physical note is photographed in six ordered close-up views that show different regions and security features (Figure~\ref{fig:jaaltaka}). Table~\ref{tab:jaaltaka} gives the statistics of the split used in all experiments.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.3\textwidth]{jaal_real_v1.jpg}
+    \includegraphics[width=0.3\textwidth]{jaal_real_v2.jpg}
+    \includegraphics[width=0.3\textwidth]{jaal_real_v3.jpg}\\[3pt]
+    \includegraphics[width=0.3\textwidth]{jaal_real_v4.jpg}
+    \includegraphics[width=0.3\textwidth]{jaal_real_v5.jpg}
+    \includegraphics[width=0.3\textwidth]{jaal_real_v6.jpg}
+    \caption{The six ordered views of one genuine note in the JaalTaka collection. Each view shows a different region, such as the portrait with the hologram strip and the serial number.}
+    \label{fig:jaaltaka}
+\end{figure}
+
+\begin{table}[!htbp]
+\centering
+\caption{JaalTaka split used for authentication (split seed 42)}
+\label{tab:jaaltaka}
+\begin{tabular}{|L{10cm}|c|}
+\hline
+\textbf{What is counted} & \textbf{Number} \\ \hline
+Physical notes & 1,390 \\ \hline
+Genuine / counterfeit notes & 802 / 588 \\ \hline
+Photos (views) of each note & 6 \\ \hline
+Photos in total & 8,340 \\ \hline
+Notes for training / validation / test & 974 / 208 / 208 \\ \hline
+Genuine / counterfeit notes in the training part & 562 / 412 \\ \hline
+Notes that appear in two parts (train and validation, train and test, validation and test) & 0 / 0 / 0 \\ \hline
+\end{tabular}
+\end{table}
+
+An earlier split of the same data at the image level produced an accuracy of 1.00, because views of the same note appeared in both training and test data. That number was a data-leakage artefact and is not reported as a result; all authentication results in this thesis use the note-disjoint split above or the print-disjoint split below.
+
+\subsection{Serial-Number Audit}
+\label{sec:serial_audit}
+A genuine banknote has a unique serial number. A counterfeit is printed from a scanned or engraved original, so every copy of one print carries the same serial. To see how many distinct prints JaalTaka contains, the serial number at the lower left of each note was read with OCR, Bangla digits were mapped to 0--9, and the first six digits were compared (one digit can be misread). Table~\ref{tab:serial} gives the result.
+
+\begin{table}[!htbp]
+\centering
+\caption{Serial numbers read from JaalTaka notes}
+\label{tab:serial}
+\small
+\begin{tabular}{|L{2.6cm}|C{1.4cm}|C{2.2cm}|C{2.2cm}|L{5.4cm}|}
+\hline
+\textbf{Notes} & \textbf{Notes in the dataset} & \textbf{Serial number could be read} & \textbf{Different serial numbers} & \textbf{How often the most common serial number appears} \\ \hline
+500 Taka counterfeit & 324 & 322 & 27 & On 279 notes (86.6\% of those read): most counterfeits are copies of one print \\ \hline
+1,000 Taka counterfeit & 261 & 201 & 66 & On 43 notes, and two almost identical readings on 29 more \\ \hline
+500 Taka genuine & 397 & 331 & 233 & On 1.2\% of those read (almost every genuine note has its own number) \\ \hline
+1,000 Taka genuine & 401 & 270 & 227 & On 1.5\% of those read \\ \hline
+\end{tabular}
+\end{table}
+
+Genuine notes have almost one serial per note. Counterfeit notes are dominated by a few serials: 279 of the 322 readable 500 Taka counterfeits carry the same one. The note-disjoint split is therefore not print-disjoint. On its test split, 68 of 87 counterfeits have a serial that also occurs on a training counterfeit, and a rule that needs no knowledge of counterfeiting at all, ``counterfeit if the serial occurs among the training counterfeits'', scores 90.2\% on the 205 test notes that could be reconstructed as whole notes. This is a shortcut in the sense of \cite{geirhos2020shortcut}, and it affects every result published on this split, not only ours. The data article does not mention it.
+
+\subsection{Print-Disjoint Split}
+\label{sec:serial_split}
+A second split was built in which no test counterfeit shares its serial with a training or validation counterfeit: 946 training, 222 validation and 222 test notes. The test split has 121 genuine and 101 counterfeit notes, and its counterfeits come from about 24 distinct prints. This small number is the real size of the test: two detectors can only be compared on about 24 independent counterfeit prints, however many notes there are. All results labelled ``unseen prints'' in Chapter~\ref{chap:results} use this split.
+
+\subsection{Back-Lit Views and Watermark Labels}
+The sixth view of each note is a back-lit photograph in which the watermark is visible on a genuine note. For the watermark classifier, the window was cut from each back-lit view after registration to a note template; registration succeeded on 867 of 946 training, 197 of 222 validation and 197 of 222 test photographs. The corner positions of these windows, mapped back into each photograph, are the training labels of the localizer.
+
+\subsection{Whole-Note Counterfeit Photographs}
+The glass sees whole notes, not close-up views. To check the deployed verdict, the Bangladeshi Counterfeit Currency Image Dataset was used, which has whole-note photographs of 500 and 1,000 Taka notes: 1,199 genuine and 87 counterfeit, of which 60 are augmented copies. The counterfeit photographs show about four physical notes, so this set can support a safety check but cannot prove it. The genuine 500 and 1,000 Taka photographs of Bangla Money and BanglaTaka were used as further genuine notes.
+
+\subsection{A Tool for a Larger Print-Disjoint Dataset}
+A dataset with about 100 unseen counterfeit prints would be needed to compare detectors with confidence. Such notes can only be obtained with a bank or the police, which was outside the reach of this project. A collection tool was written for that future work: it registers each photograph with its note and its print, refuses a print that would appear in two splits, a note that changes print, contradicting labels and duplicates, and exports the split. A second tool records the watermark window by four mouse clicks, and the localizer training script accepts these labels.
+
+\section{Emotion Recognition Data}
+Emotion recognition uses the Real-world Affective Faces Database (RAF-DB) \cite{rafdb} with its official training (12,271 images) and test (3,068 images) split. The class distribution of the test set is imbalanced (Table~\ref{tab:rafdb}): happy faces are sixteen times as frequent as fearful ones, which later explains the weaker recall for fear and disgust.
+
+\begin{table}[!htbp]
+\centering
+\caption{Class distribution of the RAF-DB official test set}
+\label{tab:rafdb}
+\begin{tabular}{|l|c|c|c|c|c|c|c|c|}
+\hline
+\textbf{Expression} & Happy & Sad & Angry & Surprise & Fear & Disgust & Neutral & \textbf{Total} \\ \hline
+\textbf{Test photos} & 1,185 & 478 & 162 & 329 & 74 & 160 & 680 & \textbf{3,068} \\ \hline
+\end{tabular}
+\end{table}
+
+\section{Text Recognition Data}
+\subsection{OCR Benchmark}
+\label{sec:ocr_bench_data}
+The first OCR test set of this project had 80 phrases rendered with one font. Two faults made its numbers unusable. First, the images were drawn with a graphics library that, on the development machine, did not shape Bangla text: vowel signs that belong before the consonant were drawn after it, and conjuncts were broken apart. Real print never looks like that. Second, the correction step of the OCR mode used a word list that contained the test phrases. A new benchmark was therefore built:
+\begin{itemize}[noitemsep]
+    \item \textbf{Shaping.} Text is shaped with HarfBuzz \cite{harfbuzz} and drawn with FreeType, the way a printer or a browser does it.
+    \item \textbf{Phrases.} Short phrases of the kind a visually impaired person needs to read (signs, counters, labels, directions). The validation set has 24 Bangla and 24 English phrases; the test set has 48 other phrases. A further 24 phrases were used once, for the canvas-size decision.
+    \item \textbf{Fonts.} Validation images use Nirmala UI and Noto Serif Bengali for Bangla and Georgia and Verdana for English; test images use Nirmala UI, Noto Sans Bengali and Tiro Bangla, and Arial, Times and Calibri. In all, 10 Bangla and 9 Latin fonts are used, and the fonts used to train a recogniser are never scored.
+    \item \textbf{Conditions.} Every phrase appears three ways: on a clean page, on a distorted page (rotation, blur, low resolution), and as a sign placed into a real COCO photograph at 640$\times$480 pixels, the frame size of the glass.
+    \item \textbf{Seeds.} Three image seeds, giving 432 images per phrase set.
+\end{itemize}
+Every choice was made on the validation set; the test set was read once per finished method. For the fine-tuning experiment, training text came from general frequency lists of 50,000 Bangla and 50,000 English words, with every word of every benchmark phrase removed.
+
+\subsection{Ekush Handwritten Characters}
+As an additional study of Bangla recognition, a CNN classifier for 122 classes of isolated handwritten Bangla characters (vowels, consonants, conjuncts, modifiers and digits) was trained on the Ekush dataset \cite{ekush}. The data was split by writer (2,429 / 303 / 305 writers; 292,974 / 35,436 / 38,608 images) so that no writer's handwriting appears in both training and test data.
+
+\section{Object Detection Data}
+The object mode uses a YOLOv8 model pre-trained on COCO without retraining. To check its accuracy in our pipeline, it was evaluated on the 5,000 photographs of COCO val2017 (an earlier evaluation used a random subset of 250 of them).
+
+\section{Note on User Survey}
+This work does not yet include results from a study with visually impaired participants. Trial sessions and a survey have started (Section~\ref{sec:field_test}), and their data will be added when they are complete. A protocol has been prepared and its hypotheses and analysis were written down in advance (8--12 participants; tasks for denomination identification, the watermark check with and without spoken guidance, and reading; measures including task time, accuracy, NASA-TLX \cite{nasatlx} and the System Usability Scale \cite{sus}). The software for it exists: the study log of the watermark check, an analysis script, and the voice-driven questionnaire. The questionnaire tool was tried in three pilot sessions run by the project team, each about three and a half minutes long, to test that names and spoken answers are recorded; in the last two sessions five and six of the six answers were recognised from speech. These sessions test the tool. They are not study data, and no user-study result is reported in this thesis. Conducting the study, with ethical approval, is the most important next step (Chapter~\ref{chap:conclusion}).

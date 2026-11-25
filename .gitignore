@@ -1,0 +1,83 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+**/venv/
+*.venv/
+
+# OS / IDE
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+
+# Logs / temp
+*.log
+logs/*.log
+.claude/
+
+# Local ultralytics / training runs (regenerable)
+**/runs/
+**/wandb/
+
+# Optional: uncomment if you do NOT want large weights in git
+# **/models/*.pt
+# **/models/*.pts
+# **/models/*.torchscript
+# **/models/*.onnx
+
+# Large local datasets (~3.5GB) — keep on disk, do not push to GitHub
+data set/
+
+# Local YOLO dumps / training curves (regenerable, too large)
+savior_glass/results/taka_wild_yolo/
+savior_glass/results/yolo_runs/
+
+# Comparison datasets (140k+ images, downloaded separately; see paper_evidence/CROSS_DATASET_DOWNLOAD_LOG.md)
+data set for comparison/
+
+# Regenerable 128-px view cache written by roboeye.camva.data.cached_resized_rgb
+realtime_bangla_taka_detection/cache/
+
+# Regenerable derived data (2026-09-30): rebuilt by the scripts named in paper_evidence
+realtime_bangla_taka_detection/results/jaal_whole/synth_notes/
+realtime_bangla_taka_detection/results/jaal_whole/crops/
+realtime_bangla_taka_detection/results/watermark/crops/
+realtime_bangla_taka_detection/results/**/feats_*.npz
+realtime_bangla_taka_detection/results/watermark/crop_feats_resnet50.npz
+
+# Study event log: participant ids, never committed
+savior_glass/logs/study_events.jsonl
+
+# OCR benchmark: regenerable image cache, fine-tuned weights (~215 MB each, see OCR_FINETUNE.md), Tesseract data (tessdata_best download)
+savior_glass/ocr_bench/cache/
+savior_glass/ocr_bench/finetuned/
+savior_glass/ocr_bench/tessdata/
+
+# Field-test runs (may contain photos and participant data): copy off the Pi, never commit
+savior_glass/logs/field/
+
+# Research evidence database: merged inbox files are already in experiments.json
+research_results/inbox/merged/
+
+# OCR detector weights (EAST, OpenCV DB, YOLO text; about 260 MB; download commands in paper_evidence/OCR_TEXT_REGION.md)
+savior_glass/ocr_bench/detectors/
+
+# Generated character language model (rebuild with: py -3.10 savior_glass/ocr_bench/kenlm_lm.py build)
+savior_glass/ocr_bench/lexicon/char5.arpa
+
+# One frame saved by scripts/check_camera.py (a photo of the room)
+savior_glass/results/camera_check.jpg
+
+# Test-panel check image (contains a dataset face photo) and the laptop run log
+savior_glass/results/live_diag_check.png
+savior_glass/logs/laptop_test_run.log
+
+# User-study data (savior_glass/study_data/: names, voice recordings, photos, answers) is committed: publication approved by the supervisor, 18 November 2026.
+
+# paper package (built by Thesis Report and paper/tools/paper_package/make_package.py)
+SARA_Paper_Package/
+SARA_Paper_Package.zip

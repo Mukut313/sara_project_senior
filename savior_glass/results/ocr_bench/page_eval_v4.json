@@ -1,0 +1,339 @@
+{
+ "option": "v4",
+ "pages": 40,
+ "cer": 0.1723,
+ "by_lang": {
+  "bn": 0.1875,
+  "en": 0.0842,
+  "mixed": 0.2301
+ },
+ "by_cond": {
+  "flat": 0.0389,
+  "angle": 0.3855,
+  "shadow": 0.0685,
+  "blur": 0.1565
+ },
+ "ms_median": 13149,
+ "rows": [
+  {
+   "lang": "bn",
+   "cond": "flat",
+   "cer": 0.03802281368821293,
+   "ms": 16260.562300041784,
+   "gt": "একটি সমীক্ষায় দেখা গিয়েছে যে, পুনর্ব্যবহৃত প্লাস্টিক সামগ্রী ব্যবহার করা হলে প্রাকৃতিক গ্যাস ও তেলের অনুসন্ধান, খনন এবং পরিবহন হ্রাস হয়। এর ফলে বিশ্ব উষ্ণায়নের মাত্রা হ্রাস হতে পারে। 2022 সালে যুক্তরাজ্যের ব্যবসায় সাইবার লঙ্ঘনের 4% জন্য র্যানসমওয়্যার দায়ী।",
+   "hyp": "একটি সমীক্ষায় দেখা গিয়েছে যে পুনর্ব্যবহৃত প্লাস্টিক সামগ্রী ব্যবহার করা হলে প্রাকৃতিক গ্যাস ও তেলের অনুসন্ধান খনন এবং পরিবহন হ্রাস হয়। এর ফলে বিশ্ব উষ্ণায়নের মাত্রা হ্রাস হতে পারে। ২০২২ সালে যুক্তরাজ্যের ব্যবসায় সাইবার লঙ্ঘনের ৪ জন্য রযানসমওয়্যার দায়ী"
+  },
+  {
+   "lang": "en",
+   "cond": "flat",
+   "cer": 0.07600950118764846,
+   "ms": 19368.348799995147,
+   "gt": "Clears hong mysterious players needle evening los court include nanny solution fourth dreamed price copies thunder house script frankie abuse noon meant le lawrence elements cowboy calls clown chirping executed eagle trunk avenue victory listened oldest colors sis cellphone course dunno jerry grab hands questioning forgot august raw director madness rush upset twins happily christina raised beam clay blows christopher",
+   "hyp": "include Clears hong mysterious players needle evening los court nanny solution fourth dreamed price thunder house script frankie abuse noon lawrence elements cowboy calls clown chirping executed eagle trunk avenue victory listened oldest colors sis cellphone course dunno jerry grab hands questioning forgot august raw director madness rush upset twins happily christina raised beam clay blows christopher"
+  },
+  {
+   "lang": "mixed",
+   "cond": "flat",
+   "cer": 0.08482142857142858,
+   "ms": 14862.485300051048,
+   "gt": "গবেষনায় series দেখা গিয়েছে যে, প্লাস্টিকগুলির মধ্যে তন্তুযুক্ত শক্তিবৃদ্ধি করলে naughty নাগরিকদের কাজে লেগে সম্পদের ব্যবহার হয়। chop ৪১% sneak র্যানসমওয়্যার আক্রমণ ডেলিভারি পদ্ধতি হিসাবে breaking ফিশিং stood ব্যবহার করে।",
+   "hyp": "গবেষনায় series দেখা গিয়েছে যে প্লাস্টিকগুলির মধ্যে তন্তুযুক্ত শক্তিবৃদ্ধি করলে naughty নাগরিকদের কাজে লেগে ব্যবহার হয়া chop 41 sneak ্যানসমওয়্যার আক্রমণ ডেলিভারি পদ্ধতি হিসাবে breaking ফিশিং stood ব্যবহার"
+  },
+  {
+   "lang": "bn",
+   "cond": "flat",
+   "cer": 0.05660377358490566,
+   "ms": 15903.217100014444,
+   "gt": "দুটি উৎসবই ২০১৫, ২০১৮ ও ২০২০ সালে অনুষ্ঠিত হয়েছিল। ফিশিং REvil ransomware-এর জন্য প্রাথমিক ডেলিভারি পদ্ধতি বলে মনে হয়েছে। এছাড়া সংবিধানের ১৮(১) অনুচ্ছেদে জনগণের পুষ্টির স্তর উন্নয়ন ও জনস্বাস্থ্যের উন্নতিসাধনকে রাষ্ট্রের প্রাথমিক দায়িত্ব হিসেবে গণ্য করা হয়েছে।",
+   "hyp": "দুটি উৎসবই ২০১৫ ২০১৮ ও ২০২০ সালে অনুষ্ঠিত হয়েছিল। ফিশিং REvil ransomware-এর জন্য পরাথমকি ডলেভাির পিদৃধত বিল মন হয়েছে। এছাড়া সংবিধানের ১৮(১ অনুচ্ছেদে জনগণের পুষ্টির স্তর উন্নয়ন ও জনস্বাস্থ্যের উন্নতিসাধনকে রাষ্ট্রের প্রাথমিক দায়িত্ব হিসেবে গণ্য করা হয়েছে।"
+  },
+  {
+   "lang": "bn",
+   "cond": "angle",
+   "cer": 0.5871212121212122,
+   "ms": 17809.160400007386,
+   "gt": "প্রথম দিনের পূর্ব সন্ধ্যায়, অঙ্কুরর্পণ (উর্বরতা ও প্রাচুর্যের সূচক বীজ বপন) অনুষ্ঠান করা হয়। পরে, তার মুক্তির পর, মাহমুদ আল-হাসানাত সুদান ছেড়ে তার পড়াশোনা শেষ করতে তুরস্কে যান। কর্তৃপক্ষ এর কোনো প্রমাণ না দিয়ে তাকে ছেড়ে দেয়, যা অনেক প্রতিক্রিয়ার জন্ম দেয়।",
+   "hyp": "প্রথম দিনের পূর্ব শেষ করতে করা হয় পররে বসব্ধ্যায় অঙ্কুর্পণ ঊর্বরতা তার মুক্তির পর মাহমুদ প্রাচুর্যের সূচক বীজ বপন অনেক প্রতিক্রিয়ার তুরস্কে যান কর্তৃপক্ষ এর কোনো প্রমাণ না দিয়ে আল-হাসানাত সুদান ছেড়ে ব তার পড়াশোনা জন্ম দেয়। তাকে ছেড়ে দেয় যা"
+  },
+  {
+   "lang": "en",
+   "cond": "angle",
+   "cer": 0.028169014084507043,
+   "ms": 15912.217599980067,
+   "gt": "Cities swell bullshit weapon tension petty interview whirring trusted prick francs liar himself whimpering motive head opinion stories kids photographs aren alexander whoo visited new beer terror block northern decide animal character filthy zero citizen laughed virginia looked waves",
+   "hyp": "Cities swell bullshit weapon tension petty interview whirring trusted prick francs liar himselfwhimpering head opinion stories kids photographs aren alexander whoo visited new beer terror block northern decide animal character filthy zero citizen laughed virginia looked waves"
+  },
+  {
+   "lang": "mixed",
+   "cond": "angle",
+   "cer": 0.5208333333333334,
+   "ms": 10041.461699991487,
+   "gt": "হামলায় মুক্তিপণ test দাবি forever প্রায় leader $250,000 থেকে $5 মিলিয়ন পর্যন্ত। এটি seems খুব নমনীয় এবং travel চাপের মধ্যে প্রসারিত হয়। tom",
+   "hyp": "হামলায় মুক্তিপণ test দাবি ৫ মিলিয়ন পর্যন্ত এটি forever প্রায় leader 5250,000 থেকে প্রসারিত হয় tom নমনীয় এবং travel চাপের"
+  },
+  {
+   "lang": "bn",
+   "cond": "angle",
+   "cer": 0.5719298245614035,
+   "ms": 14597.846299991943,
+   "gt": "REvil হুমকি অভিনেতারা তখন অপারেশনের কমান্ড নিতে পারে, তথ্য আপোস করার চেষ্টা করার আগে রিকনেসান্স পরিচালনা করতে পারে। 90% র্যানসমওয়্যার আক্রমণ হয় ব্যর্থ হয় বা শিকারের জন্য শূন্য ক্ষতির কারণ হয়। এটি হয় সফ্টওয়্যারের মাধ্যমে ঘটে যা ডেটা এনক্রিপ্ট করে, বা ডেটা অন্য জায়গায় সরানো হয়।",
+   "hyp": "REvil পরিচা-লনথা আমপোস করার চেষ্না করপার শোনরে কমানৃভ নতি পারে তথক অঅভেনিতোরা তখল হয় বা শিকারের জন্য করতে পারে ৯০ র্যানসমওয়্যার আক্রমস হস় আগে রিকনেসান্স সফ্টওয়্যারের মাধ্যমে ঘটে যা ডেটা এনক্রিপ্ট শূন্য ক্ষতির কারণ হয়া এটি জায়গায় সরানো হয়। করে বা ডেটা"
+  },
+  {
+   "lang": "bn",
+   "cond": "shadow",
+   "cer": 0.3951048951048951,
+   "ms": 14378.085500036832,
+   "gt": "সাইবার অপরাধীরা আসল চেহারার ইমেল পাঠায় যা লক্ষ্যকে একটি লিঙ্ক অনুসরণ করতে বা একটি ফাইল ডাউনলোড করতে অনুরোধ করে। আরও দেখুন র্যানসমওয়্যারের কম্পিউটার ভাইরাস তথ্যসূত্র কম্পিউটার ভাইরাস ম্যালওয়্যারের প্রকারভেদ। ব্রহ্মোৎসবম্ ২০২৩ এই বছর, অধিক মাসের কারণে তিরুমালায় দুটি ব্রহ্মোৎসবম্ হবে।",
+   "hyp": "সাইবার লিঙ্ক অনুসরণ করতে বা একটি ফাইল ডাউনলোড করতে অনুরোধ করে। আরও দেখুন র্যানসমওয়্যারের কম্পিউটার ভাইরাস তথ্যসূত্র এই বছর অধিক মাসের কারণে তিরুমালায় দুটি ব্রহ্মোৎসবম্ হবেI"
+  },
+  {
+   "lang": "en",
+   "cond": "shadow",
+   "cer": 0.009411764705882352,
+   "ms": 17625.603899999987,
+   "gt": "Drinks field screams jewelry kill troy coffin unhappy yellow arm assistant done find friendship pillow chin auntie license exhales blame coal mistake breath broad run independent mirror fever wagon films hours hey attacked relationships city william operate form motive yup memories rely decent suspicious mister murders afterwards sharing arts objects feeding melissa wishes sweetie raise tattoo fresh statue about charlotte",
+   "hyp": "Drinks field screams jewelry kill troy coffin unhappy yellow arm assistant done find friendship pillow chin auntie license exhales blame coal mistake breath broad independent mirror fever wagon films hours hey attacked relationships city william operate form motive yup memories rely decent suspicious mister murders afterwards sharing arts objects feeding melissa wishes sweetie raise tattoo fresh statue about charlotte"
+  },
+  {
+   "lang": "mixed",
+   "cond": "shadow",
+   "cer": 0.017699115044247787,
+   "ms": 10394.318500009831,
+   "gt": "শেষ দিনে বেঙ্কটেশ্বরের জন্ম excuse তারকাকে স্মরণ wins করা freak হয়। যাইহোক, সফ্টওয়্যার আপডেট করার গুরুত্ব fruit সম্পর্কে সচেতনতা বা pillow শিক্ষার অভাব মানে বিশ্বব্যাপী অনেক সংস্থা এবং ব্যক্তি এই প্যাচটিকে ugh উপেক্ষা করেছে।",
+   "hyp": "শেষ দিনে বেঙ্কটেশ্বরের জন্ম excuse তারকাকে স্মরণ wins করা freak হয় যাইহোেক সফ্টওয়্যার আপডেট করার গুরুত্ব fruit সম্পর্কে সচেতনতা বা pillow শিক্ষার অভাব মানে বিশ্বব্যাপী অনেক সংস্থা এবং ব্যক্তি এই প্যাচটিকে ugh উপেক্ষা করেছেো"
+  },
+  {
+   "lang": "bn",
+   "cond": "shadow",
+   "cer": 0.04864864864864865,
+   "ms": 11155.383299977984,
+   "gt": "৪১% র্যানসমওয়্যার আক্রমণ ডেলিভারি পদ্ধতি হিসাবে ফিশিং ব্যবহার করে। পেনি (কানাডীয় মুদ্রা): ২০১৩ সালে প্রচলন থেকে সরানো একটি কানাডীয় মুদ্রা। ফিরোজা খান ওরফে খানজাদি - র্যাপার এবং মডেল।",
+   "hyp": "৪১ র্যানসমওয়্যার আক্রমণ ডেলিভারি পদ্ধতি হিসাবে ফিশিং ব্যবহার করে পেনি কানাডীয় মুদ্রা ২০১৩ সালে প্রচলন থেকে সরানো একটি কানাডীয় মুদ্রা ফিরোজা খান ওরফে খানজাদি র্যাপার এবং মডেল"
+  },
+  {
+   "lang": "bn",
+   "cond": "blur",
+   "cer": 0.10227272727272728,
+   "ms": 8488.814499985892,
+   "gt": "ঐশ্বরিয়া শর্মা - অভিনেত্রী। ফলে সুসংগতভাবে খাদ্য নীতিসমূহ বাস্তবায়নের সুযোগ সৃষ্টি হয়। কৃষি, পুষ্টি সহায়তা, খাদ্য নিরাপত্তা, ডায়েট নিয়ন্ত্রণ, এবং মোড়কীকরণ এর আওতায় আসে।",
+   "hyp": "ঐশ্বরিয়া শর্মা অভিনেত্রী ফলে সুসংগতভাবে নীতিসমূহ বাস্তবায়নের সুযোগ সৃষ্টি হয়। কৃষি পুষ্টি সহায়তা খাদ্য নিরাপত্তা ডায়েট নিয়ন্ত্রণ এবং মোড়কীকরণ আওতায় আসI"
+  },
+  {
+   "lang": "en",
+   "cond": "blur",
+   "cer": 0.0,
+   "ms": 17528.092699998524,
+   "gt": "Considering answered activities presents san burn experienced misery singing tragedy joking terrific prove patrick fred deeper whore suit alicia beating smith dirt feelings insisted huge bleeding range embassy diane ve dealer doesn counsel crown returning abby expect twist roaring nowadays alarm beneath jay quietly died backup nor our pills adorable sexual seconds duke rosa pope superior freezing guts by meet",
+   "hyp": "Considering answered activities presents san burn experienced misery singing tragedy joking terrific prove patrick fred deeper whore suit alicia beating smith dirt feelings insisted huge bleeding range embassy diane ve dealer doesn counsel crown returning abby expect twist roaring nowadays alarm beneath jay quietly died backup nor our pills adorable sexual seconds duke rosa pope superior freezing guts by meet"
+  },
+  {
+   "lang": "mixed",
+   "cond": "blur",
+   "cer": 0.03056768558951965,
+   "ms": 10800.974000012502,
+   "gt": "এটি সেই faithful সংস্থাগুলির তুলনায় অনেক pen বেশি যাদের ইমেল হুমকি উল্লেখযোগ্যভাবে বৃদ্ধি burst পায়নি, যার মধ্যে 65% অভিজ্ঞ র্যানসমওয়্যার। সবচেয়ে else খারাপ ক্ষেত্রে, আক্রমণের কারণে ব্যাঘাত ঘটতে কয়েক shoes মাস লেগেছিল। loses",
+   "hyp": "এটি সেই faithful সংস্থাগুলির তুলনায় অনেক pen বেশি যাদের ইমেল হুমকি উল্লেখযোগ্যভাবে বৃদ্ধি burst পায়নি যার মধ্যে ৬৫ অভিজ্ঞ ্যানসমওয়্যার সবচেয়ে else খারাপ ক্ষেত্রে আক্রমণের কারণে ব্যাঘাত ঘটতে কয়েক shoes মাস লেগেছিল। loses"
+  },
+  {
+   "lang": "bn",
+   "cond": "blur",
+   "cer": 0.0196078431372549,
+   "ms": 17888.632700021844,
+   "gt": "র্যানসমওয়্যার দ্বারা কতজন লোক প্রভাবিত হয়? ২০২২ সালে বিশ্বব্যাপী ৭১% সংস্থা র্যানসমওয়্যার আক্রমণ দ্বারা প্রভাবিত হয়েছিল বলে জানা গেছে। প্লাস্টিকের গুণমান এবং ভৌত ধর্ম উন্নত করার জন্য প্লাস্টিকের মধ্যে বিভিন্ন ধরনের পদার্থ মেশানো হয়। বিজয় সেখানে পৌঁছায় এবং আন্নাকে মেরে তার বোন ও কৃষ্ণনকে উদ্ধার করে।",
+   "hyp": "্যানসমওয়্যার দ্বারা কতজন লোক প্রভাবিত হয় ২০২২ সালে বিশ্বব্যাপী ৭১ সংস্থা রযানসমওয়্যার আক্রমণ দ্বারা প্রভাবিত হয়েছিল বলে জানা গেছে। প্লাস্টিকের গুণমান এবং ভৌত ধর্ম উন্নত করার জন্য প্লাস্টিকের মধ্যে বিভিন্ন ধরনের পদার্থ মেশানো হয়। বিজয় সেখানে পৌঁছায় এবং আন্নাকে মেরে তার বোন ও কৃষ্ণনকে উদ্ধার করো"
+  },
+  {
+   "lang": "bn",
+   "cond": "flat",
+   "cer": 0.017094017094017096,
+   "ms": 12865.414900006726,
+   "gt": "মৃত্যুর মুখে পতিত বিজয়কে তামিল নারিকেল বিক্রেতা কৃষ্ণন আইয়ার এম.এ. (মিঠুন চক্রবর্তী) হাসপাতালে নিয়ে যায় এবং তার সাথে বন্ধুত্ব গড়ে ওঠে। এজন্য সংসদীয় ব্যবস্থায় বিভিন্ন কমিটি দায়িত্বশীল রয়েছে। এর ভালো বৈদ্যুতিক বৈশিষ্ট্য রয়েছে।",
+   "hyp": "মৃত্যুর মুখে পতিত বিজয়কে তামিল নারিকেল বিক্রেতা কৃষ্ণন আইয়ার এম.এ. মিঠুন চক্রবর্তী হাসপাতালে নিয়ে যায় এবং তার সাথে বন্ধুত্ব গড়ে ওঠেো এজন্য সংসদীয় ব্যবস্থায় বিভিন্ন কমিটি দায়িত্বশীল রয়েছে। এর ভালো বৈদ্যুতিক বৈশিষ্ট্য রয়েছে"
+  },
+  {
+   "lang": "en",
+   "cond": "flat",
+   "cer": 0.0,
+   "ms": 26420.46140000457,
+   "gt": "Foundation match adorable naturally shown russell november gut remain lock economy complete alex upon scout telling idea popular zone freedom mission smells comrades mysterious mrs ruth flying truly week incredible weapon personality giggles samantha care newspaper funeral repair champion sebastian totally porn prevent double jesse legs temper friends blonde did war attack concert tapes appointment thin show consider boo dr",
+   "hyp": "Foundation match adorable naturally shown russell november gut remain lock economy complete alex upon scout telling idea popular zone freedom mission smells comrades mysterious mrs ruth flying truly week incredible weapon personality giggles samantha care newspaper funeral repair champion sebastian totally porn prevent double jesse legs temper friends blonde did war attack concert tapes appointment thin show consider boo dr"
+  },
+  {
+   "lang": "mixed",
+   "cond": "flat",
+   "cer": 0.03187250996015936,
+   "ms": 13309.583199967165,
+   "gt": "যুক্তরাজ্যে, NHS-কে 19,000 less অ্যাপয়েন্টমেন্ট বাতিল করতে opinion হয়েছিল, স্বাস্থ্য পরিষেবার জন্য প্রায় £92 মিলিয়ন খরচ হয়েছে। completely তবে আরও কম cup ঘনত্বের পলিইথিলিন highest যাকে লিনিয়ার লো-ডেনসিটি পলিথিন (এলএলডিপিই) বলে flight এটি যোগ করলে",
+   "hyp": "যুক্তরাজ্যে NHS-কে 19,000 less অ্যাপয়েন্টমেন্ট বাতিল করতে opinion হয়েছিল স্বাস্থ্য পরিষেবার জন্য প্রায় ৯২ মিলিয়ন খরচ হয়েছেI completely তবে আরও কম cup ঘনত্বের পলিইথিলিন highest যাকে লিনিয়ার লো-ডেনসিটি পলিথিন এলএলডিপিই বলে flight এটি যোগ করলে"
+  },
+  {
+   "lang": "bn",
+   "cond": "flat",
+   "cer": 0.02666666666666667,
+   "ms": 12987.896500038914,
+   "gt": "কাঞ্চা গ্রামের সব বাড়িঘর বোমা মেরে উড়িয়ে দেয়। সানা রইস খান - আইনজীবী, শিনা বোরা হত্যা এবং আরিয়ান খান মাদক মামলায় জড়িত থাকার জন্য পরিচিত। প্লাস্টিকের মোড়েক পণ্যের দৃশ্যমানতা এবং মাইক্রোওয়েভেবিলিটি বাড়াতে সাহায্য করে।",
+   "hyp": "কাঞ্চা গ্রামের সব বাড়িঘর বোমা মেরে উড়িয়ে দেয়া সানা রইস খান আইনজীবী শিনা বোরা হত্যা এবং আরিয়ান খান মাদক মামলায় জড়়িত থাকার জন্য পরিচিত। প্লাস্টিকের মোড়েক পণ্যের দৃশ্যমানতা এবং মাইক্রোওয়েভেবিলিটি বাড়াতে সাহায্য করে"
+  },
+  {
+   "lang": "bn",
+   "cond": "angle",
+   "cer": 0.41346153846153844,
+   "ms": 12952.534100040793,
+   "gt": "এজন্য খাদ্যপণ্য উৎপাদনের খরচে ভর্তুকি প্রদানের উদ্যোগও নিতে দেখা যায়। কৃষি, পুষ্টি সহায়তা, খাদ্য নিরাপত্তা, ডায়েট নিয়ন্ত্রণ, এবং মোড়কীকরণ এর আওতায় আসে। প্রবর্তক সংঘ গড়ে তোলার কাজে তার যথেষ্ট অবদান আছে।",
+   "hyp": "য খাদ্যপণ্য উৎপাদনের খরচে ভর্তুকি প্রদানেরদ পুষ্টি সহায়তা খাদ্য উদ্যোগও নিতে টে নিয়ন্ত্রণ এবং দেখা যায়া কৃষি ং মোড়কীকরণ নিরাপত্তা ডায়েট আসে প্রবর্তক সংঘ গড়ে তোলার কাজে আওতায় যথেষ্ট অবদান আছেো"
+  },
+  {
+   "lang": "en",
+   "cond": "angle",
+   "cer": 0.5813397129186603,
+   "ms": 25104.366299987305,
+   "gt": "Mask video hire assignment china detail commission proper ann higher independent thee blah lost waiter switch bleed soldiers studies perfectly ice lloyd expression improve presents manner terror anything sticking fbi chill ready rumors hostage danny taylor secrets dutch bravo swim capture psycho mother defeat raising german boats green toss heck silence cooperate sense coma language ruth earl service quickly relief",
+   "hyp": "Mask video hire ice Iloyd independent thee slienment china detail blah lost waiter commission proper chill ready expression improve presents switch bleed soldiers studies ann higher rumors hostage manner terror perfectly psycho mother defeat raising german danny taylor secrets dutch bravo swim anything sticking fbi cooperate sense coma language ruth earl service boats green toss heck silence capture quickly relief"
+  },
+  {
+   "lang": "mixed",
+   "cond": "angle",
+   "cer": 0.07488986784140969,
+   "ms": 11457.907799980603,
+   "gt": "armed discuss আগুনে পোড়ার ক্ষেত্রে প্রাথমিক চিকিৎসা হিসেবে প্লাস্টিকের মোড়ক ব্যবহৃত actors হয়। ক্যাসপারস্কি dick জানিয়েছে যে 2021 সালে 366,256টি অনন্য shower ব্যবহারকারী কম্পিউটারে black র্যানসমওয়্যার আক্রমণ পরাজিত হয়েছে।",
+   "hyp": "armed discuss আগুন পঞ্োড়ার কষতের পেরাথমকি চকিৎসা হিসেবে প্লাস্টিকের মোড়ক ব্যবহৃত actors হয় ক্যাসপারস্কি dick জানিয়েছে যে ২০২১ সালে 366,256টি অনন্য shower ব্যবহারকারী কম্পিউটারে black র্যানসমওয়্যার আক্রমণ পরাজিত হয়েছে"
+  },
+  {
+   "lang": "bn",
+   "cond": "angle",
+   "cer": 0.4954682779456193,
+   "ms": 16131.001500005368,
+   "gt": "তবে আরও কম ঘনত্বের পলিইথিলিন যাকে লিনিয়ার লো-ডেনসিটি পলিথিন (এলএলডিপিই) বলে এটি যোগ করলে প্লাস্টিক মোড়কের ফিল্মের প্রসার্য শক্তিও বাড়ে। যে সংস্থাগুলি নিয়মিত ডেটা ব্যাকআপ সহ আরও প্রস্তুত ছিল, তাদের পরিষেবাগুলিতে অনেক কম ব্যাঘাত ঘটেছে। IBM-এর X-Force পর্যবেক্ষণ করেছে যে 2021 সালে REvil জড়িত ঘটনাগুলি প্রায়ই একটি 'QakBot' ফিশিং",
+   "hyp": "তবে আরও কম এলএলডিপিক ঘলত্ের পলিইথিলিন যাকে লিনিয়ার বাড়ে বলে এটি যোগ করলে প্লাস্টিক লো-ডেনসিটি পলিথিন পরিষেবাগুলিতে যে সংস্থাগুলি নিয়মিত ডেটা ব্যাকআপ সহ আরও প্রস্ত্ত ছিল তাদের মোড়কের ফিল্মের প্রসার্য শক্তিও করেছে যে ২০২১ সালে REvil জড়িত অনেক কম ব্যাঘাত ঘটেছে IBM-এর IX-Force পর্যবেক্ষণ ঘটনাগুলি প্রায়ই একটি QakBot ফিশিং"
+  },
+  {
+   "lang": "bn",
+   "cond": "shadow",
+   "cer": 0.02054794520547945,
+   "ms": 12100.973399996292,
+   "gt": "সামুদ্রিক কচ্ছপের মতো কিছু সামুদ্রিক প্রজাতি ভুলবশত প্লাস্টিককে শিকার হিসেবে গ্রহণ করে। প্রকৃত পলিমারাইজেশন প্রক্রিয়া সমাধান পর্যায়ে বা গ্যাস পর্যায়ে চুল্লিগুলিতে করা যেতে পারে। শ্রীবারি ব্রহ্মোৎসবম্ \"বেঙ্কটেশ্বর সালকাতলা ব্রহ্মোৎসবম্\" এবং \"বেঙ্কটেশ্বর নবরাত্রি ব্রহ্মোৎসবম্\" নামেও পরিচিত।",
+   "hyp": "সামুদ্রিক কচ্ছপের মতো কিছু সামুদ্রিক প্রজাতি ভুলবশত প্লাস্টিককে শিকার হিসেবে গ্রহণ করো প্রকৃত পলিমারাইজেশন প্রক্রিয়া সমাধান পর্যায়ে বা গ্যাস পর্যায়ে চুল্লিগুলিতে করা যেতে পারে। শ্রীবারি ব্রহ্মোৎসবম্ বেঙ্কটেশ্বর সালকাতলা ব্রহ্মোৎসবম্ এবং বেঙ্কটেশ্বর নবরাত্রি ব্রহ্মোৎসবম্ নামেও পরিচিত।"
+  },
+  {
+   "lang": "en",
+   "cond": "shadow",
+   "cer": 0.017412935323383085,
+   "ms": 16157.26489998633,
+   "gt": "Talking dollar states tap activities entire rome han extra dope cable standing alright plane just jill valley arm strip committed told supplies circumstances starts product right jazz kindness loves seriously secretary solid surgeon sent makeup load keith jazz helps shock strategy hopes bout vision remembered lights box homer best sword harm eaten freaking tickets gee cheering test runs makeup truck",
+   "hyp": "Talking dollar states tap activities entire rome han extra dope cable standing alright plane just jill valley arm strip committed told supplies circumstances starts product right jazz kindness loves seriously secretary solid surgeon sent makeup load keith jazz helps shock strategy hopes bout remembered lights box homer best sword harm eaten freaking tickets gee cheering test runs makeup truck"
+  },
+  {
+   "lang": "mixed",
+   "cond": "shadow",
+   "cer": 0.02834008097165992,
+   "ms": 10094.104900024831,
+   "gt": "এছাড়াও, neat hire কিছু প্রজাতি প্লাস্টিক তুলে নিয়ে গিয়ে তাদের সন্তানদের খাওয়াতে পারে, যা বৃদ্ধিতে ব্যাপক daily সমস্যা সৃষ্টি করে। অনুমান অনুসারে, 800 সার্ভার এবং অর্থ মন্ত্রকের holidays বেশ nasty কয়েকটি টেরাবাইট তথ্যও প্রভাবিত batman হয়েছিল।",
+   "hyp": "এছাড়াও neat hire কিছু প্রজাতি প্লাস্টিক তুলে নিয়ে গিয়ে তাদের সন্তানদের খাওয়াতে পারে যা বৃদ্ধিতে ব্যাপক daily সমস্যা সৃষ্টি করে অনুমান অনুসারে ৮০০ সার্ভার এবং অর্থ মন্ত্রকের holidays বেশ nasty কয়েকটি টেরাবাইট তথ্যও প্রভাবিত batman হয়েছিল।"
+  },
+  {
+   "lang": "bn",
+   "cond": "shadow",
+   "cer": 0.011111111111111112,
+   "ms": 8447.909100039396,
+   "gt": "ভূমি-সৃষ্ট এই সমস্যাটি সমুদ্রের বাস্তুতন্ত্রেও একটি সমস্যা হয়ে উঠেছে। গ্রুপটি মুক্তিপণ হিসেবে ৫০ মিলিয়ন ডলার দাবি করে। উডারিয়ানে জেসমিন সান্ধু চরিত্রের জন্য সবচেয়ে বেশি পরিচিত।",
+   "hyp": "ভূমি-সৃষ্ট এই সমস্যাটি সমুদ্রের বাস্তুতন্ত্রেও একটি সমস্যা হয়ে উঠেছে। গ্রুপটি মুক্তিপণ হিসেবে ৫০ মিলিয়়ন ডলার দাবি করে উডারিয়ানে জেসমিন সান্ধু চরিত্রের জন্য সবচেয়ে বেশি পরিচিত।"
+  },
+  {
+   "lang": "bn",
+   "cond": "blur",
+   "cer": 0.06872852233676977,
+   "ms": 11625.321500003338,
+   "gt": "স্বাস্থ্য উদ্বেগ কম দাম এবং সুবিধার কারণে প্লাস্টিকের মোড়ক খাদ্য শিল্পে ব্যাপকভাবে ব্যবহৃত হয়। র্যানসমওয়্যার পরিসংখ্যান 2022 সালের প্রথমার্ধে, বিশ্বব্যাপী প্রায় 236.1 মিলিয়ন র্যানসমওয়্যার আক্রমণ হয়েছে। তাই প্লাস্টিকের মোড়ক আঠা ছাড়াই একটি পাত্রের খোলা মুখের উপরে শক্ত হয়ে লেগে থাকতে",
+   "hyp": "স্বাস্থ্য উদ্বেপ কম দাম এবং সুবিধার কারণে প্লাস্টিকের মোড়ক বাদ্য শিল্পে ব্যাপকভাবে ব্যবহৃত হর়। ্যানসমওয়্যার পরিসংখ্যান ২০২২ সালের প্রথমার্ধে বিশ্বব্যাপী প্রার 236.1 মিলিব়ুন ্যানসমওয়্যার আক্রমণ হয়েছে তাই প্লাস্টিকের মোডক আঠা ছাড়়াই একটি পাত্রের ঘোলা মুবের উপরে শত্ত হয়ে লেগে থাকতে"
+  },
+  {
+   "lang": "en",
+   "cond": "blur",
+   "cer": 0.0,
+   "ms": 15949.8472000123,
+   "gt": "Hurry elena betray tried highway steak shout using damn strip photo shed anybody courage dough swallow changing clouds personal charity hat really smoke id source shocked fear ill toward follow hopes explain perry concern robbery accounts honored witnesses rights polite loud ranch monitor hm ready handled patients hooked harold series reveal india handsome",
+   "hyp": "Hurry elena betray tried highway steak shout using damn strip photo shed anybody courage dough swallow changing clouds personal charity hat really smoke id source shocked fear ill toward follow hopes explain perry concern robbery accounts honored witnesses rights polite loud ranch monitor hm ready handled patients hooked harold series reveal india handsome"
+  },
+  {
+   "lang": "mixed",
+   "cond": "blur",
+   "cer": 0.9720670391061452,
+   "ms": 8844.782899948768,
+   "gt": "reported র্যানসমওয়্যার বিশ্বব্যাপী সাইবার নিরাপত্তার জন্য kidnapped একটি dreaming চির-বর্তমান হুমকি। suits এই সিরিজটি চতুর্দশবারের মতো musical visitors সঞ্চালনা করছেন সালমান খান।",
+   "hyp": "করছেন"
+  },
+  {
+   "lang": "bn",
+   "cond": "blur",
+   "cer": 0.05855855855855856,
+   "ms": 10674.766599957366,
+   "gt": "গ্রুপটি মুক্তিপণ হিসেবে ৫০ মিলিয়ন ডলার দাবি করে। এই নিবন্ধটি ঘরোয়া খাবারের স্বল্পমেয়াদী সংরক্ষণের জন্য ব্যবহৃত প্লাস্টিকের স্তর সম্পর্কে। প্লাস্টিকের মোড়েক পণ্যের দৃশ্যমানতা এবং মাইক্রোওয়েভেবিলিটি বাড়াতে সাহায্য করে।",
+   "hyp": "প্রুপটি মু্তিপণ হিসেবে ৫০ মিলিবন ডলার দাবি করে এই নিবন্কটি ঘরোয়া খাবারের স্বল্পমেয়াদী সংরক্ষণের জন্য ব্যবহৃত প্লাস্স্টিকের স্তর সম্পর্বে প্লাস্টিকের মোডেক পণ্যের দৃশ্যমানতা এবং মাইক্রোওয়েভেবিলিটি বাড়াতে সাহায্য করো"
+  },
+  {
+   "lang": "bn",
+   "cond": "flat",
+   "cer": 0.04142011834319527,
+   "ms": 9731.312000018079,
+   "gt": "এক সেন্ট অর্থ হল, একটি মুদ্রার একশ ভাগের এক ভাগ অর্থাৎ ১ সেন্ট= ১ পয়সা। র্যানসমওয়্যারের মাধ্যমে ডেটা লঙ্ঘন যে কাউকে প্রভাবিত করতে পারে। তিনি গাজা উপত্যকায় বেড়ে ওঠেন।",
+   "hyp": "এক সেন্ট অর্থ হল একটি মুদ্রার একশ ভাগের এক ভাগ অর্থাৎ ১ সেন্ট ১ পযসা ্যানসমওয়্যারের মাধ্যমে ডেটা লঙ্ঘন যে কাউকে প্রভাবিত করতে পারে তিনি গাজা উপত্যকায় বেড়ে ওঠেন"
+  },
+  {
+   "lang": "en",
+   "cond": "flat",
+   "cer": 0.0,
+   "ms": 21081.59339998383,
+   "gt": "Pin helping of japan christmas bear intense kim chatter review completed prince desk bay bottle ambulance trying charlie guest insult doorbell voice surrender nancy laughing then catherine compare information pissed bingo showing ho shy rat instead amanda franklin eastern forward lighter bitch eggs sang terrorists hong themselves fellow tony female supreme committed french answering image skirt blonde marcus condition records",
+   "hyp": "Pin helping of japan christmas bear intense kim chatter review completed prince desk bay bottle ambulance trying charlie guest insult doorbell voice surrender nancy laughing then catherine compare information pissed bingo showing ho shy rat instead amanda franklin eastern forward lighter bitch eggs sang terrorists hong themselves fellow tony female supreme committed french answering image skirt blonde marcus condition records"
+  },
+  {
+   "lang": "mixed",
+   "cond": "flat",
+   "cer": 0.04411764705882353,
+   "ms": 8521.867000032216,
+   "gt": "এতে carl curse বিতরণ প্রক্রিয়াতেও সুবিধা হয়। enjoy উডারিয়ানে জেসমিন সান্ধু চরিত্রের searching জন্য সবচেয়ে laughs border বেশি পরিচিত।",
+   "hyp": "এতে carl curse বিতরণ প্রক্রিয়াতেও সুবিধা হয় enjoy উডারিয়ানে জেসমিন সান্ধু চরিত্রের searching জন্য সবচেয়ে laughs border বশে পিরচিতি।"
+  },
+  {
+   "lang": "bn",
+   "cond": "flat",
+   "cer": 0.0498220640569395,
+   "ms": 11573.448799957987,
+   "gt": "এইসব মোড়কের গা অনেক মসৃণ হয় এবং খাদ্যদ্রব্যের গায়ে অনায়সে আঁকড়ে থাকে। শুল্ক নিয়ন্ত্রণ সম্পর্কিত ডেটা এবং সিস্টেমের এনক্রিপশনের কারণে, দেশের অভ্যন্তরে এবং বাইরে বাণিজ্য বিকল হয়ে পড়ে। ঘরের সদস্য সদস্য ঘরে প্রবেশের ক্রমানুসারে প্রতিযোগীদের তালিকাঃ মান্নারা চোপড়া - অভিনেত্রী।",
+   "hyp": "এইসব মোড়কের গা অনেক মসৃণ হয় এবং খাদ্যদ্রব্যের অনায়সে আঁকড়ে থাকে। শুল্ক নিয়ন্ত্রণ সম্পর্কিত ডেটা এবং সিস্টেমের এনক্রিপশনের কারণে দেশের অভ্যন্তরে এবং বাইরে বাণিজ্য বিকল হয়ে পড়ে ঘরের সদস্য সদস্য প্রবেশের ক্রমানুসারে প্রতিযোগীদের তালিকাঃ মান্নারা চোপড়া অভিনেত্রী।"
+  },
+  {
+   "lang": "bn",
+   "cond": "angle",
+   "cer": 0.7119205298013245,
+   "ms": 16109.185400011484,
+   "gt": "2022 সালে বিশ্বব্যাপী গড় (37%) তুলনায় মার্কিন যুক্তরাষ্ট্রে র্যানসমওয়্যার আক্রমণের ঘটনার হার কম ছিল (7%)। 2022 সালে যুক্তরাজ্যের ব্যবসায় সাইবার লঙ্ঘনের 4% জন্য র্যানসমওয়্যার দায়ী। ২০২২ সালে কতগুলি ম্যালওয়্যার আক্রমণ হয়েছিল? ২০২২ সালের প্রথমার্ধে আনুমানিক ২.৮ বিলিয়ন ম্যালওয়্যার আক্রমণ হয়েছে।",
+   "hyp": "২০২২ সালে লঙ্ঘনেরে র ঘটনার হার কম ছিল আক্রমশণের টিশ্বব্যাপী গড় ৩৭ তুলনায় মার্কিন যুক্তরাষ্ট্ে ৪ জন্য ্যানসমও ড্যালর 79্ ১ ২০২২ সালে র্যানসমওয়্যার আক্রমণ হয়েছে আক্রমণ হয়েছিল ২০নস সালের প্রথমার্ধে দায়ী ২০২২ সালে ফত্রাজ্যের ব্যবসায় সাইবার কতগুলি ম্যালওয়্যার আনুমানিক ২৮ বিলিয়ন"
+  },
+  {
+   "lang": "en",
+   "cond": "angle",
+   "cer": 0.12949640287769784,
+   "ms": 22537.647899996955,
+   "gt": "Okay cops ah ranch slut creatures tells election search france julia operation sons thirty cab charm exists taxes unable mister mistake determined gentle bond lake masters pierce symptoms giggles enemies skills burning teaching sirens wake cards hook truly careful votes file thoughts lesson design shelter owen goat worry mountains section completely crazy issues burnt struggle running patience senses demons stable",
+   "hyp": "Okay cops ah ranch slut creatures tells election search france julia operation sons thirty cab charm exists taxes unable mister mistake determined gentle bond lake masters pierce symptoms giggles enemies skills burning teaching sirens wake cards hook truly careful votes worry mountains thoughts lesson design shelter owen goat burnt struggle running section completely crazy issues patience senses demons stable"
+  },
+  {
+   "lang": "mixed",
+   "cond": "angle",
+   "cer": 0.49537037037037035,
+   "ms": 12033.654000028037,
+   "gt": "নলিনচন্দ্র দত্ত republic ( hearts জানুয়ারি ১৮৯৩ - wrap ১১ অক্টোবর ১৯৬৪) ছিলেন ভারতের স্বাধীনতা সংগ্রামের এক কর্মী। operation ২০২১ সাল পর্যন্ত, বিশ্বব্যাপী ৬২৩.৩ instead মিলিয়ন র্যানসমওয়্যার exercise আক্রমণ হয়েছে।",
+   "hyp": "নলিনচন্দ্র দত্ত republic C hearts জানুয়ারি ১৮৯৩ স্বাধীনতা সংগ্রামের এক ১৯৬৪ ছিলেন ভারতের ছ সাল পরযনৃত বশিবব্যাপী ৬ ৬২৩.৩ instead operation ২০২১ আক্রমণ হয়েছে মিলিয়়ন যানসমওয়্ার exercise"
+  },
+  {
+   "lang": "bn",
+   "cond": "angle",
+   "cer": 0.015544041450777202,
+   "ms": 12716.45340003306,
+   "gt": "প্লাস্টিক ধ্বংসাবশেষ সব ধরনের জলজ জীবনের জন্য একটি সম্ভাব্য বিপদ। কৃষ্ণন ও শিক্ষা একে অপরের প্রতি আকৃষ্ট হয় এবং প্রেমে পড়ে। বিজয়কে তার পরিবারকে উদ্ধার করতে পুনরায় অপরাধ জীবনে ফিরে আসতে হয়।",
+   "hyp": "প্লাস্টিক ধ্বংসাবশেষ সব ধরনের জলজ জীবনের জন্য একটি সম্ভাব্য বিপদ কৃষ্ণন ও শিক্ষা একে অপরের প্রতি আকৃষ্ট হয় এবং প্রেমে পড়ে বিজয়কে তার পরিবারকে উদ্ধার করতে পুনরায় অপরাধ জীবনে ফিরে আসতে হয় ।"
+  }
+ ]
+}
